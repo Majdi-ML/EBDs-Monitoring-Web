@@ -29,7 +29,7 @@ Ce projet de stage réalisé chez Ooredoo a pour objectif de développer une app
 
 1. Cloner ce dépôt Git sur votre machine locale :
    ```
-   git clone https://github.com/votre_utilisateur/nom_du_projet.git
+   git clone https://github.com/Majdi77/EBDs-Monitoring-Web.git
    ```
 
 2. Configurer la base de données MySQL (MariaDB) :
