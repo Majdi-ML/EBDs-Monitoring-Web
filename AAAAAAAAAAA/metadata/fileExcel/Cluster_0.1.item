@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_rvaRwCxzEe6v9qmF1gwXzA" name="Cluster" id="_rvZqsCxzEe6v9qmF1gwXzA" dataPackage="_rvaRwSxzEe6v9qmF1gwXzA" Server="Localhost 127.0.0.1" FilePath="C:/Users/Majdi/Downloads/Expression_de_Besoin_Detaille_monitoring_Service_POSANET_Support_CLOUD_et_APP_IT.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Suivi" firstColumn="1" thousandSeparator="','" decimalSeparator="'.'" sheetList="Cluster :w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+    <sheetColumns>M</sheetColumns>
+    <sheetColumns>N</sheetColumns>
+    <sheetColumns>O</sheetColumns>
+    <sheetColumns>P</sheetColumns>
+    <sheetColumns>Q</sheetColumns>
+    <sheetColumns>R</sheetColumns>
+    <sheetColumns>S</sheetColumns>
+    <sheetColumns>T</sheetColumns>
+    <sheetColumns>U</sheetColumns>
+    <sheetColumns>V</sheetColumns>
+    <sheetColumns>W</sheetColumns>
+    <sheetColumns>X</sheetColumns>
+    <sheetColumns>Y</sheetColumns>
+    <sheetColumns>Z</sheetColumns>
+    <sheetColumns>AA</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_rvaRwSxzEe6v9qmF1gwXzA" name="default" dataManager="_rvaRwCxzEe6v9qmF1gwXzA">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_rvaRwixzEe6v9qmF1gwXzA" id="_RzcfACxzEe6v9qmF1gwXzA" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRwyxzEe6v9qmF1gwXzA" label="N__Ref" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRxCxzEe6v9qmF1gwXzA" label="Ref" length="5" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRxSxzEe6v9qmF1gwXzA" label="Etat" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRxixzEe6v9qmF1gwXzA" label="Nom_du_Ressource_Group___Package_Service_Guard" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRxyxzEe6v9qmF1gwXzA" label="Adresse_IP" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRyCxzEe6v9qmF1gwXzA" label="Liste_des_serveurs_concernes" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRySxzEe6v9qmF1gwXzA" label="Logiciel_Cluster" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRyixzEe6v9qmF1gwXzA" label="Version" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRyyxzEe6v9qmF1gwXzA" label="Mode" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRzCxzEe6v9qmF1gwXzA" label="Serveur_Actif" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_rvaRzSxzEe6v9qmF1gwXzA" label="Complements_d_informations" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_TJ3F8SuPEe6fT-4mS1HkUQ" name="aaaaaa" id="_TJ3F8CuPEe6fT-4mS1HkUQ" dataPackage="_TJ3tACuPEe6fT-4mS1HkUQ" Server="Localhost 127.0.0.1" FilePath="C:/Users/Majdi/Downloads/Expression_de_Besoin_Detaille_monitoring_Service_TELNET_Support_CLOUD_et_APP_IT .xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Suivi" firstColumn="1" thousandSeparator="','" decimalSeparator="'.'" sheetList="RequêtesSQL:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+    <sheetColumns>H</sheetColumns>
+    <sheetColumns>I</sheetColumns>
+    <sheetColumns>J</sheetColumns>
+    <sheetColumns>K</sheetColumns>
+    <sheetColumns>L</sheetColumns>
+    <sheetColumns>M</sheetColumns>
+    <sheetColumns>N</sheetColumns>
+    <sheetColumns>O</sheetColumns>
+    <sheetColumns>P</sheetColumns>
+    <sheetColumns>Q</sheetColumns>
+    <sheetColumns>R</sheetColumns>
+    <sheetColumns>S</sheetColumns>
+    <sheetColumns>T</sheetColumns>
+    <sheetColumns>U</sheetColumns>
+    <sheetColumns>V</sheetColumns>
+    <sheetColumns>W</sheetColumns>
+    <sheetColumns>X</sheetColumns>
+    <sheetColumns>Y</sheetColumns>
+    <sheetColumns>Z</sheetColumns>
+    <sheetColumns>AA</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_TJ3tACuPEe6fT-4mS1HkUQ" name="default" dataManager="_TJ3F8SuPEe6fT-4mS1HkUQ">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_TJ3tASuPEe6fT-4mS1HkUQ" id="_M36mwCuPEe6fT-4mS1HkUQ" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tAiuPEe6fT-4mS1HkUQ" label="N__Ref" length="-1" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tAyuPEe6fT-4mS1HkUQ" label="Ref" length="6" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tBCuPEe6fT-4mS1HkUQ" label="Etat" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tBSuPEe6fT-4mS1HkUQ" label="Ref__des_composants" length="11" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tBiuPEe6fT-4mS1HkUQ" label="RG_SG_si_Cluster" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tByuPEe6fT-4mS1HkUQ" label="Requete_SQL" length="403" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tCCuPEe6fT-4mS1HkUQ" label="UserName_DB_Name" length="25" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tCSuPEe6fT-4mS1HkUQ" label="Resultat_Attendu_de_la_requete" length="156" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tCiuPEe6fT-4mS1HkUQ" label="Perform_action" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tCyuPEe6fT-4mS1HkUQ" label="Criticite" length="8" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tDCuPEe6fT-4mS1HkUQ" label="Message_d_alarme" length="140" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tDSuPEe6fT-4mS1HkUQ" label="Instructions" length="60" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tDiuPEe6fT-4mS1HkUQ" label="Intervalle_de_polling" length="22" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tDyuPEe6fT-4mS1HkUQ" label="Ref__Service" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tECuPEe6fT-4mS1HkUQ" label="Objet" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tESuPEe6fT-4mS1HkUQ" label="Monitored_By" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_TJ3tEiuPEe6fT-4mS1HkUQ" label="Nom_Template" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
