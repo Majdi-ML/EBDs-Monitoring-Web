@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Requetessql index{% endblock %}
+
+{% block body %}
+    <h1>Requetessql index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>RgSgSiCluster</th>
+                <th>RequeteSql</th>
+                <th>UsernameDbName</th>
+                <th>ResultatAttenduDeLaRequete</th>
+                <th>PerformAction</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>IntervalleDePolling</th>
+                <th>RefService</th>
+                <th>Objet</th>
+                <th>MonitoredBy</th>
+                <th>NomTemplate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for requetessql in requetessqls %}
+            <tr>
+                <td>{{ requetessql.id }}</td>
+                <td>{{ requetessql.ref }}</td>
+                <td>{{ requetessql.etat }}</td>
+                <td>{{ requetessql.refComposant }}</td>
+                <td>{{ requetessql.rgSgSiCluster }}</td>
+                <td>{{ requetessql.requeteSql }}</td>
+                <td>{{ requetessql.usernameDbName }}</td>
+                <td>{{ requetessql.resultatAttenduDeLaRequete }}</td>
+                <td>{{ requetessql.performAction }}</td>
+                <td>{{ requetessql.criticite }}</td>
+                <td>{{ requetessql.messageAlarme }}</td>
+                <td>{{ requetessql.instructions }}</td>
+                <td>{{ requetessql.intervalleDePolling }}</td>
+                <td>{{ requetessql.refService }}</td>
+                <td>{{ requetessql.objet }}</td>
+                <td>{{ requetessql.monitoredBy }}</td>
+                <td>{{ requetessql.nomTemplate }}</td>
+                <td>
+                    <a href="{{ path('app_requetessql_show', {'id': requetessql.id}) }}">show</a>
+                    <a href="{{ path('app_requetessql_edit', {'id': requetessql.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_requetessql_new') }}">Create new</a>
+{% endblock %}

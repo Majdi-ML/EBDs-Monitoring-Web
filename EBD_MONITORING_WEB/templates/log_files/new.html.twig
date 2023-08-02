@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LogFiles{% endblock %}
+
+{% block body %}
+    <h1>Create new LogFiles</h1>
+
+    {{ include('log_files/_form.html.twig') }}
+
+    <a href="{{ path('app_log_files_index') }}">back to list</a>
+{% endblock %}

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard-Esprit-Pôle employabilité</title>
+  <title>Dashboard-Gestion et Classification des EBDs</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -31,7 +31,7 @@
   <link href="{{asset('assetsback/css/style.css')}}" rel="stylesheet">
 {% endblock %}
   <!-- =======================================================
-  * Template Name: ESPRIT
+  * Template Name: Ooredoo
   * Updated: May 30 2023 with Bootstrap v5.3.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
   * Author: BootstrapMade.com
@@ -48,16 +48,16 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="{{asset('assetsback/img/logo.svg')}}" alt="">
     <!--
-      <span class="d-none d-lg-block">ESPRIT</span>
+      <span class="d-none d-lg-block">Ooredoo</span>
       -->
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
     <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      <form class="search-form d-flex align-items-center" >
+        <input type="text"id="search" name="query" placeholder="Search" title="Enter search keyword">
+        <button  title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
 
@@ -278,7 +278,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="/testback">
+        <a class="nav-link " href="{{ path('app_ooredoo') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -286,27 +286,52 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Les Tables EBD</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/entreprise/">
-              <i class="bi bi-circle"></i><span>Les Entreprises</span>
+            <a href="{{ path('app_serveurs_index') }}">
+              <i class="bi bi-circle"></i><span>Serveurs</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Les Postes </span>
+            <a href="{{ path('app_cluster_index') }}">
+              <i class="bi bi-circle"></i><span>Cluster   </span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Les Demandes</span>
+            <a href="{{ path('app_log_files_index') }}">
+              <i class="bi bi-circle"></i><span>Log Files</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Les Utilisateurs</span>
+            <a href="{{ path('app_log_files_patterns_index') }}">
+              <i class="bi bi-circle"></i><span>Log Files Patterns</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_scripts_index') }}">
+              <i class="bi bi-circle"></i><span>Scripts </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_process_index') }}">
+              <i class="bi bi-circle"></i><span>Process  </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_requetessql_index') }}">
+              <i class="bi bi-circle"></i><span>RequêtesSQL </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_traps_snmp_index') }}">
+              <i class="bi bi-circle"></i><span>Traps SNMP </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_url_index') }}">
+              <i class="bi bi-circle"></i><span>URL </span>
             </a>
           </li>
         </ul>
@@ -1007,7 +1032,7 @@
   <footer id="footer" class="footer">
   {% block footer%}
     <div class="copyright">
-      &copy; Copyright <strong><span>ESPRIT</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Ooredoo</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -1034,6 +1059,17 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('assetsback/js/main.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("table tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 {% endblock %}
 </body>
 

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cluster{% endblock %}
+
+{% block body %}
+    <h1>Create new Cluster</h1>
+
+    {{ include('cluster/_form.html.twig') }}
+
+    <a href="{{ path('app_cluster_index') }}">back to list</a>
+{% endblock %}

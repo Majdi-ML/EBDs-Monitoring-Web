@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Requetessql{% endblock %}
+
+{% block body %}
+    <h1>Create new Requetessql</h1>
+
+    {{ include('requetessql/_form.html.twig') }}
+
+    <a href="{{ path('app_requetessql_index') }}">back to list</a>
+{% endblock %}

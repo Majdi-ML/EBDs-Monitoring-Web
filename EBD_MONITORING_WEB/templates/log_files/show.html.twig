@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LogFiles{% endblock %}
+
+{% block body %}
+    <h1>LogFiles</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ log_file.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ log_file.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ log_file.etat }}</td>
+            </tr>
+            <tr>
+                <th>RefComposant</th>
+                <td>{{ log_file.refComposant }}</td>
+            </tr>
+            <tr>
+                <th>RgSgSiCluster</th>
+                <td>{{ log_file.rgSgSiCluster }}</td>
+            </tr>
+            <tr>
+                <th>Logfile</th>
+                <td>{{ log_file.logfile }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ log_file.localisation }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ log_file.description }}</td>
+            </tr>
+            <tr>
+                <th>FormatLogfile</th>
+                <td>{{ log_file.formatLogfile }}</td>
+            </tr>
+            <tr>
+                <th>Separateur</th>
+                <td>{{ log_file.separateur }}</td>
+            </tr>
+            <tr>
+                <th>IntervalleDePolling</th>
+                <td>{{ log_file.intervalleDePolling }}</td>
+            </tr>
+            <tr>
+                <th>MonitoredBy</th>
+                <td>{{ log_file.monitoredBy }}</td>
+            </tr>
+            <tr>
+                <th>FourniEnAnnexe</th>
+                <td>{{ log_file.fourniEnAnnexe }}</td>
+            </tr>
+            <tr>
+                <th>RefService</th>
+                <td>{{ log_file.refService }}</td>
+            </tr>
+            <tr>
+                <th>NomTemplate</th>
+                <td>{{ log_file.nomTemplate }}</td>
+            </tr>
+            <tr>
+                <th>LogConditions</th>
+                <td>{{ log_file.logConditions }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_log_files_index') }}">back to list</a>
+
+    <a href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
+
+    {{ include('log_files/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Process{% endblock %}
+
+{% block body %}
+    <h1>Create new Process</h1>
+
+    {{ include('process/_form.html.twig') }}
+
+    <a href="{{ path('app_process_index') }}">back to list</a>
+{% endblock %}

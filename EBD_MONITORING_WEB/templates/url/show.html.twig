@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Url{% endblock %}
+
+{% block body %}
+    <h1>Url</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ url.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ url.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ url.etat }}</td>
+            </tr>
+            <tr>
+                <th>RefComposant</th>
+                <td>{{ url.refComposant }}</td>
+            </tr>
+            <tr>
+                <th>RgSgSiCluster</th>
+                <td>{{ url.rgSgSiCluster }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ url.url }}</td>
+            </tr>
+            <tr>
+                <th>PerformAction</th>
+                <td>{{ url.performAction }}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{{ url.criticite }}</td>
+            </tr>
+            <tr>
+                <th>MessageAlarme</th>
+                <td>{{ url.messageAlarme }}</td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td>{{ url.instructions }}</td>
+            </tr>
+            <tr>
+                <th>IntervalleDePolling</th>
+                <td>{{ url.intervalleDePolling }}</td>
+            </tr>
+            <tr>
+                <th>RefService</th>
+                <td>{{ url.refService }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ url.objet }}</td>
+            </tr>
+            <tr>
+                <th>MonitoredBy</th>
+                <td>{{ url.monitoredBy }}</td>
+            </tr>
+            <tr>
+                <th>NomTemplate</th>
+                <td>{{ url.nomTemplate }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_url_index') }}">back to list</a>
+
+    <a href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
+
+    {{ include('url/_delete_form.html.twig') }}
+{% endblock %}

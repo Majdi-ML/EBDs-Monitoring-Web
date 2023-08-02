@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Serveurs{% endblock %}
+
+{% block body %}
+    <h1>Serveurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ serveur.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ serveur.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ serveur.etat }}</td>
+            </tr>
+            <tr>
+                <th>Platforme</th>
+                <td>{{ serveur.platforme }}</td>
+            </tr>
+            <tr>
+                <th>Hostname</th>
+                <td>{{ serveur.hostname }}</td>
+            </tr>
+            <tr>
+                <th>Fqdn</th>
+                <td>{{ serveur.fqdn }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ serveur.type }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ serveur.modele }}</td>
+            </tr>
+            <tr>
+                <th>Os</th>
+                <td>{{ serveur.os }}</td>
+            </tr>
+            <tr>
+                <th>VerTechFirmware</th>
+                <td>{{ serveur.verTechFirmware }}</td>
+            </tr>
+            <tr>
+                <th>Cluster</th>
+                <td>{{ serveur.cluster }}</td>
+            </tr>
+            <tr>
+                <th>IpSource</th>
+                <td>{{ serveur.ipSource }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ serveur.description }}</td>
+            </tr>
+            <tr>
+                <th>SocleStandardOmu</th>
+                <td>{{ serveur.socleStandardOmu }}</td>
+            </tr>
+            <tr>
+                <th>ComplementsInformations</th>
+                <td>{{ serveur.complementsInformations }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_serveurs_index') }}">back to list</a>
+
+    <a href="{{ path('app_serveurs_edit', {'id': serveur.id}) }}">edit</a>
+
+    {{ include('serveurs/_delete_form.html.twig') }}
+{% endblock %}

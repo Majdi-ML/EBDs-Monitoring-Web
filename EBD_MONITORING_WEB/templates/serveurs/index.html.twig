@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Serveurs index{% endblock %}
+
+{% block body %}
+    <h1>Serveurs index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>Platforme</th>
+                <th>Hostname</th>
+                <th>Fqdn</th>
+                <th>Type</th>
+                <th>Modele</th>
+                <th>Os</th>
+                <th>VerTechFirmware</th>
+                <th>Cluster</th>
+                <th>IpSource</th>
+                <th>Description</th>
+                <th>SocleStandardOmu</th>
+                <th>ComplementsInformations</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for serveur in serveurs %}
+            <tr>
+                <td>{{ serveur.id }}</td>
+                <td>{{ serveur.ref }}</td>
+                <td>{{ serveur.etat }}</td>
+                <td>{{ serveur.platforme }}</td>
+                <td>{{ serveur.hostname }}</td>
+                <td>{{ serveur.fqdn }}</td>
+                <td>{{ serveur.type }}</td>
+                <td>{{ serveur.modele }}</td>
+                <td>{{ serveur.os }}</td>
+                <td>{{ serveur.verTechFirmware }}</td>
+                <td>{{ serveur.cluster }}</td>
+                <td>{{ serveur.ipSource }}</td>
+                <td>{{ serveur.description }}</td>
+                <td>{{ serveur.socleStandardOmu }}</td>
+                <td>{{ serveur.complementsInformations }}</td>
+                <td>
+                    <a href="{{ path('app_serveurs_show', {'id': serveur.id}) }}">show</a>
+                    <a href="{{ path('app_serveurs_edit', {'id': serveur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_serveurs_new') }}">Create new</a>
+{% endblock %}

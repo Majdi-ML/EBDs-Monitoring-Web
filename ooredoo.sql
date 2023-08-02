@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 31 juil. 2023 à 11:38
+-- Généré le : mar. 01 août 2023 à 14:33
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -31,14 +31,14 @@ CREATE TABLE `cluster` (
   `id` varchar(250) NOT NULL,
   `Ref` varchar(250) DEFAULT NULL,
   `etat` varchar(250) DEFAULT NULL,
-  `Nom_du_Ressource_Group/Package_Service_Guard` varchar(250) DEFAULT NULL,
+  `Nom_du_Ressource_Group__Package_Service_Guard` varchar(250) DEFAULT NULL,
   `Adresse_IP` varchar(250) DEFAULT NULL,
   `Liste_des_serveurs_concernés` varchar(250) DEFAULT NULL,
   `Logiciel_Cluster` varchar(250) DEFAULT NULL,
   `Version` varchar(250) DEFAULT NULL,
   `Mode` varchar(250) DEFAULT NULL,
   `Serveur_actif` varchar(250) DEFAULT NULL,
-  `Compléments_d'informations` varchar(250) DEFAULT NULL
+  `Compléments_informations` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -52,7 +52,7 @@ CREATE TABLE `log_files` (
   `Ref` varchar(250) DEFAULT NULL,
   `Etat` varchar(250) DEFAULT NULL,
   `Ref_composant` varchar(250) DEFAULT NULL,
-  `RG/SG_si_Cluster` varchar(250) DEFAULT NULL,
+  `RG__SG_si_Cluster` varchar(250) DEFAULT NULL,
   `Logfile` varchar(250) DEFAULT NULL,
   `Localisation` varchar(250) DEFAULT NULL,
   `Description` varchar(250) DEFAULT NULL,
@@ -79,12 +79,12 @@ CREATE TABLE `log_files_patterns` (
   `Etat` varchar(250) DEFAULT NULL,
   `Signification` varchar(250) DEFAULT NULL,
   `Identification` text DEFAULT NULL,
-  `Criticitée` varchar(250) DEFAULT NULL,
+  `Criticite` varchar(250) DEFAULT NULL,
   `Message_alarme` text DEFAULT NULL,
   `Instructions` varchar(250) DEFAULT NULL,
   `Perform_action` varchar(250) DEFAULT NULL,
   `Acquittement` varchar(250) DEFAULT NULL,
-  `Complements_d'informations` varchar(250) DEFAULT NULL,
+  `Complements_informations` varchar(250) DEFAULT NULL,
   `Ref_Service` varchar(250) DEFAULT NULL,
   `Objet` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -101,7 +101,7 @@ CREATE TABLE `process` (
   `Etat` varchar(250) DEFAULT NULL,
   `Ref_composant` varchar(250) DEFAULT NULL,
   `Process` varchar(250) DEFAULT NULL,
-  `Cricite` varchar(250) DEFAULT NULL,
+  `Criticite` varchar(250) DEFAULT NULL,
   `Message_alarme` text DEFAULT NULL,
   `Intervalle_de_polling` varchar(250) DEFAULT NULL,
   `Objet` varchar(250) DEFAULT NULL,
@@ -120,9 +120,9 @@ CREATE TABLE `requetessql` (
   `Ref` varchar(250) DEFAULT NULL,
   `Etat` varchar(250) DEFAULT NULL,
   `Ref_composant` varchar(250) DEFAULT NULL,
-  `RG/SG_si_Cluster` varchar(250) DEFAULT NULL,
+  `RG__SG_si_Cluster` varchar(250) DEFAULT NULL,
   `Requete_SQL` text DEFAULT NULL,
-  `UserName/DB_Name` varchar(250) DEFAULT NULL,
+  `UserName__DB_Name` varchar(250) DEFAULT NULL,
   `Resultat_Attendu_de_la_requete` text DEFAULT NULL,
   `Perform_action` varchar(250) DEFAULT NULL,
   `Criticite` varchar(250) DEFAULT NULL,
@@ -146,10 +146,10 @@ CREATE TABLE `scripts` (
   `Ref` varchar(250) DEFAULT NULL,
   `Etat` varchar(250) DEFAULT NULL,
   `Ref_composant` varchar(250) DEFAULT NULL,
-  `RG/SG_si_Cluster` varchar(250) DEFAULT NULL,
+  `RG__SG_si_Cluster` varchar(250) DEFAULT NULL,
   `script` varchar(250) DEFAULT NULL,
   `Code_erreur` varchar(250) DEFAULT NULL,
-  `Cricite` varchar(250) DEFAULT NULL,
+  `Criticite` varchar(250) DEFAULT NULL,
   `Description` varchar(250) DEFAULT NULL,
   `Instructions` varchar(250) DEFAULT NULL,
   `Monitored_By` varchar(250) DEFAULT NULL,
@@ -172,12 +172,12 @@ CREATE TABLE `serveurs` (
   `Type` varchar(50) DEFAULT NULL,
   `Modele` varchar(50) DEFAULT NULL,
   `OS` varchar(50) DEFAULT NULL,
-  `Ver.tech./Firmware` varchar(50) DEFAULT NULL,
+  `Ver_tech__Firmware` varchar(50) DEFAULT NULL,
   `Cluster` varchar(50) DEFAULT NULL,
-  `Ip source` varchar(50) DEFAULT NULL,
+  `Ip_source` varchar(50) DEFAULT NULL,
   `Description` varchar(50) DEFAULT NULL,
-  `Socle Standard OMU` varchar(50) DEFAULT NULL,
-  `Compléments d'informations` varchar(50) DEFAULT NULL
+  `Socle_Standard_OMU` varchar(50) DEFAULT NULL,
+  `Complements_informations` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -196,7 +196,7 @@ CREATE TABLE `traps_snmp` (
   `OID` varchar(250) DEFAULT NULL,
   `Specific_Trap` varchar(250) DEFAULT NULL,
   `Variable_binding` varchar(250) DEFAULT NULL,
-  `Cricite` varchar(250) DEFAULT NULL,
+  `Criticite` varchar(250) DEFAULT NULL,
   `Message_alarme` varchar(250) DEFAULT NULL,
   `Instructions` varchar(250) DEFAULT NULL,
   `acquittement` varchar(250) DEFAULT NULL,
@@ -216,10 +216,10 @@ CREATE TABLE `url` (
   `Ref` varchar(250) DEFAULT NULL,
   `Etat` varchar(250) DEFAULT NULL,
   `Ref_composant` varchar(250) DEFAULT NULL,
-  `RG/SG_si_Cluster` varchar(250) DEFAULT NULL,
+  `RG__SG_si_Cluster` varchar(250) DEFAULT NULL,
   `URL` varchar(250) DEFAULT NULL,
   `Perform_action` varchar(250) DEFAULT NULL,
-  `Cricite` varchar(250) DEFAULT NULL,
+  `Criticite` varchar(250) DEFAULT NULL,
   `Message_alarme` varchar(250) DEFAULT NULL,
   `Instructions` varchar(250) DEFAULT NULL,
   `Intervalle_de_polling` varchar(250) DEFAULT NULL,

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cluster{% endblock %}
+
+{% block body %}
+    <h1>Cluster</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cluster.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ cluster.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ cluster.etat }}</td>
+            </tr>
+            <tr>
+                <th>NomDuRessourceGroupPackageServiceGuard</th>
+                <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
+            </tr>
+            <tr>
+                <th>AdresseIp</th>
+                <td>{{ cluster.adresseIp }}</td>
+            </tr>
+            <tr>
+                <th>ListeDesServeursConcernés</th>
+                <td>{{ cluster.listeDesServeursConcernés }}</td>
+            </tr>
+            <tr>
+                <th>LogicielCluster</th>
+                <td>{{ cluster.logicielCluster }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ cluster.version }}</td>
+            </tr>
+            <tr>
+                <th>Mode</th>
+                <td>{{ cluster.mode }}</td>
+            </tr>
+            <tr>
+                <th>ServeurActif</th>
+                <td>{{ cluster.serveurActif }}</td>
+            </tr>
+            <tr>
+                <th>ComplementsInformations</th>
+                <td>{{ cluster.complementsInformations }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cluster_index') }}">back to list</a>
+
+    <a href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
+
+    {{ include('cluster/_delete_form.html.twig') }}
+{% endblock %}

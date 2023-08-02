@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Url index{% endblock %}
+
+{% block body %}
+    <h1>Url index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>RgSgSiCluster</th>
+                <th>Url</th>
+                <th>PerformAction</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>IntervalleDePolling</th>
+                <th>RefService</th>
+                <th>Objet</th>
+                <th>MonitoredBy</th>
+                <th>NomTemplate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for url in urls %}
+            <tr>
+                <td>{{ url.id }}</td>
+                <td>{{ url.ref }}</td>
+                <td>{{ url.etat }}</td>
+                <td>{{ url.refComposant }}</td>
+                <td>{{ url.rgSgSiCluster }}</td>
+                <td>{{ url.url }}</td>
+                <td>{{ url.performAction }}</td>
+                <td>{{ url.criticite }}</td>
+                <td>{{ url.messageAlarme }}</td>
+                <td>{{ url.instructions }}</td>
+                <td>{{ url.intervalleDePolling }}</td>
+                <td>{{ url.refService }}</td>
+                <td>{{ url.objet }}</td>
+                <td>{{ url.monitoredBy }}</td>
+                <td>{{ url.nomTemplate }}</td>
+                <td>
+                    <a href="{{ path('app_url_show', {'id': url.id}) }}">show</a>
+                    <a href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_url_new') }}">Create new</a>
+{% endblock %}

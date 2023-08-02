@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cluster index{% endblock %}
+
+{% block body %}
+    <h1>Cluster index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>N° Réf.*</th>
+                <th>Réf.</th>
+                <th>Etat*</th>
+                <th>Nom du Ressource Group / Package Service Guard*</th>
+                <th>Adresse IP *</th>
+                <th>Liste des serveurs concernés *</th>
+                <th>Logiciel Cluster</th>
+                <th>Version</th>
+                <th>Mode*</th>
+                <th>Serveur Actif</th>
+                <th>Compléments d'informations</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cluster in clusters %}
+            <tr>
+                <td>{{ cluster.getId() }}</td>
+                <td>{{ cluster.ref }}</td>
+                <td>{{ cluster.etat }}</td>
+                <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
+                <td>{{ cluster.adresseIp }}</td>
+                <td>{{ cluster.listeDesServeursConcernés }}</td>
+                <td>{{ cluster.logicielCluster }}</td>
+                <td>{{ cluster.version }}</td>
+                <td>{{ cluster.mode }}</td>
+                <td>{{ cluster.serveurActif }}</td>
+                <td>{{ cluster.complementsInformations }}</td>
+                <td>
+                    <a href="{{ path('app_cluster_show', {'id': cluster.id}) }}">show</a>
+                    <a href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cluster_new') }}">Create new</a>
+{% endblock %}

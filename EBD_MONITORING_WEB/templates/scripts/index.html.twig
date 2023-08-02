@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scripts index{% endblock %}
+
+{% block body %}
+    <h1>Scripts index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>RgSgSiCluster</th>
+                <th>Script</th>
+                <th>CodeErreur</th>
+                <th>Criticite</th>
+                <th>Description</th>
+                <th>Instructions</th>
+                <th>MonitoredBy</th>
+                <th>RefService</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for script in scripts %}
+            <tr>
+                <td>{{ script.id }}</td>
+                <td>{{ script.ref }}</td>
+                <td>{{ script.etat }}</td>
+                <td>{{ script.refComposant }}</td>
+                <td>{{ script.rgSgSiCluster }}</td>
+                <td>{{ script.script }}</td>
+                <td>{{ script.codeErreur }}</td>
+                <td>{{ script.criticite }}</td>
+                <td>{{ script.description }}</td>
+                <td>{{ script.instructions }}</td>
+                <td>{{ script.monitoredBy }}</td>
+                <td>{{ script.refService }}</td>
+                <td>
+                    <a href="{{ path('app_scripts_show', {'id': script.id}) }}">show</a>
+                    <a href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_scripts_new') }}">Create new</a>
+{% endblock %}

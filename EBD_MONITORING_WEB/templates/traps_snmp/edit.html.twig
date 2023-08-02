@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TrapsSnmp{% endblock %}
+
+{% block body %}
+    <h1>Edit TrapsSnmp</h1>
+
+    {{ include('traps_snmp/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_traps_snmp_index') }}">back to list</a>
+
+    {{ include('traps_snmp/_delete_form.html.twig') }}
+{% endblock %}

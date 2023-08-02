@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TrapsSnmp index{% endblock %}
+
+{% block body %}
+    <h1>TrapsSnmp index</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>Signification</th>
+                <th>VersionSnmp</th>
+                <th>Oid</th>
+                <th>SpecificTrap</th>
+                <th>VariableBinding</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>Acquittement</th>
+                <th>MibAssocie</th>
+                <th>Objet</th>
+                <th>CompelementInformation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for traps_snmp in traps_snmps %}
+            <tr>
+                <td>{{ traps_snmp.id }}</td>
+                <td>{{ traps_snmp.ref }}</td>
+                <td>{{ traps_snmp.etat }}</td>
+                <td>{{ traps_snmp.refComposant }}</td>
+                <td>{{ traps_snmp.signification }}</td>
+                <td>{{ traps_snmp.versionSnmp }}</td>
+                <td>{{ traps_snmp.oid }}</td>
+                <td>{{ traps_snmp.specificTrap }}</td>
+                <td>{{ traps_snmp.variableBinding }}</td>
+                <td>{{ traps_snmp.criticite }}</td>
+                <td>{{ traps_snmp.messageAlarme }}</td>
+                <td>{{ traps_snmp.instructions }}</td>
+                <td>{{ traps_snmp.acquittement }}</td>
+                <td>{{ traps_snmp.mibAssocie }}</td>
+                <td>{{ traps_snmp.objet }}</td>
+                <td>{{ traps_snmp.compelementInformation }}</td>
+                <td>
+                    <a href="{{ path('app_traps_snmp_show', {'id': traps_snmp.id}) }}">show</a>
+                    <a href="{{ path('app_traps_snmp_edit', {'id': traps_snmp.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_traps_snmp_new') }}">Create new</a>
+{% endblock %}
