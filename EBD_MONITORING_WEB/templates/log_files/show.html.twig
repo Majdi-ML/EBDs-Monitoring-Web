@@ -3,7 +3,15 @@
 {% block title %}LogFiles{% endblock %}
 
 {% block body %}
-    <h1>LogFiles</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Log File</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table">
         <tbody>
@@ -74,9 +82,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_log_files_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_log_files_index') }}">back to list</a>
 
-    <a href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
-
+    <a class="btn btn-warning" href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
+<br><br>
     {{ include('log_files/_delete_form.html.twig') }}
 {% endblock %}

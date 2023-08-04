@@ -914,6 +914,27 @@ h6 {
   color: #777777;
   margin-left: 95px;
 }
+/* Réduire la taille du texte dans le tableau */
+.table-bordered {
+  font-size: 10px;
+}
+
+/* Réduire la hauteur des lignes du tableau */
+.table-bordered tbody tr {
+  height: 25px;
+}
+
+/* Réduire l'espacement entre les cellules du tableau */
+.table-bordered td, .table-bordered th {
+  padding: 5px;
+}
+
+/* Réduire la hauteur du tableau dans son ensemble avec une barre de défilement si nécessaire */
+.table-bordered {
+  max-height: 300px; /* Ajustez la hauteur souhaitée ici */
+  overflow-y: auto; /* Ajouter une barre de défilement verticale si nécessaire */
+}
+
 
 /* Recent Sales */
 .dashboard .recent-sales {

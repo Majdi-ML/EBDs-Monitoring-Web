@@ -264,7 +264,6 @@
             <outputDirectory>lib</outputDirectory>
             <includes>
                 <include>com.zaxxer:SparseBitSet:jar:1.2</include>
-                <include>org.mariadb.jdbc:mariadb-java-client:jar:2.5.3</include>
                 <include>org.apache.logging.log4j:log4j-1.2-api:jar:2.13.2</include>
                 <include>org.apache.commons:commons-collections4:jar:4.4</include>
                 <include>org.apache.poi:poi:jar:4.1.2-20200903124306_modified_talend</include>
@@ -274,6 +273,7 @@
                 <include>com.github.virtuald:curvesapi:jar:1.06</include>
                 <include>org.apache.logging.log4j:log4j-slf4j-impl:jar:2.13.2</include>
                 <include>org.apache.xmlbeans:xmlbeans:jar:3.1.0</include>
+                <include>mysql:mysql-connector-java:jar:8.0.18</include>
                 <include>org.apache.poi:poi-scratchpad:jar:4.1.2-20200903124306_modified_talend</include>
                 <include>org.apache.logging.log4j:log4j-api:jar:2.13.2</include>
                 <include>org.apache.poi:poi-ooxml:jar:4.1.2-20200903124306_modified_talend</include>

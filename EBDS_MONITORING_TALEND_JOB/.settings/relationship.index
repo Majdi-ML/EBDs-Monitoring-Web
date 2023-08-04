@@ -24,11 +24,7 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_Et6lsCbtEe6EBY2G29Oh9w",
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA",
     "version" : "Latest",
     "type" : "property"
   }, {
@@ -40,39 +36,11 @@
     "version" : "Latest",
     "type" : "schema"
   }, {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w - cluster",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w - log_files_patterns",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w - process",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w - requetessql",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w - scripts",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_6D8csCb0Ee6EBY2G29Oh9w - traps_snmp",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
     "id" : "_9PF_QCx0Ee6v9qmF1gwXzA - metadata",
     "version" : "Latest",
     "type" : "schema"
   }, {
-    "id" : "_Et6lsCbtEe6EBY2G29Oh9w - log_files",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_Et6lsCbtEe6EBY2G29Oh9w - url",
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - cluster",
     "version" : "Latest",
     "type" : "schema"
   }, {

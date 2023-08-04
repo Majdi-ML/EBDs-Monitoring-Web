@@ -3,9 +3,17 @@
 {% block title %}New Requetessql{% endblock %}
 
 {% block body %}
-    <h1>Create new Requetessql</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">New Requête Sql</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     {{ include('requetessql/_form.html.twig') }}
 
-    <a href="{{ path('app_requetessql_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_requetessql_index') }}">back to list</a>
 {% endblock %}

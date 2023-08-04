@@ -3,9 +3,17 @@
 {% block title %}New TrapsSnmp{% endblock %}
 
 {% block body %}
-    <h1>Create new TrapsSnmp</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">new Traps Snmp</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item ">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     {{ include('traps_snmp/_form.html.twig') }}
 
-    <a href="{{ path('app_traps_snmp_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_traps_snmp_index') }}">back to list</a>
 {% endblock %}

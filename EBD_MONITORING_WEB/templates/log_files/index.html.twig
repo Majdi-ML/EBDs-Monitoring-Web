@@ -3,7 +3,15 @@
 {% block title %}LogFiles index{% endblock %}
 
 {% block body %}
-    <h1>LogFiles index</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Log Files</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -24,7 +32,7 @@
                 <th>RefService</th>
                 <th>NomTemplate</th>
                 <th>LogConditions</th>
-                <th>actions</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -32,7 +40,11 @@
             <tr>
                 <td>{{ log_file.getId() }}</td>
                 <td>{{ log_file.ref }}</td>
-                <td>{{ log_file.etat }}</td>
+              <td style="{% if log_file.etat == 'Supprimé' %}background-color: red;{% elseif log_file.etat == 'Modifié' %}background-color: orange;{% elseif log_file.etat == 'Nouveau' %}background-color: green;{% elseif log_file.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
+  {{ log_file.etat }}
+</td>
+
+
                 <td>{{ log_file.refComposant }}</td>
                 <td>{{ log_file.rgSgSiCluster }}</td>
                 <td>{{ log_file.logfile }}</td>
@@ -47,8 +59,10 @@
                 <td>{{ log_file.nomTemplate }}</td>
                 <td>{{ log_file.logConditions }}</td>
                 <td>
-                    <a href="{{ path('app_log_files_show', {'id': log_file.id}) }}">show</a>
-                    <a href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
+                    <a  class="btn btn-info" href="{{ path('app_log_files_show', {'id': log_file.id}) }}">show</a>
+                </td>
+                <td>    
+                    <a class="btn btn-warning" href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -59,5 +73,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_log_files_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_log_files_new') }}">Create new</a>
 {% endblock %}

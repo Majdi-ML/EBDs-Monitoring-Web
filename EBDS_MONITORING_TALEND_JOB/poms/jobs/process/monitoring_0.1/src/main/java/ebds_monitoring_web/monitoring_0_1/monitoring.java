@@ -422,7 +422,7 @@ public class monitoring implements TalendJob {
 		tFileList_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_10_error(Exception exception, String errorComponent,
+	public void tDBOutput_5_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -472,7 +472,7 @@ public class monitoring implements TalendJob {
 		tFileList_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_15_error(Exception exception, String errorComponent,
+	public void tDBOutput_32_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -532,7 +532,7 @@ public class monitoring implements TalendJob {
 		tFileList_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_2_error(Exception exception, String errorComponent,
+	public void tDBOutput_37_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -582,7 +582,7 @@ public class monitoring implements TalendJob {
 		tFileList_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_21_error(Exception exception, String errorComponent,
+	public void tDBOutput_50_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -632,7 +632,7 @@ public class monitoring implements TalendJob {
 		tFileList_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_3_error(Exception exception, String errorComponent,
+	public void tDBOutput_77_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -702,7 +702,7 @@ public class monitoring implements TalendJob {
 		tFileList_3_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_36_error(Exception exception, String errorComponent,
+	public void tDBOutput_72_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -752,7 +752,7 @@ public class monitoring implements TalendJob {
 		tFileList_3_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_28_error(Exception exception, String errorComponent,
+	public void tDBOutput_68_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -802,7 +802,7 @@ public class monitoring implements TalendJob {
 		tFileList_3_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tDBOutput_6_error(Exception exception, String errorComponent,
+	public void tDBOutput_17_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -930,7 +930,7 @@ public class monitoring implements TalendJob {
 
 	}
 
-	public static class insertclustersStruct implements routines.system.IPersistableRow<insertclustersStruct> {
+	public static class INSERTCLUSTERStruct implements routines.system.IPersistableRow<INSERTCLUSTERStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -958,10 +958,10 @@ public class monitoring implements TalendJob {
 			return this.etat;
 		}
 
-		public String Nom_du_Ressource_Group_Package_Service_Guard;
+		public String Nom_du_Ressource_Group__Package_Service_Guard;
 
-		public String getNom_du_Ressource_Group_Package_Service_Guard() {
-			return this.Nom_du_Ressource_Group_Package_Service_Guard;
+		public String getNom_du_Ressource_Group__Package_Service_Guard() {
+			return this.Nom_du_Ressource_Group__Package_Service_Guard;
 		}
 
 		public String Adresse_IP;
@@ -1000,10 +1000,16 @@ public class monitoring implements TalendJob {
 			return this.Serveur_actif;
 		}
 
-		public String Complements_d_informations;
+		public String Complements_informations;
 
-		public String getComplements_d_informations() {
-			return this.Complements_d_informations;
+		public String getComplements_informations() {
+			return this.Complements_informations;
+		}
+
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
 		}
 
 		@Override
@@ -1028,7 +1034,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final insertclustersStruct other = (insertclustersStruct) obj;
+			final INSERTCLUSTERStruct other = (INSERTCLUSTERStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -1041,23 +1047,24 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(insertclustersStruct other) {
+		public void copyDataTo(INSERTCLUSTERStruct other) {
 
 			other.id = this.id;
 			other.Ref = this.Ref;
 			other.etat = this.etat;
-			other.Nom_du_Ressource_Group_Package_Service_Guard = this.Nom_du_Ressource_Group_Package_Service_Guard;
+			other.Nom_du_Ressource_Group__Package_Service_Guard = this.Nom_du_Ressource_Group__Package_Service_Guard;
 			other.Adresse_IP = this.Adresse_IP;
 			other.Liste_des_serveurs_concernes = this.Liste_des_serveurs_concernes;
 			other.Logiciel_Cluster = this.Logiciel_Cluster;
 			other.Version = this.Version;
 			other.Mode = this.Mode;
 			other.Serveur_actif = this.Serveur_actif;
-			other.Complements_d_informations = this.Complements_d_informations;
+			other.Complements_informations = this.Complements_informations;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(insertclustersStruct other) {
+		public void copyKeysDataTo(INSERTCLUSTERStruct other) {
 
 			other.id = this.id;
 
@@ -1137,7 +1144,7 @@ public class monitoring implements TalendJob {
 
 					this.etat = readString(dis);
 
-					this.Nom_du_Ressource_Group_Package_Service_Guard = readString(dis);
+					this.Nom_du_Ressource_Group__Package_Service_Guard = readString(dis);
 
 					this.Adresse_IP = readString(dis);
 
@@ -1151,7 +1158,9 @@ public class monitoring implements TalendJob {
 
 					this.Serveur_actif = readString(dis);
 
-					this.Complements_d_informations = readString(dis);
+					this.Complements_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1176,7 +1185,7 @@ public class monitoring implements TalendJob {
 
 					this.etat = readString(dis);
 
-					this.Nom_du_Ressource_Group_Package_Service_Guard = readString(dis);
+					this.Nom_du_Ressource_Group__Package_Service_Guard = readString(dis);
 
 					this.Adresse_IP = readString(dis);
 
@@ -1190,7 +1199,9 @@ public class monitoring implements TalendJob {
 
 					this.Serveur_actif = readString(dis);
 
-					this.Complements_d_informations = readString(dis);
+					this.Complements_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1218,7 +1229,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Nom_du_Ressource_Group_Package_Service_Guard, dos);
+				writeString(this.Nom_du_Ressource_Group__Package_Service_Guard, dos);
 
 				// String
 
@@ -1246,7 +1257,11 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Complements_d_informations, dos);
+				writeString(this.Complements_informations, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1271,7 +1286,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Nom_du_Ressource_Group_Package_Service_Guard, dos);
+				writeString(this.Nom_du_Ressource_Group__Package_Service_Guard, dos);
 
 				// String
 
@@ -1299,7 +1314,11 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Complements_d_informations, dos);
+				writeString(this.Complements_informations, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1315,14 +1334,16 @@ public class monitoring implements TalendJob {
 			sb.append("id=" + id);
 			sb.append(",Ref=" + Ref);
 			sb.append(",etat=" + etat);
-			sb.append(",Nom_du_Ressource_Group_Package_Service_Guard=" + Nom_du_Ressource_Group_Package_Service_Guard);
+			sb.append(
+					",Nom_du_Ressource_Group__Package_Service_Guard=" + Nom_du_Ressource_Group__Package_Service_Guard);
 			sb.append(",Adresse_IP=" + Adresse_IP);
 			sb.append(",Liste_des_serveurs_concernes=" + Liste_des_serveurs_concernes);
 			sb.append(",Logiciel_Cluster=" + Logiciel_Cluster);
 			sb.append(",Version=" + Version);
 			sb.append(",Mode=" + Mode);
 			sb.append(",Serveur_actif=" + Serveur_actif);
-			sb.append(",Complements_d_informations=" + Complements_d_informations);
+			sb.append(",Complements_informations=" + Complements_informations);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -1331,7 +1352,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(insertclustersStruct other) {
+		public int compareTo(INSERTCLUSTERStruct other) {
 
 			int returnValue = -1;
 
@@ -1436,6 +1457,12 @@ public class monitoring implements TalendJob {
 			return this.Complements_d_informations;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -1526,6 +1553,8 @@ public class monitoring implements TalendJob {
 
 					this.Complements_d_informations = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -1564,6 +1593,8 @@ public class monitoring implements TalendJob {
 					this.Serveur_Actif = readString(dis);
 
 					this.Complements_d_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1621,6 +1652,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Complements_d_informations, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1674,6 +1709,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Complements_d_informations, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1697,6 +1736,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Mode=" + Mode);
 			sb.append(",Serveur_Actif=" + Serveur_Actif);
 			sb.append(",Complements_d_informations=" + Complements_d_informations);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -2473,7 +2513,7 @@ public class monitoring implements TalendJob {
 
 	}
 
-	public static class insertprocessStruct implements routines.system.IPersistableRow<insertprocessStruct> {
+	public static class insertProcessStruct implements routines.system.IPersistableRow<insertProcessStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -2513,10 +2553,10 @@ public class monitoring implements TalendJob {
 			return this.Process;
 		}
 
-		public String Cricite;
+		public String Criticite;
 
-		public String getCricite() {
-			return this.Cricite;
+		public String getCriticite() {
+			return this.Criticite;
 		}
 
 		public String Message_alarme;
@@ -2549,6 +2589,12 @@ public class monitoring implements TalendJob {
 			return this.Monitored_By;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		@Override
 		public int hashCode() {
 			if (this.hashCodeDirty) {
@@ -2571,7 +2617,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final insertprocessStruct other = (insertprocessStruct) obj;
+			final insertProcessStruct other = (insertProcessStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -2584,23 +2630,24 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(insertprocessStruct other) {
+		public void copyDataTo(insertProcessStruct other) {
 
 			other.id = this.id;
 			other.Ref = this.Ref;
 			other.Etat = this.Etat;
 			other.Ref_composant = this.Ref_composant;
 			other.Process = this.Process;
-			other.Cricite = this.Cricite;
+			other.Criticite = this.Criticite;
 			other.Message_alarme = this.Message_alarme;
 			other.Intervalle_de_polling = this.Intervalle_de_polling;
 			other.Objet = this.Objet;
 			other.Nom_Template = this.Nom_Template;
 			other.Monitored_By = this.Monitored_By;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(insertprocessStruct other) {
+		public void copyKeysDataTo(insertProcessStruct other) {
 
 			other.id = this.id;
 
@@ -2684,7 +2731,7 @@ public class monitoring implements TalendJob {
 
 					this.Process = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -2695,6 +2742,8 @@ public class monitoring implements TalendJob {
 					this.Nom_Template = readString(dis);
 
 					this.Monitored_By = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2723,7 +2772,7 @@ public class monitoring implements TalendJob {
 
 					this.Process = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -2734,6 +2783,8 @@ public class monitoring implements TalendJob {
 					this.Nom_Template = readString(dis);
 
 					this.Monitored_By = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -2769,7 +2820,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -2790,6 +2841,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Monitored_By, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -2822,7 +2877,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -2844,6 +2899,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Monitored_By, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -2860,12 +2919,13 @@ public class monitoring implements TalendJob {
 			sb.append(",Etat=" + Etat);
 			sb.append(",Ref_composant=" + Ref_composant);
 			sb.append(",Process=" + Process);
-			sb.append(",Cricite=" + Cricite);
+			sb.append(",Criticite=" + Criticite);
 			sb.append(",Message_alarme=" + Message_alarme);
 			sb.append(",Intervalle_de_polling=" + Intervalle_de_polling);
 			sb.append(",Objet=" + Objet);
 			sb.append(",Nom_Template=" + Nom_Template);
 			sb.append(",Monitored_By=" + Monitored_By);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -2874,7 +2934,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(insertprocessStruct other) {
+		public int compareTo(insertProcessStruct other) {
 
 			int returnValue = -1;
 
@@ -2979,6 +3039,12 @@ public class monitoring implements TalendJob {
 			return this.Monitored_By;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -3069,6 +3135,8 @@ public class monitoring implements TalendJob {
 
 					this.Monitored_By = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -3107,6 +3175,8 @@ public class monitoring implements TalendJob {
 					this.Nom_Template = readString(dis);
 
 					this.Monitored_By = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -3164,6 +3234,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Monitored_By, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3217,6 +3291,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Monitored_By, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -3239,6 +3317,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Objet=" + Objet);
 			sb.append(",Nom_Template=" + Nom_Template);
 			sb.append(",Monitored_By=" + Monitored_By);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -4013,7 +4092,7 @@ public class monitoring implements TalendJob {
 
 	}
 
-	public static class insertrequetesStruct implements routines.system.IPersistableRow<insertrequetesStruct> {
+	public static class insertrequetesqlStruct implements routines.system.IPersistableRow<insertrequetesqlStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -4047,10 +4126,10 @@ public class monitoring implements TalendJob {
 			return this.Ref_composant;
 		}
 
-		public String RG_SG_si_Cluster;
+		public String RG__SG_si_Cluster;
 
-		public String getRG_SG_si_Cluster() {
-			return this.RG_SG_si_Cluster;
+		public String getRG__SG_si_Cluster() {
+			return this.RG__SG_si_Cluster;
 		}
 
 		public String Requete_SQL;
@@ -4059,10 +4138,10 @@ public class monitoring implements TalendJob {
 			return this.Requete_SQL;
 		}
 
-		public String UserName_DB_Name;
+		public String UserName__DB_Name;
 
-		public String getUserName_DB_Name() {
-			return this.UserName_DB_Name;
+		public String getUserName__DB_Name() {
+			return this.UserName__DB_Name;
 		}
 
 		public String Resultat_Attendu_de_la_requete;
@@ -4125,6 +4204,12 @@ public class monitoring implements TalendJob {
 			return this.Nom_Template;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		@Override
 		public int hashCode() {
 			if (this.hashCodeDirty) {
@@ -4147,7 +4232,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final insertrequetesStruct other = (insertrequetesStruct) obj;
+			final insertrequetesqlStruct other = (insertrequetesqlStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -4160,15 +4245,15 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(insertrequetesStruct other) {
+		public void copyDataTo(insertrequetesqlStruct other) {
 
 			other.id = this.id;
 			other.Ref = this.Ref;
 			other.Etat = this.Etat;
 			other.Ref_composant = this.Ref_composant;
-			other.RG_SG_si_Cluster = this.RG_SG_si_Cluster;
+			other.RG__SG_si_Cluster = this.RG__SG_si_Cluster;
 			other.Requete_SQL = this.Requete_SQL;
-			other.UserName_DB_Name = this.UserName_DB_Name;
+			other.UserName__DB_Name = this.UserName__DB_Name;
 			other.Resultat_Attendu_de_la_requete = this.Resultat_Attendu_de_la_requete;
 			other.Perform_action = this.Perform_action;
 			other.Criticite = this.Criticite;
@@ -4179,10 +4264,11 @@ public class monitoring implements TalendJob {
 			other.Objet = this.Objet;
 			other.Monitored_By = this.Monitored_By;
 			other.Nom_Template = this.Nom_Template;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(insertrequetesStruct other) {
+		public void copyKeysDataTo(insertrequetesqlStruct other) {
 
 			other.id = this.id;
 
@@ -4264,11 +4350,11 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.Requete_SQL = readString(dis);
 
-					this.UserName_DB_Name = readString(dis);
+					this.UserName__DB_Name = readString(dis);
 
 					this.Resultat_Attendu_de_la_requete = readString(dis);
 
@@ -4289,6 +4375,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Nom_Template = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -4315,11 +4403,11 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.Requete_SQL = readString(dis);
 
-					this.UserName_DB_Name = readString(dis);
+					this.UserName__DB_Name = readString(dis);
 
 					this.Resultat_Attendu_de_la_requete = readString(dis);
 
@@ -4340,6 +4428,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Nom_Template = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -4371,7 +4461,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -4379,7 +4469,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.UserName_DB_Name, dos);
+				writeString(this.UserName__DB_Name, dos);
 
 				// String
 
@@ -4420,6 +4510,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Nom_Template, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -4448,7 +4542,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -4456,7 +4550,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.UserName_DB_Name, dos);
+				writeString(this.UserName__DB_Name, dos);
 
 				// String
 
@@ -4498,6 +4592,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Nom_Template, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -4513,9 +4611,9 @@ public class monitoring implements TalendJob {
 			sb.append(",Ref=" + Ref);
 			sb.append(",Etat=" + Etat);
 			sb.append(",Ref_composant=" + Ref_composant);
-			sb.append(",RG_SG_si_Cluster=" + RG_SG_si_Cluster);
+			sb.append(",RG__SG_si_Cluster=" + RG__SG_si_Cluster);
 			sb.append(",Requete_SQL=" + Requete_SQL);
-			sb.append(",UserName_DB_Name=" + UserName_DB_Name);
+			sb.append(",UserName__DB_Name=" + UserName__DB_Name);
 			sb.append(",Resultat_Attendu_de_la_requete=" + Resultat_Attendu_de_la_requete);
 			sb.append(",Perform_action=" + Perform_action);
 			sb.append(",Criticite=" + Criticite);
@@ -4526,6 +4624,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Objet=" + Objet);
 			sb.append(",Monitored_By=" + Monitored_By);
 			sb.append(",Nom_Template=" + Nom_Template);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -4534,7 +4633,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(insertrequetesStruct other) {
+		public int compareTo(insertrequetesqlStruct other) {
 
 			int returnValue = -1;
 
@@ -4675,6 +4774,12 @@ public class monitoring implements TalendJob {
 			return this.Nom_Template;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -4777,6 +4882,8 @@ public class monitoring implements TalendJob {
 
 					this.Nom_Template = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -4827,6 +4934,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Nom_Template = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -4908,6 +5017,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Nom_Template, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -4985,6 +5098,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Nom_Template, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -5013,6 +5130,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Objet=" + Objet);
 			sb.append(",Monitored_By=" + Monitored_By);
 			sb.append(",Nom_Template=" + Nom_Template);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -6218,15 +6336,15 @@ public class monitoring implements TalendJob {
 				row1Struct row1 = new row1Struct();
 				row10Struct row10 = new row10Struct();
 				row19Struct row19 = new row19Struct();
-				insertclustersStruct insertclusters = new insertclustersStruct();
+				INSERTCLUSTERStruct INSERTCLUSTER = new INSERTCLUSTERStruct();
 				row2Struct row2 = new row2Struct();
 				row11Struct row11 = new row11Struct();
 				row20Struct row20 = new row20Struct();
-				insertprocessStruct insertprocess = new insertprocessStruct();
+				insertProcessStruct insertProcess = new insertProcessStruct();
 				row3Struct row3 = new row3Struct();
 				row12Struct row12 = new row12Struct();
 				row21Struct row21 = new row21Struct();
-				insertrequetesStruct insertrequetes = new insertrequetesStruct();
+				insertrequetesqlStruct insertrequetesql = new insertrequetesqlStruct();
 
 				/**
 				 * [tFileList_1 begin ] start
@@ -6433,11 +6551,7 @@ public class monitoring implements TalendJob {
 					NB_ITERATE_tFileInputExcel_1++;
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row19", 3, 0);
-					}
-
-					if (execStat) {
-						runStat.updateStatOnConnection("insertclusters", 3, 0);
+						runStat.updateStatOnConnection("INSERTCLUSTER", 3, 0);
 					}
 
 					if (execStat) {
@@ -6446,6 +6560,10 @@ public class monitoring implements TalendJob {
 
 					if (execStat) {
 						runStat.updateStatOnConnection("row10", 3, 0);
+					}
+
+					if (execStat) {
+						runStat.updateStatOnConnection("row19", 3, 0);
 					}
 
 					if (execStat) {
@@ -6463,7 +6581,7 @@ public class monitoring implements TalendJob {
 					currentComponent = "tDBOutput_1";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertclusters");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "INSERTCLUSTER");
 					}
 
 					int tos_count_tDBOutput_1 = 0;
@@ -6505,15 +6623,15 @@ public class monitoring implements TalendJob {
 						}
 					}
 
-					String url_tDBOutput_1 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+					String url_tDBOutput_1 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
 							+ properties_tDBOutput_1;
 
-					String driverClass_tDBOutput_1 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_1 = "com.mysql.cj.jdbc.Driver";
 
 					String dbUser_tDBOutput_1 = "root";
 
 					final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:d983d9SCX2OirX/XLBVeDnaSfc4QHZnR431njg==");
+							.decryptPassword("enc:routine.encryption.key.v1:4NznuyBUMLG/Ueia+3BPlnaaUv8GqqbLoWGWuw==");
 
 					String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 					java.lang.Class.forName(driverClass_tDBOutput_1);
@@ -6528,8 +6646,10 @@ public class monitoring implements TalendJob {
 
 					int count_tDBOutput_1 = 0;
 
-					String insert_tDBOutput_1 = "INSERT IGNORE INTO `" + "cluster"
-							+ "` (`id`,`Ref`,`etat`,`Nom_du_Ressource_Group/Package_Service_Guard`,`Adresse_IP`,`Liste_des_serveurs_concernés`,`Logiciel_Cluster`,`Version`,`Mode`,`Serveur_actif`,`Compléments_d'informations`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_1 = "INSERT INTO `" + "cluster"
+							+ "` (`id`,`Ref`,`etat`,`Nom_du_Ressource_Group__Package_Service_Guard`,`Adresse_IP`,`Liste_des_serveurs_concernés`,`Logiciel_Cluster`,`Version`,`Mode`,`Serveur_actif`,`Complements_informations`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+					int batchSize_tDBOutput_1 = 100;
+					int batchSizeCounter_tDBOutput_1 = 0;
 
 					java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1
 							.prepareStatement(insert_tDBOutput_1);
@@ -6567,7 +6687,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					insertclustersStruct insertclusters_tmp = new insertclustersStruct();
+					INSERTCLUSTERStruct INSERTCLUSTER_tmp = new INSERTCLUSTERStruct();
 // ###############################
 
 					/**
@@ -6668,7 +6788,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_1 = 0;
 
 					final String decryptedPassword_tFileInputExcel_1 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:4Ce3FFaTYNI5+HP+LdhTPeUA/Futg4dcUNO+WQ==");
+							.decryptPassword("enc:routine.encryption.key.v1:WGpP6Vo/9zNqEuD5CrwLKUduWqb2WQqsJVnc1Q==");
 					String password_tFileInputExcel_1 = decryptedPassword_tFileInputExcel_1;
 					if (password_tFileInputExcel_1.isEmpty()) {
 						password_tFileInputExcel_1 = null;
@@ -7135,16 +7255,17 @@ public class monitoring implements TalendJob {
 										}
 
 										String fileName = (String) source_tFileInputExcel_1;
-
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row10.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id1 = "EDB_" + fileWord + "_Cluster_" + rowRef;
+										String id1 = "EBD_" + fileWord + "_Cluster_" + rowRef;
+
 //Code généré selon les schémas d'entrée et de sortie
 										row19.N__Ref = id1;
 										row19.Ref = row10.Ref;
@@ -7157,6 +7278,7 @@ public class monitoring implements TalendJob {
 										row19.Mode = row10.Mode;
 										row19.Serveur_Actif = row10.Serveur_Actif;
 										row19.Complements_d_informations = row10.Complements_d_informations;
+										row19.Support = Support;
 
 										nb_line_tJavaRow_2++;
 
@@ -7207,21 +7329,22 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											insertclusters = null;
+											INSERTCLUSTER = null;
 
-// # Output table : 'insertclusters'
-											insertclusters_tmp.id = row19.N__Ref;
-											insertclusters_tmp.Ref = row19.Ref;
-											insertclusters_tmp.etat = row19.Etat;
-											insertclusters_tmp.Nom_du_Ressource_Group_Package_Service_Guard = row19.Nom_du_Ressource_Group___Package_Service_Guard;
-											insertclusters_tmp.Adresse_IP = row19.Adresse_IP;
-											insertclusters_tmp.Liste_des_serveurs_concernes = row19.Liste_des_serveurs_concernes;
-											insertclusters_tmp.Logiciel_Cluster = row19.Logiciel_Cluster;
-											insertclusters_tmp.Version = row19.Version;
-											insertclusters_tmp.Mode = row19.Mode;
-											insertclusters_tmp.Serveur_actif = row19.Serveur_Actif;
-											insertclusters_tmp.Complements_d_informations = row19.Complements_d_informations;
-											insertclusters = insertclusters_tmp;
+// # Output table : 'INSERTCLUSTER'
+											INSERTCLUSTER_tmp.id = row19.N__Ref;
+											INSERTCLUSTER_tmp.Ref = row19.Ref;
+											INSERTCLUSTER_tmp.etat = row19.Etat;
+											INSERTCLUSTER_tmp.Nom_du_Ressource_Group__Package_Service_Guard = row19.Nom_du_Ressource_Group___Package_Service_Guard;
+											INSERTCLUSTER_tmp.Adresse_IP = row19.Adresse_IP;
+											INSERTCLUSTER_tmp.Liste_des_serveurs_concernes = row19.Liste_des_serveurs_concernes;
+											INSERTCLUSTER_tmp.Logiciel_Cluster = row19.Logiciel_Cluster;
+											INSERTCLUSTER_tmp.Version = row19.Version;
+											INSERTCLUSTER_tmp.Mode = row19.Mode;
+											INSERTCLUSTER_tmp.Serveur_actif = row19.Serveur_Actif;
+											INSERTCLUSTER_tmp.Complements_informations = row19.Complements_d_informations;
+											INSERTCLUSTER_tmp.Support = row19.Support;
+											INSERTCLUSTER = INSERTCLUSTER_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -7243,8 +7366,8 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_2 process_data_begin ] stop
 										 */
-// Start of branch "insertclusters"
-										if (insertclusters != null) {
+// Start of branch "INSERTCLUSTER"
+										if (INSERTCLUSTER != null) {
 
 											/**
 											 * [tDBOutput_1 main ] start
@@ -7255,95 +7378,137 @@ public class monitoring implements TalendJob {
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "insertclusters"
+														, "INSERTCLUSTER"
 
 												);
 											}
 
 											whetherReject_tDBOutput_1 = false;
-											if (insertclusters.id == null) {
+											if (INSERTCLUSTER.id == null) {
 												pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(1, insertclusters.id);
+												pstmt_tDBOutput_1.setString(1, INSERTCLUSTER.id);
 											}
 
-											if (insertclusters.Ref == null) {
+											if (INSERTCLUSTER.Ref == null) {
 												pstmt_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(2, insertclusters.Ref);
+												pstmt_tDBOutput_1.setString(2, INSERTCLUSTER.Ref);
 											}
 
-											if (insertclusters.etat == null) {
+											if (INSERTCLUSTER.etat == null) {
 												pstmt_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(3, insertclusters.etat);
+												pstmt_tDBOutput_1.setString(3, INSERTCLUSTER.etat);
 											}
 
-											if (insertclusters.Nom_du_Ressource_Group_Package_Service_Guard == null) {
+											if (INSERTCLUSTER.Nom_du_Ressource_Group__Package_Service_Guard == null) {
 												pstmt_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
 											} else {
 												pstmt_tDBOutput_1.setString(4,
-														insertclusters.Nom_du_Ressource_Group_Package_Service_Guard);
+														INSERTCLUSTER.Nom_du_Ressource_Group__Package_Service_Guard);
 											}
 
-											if (insertclusters.Adresse_IP == null) {
+											if (INSERTCLUSTER.Adresse_IP == null) {
 												pstmt_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(5, insertclusters.Adresse_IP);
+												pstmt_tDBOutput_1.setString(5, INSERTCLUSTER.Adresse_IP);
 											}
 
-											if (insertclusters.Liste_des_serveurs_concernes == null) {
+											if (INSERTCLUSTER.Liste_des_serveurs_concernes == null) {
 												pstmt_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
 											} else {
 												pstmt_tDBOutput_1.setString(6,
-														insertclusters.Liste_des_serveurs_concernes);
+														INSERTCLUSTER.Liste_des_serveurs_concernes);
 											}
 
-											if (insertclusters.Logiciel_Cluster == null) {
+											if (INSERTCLUSTER.Logiciel_Cluster == null) {
 												pstmt_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(7, insertclusters.Logiciel_Cluster);
+												pstmt_tDBOutput_1.setString(7, INSERTCLUSTER.Logiciel_Cluster);
 											}
 
-											if (insertclusters.Version == null) {
+											if (INSERTCLUSTER.Version == null) {
 												pstmt_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(8, insertclusters.Version);
+												pstmt_tDBOutput_1.setString(8, INSERTCLUSTER.Version);
 											}
 
-											if (insertclusters.Mode == null) {
+											if (INSERTCLUSTER.Mode == null) {
 												pstmt_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(9, insertclusters.Mode);
+												pstmt_tDBOutput_1.setString(9, INSERTCLUSTER.Mode);
 											}
 
-											if (insertclusters.Serveur_actif == null) {
+											if (INSERTCLUSTER.Serveur_actif == null) {
 												pstmt_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(10, insertclusters.Serveur_actif);
+												pstmt_tDBOutput_1.setString(10, INSERTCLUSTER.Serveur_actif);
 											}
 
-											if (insertclusters.Complements_d_informations == null) {
+											if (INSERTCLUSTER.Complements_informations == null) {
 												pstmt_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_1.setString(11,
-														insertclusters.Complements_d_informations);
+												pstmt_tDBOutput_1.setString(11, INSERTCLUSTER.Complements_informations);
 											}
 
-											try {
-												nb_line_tDBOutput_1++;
-												int processedCount_tDBOutput_1 = pstmt_tDBOutput_1.executeUpdate();
-												insertedCount_tDBOutput_1 += processedCount_tDBOutput_1;
-												rowsToCommitCount_tDBOutput_1 += processedCount_tDBOutput_1;
-											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_1 = true;
-												System.err.print(e.getMessage());
+											if (INSERTCLUSTER.Support == null) {
+												pstmt_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_1.setString(12, INSERTCLUSTER.Support);
+											}
+
+											pstmt_tDBOutput_1.addBatch();
+											nb_line_tDBOutput_1++;
+
+											batchSizeCounter_tDBOutput_1++;
+											if (batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
+												try {
+													int countSum_tDBOutput_1 = 0;
+													for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+														countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED
+																? 0
+																: 1);
+													}
+													rowsToCommitCount_tDBOutput_1 += countSum_tDBOutput_1;
+													insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+												} catch (java.sql.BatchUpdateException e) {
+													globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
+													int countSum_tDBOutput_1 = 0;
+													for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+														countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+																: countEach_tDBOutput_1);
+													}
+													rowsToCommitCount_tDBOutput_1 += countSum_tDBOutput_1;
+													insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+													System.err.println(e.getMessage());
+												}
+
+												batchSizeCounter_tDBOutput_1 = 0;
 											}
 											commitCounter_tDBOutput_1++;
 
 											if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
 
+												try {
+													int countSum_tDBOutput_1 = 0;
+													for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+														countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
+													}
+													rowsToCommitCount_tDBOutput_1 += countSum_tDBOutput_1;
+													insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+												} catch (java.sql.BatchUpdateException e) {
+													globalMap.put("tDBOutput_1_ERROR_MESSAGE", e.getMessage());
+													int countSum_tDBOutput_1 = 0;
+													for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+														countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
+																: countEach_tDBOutput_1);
+													}
+													rowsToCommitCount_tDBOutput_1 += countSum_tDBOutput_1;
+													insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+													System.err.println(e.getMessage());
+
+												}
 												if (rowsToCommitCount_tDBOutput_1 != 0) {
 												}
 												conn_tDBOutput_1.commit();
@@ -7380,7 +7545,7 @@ public class monitoring implements TalendJob {
 											 * [tDBOutput_1 process_data_end ] stop
 											 */
 
-										} // End of branch "insertclusters"
+										} // End of branch "INSERTCLUSTER"
 
 										/**
 										 * [tMap_2 process_data_end ] start
@@ -7519,6 +7684,36 @@ public class monitoring implements TalendJob {
 
 					currentComponent = "tDBOutput_1";
 
+					try {
+						if (batchSizeCounter_tDBOutput_1 != 0) {
+							int countSum_tDBOutput_1 = 0;
+
+							for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
+								countSum_tDBOutput_1 += (countEach_tDBOutput_1 == java.sql.Statement.EXECUTE_FAILED ? 0
+										: 1);
+							}
+							rowsToCommitCount_tDBOutput_1 += countSum_tDBOutput_1;
+
+							insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+
+						}
+
+					} catch (java.sql.BatchUpdateException e) {
+						globalMap.put(currentComponent + "_ERROR_MESSAGE", e.getMessage());
+
+						int countSum_tDBOutput_1 = 0;
+						for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
+							countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : countEach_tDBOutput_1);
+						}
+						rowsToCommitCount_tDBOutput_1 += countSum_tDBOutput_1;
+
+						insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
+
+						System.err.println(e.getMessage());
+
+					}
+					batchSizeCounter_tDBOutput_1 = 0;
+
 					if (pstmt_tDBOutput_1 != null) {
 
 						pstmt_tDBOutput_1.close();
@@ -7552,7 +7747,7 @@ public class monitoring implements TalendJob {
 					globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertclusters");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "INSERTCLUSTER");
 					}
 
 					ok_Hash.put("tDBOutput_1", true);
@@ -7573,10 +7768,6 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("insertprocess", 3, 0);
-					}
-
-					if (execStat) {
 						runStat.updateStatOnConnection("row11", 3, 0);
 					}
 
@@ -7585,94 +7776,98 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
+						runStat.updateStatOnConnection("insertProcess", 3, 0);
+					}
+
+					if (execStat) {
 						runStat.updateStatOnConnection("iterate3", 1, "exec" + NB_ITERATE_tFileInputExcel_13);
 						// Thread.sleep(1000);
 					}
 
 					/**
-					 * [tDBOutput_10 begin ] start
+					 * [tDBOutput_5 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_10", false);
-					start_Hash.put("tDBOutput_10", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_5", false);
+					start_Hash.put("tDBOutput_5", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_10";
+					currentComponent = "tDBOutput_5";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertprocess");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertProcess");
 					}
 
-					int tos_count_tDBOutput_10 = 0;
+					int tos_count_tDBOutput_5 = 0;
 
-					int nb_line_tDBOutput_10 = 0;
-					int nb_line_update_tDBOutput_10 = 0;
-					int nb_line_inserted_tDBOutput_10 = 0;
-					int nb_line_deleted_tDBOutput_10 = 0;
-					int nb_line_rejected_tDBOutput_10 = 0;
+					int nb_line_tDBOutput_5 = 0;
+					int nb_line_update_tDBOutput_5 = 0;
+					int nb_line_inserted_tDBOutput_5 = 0;
+					int nb_line_deleted_tDBOutput_5 = 0;
+					int nb_line_rejected_tDBOutput_5 = 0;
 
-					int deletedCount_tDBOutput_10 = 0;
-					int updatedCount_tDBOutput_10 = 0;
-					int insertedCount_tDBOutput_10 = 0;
-					int rowsToCommitCount_tDBOutput_10 = 0;
-					int rejectedCount_tDBOutput_10 = 0;
+					int deletedCount_tDBOutput_5 = 0;
+					int updatedCount_tDBOutput_5 = 0;
+					int insertedCount_tDBOutput_5 = 0;
+					int rowsToCommitCount_tDBOutput_5 = 0;
+					int rejectedCount_tDBOutput_5 = 0;
 
-					String tableName_tDBOutput_10 = "process";
-					boolean whetherReject_tDBOutput_10 = false;
+					String tableName_tDBOutput_5 = "process";
+					boolean whetherReject_tDBOutput_5 = false;
 
-					java.util.Calendar calendar_tDBOutput_10 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_10.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_10 = calendar_tDBOutput_10.getTime().getTime();
-					calendar_tDBOutput_10.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_10 = calendar_tDBOutput_10.getTime().getTime();
-					long date_tDBOutput_10;
+					java.util.Calendar calendar_tDBOutput_5 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_5.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_5 = calendar_tDBOutput_5.getTime().getTime();
+					calendar_tDBOutput_5.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_5 = calendar_tDBOutput_5.getTime().getTime();
+					long date_tDBOutput_5;
 
-					java.sql.Connection conn_tDBOutput_10 = null;
+					java.sql.Connection conn_tDBOutput_5 = null;
 
-					String properties_tDBOutput_10 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_10 == null || properties_tDBOutput_10.trim().length() == 0) {
-						properties_tDBOutput_10 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_5 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_5 == null || properties_tDBOutput_5.trim().length() == 0) {
+						properties_tDBOutput_5 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_10.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_10 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_5.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_5 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_10.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_10 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_5.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_5 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_10 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_10;
+					String url_tDBOutput_5 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_5;
 
-					String driverClass_tDBOutput_10 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_5 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_10 = "root";
+					String dbUser_tDBOutput_5 = "root";
 
-					final String decryptedPassword_tDBOutput_10 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:aMI1QRksEra2ZG2jePtEMDo2HfS7QIuFF883vQ==");
+					final String decryptedPassword_tDBOutput_5 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:GlBh4OO50BDdrgYu8MF2Xl6IeVd0eFjh93QgeQ==");
 
-					String dbPwd_tDBOutput_10 = decryptedPassword_tDBOutput_10;
-					java.lang.Class.forName(driverClass_tDBOutput_10);
+					String dbPwd_tDBOutput_5 = decryptedPassword_tDBOutput_5;
+					java.lang.Class.forName(driverClass_tDBOutput_5);
 
-					conn_tDBOutput_10 = java.sql.DriverManager.getConnection(url_tDBOutput_10, dbUser_tDBOutput_10,
-							dbPwd_tDBOutput_10);
+					conn_tDBOutput_5 = java.sql.DriverManager.getConnection(url_tDBOutput_5, dbUser_tDBOutput_5,
+							dbPwd_tDBOutput_5);
 
-					resourceMap.put("conn_tDBOutput_10", conn_tDBOutput_10);
-					conn_tDBOutput_10.setAutoCommit(false);
-					int commitEvery_tDBOutput_10 = 10000;
-					int commitCounter_tDBOutput_10 = 0;
+					resourceMap.put("conn_tDBOutput_5", conn_tDBOutput_5);
+					conn_tDBOutput_5.setAutoCommit(false);
+					int commitEvery_tDBOutput_5 = 10000;
+					int commitCounter_tDBOutput_5 = 0;
 
-					int count_tDBOutput_10 = 0;
+					int count_tDBOutput_5 = 0;
 
-					String insert_tDBOutput_10 = "INSERT IGNORE INTO `" + "process"
-							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`Process`,`Cricite`,`Message_alarme`,`Intervalle_de_polling`,`Objet`,`Nom_Template`,`Monitored_By`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_5 = "INSERT IGNORE INTO `" + "process"
+							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`Process`,`Criticite`,`Message_alarme`,`Intervalle_de_polling`,`Objet`,`Nom_Template`,`Monitored_By`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_10 = conn_tDBOutput_10
-							.prepareStatement(insert_tDBOutput_10);
-					resourceMap.put("pstmt_tDBOutput_10", pstmt_tDBOutput_10);
+					java.sql.PreparedStatement pstmt_tDBOutput_5 = conn_tDBOutput_5
+							.prepareStatement(insert_tDBOutput_5);
+					resourceMap.put("pstmt_tDBOutput_5", pstmt_tDBOutput_5);
 
 					/**
-					 * [tDBOutput_10 begin ] stop
+					 * [tDBOutput_5 begin ] stop
 					 */
 
 					/**
@@ -7703,7 +7898,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					insertprocessStruct insertprocess_tmp = new insertprocessStruct();
+					insertProcessStruct insertProcess_tmp = new insertProcessStruct();
 // ###############################
 
 					/**
@@ -7804,7 +7999,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_13 = 0;
 
 					final String decryptedPassword_tFileInputExcel_13 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:iwemjqsOqYGuCuvO26xQ1Az1KA+sQJgVbPbkkA==");
+							.decryptPassword("enc:routine.encryption.key.v1:dZd7566o3ZzwjssaPEVeoZsDqq7jBwPVgKUmMQ==");
 					String password_tFileInputExcel_13 = decryptedPassword_tFileInputExcel_13;
 					if (password_tFileInputExcel_13.isEmpty()) {
 						password_tFileInputExcel_13 = null;
@@ -8275,12 +8470,12 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
-
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row11.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_Process_" + rowRef;
+										String id = "EBD_" + fileWord + "_Process_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row20.N__Ref = id;
 										row20.Ref = row11.Ref;
@@ -8293,6 +8488,7 @@ public class monitoring implements TalendJob {
 										row20.Objet = row11.Objet;
 										row20.Nom_Template = row11.Nom_Template;
 										row20.Monitored_By = row11.Monitored_By;
+										row20.Support = Support;
 
 										nb_line_tJavaRow_3++;
 
@@ -8343,21 +8539,22 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											insertprocess = null;
+											insertProcess = null;
 
-// # Output table : 'insertprocess'
-											insertprocess_tmp.id = row20.N__Ref;
-											insertprocess_tmp.Ref = row20.Ref;
-											insertprocess_tmp.Etat = row20.Etat;
-											insertprocess_tmp.Ref_composant = row20.Ref__des_composants;
-											insertprocess_tmp.Process = row20.Process;
-											insertprocess_tmp.Cricite = row20.Criticite;
-											insertprocess_tmp.Message_alarme = row20.Message_d_alarme;
-											insertprocess_tmp.Intervalle_de_polling = row20.Intervalle_de_polling;
-											insertprocess_tmp.Objet = row20.Objet;
-											insertprocess_tmp.Nom_Template = row20.Nom_Template;
-											insertprocess_tmp.Monitored_By = row20.Monitored_By;
-											insertprocess = insertprocess_tmp;
+// # Output table : 'insertProcess'
+											insertProcess_tmp.id = row20.N__Ref;
+											insertProcess_tmp.Ref = row20.Ref;
+											insertProcess_tmp.Etat = row20.Etat;
+											insertProcess_tmp.Ref_composant = row20.Ref__des_composants;
+											insertProcess_tmp.Process = row20.Process;
+											insertProcess_tmp.Criticite = row20.Criticite;
+											insertProcess_tmp.Message_alarme = row20.Message_d_alarme;
+											insertProcess_tmp.Intervalle_de_polling = row20.Intervalle_de_polling;
+											insertProcess_tmp.Objet = row20.Objet;
+											insertProcess_tmp.Nom_Template = row20.Nom_Template;
+											insertProcess_tmp.Monitored_By = row20.Monitored_By;
+											insertProcess_tmp.Support = row20.Support;
+											insertProcess = insertProcess_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -8379,141 +8576,147 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_3 process_data_begin ] stop
 										 */
-// Start of branch "insertprocess"
-										if (insertprocess != null) {
+// Start of branch "insertProcess"
+										if (insertProcess != null) {
 
 											/**
-											 * [tDBOutput_10 main ] start
+											 * [tDBOutput_5 main ] start
 											 */
 
-											currentComponent = "tDBOutput_10";
+											currentComponent = "tDBOutput_5";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "insertprocess"
+														, "insertProcess"
 
 												);
 											}
 
-											whetherReject_tDBOutput_10 = false;
-											if (insertprocess.id == null) {
-												pstmt_tDBOutput_10.setNull(1, java.sql.Types.VARCHAR);
+											whetherReject_tDBOutput_5 = false;
+											if (insertProcess.id == null) {
+												pstmt_tDBOutput_5.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(1, insertprocess.id);
+												pstmt_tDBOutput_5.setString(1, insertProcess.id);
 											}
 
-											if (insertprocess.Ref == null) {
-												pstmt_tDBOutput_10.setNull(2, java.sql.Types.VARCHAR);
+											if (insertProcess.Ref == null) {
+												pstmt_tDBOutput_5.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(2, insertprocess.Ref);
+												pstmt_tDBOutput_5.setString(2, insertProcess.Ref);
 											}
 
-											if (insertprocess.Etat == null) {
-												pstmt_tDBOutput_10.setNull(3, java.sql.Types.VARCHAR);
+											if (insertProcess.Etat == null) {
+												pstmt_tDBOutput_5.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(3, insertprocess.Etat);
+												pstmt_tDBOutput_5.setString(3, insertProcess.Etat);
 											}
 
-											if (insertprocess.Ref_composant == null) {
-												pstmt_tDBOutput_10.setNull(4, java.sql.Types.VARCHAR);
+											if (insertProcess.Ref_composant == null) {
+												pstmt_tDBOutput_5.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(4, insertprocess.Ref_composant);
+												pstmt_tDBOutput_5.setString(4, insertProcess.Ref_composant);
 											}
 
-											if (insertprocess.Process == null) {
-												pstmt_tDBOutput_10.setNull(5, java.sql.Types.VARCHAR);
+											if (insertProcess.Process == null) {
+												pstmt_tDBOutput_5.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(5, insertprocess.Process);
+												pstmt_tDBOutput_5.setString(5, insertProcess.Process);
 											}
 
-											if (insertprocess.Cricite == null) {
-												pstmt_tDBOutput_10.setNull(6, java.sql.Types.VARCHAR);
+											if (insertProcess.Criticite == null) {
+												pstmt_tDBOutput_5.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(6, insertprocess.Cricite);
+												pstmt_tDBOutput_5.setString(6, insertProcess.Criticite);
 											}
 
-											if (insertprocess.Message_alarme == null) {
-												pstmt_tDBOutput_10.setNull(7, java.sql.Types.VARCHAR);
+											if (insertProcess.Message_alarme == null) {
+												pstmt_tDBOutput_5.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(7, insertprocess.Message_alarme);
+												pstmt_tDBOutput_5.setString(7, insertProcess.Message_alarme);
 											}
 
-											if (insertprocess.Intervalle_de_polling == null) {
-												pstmt_tDBOutput_10.setNull(8, java.sql.Types.VARCHAR);
+											if (insertProcess.Intervalle_de_polling == null) {
+												pstmt_tDBOutput_5.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(8, insertprocess.Intervalle_de_polling);
+												pstmt_tDBOutput_5.setString(8, insertProcess.Intervalle_de_polling);
 											}
 
-											if (insertprocess.Objet == null) {
-												pstmt_tDBOutput_10.setNull(9, java.sql.Types.VARCHAR);
+											if (insertProcess.Objet == null) {
+												pstmt_tDBOutput_5.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(9, insertprocess.Objet);
+												pstmt_tDBOutput_5.setString(9, insertProcess.Objet);
 											}
 
-											if (insertprocess.Nom_Template == null) {
-												pstmt_tDBOutput_10.setNull(10, java.sql.Types.VARCHAR);
+											if (insertProcess.Nom_Template == null) {
+												pstmt_tDBOutput_5.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(10, insertprocess.Nom_Template);
+												pstmt_tDBOutput_5.setString(10, insertProcess.Nom_Template);
 											}
 
-											if (insertprocess.Monitored_By == null) {
-												pstmt_tDBOutput_10.setNull(11, java.sql.Types.VARCHAR);
+											if (insertProcess.Monitored_By == null) {
+												pstmt_tDBOutput_5.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_10.setString(11, insertprocess.Monitored_By);
+												pstmt_tDBOutput_5.setString(11, insertProcess.Monitored_By);
+											}
+
+											if (insertProcess.Support == null) {
+												pstmt_tDBOutput_5.setNull(12, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_5.setString(12, insertProcess.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_10++;
-												int processedCount_tDBOutput_10 = pstmt_tDBOutput_10.executeUpdate();
-												insertedCount_tDBOutput_10 += processedCount_tDBOutput_10;
-												rowsToCommitCount_tDBOutput_10 += processedCount_tDBOutput_10;
+												nb_line_tDBOutput_5++;
+												int processedCount_tDBOutput_5 = pstmt_tDBOutput_5.executeUpdate();
+												insertedCount_tDBOutput_5 += processedCount_tDBOutput_5;
+												rowsToCommitCount_tDBOutput_5 += processedCount_tDBOutput_5;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_10_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_10 = true;
+												globalMap.put("tDBOutput_5_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_5 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_10++;
+											commitCounter_tDBOutput_5++;
 
-											if (commitEvery_tDBOutput_10 <= commitCounter_tDBOutput_10) {
+											if (commitEvery_tDBOutput_5 <= commitCounter_tDBOutput_5) {
 
-												if (rowsToCommitCount_tDBOutput_10 != 0) {
+												if (rowsToCommitCount_tDBOutput_5 != 0) {
 												}
-												conn_tDBOutput_10.commit();
-												if (rowsToCommitCount_tDBOutput_10 != 0) {
-													rowsToCommitCount_tDBOutput_10 = 0;
+												conn_tDBOutput_5.commit();
+												if (rowsToCommitCount_tDBOutput_5 != 0) {
+													rowsToCommitCount_tDBOutput_5 = 0;
 												}
-												commitCounter_tDBOutput_10 = 0;
+												commitCounter_tDBOutput_5 = 0;
 
 											}
 
-											tos_count_tDBOutput_10++;
+											tos_count_tDBOutput_5++;
 
 											/**
-											 * [tDBOutput_10 main ] stop
+											 * [tDBOutput_5 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_10 process_data_begin ] start
+											 * [tDBOutput_5 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_10";
+											currentComponent = "tDBOutput_5";
 
 											/**
-											 * [tDBOutput_10 process_data_begin ] stop
+											 * [tDBOutput_5 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_10 process_data_end ] start
+											 * [tDBOutput_5 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_10";
+											currentComponent = "tDBOutput_5";
 
 											/**
-											 * [tDBOutput_10 process_data_end ] stop
+											 * [tDBOutput_5 process_data_end ] stop
 											 */
 
-										} // End of branch "insertprocess"
+										} // End of branch "insertProcess"
 
 										/**
 										 * [tMap_3 process_data_end ] start
@@ -8647,52 +8850,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_10 end ] start
+					 * [tDBOutput_5 end ] start
 					 */
 
-					currentComponent = "tDBOutput_10";
+					currentComponent = "tDBOutput_5";
 
-					if (pstmt_tDBOutput_10 != null) {
+					if (pstmt_tDBOutput_5 != null) {
 
-						pstmt_tDBOutput_10.close();
-						resourceMap.remove("pstmt_tDBOutput_10");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_10", true);
-					if (commitCounter_tDBOutput_10 > 0 && rowsToCommitCount_tDBOutput_10 != 0) {
+						pstmt_tDBOutput_5.close();
+						resourceMap.remove("pstmt_tDBOutput_5");
 
 					}
-					conn_tDBOutput_10.commit();
-					if (commitCounter_tDBOutput_10 > 0 && rowsToCommitCount_tDBOutput_10 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_5", true);
+					if (commitCounter_tDBOutput_5 > 0 && rowsToCommitCount_tDBOutput_5 != 0) {
 
-						rowsToCommitCount_tDBOutput_10 = 0;
 					}
-					commitCounter_tDBOutput_10 = 0;
+					conn_tDBOutput_5.commit();
+					if (commitCounter_tDBOutput_5 > 0 && rowsToCommitCount_tDBOutput_5 != 0) {
 
-					conn_tDBOutput_10.close();
+						rowsToCommitCount_tDBOutput_5 = 0;
+					}
+					commitCounter_tDBOutput_5 = 0;
 
-					resourceMap.put("finish_tDBOutput_10", true);
+					conn_tDBOutput_5.close();
 
-					nb_line_deleted_tDBOutput_10 = nb_line_deleted_tDBOutput_10 + deletedCount_tDBOutput_10;
-					nb_line_update_tDBOutput_10 = nb_line_update_tDBOutput_10 + updatedCount_tDBOutput_10;
-					nb_line_inserted_tDBOutput_10 = nb_line_inserted_tDBOutput_10 + insertedCount_tDBOutput_10;
-					nb_line_rejected_tDBOutput_10 = nb_line_rejected_tDBOutput_10 + rejectedCount_tDBOutput_10;
+					resourceMap.put("finish_tDBOutput_5", true);
 
-					globalMap.put("tDBOutput_10_NB_LINE", nb_line_tDBOutput_10);
-					globalMap.put("tDBOutput_10_NB_LINE_UPDATED", nb_line_update_tDBOutput_10);
-					globalMap.put("tDBOutput_10_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_10);
-					globalMap.put("tDBOutput_10_NB_LINE_DELETED", nb_line_deleted_tDBOutput_10);
-					globalMap.put("tDBOutput_10_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_10);
+					nb_line_deleted_tDBOutput_5 = nb_line_deleted_tDBOutput_5 + deletedCount_tDBOutput_5;
+					nb_line_update_tDBOutput_5 = nb_line_update_tDBOutput_5 + updatedCount_tDBOutput_5;
+					nb_line_inserted_tDBOutput_5 = nb_line_inserted_tDBOutput_5 + insertedCount_tDBOutput_5;
+					nb_line_rejected_tDBOutput_5 = nb_line_rejected_tDBOutput_5 + rejectedCount_tDBOutput_5;
+
+					globalMap.put("tDBOutput_5_NB_LINE", nb_line_tDBOutput_5);
+					globalMap.put("tDBOutput_5_NB_LINE_UPDATED", nb_line_update_tDBOutput_5);
+					globalMap.put("tDBOutput_5_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_5);
+					globalMap.put("tDBOutput_5_NB_LINE_DELETED", nb_line_deleted_tDBOutput_5);
+					globalMap.put("tDBOutput_5_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_5);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertprocess");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertProcess");
 					}
 
-					ok_Hash.put("tDBOutput_10", true);
-					end_Hash.put("tDBOutput_10", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_5", true);
+					end_Hash.put("tDBOutput_5", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_10 end ] stop
+					 * [tDBOutput_5 end ] stop
 					 */
 
 					if (execStat) {
@@ -8702,11 +8905,11 @@ public class monitoring implements TalendJob {
 					NB_ITERATE_tFileInputExcel_18++;
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row21", 3, 0);
+						runStat.updateStatOnConnection("row3", 3, 0);
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("insertrequetes", 3, 0);
+						runStat.updateStatOnConnection("row21", 3, 0);
 					}
 
 					if (execStat) {
@@ -8714,7 +8917,7 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row3", 3, 0);
+						runStat.updateStatOnConnection("insertrequetesql", 3, 0);
 					}
 
 					if (execStat) {
@@ -8723,89 +8926,89 @@ public class monitoring implements TalendJob {
 					}
 
 					/**
-					 * [tDBOutput_15 begin ] start
+					 * [tDBOutput_32 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_15", false);
-					start_Hash.put("tDBOutput_15", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_32", false);
+					start_Hash.put("tDBOutput_32", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_15";
+					currentComponent = "tDBOutput_32";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertrequetes");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertrequetesql");
 					}
 
-					int tos_count_tDBOutput_15 = 0;
+					int tos_count_tDBOutput_32 = 0;
 
-					int nb_line_tDBOutput_15 = 0;
-					int nb_line_update_tDBOutput_15 = 0;
-					int nb_line_inserted_tDBOutput_15 = 0;
-					int nb_line_deleted_tDBOutput_15 = 0;
-					int nb_line_rejected_tDBOutput_15 = 0;
+					int nb_line_tDBOutput_32 = 0;
+					int nb_line_update_tDBOutput_32 = 0;
+					int nb_line_inserted_tDBOutput_32 = 0;
+					int nb_line_deleted_tDBOutput_32 = 0;
+					int nb_line_rejected_tDBOutput_32 = 0;
 
-					int deletedCount_tDBOutput_15 = 0;
-					int updatedCount_tDBOutput_15 = 0;
-					int insertedCount_tDBOutput_15 = 0;
-					int rowsToCommitCount_tDBOutput_15 = 0;
-					int rejectedCount_tDBOutput_15 = 0;
+					int deletedCount_tDBOutput_32 = 0;
+					int updatedCount_tDBOutput_32 = 0;
+					int insertedCount_tDBOutput_32 = 0;
+					int rowsToCommitCount_tDBOutput_32 = 0;
+					int rejectedCount_tDBOutput_32 = 0;
 
-					String tableName_tDBOutput_15 = "requetessql";
-					boolean whetherReject_tDBOutput_15 = false;
+					String tableName_tDBOutput_32 = "requetessql";
+					boolean whetherReject_tDBOutput_32 = false;
 
-					java.util.Calendar calendar_tDBOutput_15 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_15.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_15 = calendar_tDBOutput_15.getTime().getTime();
-					calendar_tDBOutput_15.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_15 = calendar_tDBOutput_15.getTime().getTime();
-					long date_tDBOutput_15;
+					java.util.Calendar calendar_tDBOutput_32 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_32.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_32 = calendar_tDBOutput_32.getTime().getTime();
+					calendar_tDBOutput_32.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_32 = calendar_tDBOutput_32.getTime().getTime();
+					long date_tDBOutput_32;
 
-					java.sql.Connection conn_tDBOutput_15 = null;
+					java.sql.Connection conn_tDBOutput_32 = null;
 
-					String properties_tDBOutput_15 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_15 == null || properties_tDBOutput_15.trim().length() == 0) {
-						properties_tDBOutput_15 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_32 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_32 == null || properties_tDBOutput_32.trim().length() == 0) {
+						properties_tDBOutput_32 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_15.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_15 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_32.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_32 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_15.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_15 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_32.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_32 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_15 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_15;
+					String url_tDBOutput_32 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_32;
 
-					String driverClass_tDBOutput_15 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_32 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_15 = "root";
+					String dbUser_tDBOutput_32 = "root";
 
-					final String decryptedPassword_tDBOutput_15 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:NJWm10N5IaUdZUsgCvXYvXBnRT9JUJfxf4oGLw==");
+					final String decryptedPassword_tDBOutput_32 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:dJbMDzAvqItzH4BUx4kqrf63WWxShn81BM5yxA==");
 
-					String dbPwd_tDBOutput_15 = decryptedPassword_tDBOutput_15;
-					java.lang.Class.forName(driverClass_tDBOutput_15);
+					String dbPwd_tDBOutput_32 = decryptedPassword_tDBOutput_32;
+					java.lang.Class.forName(driverClass_tDBOutput_32);
 
-					conn_tDBOutput_15 = java.sql.DriverManager.getConnection(url_tDBOutput_15, dbUser_tDBOutput_15,
-							dbPwd_tDBOutput_15);
+					conn_tDBOutput_32 = java.sql.DriverManager.getConnection(url_tDBOutput_32, dbUser_tDBOutput_32,
+							dbPwd_tDBOutput_32);
 
-					resourceMap.put("conn_tDBOutput_15", conn_tDBOutput_15);
-					conn_tDBOutput_15.setAutoCommit(false);
-					int commitEvery_tDBOutput_15 = 10000;
-					int commitCounter_tDBOutput_15 = 0;
+					resourceMap.put("conn_tDBOutput_32", conn_tDBOutput_32);
+					conn_tDBOutput_32.setAutoCommit(false);
+					int commitEvery_tDBOutput_32 = 10000;
+					int commitCounter_tDBOutput_32 = 0;
 
-					int count_tDBOutput_15 = 0;
+					int count_tDBOutput_32 = 0;
 
-					String insert_tDBOutput_15 = "INSERT IGNORE INTO `" + "requetessql"
-							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG/SG_si_Cluster`,`Requete_SQL`,`UserName/DB_Name`,`Resultat_Attendu_de_la_requete`,`Perform_action`,`Criticite`,`Message_alarme`,`Instructions`,`Intervalle_de_polling`,`Ref_Service`,`Objet`,`Monitored_By`,`Nom_Template`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_32 = "INSERT IGNORE INTO `" + "requetessql"
+							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG__SG_si_Cluster`,`Requete_SQL`,`UserName__DB_Name`,`Resultat_Attendu_de_la_requete`,`Perform_action`,`Criticite`,`Message_alarme`,`Instructions`,`Intervalle_de_polling`,`Ref_Service`,`Objet`,`Monitored_By`,`Nom_Template`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_15 = conn_tDBOutput_15
-							.prepareStatement(insert_tDBOutput_15);
-					resourceMap.put("pstmt_tDBOutput_15", pstmt_tDBOutput_15);
+					java.sql.PreparedStatement pstmt_tDBOutput_32 = conn_tDBOutput_32
+							.prepareStatement(insert_tDBOutput_32);
+					resourceMap.put("pstmt_tDBOutput_32", pstmt_tDBOutput_32);
 
 					/**
-					 * [tDBOutput_15 begin ] stop
+					 * [tDBOutput_32 begin ] stop
 					 */
 
 					/**
@@ -8836,7 +9039,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					insertrequetesStruct insertrequetes_tmp = new insertrequetesStruct();
+					insertrequetesqlStruct insertrequetesql_tmp = new insertrequetesqlStruct();
 // ###############################
 
 					/**
@@ -8937,7 +9140,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_18 = 0;
 
 					final String decryptedPassword_tFileInputExcel_18 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:FdLUIkwGVLS9+nVjMJ9XWNDM8Q2HLV+fkZCjfQ==");
+							.decryptPassword("enc:routine.encryption.key.v1:fOh2/VCjbwMME8LC5hNuJbBH7YOG49+ROpiNFQ==");
 					String password_tFileInputExcel_18 = decryptedPassword_tFileInputExcel_18;
 					if (password_tFileInputExcel_18.isEmpty()) {
 						password_tFileInputExcel_18 = null;
@@ -9486,12 +9689,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row12.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_RequetesSql_" + rowRef;
+										String id = "EBD_" + fileWord + "_RequetesSql_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row21.N__Ref = id;
 										row21.Ref = row12.Ref;
@@ -9510,7 +9714,7 @@ public class monitoring implements TalendJob {
 										row21.Objet = row12.Objet;
 										row21.Monitored_By = row12.Monitored_By;
 										row21.Nom_Template = row12.Nom_Template;
-
+										row21.Support = Support;
 										nb_line_tJavaRow_4++;
 
 										tos_count_tJavaRow_4++;
@@ -9560,27 +9764,28 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											insertrequetes = null;
+											insertrequetesql = null;
 
-// # Output table : 'insertrequetes'
-											insertrequetes_tmp.id = row21.N__Ref;
-											insertrequetes_tmp.Ref = row21.Ref;
-											insertrequetes_tmp.Etat = row21.Etat;
-											insertrequetes_tmp.Ref_composant = row21.Ref__des_composants;
-											insertrequetes_tmp.RG_SG_si_Cluster = row21.RG_SG_si_Cluster;
-											insertrequetes_tmp.Requete_SQL = row21.Requete_SQL;
-											insertrequetes_tmp.UserName_DB_Name = row21.UserName_DB_Name;
-											insertrequetes_tmp.Resultat_Attendu_de_la_requete = row21.Resultat_Attendu_de_la_requete;
-											insertrequetes_tmp.Perform_action = row21.Perform_action;
-											insertrequetes_tmp.Criticite = row21.Criticite;
-											insertrequetes_tmp.Message_alarme = row21.Message_d_alarme;
-											insertrequetes_tmp.Instructions = row21.Instructions;
-											insertrequetes_tmp.Intervalle_de_polling = row21.Intervalle_de_polling;
-											insertrequetes_tmp.Ref_Service = row21.Ref__Service;
-											insertrequetes_tmp.Objet = row21.Objet;
-											insertrequetes_tmp.Monitored_By = row21.Monitored_By;
-											insertrequetes_tmp.Nom_Template = row21.Nom_Template;
-											insertrequetes = insertrequetes_tmp;
+// # Output table : 'insertrequetesql'
+											insertrequetesql_tmp.id = row21.N__Ref;
+											insertrequetesql_tmp.Ref = row21.Ref;
+											insertrequetesql_tmp.Etat = row21.Etat;
+											insertrequetesql_tmp.Ref_composant = row21.Ref__des_composants;
+											insertrequetesql_tmp.RG__SG_si_Cluster = row21.RG_SG_si_Cluster;
+											insertrequetesql_tmp.Requete_SQL = row21.Requete_SQL;
+											insertrequetesql_tmp.UserName__DB_Name = row21.UserName_DB_Name;
+											insertrequetesql_tmp.Resultat_Attendu_de_la_requete = row21.Resultat_Attendu_de_la_requete;
+											insertrequetesql_tmp.Perform_action = row21.Perform_action;
+											insertrequetesql_tmp.Criticite = row21.Criticite;
+											insertrequetesql_tmp.Message_alarme = row21.Message_d_alarme;
+											insertrequetesql_tmp.Instructions = row21.Instructions;
+											insertrequetesql_tmp.Intervalle_de_polling = row21.Intervalle_de_polling;
+											insertrequetesql_tmp.Ref_Service = row21.Ref__Service;
+											insertrequetesql_tmp.Objet = row21.Objet;
+											insertrequetesql_tmp.Monitored_By = row21.Monitored_By;
+											insertrequetesql_tmp.Nom_Template = row21.Nom_Template;
+											insertrequetesql_tmp.Support = row21.Support;
+											insertrequetesql = insertrequetesql_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -9602,178 +9807,185 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_4 process_data_begin ] stop
 										 */
-// Start of branch "insertrequetes"
-										if (insertrequetes != null) {
+// Start of branch "insertrequetesql"
+										if (insertrequetesql != null) {
 
 											/**
-											 * [tDBOutput_15 main ] start
+											 * [tDBOutput_32 main ] start
 											 */
 
-											currentComponent = "tDBOutput_15";
+											currentComponent = "tDBOutput_32";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "insertrequetes"
+														, "insertrequetesql"
 
 												);
 											}
 
-											whetherReject_tDBOutput_15 = false;
-											if (insertrequetes.id == null) {
-												pstmt_tDBOutput_15.setNull(1, java.sql.Types.VARCHAR);
+											whetherReject_tDBOutput_32 = false;
+											if (insertrequetesql.id == null) {
+												pstmt_tDBOutput_32.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(1, insertrequetes.id);
+												pstmt_tDBOutput_32.setString(1, insertrequetesql.id);
 											}
 
-											if (insertrequetes.Ref == null) {
-												pstmt_tDBOutput_15.setNull(2, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Ref == null) {
+												pstmt_tDBOutput_32.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(2, insertrequetes.Ref);
+												pstmt_tDBOutput_32.setString(2, insertrequetesql.Ref);
 											}
 
-											if (insertrequetes.Etat == null) {
-												pstmt_tDBOutput_15.setNull(3, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Etat == null) {
+												pstmt_tDBOutput_32.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(3, insertrequetes.Etat);
+												pstmt_tDBOutput_32.setString(3, insertrequetesql.Etat);
 											}
 
-											if (insertrequetes.Ref_composant == null) {
-												pstmt_tDBOutput_15.setNull(4, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Ref_composant == null) {
+												pstmt_tDBOutput_32.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(4, insertrequetes.Ref_composant);
+												pstmt_tDBOutput_32.setString(4, insertrequetesql.Ref_composant);
 											}
 
-											if (insertrequetes.RG_SG_si_Cluster == null) {
-												pstmt_tDBOutput_15.setNull(5, java.sql.Types.VARCHAR);
+											if (insertrequetesql.RG__SG_si_Cluster == null) {
+												pstmt_tDBOutput_32.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(5, insertrequetes.RG_SG_si_Cluster);
+												pstmt_tDBOutput_32.setString(5, insertrequetesql.RG__SG_si_Cluster);
 											}
 
-											if (insertrequetes.Requete_SQL == null) {
-												pstmt_tDBOutput_15.setNull(6, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Requete_SQL == null) {
+												pstmt_tDBOutput_32.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(6, insertrequetes.Requete_SQL);
+												pstmt_tDBOutput_32.setString(6, insertrequetesql.Requete_SQL);
 											}
 
-											if (insertrequetes.UserName_DB_Name == null) {
-												pstmt_tDBOutput_15.setNull(7, java.sql.Types.VARCHAR);
+											if (insertrequetesql.UserName__DB_Name == null) {
+												pstmt_tDBOutput_32.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(7, insertrequetes.UserName_DB_Name);
+												pstmt_tDBOutput_32.setString(7, insertrequetesql.UserName__DB_Name);
 											}
 
-											if (insertrequetes.Resultat_Attendu_de_la_requete == null) {
-												pstmt_tDBOutput_15.setNull(8, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Resultat_Attendu_de_la_requete == null) {
+												pstmt_tDBOutput_32.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(8,
-														insertrequetes.Resultat_Attendu_de_la_requete);
+												pstmt_tDBOutput_32.setString(8,
+														insertrequetesql.Resultat_Attendu_de_la_requete);
 											}
 
-											if (insertrequetes.Perform_action == null) {
-												pstmt_tDBOutput_15.setNull(9, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Perform_action == null) {
+												pstmt_tDBOutput_32.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(9, insertrequetes.Perform_action);
+												pstmt_tDBOutput_32.setString(9, insertrequetesql.Perform_action);
 											}
 
-											if (insertrequetes.Criticite == null) {
-												pstmt_tDBOutput_15.setNull(10, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Criticite == null) {
+												pstmt_tDBOutput_32.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(10, insertrequetes.Criticite);
+												pstmt_tDBOutput_32.setString(10, insertrequetesql.Criticite);
 											}
 
-											if (insertrequetes.Message_alarme == null) {
-												pstmt_tDBOutput_15.setNull(11, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Message_alarme == null) {
+												pstmt_tDBOutput_32.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(11, insertrequetes.Message_alarme);
+												pstmt_tDBOutput_32.setString(11, insertrequetesql.Message_alarme);
 											}
 
-											if (insertrequetes.Instructions == null) {
-												pstmt_tDBOutput_15.setNull(12, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Instructions == null) {
+												pstmt_tDBOutput_32.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(12, insertrequetes.Instructions);
+												pstmt_tDBOutput_32.setString(12, insertrequetesql.Instructions);
 											}
 
-											if (insertrequetes.Intervalle_de_polling == null) {
-												pstmt_tDBOutput_15.setNull(13, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Intervalle_de_polling == null) {
+												pstmt_tDBOutput_32.setNull(13, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(13, insertrequetes.Intervalle_de_polling);
+												pstmt_tDBOutput_32.setString(13,
+														insertrequetesql.Intervalle_de_polling);
 											}
 
-											if (insertrequetes.Ref_Service == null) {
-												pstmt_tDBOutput_15.setNull(14, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Ref_Service == null) {
+												pstmt_tDBOutput_32.setNull(14, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(14, insertrequetes.Ref_Service);
+												pstmt_tDBOutput_32.setString(14, insertrequetesql.Ref_Service);
 											}
 
-											if (insertrequetes.Objet == null) {
-												pstmt_tDBOutput_15.setNull(15, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Objet == null) {
+												pstmt_tDBOutput_32.setNull(15, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(15, insertrequetes.Objet);
+												pstmt_tDBOutput_32.setString(15, insertrequetesql.Objet);
 											}
 
-											if (insertrequetes.Monitored_By == null) {
-												pstmt_tDBOutput_15.setNull(16, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Monitored_By == null) {
+												pstmt_tDBOutput_32.setNull(16, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(16, insertrequetes.Monitored_By);
+												pstmt_tDBOutput_32.setString(16, insertrequetesql.Monitored_By);
 											}
 
-											if (insertrequetes.Nom_Template == null) {
-												pstmt_tDBOutput_15.setNull(17, java.sql.Types.VARCHAR);
+											if (insertrequetesql.Nom_Template == null) {
+												pstmt_tDBOutput_32.setNull(17, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_15.setString(17, insertrequetes.Nom_Template);
+												pstmt_tDBOutput_32.setString(17, insertrequetesql.Nom_Template);
+											}
+
+											if (insertrequetesql.Support == null) {
+												pstmt_tDBOutput_32.setNull(18, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_32.setString(18, insertrequetesql.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_15++;
-												int processedCount_tDBOutput_15 = pstmt_tDBOutput_15.executeUpdate();
-												insertedCount_tDBOutput_15 += processedCount_tDBOutput_15;
-												rowsToCommitCount_tDBOutput_15 += processedCount_tDBOutput_15;
+												nb_line_tDBOutput_32++;
+												int processedCount_tDBOutput_32 = pstmt_tDBOutput_32.executeUpdate();
+												insertedCount_tDBOutput_32 += processedCount_tDBOutput_32;
+												rowsToCommitCount_tDBOutput_32 += processedCount_tDBOutput_32;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_15_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_15 = true;
+												globalMap.put("tDBOutput_32_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_32 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_15++;
+											commitCounter_tDBOutput_32++;
 
-											if (commitEvery_tDBOutput_15 <= commitCounter_tDBOutput_15) {
+											if (commitEvery_tDBOutput_32 <= commitCounter_tDBOutput_32) {
 
-												if (rowsToCommitCount_tDBOutput_15 != 0) {
+												if (rowsToCommitCount_tDBOutput_32 != 0) {
 												}
-												conn_tDBOutput_15.commit();
-												if (rowsToCommitCount_tDBOutput_15 != 0) {
-													rowsToCommitCount_tDBOutput_15 = 0;
+												conn_tDBOutput_32.commit();
+												if (rowsToCommitCount_tDBOutput_32 != 0) {
+													rowsToCommitCount_tDBOutput_32 = 0;
 												}
-												commitCounter_tDBOutput_15 = 0;
+												commitCounter_tDBOutput_32 = 0;
 
 											}
 
-											tos_count_tDBOutput_15++;
+											tos_count_tDBOutput_32++;
 
 											/**
-											 * [tDBOutput_15 main ] stop
+											 * [tDBOutput_32 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_15 process_data_begin ] start
+											 * [tDBOutput_32 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_15";
+											currentComponent = "tDBOutput_32";
 
 											/**
-											 * [tDBOutput_15 process_data_begin ] stop
+											 * [tDBOutput_32 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_15 process_data_end ] start
+											 * [tDBOutput_32 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_15";
+											currentComponent = "tDBOutput_32";
 
 											/**
-											 * [tDBOutput_15 process_data_end ] stop
+											 * [tDBOutput_32 process_data_end ] stop
 											 */
 
-										} // End of branch "insertrequetes"
+										} // End of branch "insertrequetesql"
 
 										/**
 										 * [tMap_4 process_data_end ] start
@@ -9907,52 +10119,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_15 end ] start
+					 * [tDBOutput_32 end ] start
 					 */
 
-					currentComponent = "tDBOutput_15";
+					currentComponent = "tDBOutput_32";
 
-					if (pstmt_tDBOutput_15 != null) {
+					if (pstmt_tDBOutput_32 != null) {
 
-						pstmt_tDBOutput_15.close();
-						resourceMap.remove("pstmt_tDBOutput_15");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_15", true);
-					if (commitCounter_tDBOutput_15 > 0 && rowsToCommitCount_tDBOutput_15 != 0) {
+						pstmt_tDBOutput_32.close();
+						resourceMap.remove("pstmt_tDBOutput_32");
 
 					}
-					conn_tDBOutput_15.commit();
-					if (commitCounter_tDBOutput_15 > 0 && rowsToCommitCount_tDBOutput_15 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_32", true);
+					if (commitCounter_tDBOutput_32 > 0 && rowsToCommitCount_tDBOutput_32 != 0) {
 
-						rowsToCommitCount_tDBOutput_15 = 0;
 					}
-					commitCounter_tDBOutput_15 = 0;
+					conn_tDBOutput_32.commit();
+					if (commitCounter_tDBOutput_32 > 0 && rowsToCommitCount_tDBOutput_32 != 0) {
 
-					conn_tDBOutput_15.close();
+						rowsToCommitCount_tDBOutput_32 = 0;
+					}
+					commitCounter_tDBOutput_32 = 0;
 
-					resourceMap.put("finish_tDBOutput_15", true);
+					conn_tDBOutput_32.close();
 
-					nb_line_deleted_tDBOutput_15 = nb_line_deleted_tDBOutput_15 + deletedCount_tDBOutput_15;
-					nb_line_update_tDBOutput_15 = nb_line_update_tDBOutput_15 + updatedCount_tDBOutput_15;
-					nb_line_inserted_tDBOutput_15 = nb_line_inserted_tDBOutput_15 + insertedCount_tDBOutput_15;
-					nb_line_rejected_tDBOutput_15 = nb_line_rejected_tDBOutput_15 + rejectedCount_tDBOutput_15;
+					resourceMap.put("finish_tDBOutput_32", true);
 
-					globalMap.put("tDBOutput_15_NB_LINE", nb_line_tDBOutput_15);
-					globalMap.put("tDBOutput_15_NB_LINE_UPDATED", nb_line_update_tDBOutput_15);
-					globalMap.put("tDBOutput_15_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_15);
-					globalMap.put("tDBOutput_15_NB_LINE_DELETED", nb_line_deleted_tDBOutput_15);
-					globalMap.put("tDBOutput_15_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_15);
+					nb_line_deleted_tDBOutput_32 = nb_line_deleted_tDBOutput_32 + deletedCount_tDBOutput_32;
+					nb_line_update_tDBOutput_32 = nb_line_update_tDBOutput_32 + updatedCount_tDBOutput_32;
+					nb_line_inserted_tDBOutput_32 = nb_line_inserted_tDBOutput_32 + insertedCount_tDBOutput_32;
+					nb_line_rejected_tDBOutput_32 = nb_line_rejected_tDBOutput_32 + rejectedCount_tDBOutput_32;
+
+					globalMap.put("tDBOutput_32_NB_LINE", nb_line_tDBOutput_32);
+					globalMap.put("tDBOutput_32_NB_LINE_UPDATED", nb_line_update_tDBOutput_32);
+					globalMap.put("tDBOutput_32_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_32);
+					globalMap.put("tDBOutput_32_NB_LINE_DELETED", nb_line_deleted_tDBOutput_32);
+					globalMap.put("tDBOutput_32_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_32);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertrequetes");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertrequetesql");
 					}
 
-					ok_Hash.put("tDBOutput_15", true);
-					end_Hash.put("tDBOutput_15", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_32", true);
+					end_Hash.put("tDBOutput_32", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_15 end ] stop
+					 * [tDBOutput_32 end ] stop
 					 */
 
 					if (execStat) {
@@ -10149,36 +10361,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_10 finally ] start
+				 * [tDBOutput_5 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_10";
+				currentComponent = "tDBOutput_5";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_10") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_10 = null;
-						if ((pstmtToClose_tDBOutput_10 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_10")) != null) {
-							pstmtToClose_tDBOutput_10.close();
+					if (resourceMap.get("statementClosed_tDBOutput_5") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_5 = null;
+						if ((pstmtToClose_tDBOutput_5 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_5")) != null) {
+							pstmtToClose_tDBOutput_5.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_10") == null) {
-						java.sql.Connection ctn_tDBOutput_10 = null;
-						if ((ctn_tDBOutput_10 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_10")) != null) {
+					if (resourceMap.get("finish_tDBOutput_5") == null) {
+						java.sql.Connection ctn_tDBOutput_5 = null;
+						if ((ctn_tDBOutput_5 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_5")) != null) {
 							try {
-								ctn_tDBOutput_10.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_10) {
-								String errorMessage_tDBOutput_10 = "failed to close the connection in tDBOutput_10 :"
-										+ sqlEx_tDBOutput_10.getMessage();
-								System.err.println(errorMessage_tDBOutput_10);
+								ctn_tDBOutput_5.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_5) {
+								String errorMessage_tDBOutput_5 = "failed to close the connection in tDBOutput_5 :"
+										+ sqlEx_tDBOutput_5.getMessage();
+								System.err.println(errorMessage_tDBOutput_5);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_10 finally ] stop
+				 * [tDBOutput_5 finally ] stop
 				 */
 
 				/**
@@ -10222,36 +10434,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_15 finally ] start
+				 * [tDBOutput_32 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_15";
+				currentComponent = "tDBOutput_32";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_15") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_15 = null;
-						if ((pstmtToClose_tDBOutput_15 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_15")) != null) {
-							pstmtToClose_tDBOutput_15.close();
+					if (resourceMap.get("statementClosed_tDBOutput_32") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_32 = null;
+						if ((pstmtToClose_tDBOutput_32 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_32")) != null) {
+							pstmtToClose_tDBOutput_32.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_15") == null) {
-						java.sql.Connection ctn_tDBOutput_15 = null;
-						if ((ctn_tDBOutput_15 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_15")) != null) {
+					if (resourceMap.get("finish_tDBOutput_32") == null) {
+						java.sql.Connection ctn_tDBOutput_32 = null;
+						if ((ctn_tDBOutput_32 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_32")) != null) {
 							try {
-								ctn_tDBOutput_15.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_15) {
-								String errorMessage_tDBOutput_15 = "failed to close the connection in tDBOutput_15 :"
-										+ sqlEx_tDBOutput_15.getMessage();
-								System.err.println(errorMessage_tDBOutput_15);
+								ctn_tDBOutput_32.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_32) {
+								String errorMessage_tDBOutput_32 = "failed to close the connection in tDBOutput_32 :"
+										+ sqlEx_tDBOutput_32.getMessage();
+								System.err.println(errorMessage_tDBOutput_32);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_15 finally ] stop
+				 * [tDBOutput_32 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -10299,10 +10511,10 @@ public class monitoring implements TalendJob {
 			return this.Ref_composant;
 		}
 
-		public String RG_SG_si_Cluster;
+		public String RG__SG_si_Cluster;
 
-		public String getRG_SG_si_Cluster() {
-			return this.RG_SG_si_Cluster;
+		public String getRG__SG_si_Cluster() {
+			return this.RG__SG_si_Cluster;
 		}
 
 		public String Logfile;
@@ -10371,6 +10583,12 @@ public class monitoring implements TalendJob {
 			return this.Log_Conditions;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		@Override
 		public int hashCode() {
 			if (this.hashCodeDirty) {
@@ -10412,7 +10630,7 @@ public class monitoring implements TalendJob {
 			other.Ref = this.Ref;
 			other.Etat = this.Etat;
 			other.Ref_composant = this.Ref_composant;
-			other.RG_SG_si_Cluster = this.RG_SG_si_Cluster;
+			other.RG__SG_si_Cluster = this.RG__SG_si_Cluster;
 			other.Logfile = this.Logfile;
 			other.Localisation = this.Localisation;
 			other.Description = this.Description;
@@ -10424,6 +10642,7 @@ public class monitoring implements TalendJob {
 			other.Ref_Service = this.Ref_Service;
 			other.Nom_Template = this.Nom_Template;
 			other.Log_Conditions = this.Log_Conditions;
+			other.Support = this.Support;
 
 		}
 
@@ -10509,7 +10728,7 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.Logfile = readString(dis);
 
@@ -10532,6 +10751,8 @@ public class monitoring implements TalendJob {
 					this.Nom_Template = readString(dis);
 
 					this.Log_Conditions = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -10558,7 +10779,7 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.Logfile = readString(dis);
 
@@ -10581,6 +10802,8 @@ public class monitoring implements TalendJob {
 					this.Nom_Template = readString(dis);
 
 					this.Log_Conditions = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -10612,7 +10835,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -10657,6 +10880,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Log_Conditions, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -10685,7 +10912,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -10731,6 +10958,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Log_Conditions, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -10746,7 +10977,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Ref=" + Ref);
 			sb.append(",Etat=" + Etat);
 			sb.append(",Ref_composant=" + Ref_composant);
-			sb.append(",RG_SG_si_Cluster=" + RG_SG_si_Cluster);
+			sb.append(",RG__SG_si_Cluster=" + RG__SG_si_Cluster);
 			sb.append(",Logfile=" + Logfile);
 			sb.append(",Localisation=" + Localisation);
 			sb.append(",Description=" + Description);
@@ -10758,6 +10989,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Ref_Service=" + Ref_Service);
 			sb.append(",Nom_Template=" + Nom_Template);
 			sb.append(",Log_Conditions=" + Log_Conditions);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -10901,6 +11133,12 @@ public class monitoring implements TalendJob {
 			return this.Log_Conditions;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -11001,6 +11239,8 @@ public class monitoring implements TalendJob {
 
 					this.Log_Conditions = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -11049,6 +11289,8 @@ public class monitoring implements TalendJob {
 					this.Nom_Template = readString(dis);
 
 					this.Log_Conditions = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -11126,6 +11368,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Log_Conditions, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -11199,6 +11445,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Log_Conditions, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -11226,6 +11476,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Ref__Service=" + Ref__Service);
 			sb.append(",Nom_Template=" + Nom_Template);
 			sb.append(",Log_Conditions=" + Log_Conditions);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -12224,10 +12475,10 @@ public class monitoring implements TalendJob {
 			return this.Ref_composant;
 		}
 
-		public String RG_SG_si_Cluster;
+		public String RG__SG_si_Cluster;
 
-		public String getRG_SG_si_Cluster() {
-			return this.RG_SG_si_Cluster;
+		public String getRG__SG_si_Cluster() {
+			return this.RG__SG_si_Cluster;
 		}
 
 		public String script;
@@ -12242,10 +12493,10 @@ public class monitoring implements TalendJob {
 			return this.Code_erreur;
 		}
 
-		public String Cricite;
+		public String Criticite;
 
-		public String getCricite() {
-			return this.Cricite;
+		public String getCriticite() {
+			return this.Criticite;
 		}
 
 		public String Description;
@@ -12270,6 +12521,12 @@ public class monitoring implements TalendJob {
 
 		public String getRef_Service() {
 			return this.Ref_Service;
+		}
+
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
 		}
 
 		@Override
@@ -12313,14 +12570,15 @@ public class monitoring implements TalendJob {
 			other.Ref = this.Ref;
 			other.Etat = this.Etat;
 			other.Ref_composant = this.Ref_composant;
-			other.RG_SG_si_Cluster = this.RG_SG_si_Cluster;
+			other.RG__SG_si_Cluster = this.RG__SG_si_Cluster;
 			other.script = this.script;
 			other.Code_erreur = this.Code_erreur;
-			other.Cricite = this.Cricite;
+			other.Criticite = this.Criticite;
 			other.Description = this.Description;
 			other.Instructions = this.Instructions;
 			other.Monitored_By = this.Monitored_By;
 			other.Ref_Service = this.Ref_Service;
+			other.Support = this.Support;
 
 		}
 
@@ -12406,13 +12664,13 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.script = readString(dis);
 
 					this.Code_erreur = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Description = readString(dis);
 
@@ -12421,6 +12679,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Ref_Service = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -12447,13 +12707,13 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.script = readString(dis);
 
 					this.Code_erreur = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Description = readString(dis);
 
@@ -12462,6 +12722,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Ref_Service = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -12493,7 +12755,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -12505,7 +12767,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -12522,6 +12784,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Ref_Service, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -12550,7 +12816,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -12562,7 +12828,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -12580,6 +12846,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Ref_Service, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -12595,14 +12865,15 @@ public class monitoring implements TalendJob {
 			sb.append(",Ref=" + Ref);
 			sb.append(",Etat=" + Etat);
 			sb.append(",Ref_composant=" + Ref_composant);
-			sb.append(",RG_SG_si_Cluster=" + RG_SG_si_Cluster);
+			sb.append(",RG__SG_si_Cluster=" + RG__SG_si_Cluster);
 			sb.append(",script=" + script);
 			sb.append(",Code_erreur=" + Code_erreur);
-			sb.append(",Cricite=" + Cricite);
+			sb.append(",Criticite=" + Criticite);
 			sb.append(",Description=" + Description);
 			sb.append(",Instructions=" + Instructions);
 			sb.append(",Monitored_By=" + Monitored_By);
 			sb.append(",Ref_Service=" + Ref_Service);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -12722,6 +12993,12 @@ public class monitoring implements TalendJob {
 			return this.Ref__Service;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -12814,6 +13091,8 @@ public class monitoring implements TalendJob {
 
 					this.Ref__Service = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -12854,6 +13133,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Ref__Service = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -12915,6 +13196,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Ref__Service, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -12972,6 +13257,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Ref__Service, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -12995,6 +13284,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Instructions=" + Instructions);
 			sb.append(",Monitored_By=" + Monitored_By);
 			sb.append(",Ref__Service=" + Ref__Service);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -13807,7 +14097,7 @@ public class monitoring implements TalendJob {
 
 	}
 
-	public static class insrturlsStruct implements routines.system.IPersistableRow<insrturlsStruct> {
+	public static class inserturlStruct implements routines.system.IPersistableRow<inserturlStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -13841,10 +14131,10 @@ public class monitoring implements TalendJob {
 			return this.Ref_composant;
 		}
 
-		public String RG_SG_si_Cluster;
+		public String RG__SG_si_Cluster;
 
-		public String getRG_SG_si_Cluster() {
-			return this.RG_SG_si_Cluster;
+		public String getRG__SG_si_Cluster() {
+			return this.RG__SG_si_Cluster;
 		}
 
 		public String URL;
@@ -13859,10 +14149,10 @@ public class monitoring implements TalendJob {
 			return this.Perform_action;
 		}
 
-		public String Cricite;
+		public String Criticite;
 
-		public String getCricite() {
-			return this.Cricite;
+		public String getCriticite() {
+			return this.Criticite;
 		}
 
 		public String Message_alarme;
@@ -13907,6 +14197,12 @@ public class monitoring implements TalendJob {
 			return this.Nom_Template;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		@Override
 		public int hashCode() {
 			if (this.hashCodeDirty) {
@@ -13929,7 +14225,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final insrturlsStruct other = (insrturlsStruct) obj;
+			final inserturlStruct other = (inserturlStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -13942,16 +14238,16 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(insrturlsStruct other) {
+		public void copyDataTo(inserturlStruct other) {
 
 			other.id = this.id;
 			other.Ref = this.Ref;
 			other.Etat = this.Etat;
 			other.Ref_composant = this.Ref_composant;
-			other.RG_SG_si_Cluster = this.RG_SG_si_Cluster;
+			other.RG__SG_si_Cluster = this.RG__SG_si_Cluster;
 			other.URL = this.URL;
 			other.Perform_action = this.Perform_action;
-			other.Cricite = this.Cricite;
+			other.Criticite = this.Criticite;
 			other.Message_alarme = this.Message_alarme;
 			other.Instructions = this.Instructions;
 			other.Intervalle_de_polling = this.Intervalle_de_polling;
@@ -13959,10 +14255,11 @@ public class monitoring implements TalendJob {
 			other.Objet = this.Objet;
 			other.Monitored_by = this.Monitored_by;
 			other.Nom_Template = this.Nom_Template;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(insrturlsStruct other) {
+		public void copyKeysDataTo(inserturlStruct other) {
 
 			other.id = this.id;
 
@@ -14044,13 +14341,13 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.URL = readString(dis);
 
 					this.Perform_action = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -14065,6 +14362,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_by = readString(dis);
 
 					this.Nom_Template = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -14091,13 +14390,13 @@ public class monitoring implements TalendJob {
 
 					this.Ref_composant = readString(dis);
 
-					this.RG_SG_si_Cluster = readString(dis);
+					this.RG__SG_si_Cluster = readString(dis);
 
 					this.URL = readString(dis);
 
 					this.Perform_action = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -14112,6 +14411,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_by = readString(dis);
 
 					this.Nom_Template = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -14143,7 +14444,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -14155,7 +14456,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -14184,6 +14485,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Nom_Template, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -14212,7 +14517,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.RG_SG_si_Cluster, dos);
+				writeString(this.RG__SG_si_Cluster, dos);
 
 				// String
 
@@ -14224,7 +14529,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -14254,6 +14559,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Nom_Template, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -14269,10 +14578,10 @@ public class monitoring implements TalendJob {
 			sb.append(",Ref=" + Ref);
 			sb.append(",Etat=" + Etat);
 			sb.append(",Ref_composant=" + Ref_composant);
-			sb.append(",RG_SG_si_Cluster=" + RG_SG_si_Cluster);
+			sb.append(",RG__SG_si_Cluster=" + RG__SG_si_Cluster);
 			sb.append(",URL=" + URL);
 			sb.append(",Perform_action=" + Perform_action);
-			sb.append(",Cricite=" + Cricite);
+			sb.append(",Criticite=" + Criticite);
 			sb.append(",Message_alarme=" + Message_alarme);
 			sb.append(",Instructions=" + Instructions);
 			sb.append(",Intervalle_de_polling=" + Intervalle_de_polling);
@@ -14280,6 +14589,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Objet=" + Objet);
 			sb.append(",Monitored_by=" + Monitored_by);
 			sb.append(",Nom_Template=" + Nom_Template);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -14288,7 +14598,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(insrturlsStruct other) {
+		public int compareTo(inserturlStruct other) {
 
 			int returnValue = -1;
 
@@ -14417,6 +14727,12 @@ public class monitoring implements TalendJob {
 			return this.Nom_Template;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -14515,6 +14831,8 @@ public class monitoring implements TalendJob {
 
 					this.Nom_Template = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -14561,6 +14879,8 @@ public class monitoring implements TalendJob {
 					this.Monitored_By = readString(dis);
 
 					this.Nom_Template = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -14634,6 +14954,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Nom_Template, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -14703,6 +15027,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Nom_Template, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -14729,6 +15057,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Objet=" + Objet);
 			sb.append(",Monitored_By=" + Monitored_By);
 			sb.append(",Nom_Template=" + Nom_Template);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -15866,19 +16195,19 @@ public class monitoring implements TalendJob {
 				row6Struct row6 = new row6Struct();
 				row15Struct row15 = new row15Struct();
 				row24Struct row24 = new row24Struct();
-				insrturlsStruct insrturls = new insrturlsStruct();
+				inserturlStruct inserturl = new inserturlStruct();
 
 				/**
 				 * [tFileList_2 begin ] start
 				 */
 
-				int NB_ITERATE_tFileInputExcel_48 = 0; // for statistics
-
-				int NB_ITERATE_tFileInputExcel_6 = 0; // for statistics
-
 				int NB_ITERATE_tFileInputExcel_24 = 0; // for statistics
 
+				int NB_ITERATE_tFileInputExcel_48 = 0; // for statistics
+
 				int NB_ITERATE_tIterateToFlow_2_ITFO = 0; // for statistics
+
+				int NB_ITERATE_tFileInputExcel_6 = 0; // for statistics
 
 				ok_Hash.put("tFileList_2", false);
 				start_Hash.put("tFileList_2", System.currentTimeMillis());
@@ -15984,6 +16313,10 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
+						runStat.updateStatOnConnection("row13", 3, 0);
+					}
+
+					if (execStat) {
 						runStat.updateStatOnConnection("insertlogfiles", 3, 0);
 					}
 
@@ -15992,98 +16325,94 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row13", 3, 0);
-					}
-
-					if (execStat) {
 						runStat.updateStatOnConnection("iterate5", 1, "exec" + NB_ITERATE_tFileInputExcel_6);
 						// Thread.sleep(1000);
 					}
 
 					/**
-					 * [tDBOutput_2 begin ] start
+					 * [tDBOutput_37 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_2", false);
-					start_Hash.put("tDBOutput_2", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_37", false);
+					start_Hash.put("tDBOutput_37", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_2";
+					currentComponent = "tDBOutput_37";
 
 					if (execStat) {
 						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertlogfiles");
 					}
 
-					int tos_count_tDBOutput_2 = 0;
+					int tos_count_tDBOutput_37 = 0;
 
-					int nb_line_tDBOutput_2 = 0;
-					int nb_line_update_tDBOutput_2 = 0;
-					int nb_line_inserted_tDBOutput_2 = 0;
-					int nb_line_deleted_tDBOutput_2 = 0;
-					int nb_line_rejected_tDBOutput_2 = 0;
+					int nb_line_tDBOutput_37 = 0;
+					int nb_line_update_tDBOutput_37 = 0;
+					int nb_line_inserted_tDBOutput_37 = 0;
+					int nb_line_deleted_tDBOutput_37 = 0;
+					int nb_line_rejected_tDBOutput_37 = 0;
 
-					int deletedCount_tDBOutput_2 = 0;
-					int updatedCount_tDBOutput_2 = 0;
-					int insertedCount_tDBOutput_2 = 0;
-					int rowsToCommitCount_tDBOutput_2 = 0;
-					int rejectedCount_tDBOutput_2 = 0;
+					int deletedCount_tDBOutput_37 = 0;
+					int updatedCount_tDBOutput_37 = 0;
+					int insertedCount_tDBOutput_37 = 0;
+					int rowsToCommitCount_tDBOutput_37 = 0;
+					int rejectedCount_tDBOutput_37 = 0;
 
-					String tableName_tDBOutput_2 = "log_files";
-					boolean whetherReject_tDBOutput_2 = false;
+					String tableName_tDBOutput_37 = "log_files";
+					boolean whetherReject_tDBOutput_37 = false;
 
-					java.util.Calendar calendar_tDBOutput_2 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_2.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_2 = calendar_tDBOutput_2.getTime().getTime();
-					calendar_tDBOutput_2.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_2 = calendar_tDBOutput_2.getTime().getTime();
-					long date_tDBOutput_2;
+					java.util.Calendar calendar_tDBOutput_37 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_37.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_37 = calendar_tDBOutput_37.getTime().getTime();
+					calendar_tDBOutput_37.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_37 = calendar_tDBOutput_37.getTime().getTime();
+					long date_tDBOutput_37;
 
-					java.sql.Connection conn_tDBOutput_2 = null;
+					java.sql.Connection conn_tDBOutput_37 = null;
 
-					String properties_tDBOutput_2 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_2 == null || properties_tDBOutput_2.trim().length() == 0) {
-						properties_tDBOutput_2 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_37 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_37 == null || properties_tDBOutput_37.trim().length() == 0) {
+						properties_tDBOutput_37 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_2.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_2 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_37.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_37 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_2.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_2 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_37.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_37 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_2 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_2;
+					String url_tDBOutput_37 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_37;
 
-					String driverClass_tDBOutput_2 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_37 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_2 = "root";
+					String dbUser_tDBOutput_37 = "root";
 
-					final String decryptedPassword_tDBOutput_2 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:WY8jlQKhn8WigbJyg3eN9dL3AbCSe+4mzTAq3w==");
+					final String decryptedPassword_tDBOutput_37 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:QYlDfR+XqE5NGimUsocezLGuw0ObH4YecdIuKg==");
 
-					String dbPwd_tDBOutput_2 = decryptedPassword_tDBOutput_2;
-					java.lang.Class.forName(driverClass_tDBOutput_2);
+					String dbPwd_tDBOutput_37 = decryptedPassword_tDBOutput_37;
+					java.lang.Class.forName(driverClass_tDBOutput_37);
 
-					conn_tDBOutput_2 = java.sql.DriverManager.getConnection(url_tDBOutput_2, dbUser_tDBOutput_2,
-							dbPwd_tDBOutput_2);
+					conn_tDBOutput_37 = java.sql.DriverManager.getConnection(url_tDBOutput_37, dbUser_tDBOutput_37,
+							dbPwd_tDBOutput_37);
 
-					resourceMap.put("conn_tDBOutput_2", conn_tDBOutput_2);
-					conn_tDBOutput_2.setAutoCommit(false);
-					int commitEvery_tDBOutput_2 = 10000;
-					int commitCounter_tDBOutput_2 = 0;
+					resourceMap.put("conn_tDBOutput_37", conn_tDBOutput_37);
+					conn_tDBOutput_37.setAutoCommit(false);
+					int commitEvery_tDBOutput_37 = 10000;
+					int commitCounter_tDBOutput_37 = 0;
 
-					int count_tDBOutput_2 = 0;
+					int count_tDBOutput_37 = 0;
 
-					String insert_tDBOutput_2 = "INSERT IGNORE INTO `" + "log_files"
-							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG/SG_si_Cluster`,`Logfile`,`Localisation`,`Description`,`Format_logfile`,`Separateur`,`Intervalle_de_polling`,`Monitored_By`,`Fourni_en_annexe`,`Ref_Service`,`Nom_Template`,`Log_Conditions`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_37 = "INSERT IGNORE INTO `" + "log_files"
+							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG__SG_si_Cluster`,`Logfile`,`Localisation`,`Description`,`Format_logfile`,`Separateur`,`Intervalle_de_polling`,`Monitored_By`,`Fourni_en_annexe`,`Ref_Service`,`Nom_Template`,`Log_Conditions`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_2 = conn_tDBOutput_2
-							.prepareStatement(insert_tDBOutput_2);
-					resourceMap.put("pstmt_tDBOutput_2", pstmt_tDBOutput_2);
+					java.sql.PreparedStatement pstmt_tDBOutput_37 = conn_tDBOutput_37
+							.prepareStatement(insert_tDBOutput_37);
+					resourceMap.put("pstmt_tDBOutput_37", pstmt_tDBOutput_37);
 
 					/**
-					 * [tDBOutput_2 begin ] stop
+					 * [tDBOutput_37 begin ] stop
 					 */
 
 					/**
@@ -16215,7 +16544,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_6 = 0;
 
 					final String decryptedPassword_tFileInputExcel_6 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:4zJiHhocwc7naxEUgs1+Z3J1BsngUtXNbjB3GA==");
+							.decryptPassword("enc:routine.encryption.key.v1:fyrx0tr9gZ5DnHScfLYBD8OH5Fgfzlv78Qehqg==");
 					String password_tFileInputExcel_6 = decryptedPassword_tFileInputExcel_6;
 					if (password_tFileInputExcel_6.isEmpty()) {
 						password_tFileInputExcel_6 = null;
@@ -16751,12 +17080,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row13.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_LogFiles_" + rowRef;
+										String id = "EBD_" + fileWord + "_LogFiles_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row22.N__Ref = id;
 										row22.Ref = row13.Ref;
@@ -16774,7 +17104,7 @@ public class monitoring implements TalendJob {
 										row22.Ref__Service = row13.Ref__Service;
 										row22.Nom_Template = row13.Nom_Template;
 										row22.Log_Conditions = row13.Log_Conditions;
-
+										row22.Support = Support;
 										nb_line_tJavaRow_5++;
 
 										tos_count_tJavaRow_5++;
@@ -16831,7 +17161,7 @@ public class monitoring implements TalendJob {
 											insertlogfiles_tmp.Ref = row22.Ref;
 											insertlogfiles_tmp.Etat = row22.Etat;
 											insertlogfiles_tmp.Ref_composant = row22.Ref__des_composants;
-											insertlogfiles_tmp.RG_SG_si_Cluster = row22.RG_SG_si_Cluster;
+											insertlogfiles_tmp.RG__SG_si_Cluster = row22.RG_SG_si_Cluster;
 											insertlogfiles_tmp.Logfile = row22.Logfile;
 											insertlogfiles_tmp.Localisation = row22.Localisation;
 											insertlogfiles_tmp.Description = row22.Description;
@@ -16843,6 +17173,7 @@ public class monitoring implements TalendJob {
 											insertlogfiles_tmp.Ref_Service = row22.Ref__Service;
 											insertlogfiles_tmp.Nom_Template = row22.Nom_Template;
 											insertlogfiles_tmp.Log_Conditions = row22.Log_Conditions;
+											insertlogfiles_tmp.Support = row22.Support;
 											insertlogfiles = insertlogfiles_tmp;
 // ###############################
 
@@ -16869,10 +17200,10 @@ public class monitoring implements TalendJob {
 										if (insertlogfiles != null) {
 
 											/**
-											 * [tDBOutput_2 main ] start
+											 * [tDBOutput_37 main ] start
 											 */
 
-											currentComponent = "tDBOutput_2";
+											currentComponent = "tDBOutput_37";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
@@ -16882,151 +17213,157 @@ public class monitoring implements TalendJob {
 												);
 											}
 
-											whetherReject_tDBOutput_2 = false;
+											whetherReject_tDBOutput_37 = false;
 											if (insertlogfiles.id == null) {
-												pstmt_tDBOutput_2.setNull(1, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(1, insertlogfiles.id);
+												pstmt_tDBOutput_37.setString(1, insertlogfiles.id);
 											}
 
 											if (insertlogfiles.Ref == null) {
-												pstmt_tDBOutput_2.setNull(2, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(2, insertlogfiles.Ref);
+												pstmt_tDBOutput_37.setString(2, insertlogfiles.Ref);
 											}
 
 											if (insertlogfiles.Etat == null) {
-												pstmt_tDBOutput_2.setNull(3, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(3, insertlogfiles.Etat);
+												pstmt_tDBOutput_37.setString(3, insertlogfiles.Etat);
 											}
 
 											if (insertlogfiles.Ref_composant == null) {
-												pstmt_tDBOutput_2.setNull(4, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(4, insertlogfiles.Ref_composant);
+												pstmt_tDBOutput_37.setString(4, insertlogfiles.Ref_composant);
 											}
 
-											if (insertlogfiles.RG_SG_si_Cluster == null) {
-												pstmt_tDBOutput_2.setNull(5, java.sql.Types.VARCHAR);
+											if (insertlogfiles.RG__SG_si_Cluster == null) {
+												pstmt_tDBOutput_37.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(5, insertlogfiles.RG_SG_si_Cluster);
+												pstmt_tDBOutput_37.setString(5, insertlogfiles.RG__SG_si_Cluster);
 											}
 
 											if (insertlogfiles.Logfile == null) {
-												pstmt_tDBOutput_2.setNull(6, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(6, insertlogfiles.Logfile);
+												pstmt_tDBOutput_37.setString(6, insertlogfiles.Logfile);
 											}
 
 											if (insertlogfiles.Localisation == null) {
-												pstmt_tDBOutput_2.setNull(7, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(7, insertlogfiles.Localisation);
+												pstmt_tDBOutput_37.setString(7, insertlogfiles.Localisation);
 											}
 
 											if (insertlogfiles.Description == null) {
-												pstmt_tDBOutput_2.setNull(8, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(8, insertlogfiles.Description);
+												pstmt_tDBOutput_37.setString(8, insertlogfiles.Description);
 											}
 
 											if (insertlogfiles.Format_logfile == null) {
-												pstmt_tDBOutput_2.setNull(9, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(9, insertlogfiles.Format_logfile);
+												pstmt_tDBOutput_37.setString(9, insertlogfiles.Format_logfile);
 											}
 
 											if (insertlogfiles.Separateur == null) {
-												pstmt_tDBOutput_2.setNull(10, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(10, insertlogfiles.Separateur);
+												pstmt_tDBOutput_37.setString(10, insertlogfiles.Separateur);
 											}
 
 											if (insertlogfiles.Intervalle_de_polling == null) {
-												pstmt_tDBOutput_2.setNull(11, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(11, insertlogfiles.Intervalle_de_polling);
+												pstmt_tDBOutput_37.setString(11, insertlogfiles.Intervalle_de_polling);
 											}
 
 											if (insertlogfiles.Monitored_By == null) {
-												pstmt_tDBOutput_2.setNull(12, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(12, insertlogfiles.Monitored_By);
+												pstmt_tDBOutput_37.setString(12, insertlogfiles.Monitored_By);
 											}
 
 											if (insertlogfiles.Fourni_en_annexe == null) {
-												pstmt_tDBOutput_2.setNull(13, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(13, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(13, insertlogfiles.Fourni_en_annexe);
+												pstmt_tDBOutput_37.setString(13, insertlogfiles.Fourni_en_annexe);
 											}
 
 											if (insertlogfiles.Ref_Service == null) {
-												pstmt_tDBOutput_2.setNull(14, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(14, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(14, insertlogfiles.Ref_Service);
+												pstmt_tDBOutput_37.setString(14, insertlogfiles.Ref_Service);
 											}
 
 											if (insertlogfiles.Nom_Template == null) {
-												pstmt_tDBOutput_2.setNull(15, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(15, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(15, insertlogfiles.Nom_Template);
+												pstmt_tDBOutput_37.setString(15, insertlogfiles.Nom_Template);
 											}
 
 											if (insertlogfiles.Log_Conditions == null) {
-												pstmt_tDBOutput_2.setNull(16, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_37.setNull(16, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_2.setString(16, insertlogfiles.Log_Conditions);
+												pstmt_tDBOutput_37.setString(16, insertlogfiles.Log_Conditions);
+											}
+
+											if (insertlogfiles.Support == null) {
+												pstmt_tDBOutput_37.setNull(17, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_37.setString(17, insertlogfiles.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_2++;
-												int processedCount_tDBOutput_2 = pstmt_tDBOutput_2.executeUpdate();
-												insertedCount_tDBOutput_2 += processedCount_tDBOutput_2;
-												rowsToCommitCount_tDBOutput_2 += processedCount_tDBOutput_2;
+												nb_line_tDBOutput_37++;
+												int processedCount_tDBOutput_37 = pstmt_tDBOutput_37.executeUpdate();
+												insertedCount_tDBOutput_37 += processedCount_tDBOutput_37;
+												rowsToCommitCount_tDBOutput_37 += processedCount_tDBOutput_37;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_2_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_2 = true;
+												globalMap.put("tDBOutput_37_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_37 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_2++;
+											commitCounter_tDBOutput_37++;
 
-											if (commitEvery_tDBOutput_2 <= commitCounter_tDBOutput_2) {
+											if (commitEvery_tDBOutput_37 <= commitCounter_tDBOutput_37) {
 
-												if (rowsToCommitCount_tDBOutput_2 != 0) {
+												if (rowsToCommitCount_tDBOutput_37 != 0) {
 												}
-												conn_tDBOutput_2.commit();
-												if (rowsToCommitCount_tDBOutput_2 != 0) {
-													rowsToCommitCount_tDBOutput_2 = 0;
+												conn_tDBOutput_37.commit();
+												if (rowsToCommitCount_tDBOutput_37 != 0) {
+													rowsToCommitCount_tDBOutput_37 = 0;
 												}
-												commitCounter_tDBOutput_2 = 0;
+												commitCounter_tDBOutput_37 = 0;
 
 											}
 
-											tos_count_tDBOutput_2++;
+											tos_count_tDBOutput_37++;
 
 											/**
-											 * [tDBOutput_2 main ] stop
+											 * [tDBOutput_37 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_2 process_data_begin ] start
+											 * [tDBOutput_37 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_2";
+											currentComponent = "tDBOutput_37";
 
 											/**
-											 * [tDBOutput_2 process_data_begin ] stop
+											 * [tDBOutput_37 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_2 process_data_end ] start
+											 * [tDBOutput_37 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_2";
+											currentComponent = "tDBOutput_37";
 
 											/**
-											 * [tDBOutput_2 process_data_end ] stop
+											 * [tDBOutput_37 process_data_end ] stop
 											 */
 
 										} // End of branch "insertlogfiles"
@@ -17163,52 +17500,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_2 end ] start
+					 * [tDBOutput_37 end ] start
 					 */
 
-					currentComponent = "tDBOutput_2";
+					currentComponent = "tDBOutput_37";
 
-					if (pstmt_tDBOutput_2 != null) {
+					if (pstmt_tDBOutput_37 != null) {
 
-						pstmt_tDBOutput_2.close();
-						resourceMap.remove("pstmt_tDBOutput_2");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_2", true);
-					if (commitCounter_tDBOutput_2 > 0 && rowsToCommitCount_tDBOutput_2 != 0) {
+						pstmt_tDBOutput_37.close();
+						resourceMap.remove("pstmt_tDBOutput_37");
 
 					}
-					conn_tDBOutput_2.commit();
-					if (commitCounter_tDBOutput_2 > 0 && rowsToCommitCount_tDBOutput_2 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_37", true);
+					if (commitCounter_tDBOutput_37 > 0 && rowsToCommitCount_tDBOutput_37 != 0) {
 
-						rowsToCommitCount_tDBOutput_2 = 0;
 					}
-					commitCounter_tDBOutput_2 = 0;
+					conn_tDBOutput_37.commit();
+					if (commitCounter_tDBOutput_37 > 0 && rowsToCommitCount_tDBOutput_37 != 0) {
 
-					conn_tDBOutput_2.close();
+						rowsToCommitCount_tDBOutput_37 = 0;
+					}
+					commitCounter_tDBOutput_37 = 0;
 
-					resourceMap.put("finish_tDBOutput_2", true);
+					conn_tDBOutput_37.close();
 
-					nb_line_deleted_tDBOutput_2 = nb_line_deleted_tDBOutput_2 + deletedCount_tDBOutput_2;
-					nb_line_update_tDBOutput_2 = nb_line_update_tDBOutput_2 + updatedCount_tDBOutput_2;
-					nb_line_inserted_tDBOutput_2 = nb_line_inserted_tDBOutput_2 + insertedCount_tDBOutput_2;
-					nb_line_rejected_tDBOutput_2 = nb_line_rejected_tDBOutput_2 + rejectedCount_tDBOutput_2;
+					resourceMap.put("finish_tDBOutput_37", true);
 
-					globalMap.put("tDBOutput_2_NB_LINE", nb_line_tDBOutput_2);
-					globalMap.put("tDBOutput_2_NB_LINE_UPDATED", nb_line_update_tDBOutput_2);
-					globalMap.put("tDBOutput_2_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_2);
-					globalMap.put("tDBOutput_2_NB_LINE_DELETED", nb_line_deleted_tDBOutput_2);
-					globalMap.put("tDBOutput_2_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_2);
+					nb_line_deleted_tDBOutput_37 = nb_line_deleted_tDBOutput_37 + deletedCount_tDBOutput_37;
+					nb_line_update_tDBOutput_37 = nb_line_update_tDBOutput_37 + updatedCount_tDBOutput_37;
+					nb_line_inserted_tDBOutput_37 = nb_line_inserted_tDBOutput_37 + insertedCount_tDBOutput_37;
+					nb_line_rejected_tDBOutput_37 = nb_line_rejected_tDBOutput_37 + rejectedCount_tDBOutput_37;
+
+					globalMap.put("tDBOutput_37_NB_LINE", nb_line_tDBOutput_37);
+					globalMap.put("tDBOutput_37_NB_LINE_UPDATED", nb_line_update_tDBOutput_37);
+					globalMap.put("tDBOutput_37_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_37);
+					globalMap.put("tDBOutput_37_NB_LINE_DELETED", nb_line_deleted_tDBOutput_37);
+					globalMap.put("tDBOutput_37_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_37);
 
 					if (execStat) {
 						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertlogfiles");
 					}
 
-					ok_Hash.put("tDBOutput_2", true);
-					end_Hash.put("tDBOutput_2", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_37", true);
+					end_Hash.put("tDBOutput_37", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_2 end ] stop
+					 * [tDBOutput_37 end ] stop
 					 */
 
 					if (execStat) {
@@ -17222,11 +17559,11 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("insertscripts", 3, 0);
+						runStat.updateStatOnConnection("row23", 3, 0);
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row23", 3, 0);
+						runStat.updateStatOnConnection("insertscripts", 3, 0);
 					}
 
 					if (execStat) {
@@ -17239,89 +17576,89 @@ public class monitoring implements TalendJob {
 					}
 
 					/**
-					 * [tDBOutput_21 begin ] start
+					 * [tDBOutput_50 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_21", false);
-					start_Hash.put("tDBOutput_21", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_50", false);
+					start_Hash.put("tDBOutput_50", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_21";
+					currentComponent = "tDBOutput_50";
 
 					if (execStat) {
 						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertscripts");
 					}
 
-					int tos_count_tDBOutput_21 = 0;
+					int tos_count_tDBOutput_50 = 0;
 
-					int nb_line_tDBOutput_21 = 0;
-					int nb_line_update_tDBOutput_21 = 0;
-					int nb_line_inserted_tDBOutput_21 = 0;
-					int nb_line_deleted_tDBOutput_21 = 0;
-					int nb_line_rejected_tDBOutput_21 = 0;
+					int nb_line_tDBOutput_50 = 0;
+					int nb_line_update_tDBOutput_50 = 0;
+					int nb_line_inserted_tDBOutput_50 = 0;
+					int nb_line_deleted_tDBOutput_50 = 0;
+					int nb_line_rejected_tDBOutput_50 = 0;
 
-					int deletedCount_tDBOutput_21 = 0;
-					int updatedCount_tDBOutput_21 = 0;
-					int insertedCount_tDBOutput_21 = 0;
-					int rowsToCommitCount_tDBOutput_21 = 0;
-					int rejectedCount_tDBOutput_21 = 0;
+					int deletedCount_tDBOutput_50 = 0;
+					int updatedCount_tDBOutput_50 = 0;
+					int insertedCount_tDBOutput_50 = 0;
+					int rowsToCommitCount_tDBOutput_50 = 0;
+					int rejectedCount_tDBOutput_50 = 0;
 
-					String tableName_tDBOutput_21 = "scripts";
-					boolean whetherReject_tDBOutput_21 = false;
+					String tableName_tDBOutput_50 = "scripts";
+					boolean whetherReject_tDBOutput_50 = false;
 
-					java.util.Calendar calendar_tDBOutput_21 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_21.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_21 = calendar_tDBOutput_21.getTime().getTime();
-					calendar_tDBOutput_21.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_21 = calendar_tDBOutput_21.getTime().getTime();
-					long date_tDBOutput_21;
+					java.util.Calendar calendar_tDBOutput_50 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_50.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_50 = calendar_tDBOutput_50.getTime().getTime();
+					calendar_tDBOutput_50.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_50 = calendar_tDBOutput_50.getTime().getTime();
+					long date_tDBOutput_50;
 
-					java.sql.Connection conn_tDBOutput_21 = null;
+					java.sql.Connection conn_tDBOutput_50 = null;
 
-					String properties_tDBOutput_21 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_21 == null || properties_tDBOutput_21.trim().length() == 0) {
-						properties_tDBOutput_21 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_50 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_50 == null || properties_tDBOutput_50.trim().length() == 0) {
+						properties_tDBOutput_50 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_21.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_21 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_50.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_50 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_21.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_21 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_50.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_50 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_21 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_21;
+					String url_tDBOutput_50 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_50;
 
-					String driverClass_tDBOutput_21 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_50 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_21 = "root";
+					String dbUser_tDBOutput_50 = "root";
 
-					final String decryptedPassword_tDBOutput_21 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:ZE93RO57Kz9X1ceVoUZ2p7N6dzTn/1OCui4TQQ==");
+					final String decryptedPassword_tDBOutput_50 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:mQhP5/pkJFuinwbZVHydGB/hdAmGFbYSI+wa6w==");
 
-					String dbPwd_tDBOutput_21 = decryptedPassword_tDBOutput_21;
-					java.lang.Class.forName(driverClass_tDBOutput_21);
+					String dbPwd_tDBOutput_50 = decryptedPassword_tDBOutput_50;
+					java.lang.Class.forName(driverClass_tDBOutput_50);
 
-					conn_tDBOutput_21 = java.sql.DriverManager.getConnection(url_tDBOutput_21, dbUser_tDBOutput_21,
-							dbPwd_tDBOutput_21);
+					conn_tDBOutput_50 = java.sql.DriverManager.getConnection(url_tDBOutput_50, dbUser_tDBOutput_50,
+							dbPwd_tDBOutput_50);
 
-					resourceMap.put("conn_tDBOutput_21", conn_tDBOutput_21);
-					conn_tDBOutput_21.setAutoCommit(false);
-					int commitEvery_tDBOutput_21 = 10000;
-					int commitCounter_tDBOutput_21 = 0;
+					resourceMap.put("conn_tDBOutput_50", conn_tDBOutput_50);
+					conn_tDBOutput_50.setAutoCommit(false);
+					int commitEvery_tDBOutput_50 = 10000;
+					int commitCounter_tDBOutput_50 = 0;
 
-					int count_tDBOutput_21 = 0;
+					int count_tDBOutput_50 = 0;
 
-					String insert_tDBOutput_21 = "INSERT IGNORE INTO `" + "scripts"
-							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG/SG_si_Cluster`,`script`,`Code_erreur`,`Cricite`,`Description`,`Instructions`,`Monitored_By`,`Ref_Service`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_50 = "INSERT IGNORE INTO `" + "scripts"
+							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG__SG_si_Cluster`,`script`,`Code_erreur`,`Criticite`,`Description`,`Instructions`,`Monitored_By`,`Ref_Service`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_21 = conn_tDBOutput_21
-							.prepareStatement(insert_tDBOutput_21);
-					resourceMap.put("pstmt_tDBOutput_21", pstmt_tDBOutput_21);
+					java.sql.PreparedStatement pstmt_tDBOutput_50 = conn_tDBOutput_50
+							.prepareStatement(insert_tDBOutput_50);
+					resourceMap.put("pstmt_tDBOutput_50", pstmt_tDBOutput_50);
 
 					/**
-					 * [tDBOutput_21 begin ] stop
+					 * [tDBOutput_50 begin ] stop
 					 */
 
 					/**
@@ -17453,7 +17790,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_24 = 0;
 
 					final String decryptedPassword_tFileInputExcel_24 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:u51VEBlsJR+RdRYyexgQiAXWnwM3MlnyJzVcdA==");
+							.decryptPassword("enc:routine.encryption.key.v1:GmO4vWFjyw8ktJ2NziAAwKHYPdLxhdlALu5Ulw==");
 					String password_tFileInputExcel_24 = decryptedPassword_tFileInputExcel_24;
 					if (password_tFileInputExcel_24.isEmpty()) {
 						password_tFileInputExcel_24 = null;
@@ -17937,12 +18274,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row14.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_Scripts_" + rowRef;
+										String id = "EBD_" + fileWord + "_Scripts_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row23.N__Ref = id;
 										row23.Ref = row14.Ref;
@@ -17956,7 +18294,7 @@ public class monitoring implements TalendJob {
 										row23.Instructions = row14.Instructions;
 										row23.Monitored_By = row14.Monitored_By;
 										row23.Ref__Service = row14.Ref__Service;
-
+										row23.Support = Support;
 										nb_line_tJavaRow_6++;
 
 										tos_count_tJavaRow_6++;
@@ -18013,14 +18351,15 @@ public class monitoring implements TalendJob {
 											insertscripts_tmp.Ref = row23.Ref;
 											insertscripts_tmp.Etat = row23.Etat;
 											insertscripts_tmp.Ref_composant = row23.Ref__des_composants;
-											insertscripts_tmp.RG_SG_si_Cluster = row23.RG_SG_si_Cluster;
+											insertscripts_tmp.RG__SG_si_Cluster = row23.RG_SG_si_Cluster;
 											insertscripts_tmp.script = row23.Script;
 											insertscripts_tmp.Code_erreur = row23.Code_erreur;
-											insertscripts_tmp.Cricite = row23.Criticite;
+											insertscripts_tmp.Criticite = row23.Criticite;
 											insertscripts_tmp.Description = row23.Description;
 											insertscripts_tmp.Instructions = row23.Instructions;
 											insertscripts_tmp.Monitored_By = row23.Monitored_By;
 											insertscripts_tmp.Ref_Service = row23.Ref__Service;
+											insertscripts_tmp.Support = row23.Support;
 											insertscripts = insertscripts_tmp;
 // ###############################
 
@@ -18047,10 +18386,10 @@ public class monitoring implements TalendJob {
 										if (insertscripts != null) {
 
 											/**
-											 * [tDBOutput_21 main ] start
+											 * [tDBOutput_50 main ] start
 											 */
 
-											currentComponent = "tDBOutput_21";
+											currentComponent = "tDBOutput_50";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
@@ -18060,127 +18399,133 @@ public class monitoring implements TalendJob {
 												);
 											}
 
-											whetherReject_tDBOutput_21 = false;
+											whetherReject_tDBOutput_50 = false;
 											if (insertscripts.id == null) {
-												pstmt_tDBOutput_21.setNull(1, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(1, insertscripts.id);
+												pstmt_tDBOutput_50.setString(1, insertscripts.id);
 											}
 
 											if (insertscripts.Ref == null) {
-												pstmt_tDBOutput_21.setNull(2, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(2, insertscripts.Ref);
+												pstmt_tDBOutput_50.setString(2, insertscripts.Ref);
 											}
 
 											if (insertscripts.Etat == null) {
-												pstmt_tDBOutput_21.setNull(3, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(3, insertscripts.Etat);
+												pstmt_tDBOutput_50.setString(3, insertscripts.Etat);
 											}
 
 											if (insertscripts.Ref_composant == null) {
-												pstmt_tDBOutput_21.setNull(4, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(4, insertscripts.Ref_composant);
+												pstmt_tDBOutput_50.setString(4, insertscripts.Ref_composant);
 											}
 
-											if (insertscripts.RG_SG_si_Cluster == null) {
-												pstmt_tDBOutput_21.setNull(5, java.sql.Types.VARCHAR);
+											if (insertscripts.RG__SG_si_Cluster == null) {
+												pstmt_tDBOutput_50.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(5, insertscripts.RG_SG_si_Cluster);
+												pstmt_tDBOutput_50.setString(5, insertscripts.RG__SG_si_Cluster);
 											}
 
 											if (insertscripts.script == null) {
-												pstmt_tDBOutput_21.setNull(6, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(6, insertscripts.script);
+												pstmt_tDBOutput_50.setString(6, insertscripts.script);
 											}
 
 											if (insertscripts.Code_erreur == null) {
-												pstmt_tDBOutput_21.setNull(7, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(7, insertscripts.Code_erreur);
+												pstmt_tDBOutput_50.setString(7, insertscripts.Code_erreur);
 											}
 
-											if (insertscripts.Cricite == null) {
-												pstmt_tDBOutput_21.setNull(8, java.sql.Types.VARCHAR);
+											if (insertscripts.Criticite == null) {
+												pstmt_tDBOutput_50.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(8, insertscripts.Cricite);
+												pstmt_tDBOutput_50.setString(8, insertscripts.Criticite);
 											}
 
 											if (insertscripts.Description == null) {
-												pstmt_tDBOutput_21.setNull(9, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(9, insertscripts.Description);
+												pstmt_tDBOutput_50.setString(9, insertscripts.Description);
 											}
 
 											if (insertscripts.Instructions == null) {
-												pstmt_tDBOutput_21.setNull(10, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(10, insertscripts.Instructions);
+												pstmt_tDBOutput_50.setString(10, insertscripts.Instructions);
 											}
 
 											if (insertscripts.Monitored_By == null) {
-												pstmt_tDBOutput_21.setNull(11, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(11, insertscripts.Monitored_By);
+												pstmt_tDBOutput_50.setString(11, insertscripts.Monitored_By);
 											}
 
 											if (insertscripts.Ref_Service == null) {
-												pstmt_tDBOutput_21.setNull(12, java.sql.Types.VARCHAR);
+												pstmt_tDBOutput_50.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_21.setString(12, insertscripts.Ref_Service);
+												pstmt_tDBOutput_50.setString(12, insertscripts.Ref_Service);
+											}
+
+											if (insertscripts.Support == null) {
+												pstmt_tDBOutput_50.setNull(13, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_50.setString(13, insertscripts.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_21++;
-												int processedCount_tDBOutput_21 = pstmt_tDBOutput_21.executeUpdate();
-												insertedCount_tDBOutput_21 += processedCount_tDBOutput_21;
-												rowsToCommitCount_tDBOutput_21 += processedCount_tDBOutput_21;
+												nb_line_tDBOutput_50++;
+												int processedCount_tDBOutput_50 = pstmt_tDBOutput_50.executeUpdate();
+												insertedCount_tDBOutput_50 += processedCount_tDBOutput_50;
+												rowsToCommitCount_tDBOutput_50 += processedCount_tDBOutput_50;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_21_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_21 = true;
+												globalMap.put("tDBOutput_50_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_50 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_21++;
+											commitCounter_tDBOutput_50++;
 
-											if (commitEvery_tDBOutput_21 <= commitCounter_tDBOutput_21) {
+											if (commitEvery_tDBOutput_50 <= commitCounter_tDBOutput_50) {
 
-												if (rowsToCommitCount_tDBOutput_21 != 0) {
+												if (rowsToCommitCount_tDBOutput_50 != 0) {
 												}
-												conn_tDBOutput_21.commit();
-												if (rowsToCommitCount_tDBOutput_21 != 0) {
-													rowsToCommitCount_tDBOutput_21 = 0;
+												conn_tDBOutput_50.commit();
+												if (rowsToCommitCount_tDBOutput_50 != 0) {
+													rowsToCommitCount_tDBOutput_50 = 0;
 												}
-												commitCounter_tDBOutput_21 = 0;
+												commitCounter_tDBOutput_50 = 0;
 
 											}
 
-											tos_count_tDBOutput_21++;
+											tos_count_tDBOutput_50++;
 
 											/**
-											 * [tDBOutput_21 main ] stop
+											 * [tDBOutput_50 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_21 process_data_begin ] start
+											 * [tDBOutput_50 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_21";
+											currentComponent = "tDBOutput_50";
 
 											/**
-											 * [tDBOutput_21 process_data_begin ] stop
+											 * [tDBOutput_50 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_21 process_data_end ] start
+											 * [tDBOutput_50 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_21";
+											currentComponent = "tDBOutput_50";
 
 											/**
-											 * [tDBOutput_21 process_data_end ] stop
+											 * [tDBOutput_50 process_data_end ] stop
 											 */
 
 										} // End of branch "insertscripts"
@@ -18317,52 +18662,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_21 end ] start
+					 * [tDBOutput_50 end ] start
 					 */
 
-					currentComponent = "tDBOutput_21";
+					currentComponent = "tDBOutput_50";
 
-					if (pstmt_tDBOutput_21 != null) {
+					if (pstmt_tDBOutput_50 != null) {
 
-						pstmt_tDBOutput_21.close();
-						resourceMap.remove("pstmt_tDBOutput_21");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_21", true);
-					if (commitCounter_tDBOutput_21 > 0 && rowsToCommitCount_tDBOutput_21 != 0) {
+						pstmt_tDBOutput_50.close();
+						resourceMap.remove("pstmt_tDBOutput_50");
 
 					}
-					conn_tDBOutput_21.commit();
-					if (commitCounter_tDBOutput_21 > 0 && rowsToCommitCount_tDBOutput_21 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_50", true);
+					if (commitCounter_tDBOutput_50 > 0 && rowsToCommitCount_tDBOutput_50 != 0) {
 
-						rowsToCommitCount_tDBOutput_21 = 0;
 					}
-					commitCounter_tDBOutput_21 = 0;
+					conn_tDBOutput_50.commit();
+					if (commitCounter_tDBOutput_50 > 0 && rowsToCommitCount_tDBOutput_50 != 0) {
 
-					conn_tDBOutput_21.close();
+						rowsToCommitCount_tDBOutput_50 = 0;
+					}
+					commitCounter_tDBOutput_50 = 0;
 
-					resourceMap.put("finish_tDBOutput_21", true);
+					conn_tDBOutput_50.close();
 
-					nb_line_deleted_tDBOutput_21 = nb_line_deleted_tDBOutput_21 + deletedCount_tDBOutput_21;
-					nb_line_update_tDBOutput_21 = nb_line_update_tDBOutput_21 + updatedCount_tDBOutput_21;
-					nb_line_inserted_tDBOutput_21 = nb_line_inserted_tDBOutput_21 + insertedCount_tDBOutput_21;
-					nb_line_rejected_tDBOutput_21 = nb_line_rejected_tDBOutput_21 + rejectedCount_tDBOutput_21;
+					resourceMap.put("finish_tDBOutput_50", true);
 
-					globalMap.put("tDBOutput_21_NB_LINE", nb_line_tDBOutput_21);
-					globalMap.put("tDBOutput_21_NB_LINE_UPDATED", nb_line_update_tDBOutput_21);
-					globalMap.put("tDBOutput_21_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_21);
-					globalMap.put("tDBOutput_21_NB_LINE_DELETED", nb_line_deleted_tDBOutput_21);
-					globalMap.put("tDBOutput_21_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_21);
+					nb_line_deleted_tDBOutput_50 = nb_line_deleted_tDBOutput_50 + deletedCount_tDBOutput_50;
+					nb_line_update_tDBOutput_50 = nb_line_update_tDBOutput_50 + updatedCount_tDBOutput_50;
+					nb_line_inserted_tDBOutput_50 = nb_line_inserted_tDBOutput_50 + insertedCount_tDBOutput_50;
+					nb_line_rejected_tDBOutput_50 = nb_line_rejected_tDBOutput_50 + rejectedCount_tDBOutput_50;
+
+					globalMap.put("tDBOutput_50_NB_LINE", nb_line_tDBOutput_50);
+					globalMap.put("tDBOutput_50_NB_LINE_UPDATED", nb_line_update_tDBOutput_50);
+					globalMap.put("tDBOutput_50_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_50);
+					globalMap.put("tDBOutput_50_NB_LINE_DELETED", nb_line_deleted_tDBOutput_50);
+					globalMap.put("tDBOutput_50_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_50);
 
 					if (execStat) {
 						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertscripts");
 					}
 
-					ok_Hash.put("tDBOutput_21", true);
-					end_Hash.put("tDBOutput_21", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_50", true);
+					end_Hash.put("tDBOutput_50", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_21 end ] stop
+					 * [tDBOutput_50 end ] stop
 					 */
 
 					if (execStat) {
@@ -18376,15 +18721,15 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row6", 3, 0);
-					}
-
-					if (execStat) {
-						runStat.updateStatOnConnection("insrturls", 3, 0);
-					}
-
-					if (execStat) {
 						runStat.updateStatOnConnection("row15", 3, 0);
+					}
+
+					if (execStat) {
+						runStat.updateStatOnConnection("inserturl", 3, 0);
+					}
+
+					if (execStat) {
+						runStat.updateStatOnConnection("row6", 3, 0);
 					}
 
 					if (execStat) {
@@ -18393,89 +18738,89 @@ public class monitoring implements TalendJob {
 					}
 
 					/**
-					 * [tDBOutput_3 begin ] start
+					 * [tDBOutput_77 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_3", false);
-					start_Hash.put("tDBOutput_3", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_77", false);
+					start_Hash.put("tDBOutput_77", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_3";
+					currentComponent = "tDBOutput_77";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insrturls");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "inserturl");
 					}
 
-					int tos_count_tDBOutput_3 = 0;
+					int tos_count_tDBOutput_77 = 0;
 
-					int nb_line_tDBOutput_3 = 0;
-					int nb_line_update_tDBOutput_3 = 0;
-					int nb_line_inserted_tDBOutput_3 = 0;
-					int nb_line_deleted_tDBOutput_3 = 0;
-					int nb_line_rejected_tDBOutput_3 = 0;
+					int nb_line_tDBOutput_77 = 0;
+					int nb_line_update_tDBOutput_77 = 0;
+					int nb_line_inserted_tDBOutput_77 = 0;
+					int nb_line_deleted_tDBOutput_77 = 0;
+					int nb_line_rejected_tDBOutput_77 = 0;
 
-					int deletedCount_tDBOutput_3 = 0;
-					int updatedCount_tDBOutput_3 = 0;
-					int insertedCount_tDBOutput_3 = 0;
-					int rowsToCommitCount_tDBOutput_3 = 0;
-					int rejectedCount_tDBOutput_3 = 0;
+					int deletedCount_tDBOutput_77 = 0;
+					int updatedCount_tDBOutput_77 = 0;
+					int insertedCount_tDBOutput_77 = 0;
+					int rowsToCommitCount_tDBOutput_77 = 0;
+					int rejectedCount_tDBOutput_77 = 0;
 
-					String tableName_tDBOutput_3 = "url";
-					boolean whetherReject_tDBOutput_3 = false;
+					String tableName_tDBOutput_77 = "url";
+					boolean whetherReject_tDBOutput_77 = false;
 
-					java.util.Calendar calendar_tDBOutput_3 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_3.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_3 = calendar_tDBOutput_3.getTime().getTime();
-					calendar_tDBOutput_3.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_3 = calendar_tDBOutput_3.getTime().getTime();
-					long date_tDBOutput_3;
+					java.util.Calendar calendar_tDBOutput_77 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_77.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_77 = calendar_tDBOutput_77.getTime().getTime();
+					calendar_tDBOutput_77.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_77 = calendar_tDBOutput_77.getTime().getTime();
+					long date_tDBOutput_77;
 
-					java.sql.Connection conn_tDBOutput_3 = null;
+					java.sql.Connection conn_tDBOutput_77 = null;
 
-					String properties_tDBOutput_3 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_3 == null || properties_tDBOutput_3.trim().length() == 0) {
-						properties_tDBOutput_3 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_77 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_77 == null || properties_tDBOutput_77.trim().length() == 0) {
+						properties_tDBOutput_77 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_3.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_3 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_77.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_77 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_3.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_3 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_77.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_77 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_3 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_3;
+					String url_tDBOutput_77 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_77;
 
-					String driverClass_tDBOutput_3 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_77 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_3 = "root";
+					String dbUser_tDBOutput_77 = "root";
 
-					final String decryptedPassword_tDBOutput_3 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:f6kjo1K469rJKxW4TcjXfN/srzx/PQR8r/aWng==");
+					final String decryptedPassword_tDBOutput_77 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:uGNf1uJIaf3phRYItPTt70UOdjJj/ACKizYeiQ==");
 
-					String dbPwd_tDBOutput_3 = decryptedPassword_tDBOutput_3;
-					java.lang.Class.forName(driverClass_tDBOutput_3);
+					String dbPwd_tDBOutput_77 = decryptedPassword_tDBOutput_77;
+					java.lang.Class.forName(driverClass_tDBOutput_77);
 
-					conn_tDBOutput_3 = java.sql.DriverManager.getConnection(url_tDBOutput_3, dbUser_tDBOutput_3,
-							dbPwd_tDBOutput_3);
+					conn_tDBOutput_77 = java.sql.DriverManager.getConnection(url_tDBOutput_77, dbUser_tDBOutput_77,
+							dbPwd_tDBOutput_77);
 
-					resourceMap.put("conn_tDBOutput_3", conn_tDBOutput_3);
-					conn_tDBOutput_3.setAutoCommit(false);
-					int commitEvery_tDBOutput_3 = 10000;
-					int commitCounter_tDBOutput_3 = 0;
+					resourceMap.put("conn_tDBOutput_77", conn_tDBOutput_77);
+					conn_tDBOutput_77.setAutoCommit(false);
+					int commitEvery_tDBOutput_77 = 10000;
+					int commitCounter_tDBOutput_77 = 0;
 
-					int count_tDBOutput_3 = 0;
+					int count_tDBOutput_77 = 0;
 
-					String insert_tDBOutput_3 = "INSERT IGNORE INTO `" + "url"
-							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG/SG_si_Cluster`,`URL`,`Perform_action`,`Cricite`,`Message_alarme`,`Instructions`,`Intervalle_de_polling`,`Ref_Service`,`Objet`,`Monitored_by`,`Nom_Template`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_77 = "INSERT IGNORE INTO `" + "url"
+							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`RG__SG_si_Cluster`,`URL`,`Perform_action`,`Criticite`,`Message_alarme`,`Instructions`,`Intervalle_de_polling`,`Ref_Service`,`Objet`,`Monitored_by`,`Nom_Template`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_3 = conn_tDBOutput_3
-							.prepareStatement(insert_tDBOutput_3);
-					resourceMap.put("pstmt_tDBOutput_3", pstmt_tDBOutput_3);
+					java.sql.PreparedStatement pstmt_tDBOutput_77 = conn_tDBOutput_77
+							.prepareStatement(insert_tDBOutput_77);
+					resourceMap.put("pstmt_tDBOutput_77", pstmt_tDBOutput_77);
 
 					/**
-					 * [tDBOutput_3 begin ] stop
+					 * [tDBOutput_77 begin ] stop
 					 */
 
 					/**
@@ -18506,7 +18851,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					insrturlsStruct insrturls_tmp = new insrturlsStruct();
+					inserturlStruct inserturl_tmp = new inserturlStruct();
 // ###############################
 
 					/**
@@ -18607,7 +18952,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_48 = 0;
 
 					final String decryptedPassword_tFileInputExcel_48 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:3ya6GHFWFPw4x1xImtZdpbTsFNt+1+TSSxq4Vw==");
+							.decryptPassword("enc:routine.encryption.key.v1:AgsKDJr0amUDbRUHCrVs95zqZLj68dVt7+ZEQQ==");
 					String password_tFileInputExcel_48 = decryptedPassword_tFileInputExcel_48;
 					if (password_tFileInputExcel_48.isEmpty()) {
 						password_tFileInputExcel_48 = null;
@@ -19130,12 +19475,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row15.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_Url_" + rowRef;
+										String id = "EBD_" + fileWord + "_Url_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row24.N__Ref = id;
 										row24.Ref = row15.Ref;
@@ -19152,6 +19498,7 @@ public class monitoring implements TalendJob {
 										row24.Objet = row15.Objet;
 										row24.Monitored_By = row15.Monitored_By;
 										row24.Nom_Template = row15.Nom_Template;
+										row24.Support = Support;
 
 										nb_line_tJavaRow_7++;
 
@@ -19202,25 +19549,26 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											insrturls = null;
+											inserturl = null;
 
-// # Output table : 'insrturls'
-											insrturls_tmp.id = row24.N__Ref;
-											insrturls_tmp.Ref = row24.Ref;
-											insrturls_tmp.Etat = row24.Etat;
-											insrturls_tmp.Ref_composant = row24.Ref__des_composants;
-											insrturls_tmp.RG_SG_si_Cluster = row24.RG_SG_si_Cluster;
-											insrturls_tmp.URL = row24.URL;
-											insrturls_tmp.Perform_action = row24.Perform_action;
-											insrturls_tmp.Cricite = row24.Criticite;
-											insrturls_tmp.Message_alarme = row24.Message_d_alarme;
-											insrturls_tmp.Instructions = row24.Instructions;
-											insrturls_tmp.Intervalle_de_polling = row24.Intervalle_de_polling;
-											insrturls_tmp.Ref_Service = row24.Ref__Service;
-											insrturls_tmp.Objet = row24.Objet;
-											insrturls_tmp.Monitored_by = row24.Monitored_By;
-											insrturls_tmp.Nom_Template = row24.Nom_Template;
-											insrturls = insrturls_tmp;
+// # Output table : 'inserturl'
+											inserturl_tmp.id = row24.N__Ref;
+											inserturl_tmp.Ref = row24.Ref;
+											inserturl_tmp.Etat = row24.Etat;
+											inserturl_tmp.Ref_composant = row24.Ref__des_composants;
+											inserturl_tmp.RG__SG_si_Cluster = row24.RG_SG_si_Cluster;
+											inserturl_tmp.URL = row24.URL;
+											inserturl_tmp.Perform_action = row24.Perform_action;
+											inserturl_tmp.Criticite = row24.Criticite;
+											inserturl_tmp.Message_alarme = row24.Message_d_alarme;
+											inserturl_tmp.Instructions = row24.Instructions;
+											inserturl_tmp.Intervalle_de_polling = row24.Intervalle_de_polling;
+											inserturl_tmp.Ref_Service = row24.Ref__Service;
+											inserturl_tmp.Objet = row24.Objet;
+											inserturl_tmp.Monitored_by = row24.Monitored_By;
+											inserturl_tmp.Nom_Template = row24.Nom_Template;
+											inserturl_tmp.Support = row24.Support;
+											inserturl = inserturl_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -19242,165 +19590,171 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_7 process_data_begin ] stop
 										 */
-// Start of branch "insrturls"
-										if (insrturls != null) {
+// Start of branch "inserturl"
+										if (inserturl != null) {
 
 											/**
-											 * [tDBOutput_3 main ] start
+											 * [tDBOutput_77 main ] start
 											 */
 
-											currentComponent = "tDBOutput_3";
+											currentComponent = "tDBOutput_77";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "insrturls"
+														, "inserturl"
 
 												);
 											}
 
-											whetherReject_tDBOutput_3 = false;
-											if (insrturls.id == null) {
-												pstmt_tDBOutput_3.setNull(1, java.sql.Types.VARCHAR);
+											whetherReject_tDBOutput_77 = false;
+											if (inserturl.id == null) {
+												pstmt_tDBOutput_77.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(1, insrturls.id);
+												pstmt_tDBOutput_77.setString(1, inserturl.id);
 											}
 
-											if (insrturls.Ref == null) {
-												pstmt_tDBOutput_3.setNull(2, java.sql.Types.VARCHAR);
+											if (inserturl.Ref == null) {
+												pstmt_tDBOutput_77.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(2, insrturls.Ref);
+												pstmt_tDBOutput_77.setString(2, inserturl.Ref);
 											}
 
-											if (insrturls.Etat == null) {
-												pstmt_tDBOutput_3.setNull(3, java.sql.Types.VARCHAR);
+											if (inserturl.Etat == null) {
+												pstmt_tDBOutput_77.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(3, insrturls.Etat);
+												pstmt_tDBOutput_77.setString(3, inserturl.Etat);
 											}
 
-											if (insrturls.Ref_composant == null) {
-												pstmt_tDBOutput_3.setNull(4, java.sql.Types.VARCHAR);
+											if (inserturl.Ref_composant == null) {
+												pstmt_tDBOutput_77.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(4, insrturls.Ref_composant);
+												pstmt_tDBOutput_77.setString(4, inserturl.Ref_composant);
 											}
 
-											if (insrturls.RG_SG_si_Cluster == null) {
-												pstmt_tDBOutput_3.setNull(5, java.sql.Types.VARCHAR);
+											if (inserturl.RG__SG_si_Cluster == null) {
+												pstmt_tDBOutput_77.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(5, insrturls.RG_SG_si_Cluster);
+												pstmt_tDBOutput_77.setString(5, inserturl.RG__SG_si_Cluster);
 											}
 
-											if (insrturls.URL == null) {
-												pstmt_tDBOutput_3.setNull(6, java.sql.Types.VARCHAR);
+											if (inserturl.URL == null) {
+												pstmt_tDBOutput_77.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(6, insrturls.URL);
+												pstmt_tDBOutput_77.setString(6, inserturl.URL);
 											}
 
-											if (insrturls.Perform_action == null) {
-												pstmt_tDBOutput_3.setNull(7, java.sql.Types.VARCHAR);
+											if (inserturl.Perform_action == null) {
+												pstmt_tDBOutput_77.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(7, insrturls.Perform_action);
+												pstmt_tDBOutput_77.setString(7, inserturl.Perform_action);
 											}
 
-											if (insrturls.Cricite == null) {
-												pstmt_tDBOutput_3.setNull(8, java.sql.Types.VARCHAR);
+											if (inserturl.Criticite == null) {
+												pstmt_tDBOutput_77.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(8, insrturls.Cricite);
+												pstmt_tDBOutput_77.setString(8, inserturl.Criticite);
 											}
 
-											if (insrturls.Message_alarme == null) {
-												pstmt_tDBOutput_3.setNull(9, java.sql.Types.VARCHAR);
+											if (inserturl.Message_alarme == null) {
+												pstmt_tDBOutput_77.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(9, insrturls.Message_alarme);
+												pstmt_tDBOutput_77.setString(9, inserturl.Message_alarme);
 											}
 
-											if (insrturls.Instructions == null) {
-												pstmt_tDBOutput_3.setNull(10, java.sql.Types.VARCHAR);
+											if (inserturl.Instructions == null) {
+												pstmt_tDBOutput_77.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(10, insrturls.Instructions);
+												pstmt_tDBOutput_77.setString(10, inserturl.Instructions);
 											}
 
-											if (insrturls.Intervalle_de_polling == null) {
-												pstmt_tDBOutput_3.setNull(11, java.sql.Types.VARCHAR);
+											if (inserturl.Intervalle_de_polling == null) {
+												pstmt_tDBOutput_77.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(11, insrturls.Intervalle_de_polling);
+												pstmt_tDBOutput_77.setString(11, inserturl.Intervalle_de_polling);
 											}
 
-											if (insrturls.Ref_Service == null) {
-												pstmt_tDBOutput_3.setNull(12, java.sql.Types.VARCHAR);
+											if (inserturl.Ref_Service == null) {
+												pstmt_tDBOutput_77.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(12, insrturls.Ref_Service);
+												pstmt_tDBOutput_77.setString(12, inserturl.Ref_Service);
 											}
 
-											if (insrturls.Objet == null) {
-												pstmt_tDBOutput_3.setNull(13, java.sql.Types.VARCHAR);
+											if (inserturl.Objet == null) {
+												pstmt_tDBOutput_77.setNull(13, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(13, insrturls.Objet);
+												pstmt_tDBOutput_77.setString(13, inserturl.Objet);
 											}
 
-											if (insrturls.Monitored_by == null) {
-												pstmt_tDBOutput_3.setNull(14, java.sql.Types.VARCHAR);
+											if (inserturl.Monitored_by == null) {
+												pstmt_tDBOutput_77.setNull(14, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(14, insrturls.Monitored_by);
+												pstmt_tDBOutput_77.setString(14, inserturl.Monitored_by);
 											}
 
-											if (insrturls.Nom_Template == null) {
-												pstmt_tDBOutput_3.setNull(15, java.sql.Types.VARCHAR);
+											if (inserturl.Nom_Template == null) {
+												pstmt_tDBOutput_77.setNull(15, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_3.setString(15, insrturls.Nom_Template);
+												pstmt_tDBOutput_77.setString(15, inserturl.Nom_Template);
+											}
+
+											if (inserturl.Support == null) {
+												pstmt_tDBOutput_77.setNull(16, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_77.setString(16, inserturl.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_3++;
-												int processedCount_tDBOutput_3 = pstmt_tDBOutput_3.executeUpdate();
-												insertedCount_tDBOutput_3 += processedCount_tDBOutput_3;
-												rowsToCommitCount_tDBOutput_3 += processedCount_tDBOutput_3;
+												nb_line_tDBOutput_77++;
+												int processedCount_tDBOutput_77 = pstmt_tDBOutput_77.executeUpdate();
+												insertedCount_tDBOutput_77 += processedCount_tDBOutput_77;
+												rowsToCommitCount_tDBOutput_77 += processedCount_tDBOutput_77;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_3_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_3 = true;
+												globalMap.put("tDBOutput_77_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_77 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_3++;
+											commitCounter_tDBOutput_77++;
 
-											if (commitEvery_tDBOutput_3 <= commitCounter_tDBOutput_3) {
+											if (commitEvery_tDBOutput_77 <= commitCounter_tDBOutput_77) {
 
-												if (rowsToCommitCount_tDBOutput_3 != 0) {
+												if (rowsToCommitCount_tDBOutput_77 != 0) {
 												}
-												conn_tDBOutput_3.commit();
-												if (rowsToCommitCount_tDBOutput_3 != 0) {
-													rowsToCommitCount_tDBOutput_3 = 0;
+												conn_tDBOutput_77.commit();
+												if (rowsToCommitCount_tDBOutput_77 != 0) {
+													rowsToCommitCount_tDBOutput_77 = 0;
 												}
-												commitCounter_tDBOutput_3 = 0;
+												commitCounter_tDBOutput_77 = 0;
 
 											}
 
-											tos_count_tDBOutput_3++;
+											tos_count_tDBOutput_77++;
 
 											/**
-											 * [tDBOutput_3 main ] stop
+											 * [tDBOutput_77 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_3 process_data_begin ] start
+											 * [tDBOutput_77 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_3";
+											currentComponent = "tDBOutput_77";
 
 											/**
-											 * [tDBOutput_3 process_data_begin ] stop
+											 * [tDBOutput_77 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_3 process_data_end ] start
+											 * [tDBOutput_77 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_3";
+											currentComponent = "tDBOutput_77";
 
 											/**
-											 * [tDBOutput_3 process_data_end ] stop
+											 * [tDBOutput_77 process_data_end ] stop
 											 */
 
-										} // End of branch "insrturls"
+										} // End of branch "inserturl"
 
 										/**
 										 * [tMap_7 process_data_end ] start
@@ -19534,52 +19888,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_3 end ] start
+					 * [tDBOutput_77 end ] start
 					 */
 
-					currentComponent = "tDBOutput_3";
+					currentComponent = "tDBOutput_77";
 
-					if (pstmt_tDBOutput_3 != null) {
+					if (pstmt_tDBOutput_77 != null) {
 
-						pstmt_tDBOutput_3.close();
-						resourceMap.remove("pstmt_tDBOutput_3");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_3", true);
-					if (commitCounter_tDBOutput_3 > 0 && rowsToCommitCount_tDBOutput_3 != 0) {
+						pstmt_tDBOutput_77.close();
+						resourceMap.remove("pstmt_tDBOutput_77");
 
 					}
-					conn_tDBOutput_3.commit();
-					if (commitCounter_tDBOutput_3 > 0 && rowsToCommitCount_tDBOutput_3 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_77", true);
+					if (commitCounter_tDBOutput_77 > 0 && rowsToCommitCount_tDBOutput_77 != 0) {
 
-						rowsToCommitCount_tDBOutput_3 = 0;
 					}
-					commitCounter_tDBOutput_3 = 0;
+					conn_tDBOutput_77.commit();
+					if (commitCounter_tDBOutput_77 > 0 && rowsToCommitCount_tDBOutput_77 != 0) {
 
-					conn_tDBOutput_3.close();
+						rowsToCommitCount_tDBOutput_77 = 0;
+					}
+					commitCounter_tDBOutput_77 = 0;
 
-					resourceMap.put("finish_tDBOutput_3", true);
+					conn_tDBOutput_77.close();
 
-					nb_line_deleted_tDBOutput_3 = nb_line_deleted_tDBOutput_3 + deletedCount_tDBOutput_3;
-					nb_line_update_tDBOutput_3 = nb_line_update_tDBOutput_3 + updatedCount_tDBOutput_3;
-					nb_line_inserted_tDBOutput_3 = nb_line_inserted_tDBOutput_3 + insertedCount_tDBOutput_3;
-					nb_line_rejected_tDBOutput_3 = nb_line_rejected_tDBOutput_3 + rejectedCount_tDBOutput_3;
+					resourceMap.put("finish_tDBOutput_77", true);
 
-					globalMap.put("tDBOutput_3_NB_LINE", nb_line_tDBOutput_3);
-					globalMap.put("tDBOutput_3_NB_LINE_UPDATED", nb_line_update_tDBOutput_3);
-					globalMap.put("tDBOutput_3_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_3);
-					globalMap.put("tDBOutput_3_NB_LINE_DELETED", nb_line_deleted_tDBOutput_3);
-					globalMap.put("tDBOutput_3_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_3);
+					nb_line_deleted_tDBOutput_77 = nb_line_deleted_tDBOutput_77 + deletedCount_tDBOutput_77;
+					nb_line_update_tDBOutput_77 = nb_line_update_tDBOutput_77 + updatedCount_tDBOutput_77;
+					nb_line_inserted_tDBOutput_77 = nb_line_inserted_tDBOutput_77 + insertedCount_tDBOutput_77;
+					nb_line_rejected_tDBOutput_77 = nb_line_rejected_tDBOutput_77 + rejectedCount_tDBOutput_77;
+
+					globalMap.put("tDBOutput_77_NB_LINE", nb_line_tDBOutput_77);
+					globalMap.put("tDBOutput_77_NB_LINE_UPDATED", nb_line_update_tDBOutput_77);
+					globalMap.put("tDBOutput_77_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_77);
+					globalMap.put("tDBOutput_77_NB_LINE_DELETED", nb_line_deleted_tDBOutput_77);
+					globalMap.put("tDBOutput_77_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_77);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "insrturls");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "inserturl");
 					}
 
-					ok_Hash.put("tDBOutput_3", true);
-					end_Hash.put("tDBOutput_3", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_77", true);
+					end_Hash.put("tDBOutput_77", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_3 end ] stop
+					 * [tDBOutput_77 end ] stop
 					 */
 
 					if (execStat) {
@@ -19784,36 +20138,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_2 finally ] start
+				 * [tDBOutput_37 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_2";
+				currentComponent = "tDBOutput_37";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_2") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_2 = null;
-						if ((pstmtToClose_tDBOutput_2 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_2")) != null) {
-							pstmtToClose_tDBOutput_2.close();
+					if (resourceMap.get("statementClosed_tDBOutput_37") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_37 = null;
+						if ((pstmtToClose_tDBOutput_37 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_37")) != null) {
+							pstmtToClose_tDBOutput_37.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_2") == null) {
-						java.sql.Connection ctn_tDBOutput_2 = null;
-						if ((ctn_tDBOutput_2 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_2")) != null) {
+					if (resourceMap.get("finish_tDBOutput_37") == null) {
+						java.sql.Connection ctn_tDBOutput_37 = null;
+						if ((ctn_tDBOutput_37 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_37")) != null) {
 							try {
-								ctn_tDBOutput_2.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_2) {
-								String errorMessage_tDBOutput_2 = "failed to close the connection in tDBOutput_2 :"
-										+ sqlEx_tDBOutput_2.getMessage();
-								System.err.println(errorMessage_tDBOutput_2);
+								ctn_tDBOutput_37.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_37) {
+								String errorMessage_tDBOutput_37 = "failed to close the connection in tDBOutput_37 :"
+										+ sqlEx_tDBOutput_37.getMessage();
+								System.err.println(errorMessage_tDBOutput_37);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_2 finally ] stop
+				 * [tDBOutput_37 finally ] stop
 				 */
 
 				/**
@@ -19857,36 +20211,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_21 finally ] start
+				 * [tDBOutput_50 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_21";
+				currentComponent = "tDBOutput_50";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_21") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_21 = null;
-						if ((pstmtToClose_tDBOutput_21 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_21")) != null) {
-							pstmtToClose_tDBOutput_21.close();
+					if (resourceMap.get("statementClosed_tDBOutput_50") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_50 = null;
+						if ((pstmtToClose_tDBOutput_50 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_50")) != null) {
+							pstmtToClose_tDBOutput_50.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_21") == null) {
-						java.sql.Connection ctn_tDBOutput_21 = null;
-						if ((ctn_tDBOutput_21 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_21")) != null) {
+					if (resourceMap.get("finish_tDBOutput_50") == null) {
+						java.sql.Connection ctn_tDBOutput_50 = null;
+						if ((ctn_tDBOutput_50 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_50")) != null) {
 							try {
-								ctn_tDBOutput_21.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_21) {
-								String errorMessage_tDBOutput_21 = "failed to close the connection in tDBOutput_21 :"
-										+ sqlEx_tDBOutput_21.getMessage();
-								System.err.println(errorMessage_tDBOutput_21);
+								ctn_tDBOutput_50.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_50) {
+								String errorMessage_tDBOutput_50 = "failed to close the connection in tDBOutput_50 :"
+										+ sqlEx_tDBOutput_50.getMessage();
+								System.err.println(errorMessage_tDBOutput_50);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_21 finally ] stop
+				 * [tDBOutput_50 finally ] stop
 				 */
 
 				/**
@@ -19930,36 +20284,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_3 finally ] start
+				 * [tDBOutput_77 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_3";
+				currentComponent = "tDBOutput_77";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_3") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_3 = null;
-						if ((pstmtToClose_tDBOutput_3 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_3")) != null) {
-							pstmtToClose_tDBOutput_3.close();
+					if (resourceMap.get("statementClosed_tDBOutput_77") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_77 = null;
+						if ((pstmtToClose_tDBOutput_77 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_77")) != null) {
+							pstmtToClose_tDBOutput_77.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_3") == null) {
-						java.sql.Connection ctn_tDBOutput_3 = null;
-						if ((ctn_tDBOutput_3 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_3")) != null) {
+					if (resourceMap.get("finish_tDBOutput_77") == null) {
+						java.sql.Connection ctn_tDBOutput_77 = null;
+						if ((ctn_tDBOutput_77 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_77")) != null) {
 							try {
-								ctn_tDBOutput_3.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_3) {
-								String errorMessage_tDBOutput_3 = "failed to close the connection in tDBOutput_3 :"
-										+ sqlEx_tDBOutput_3.getMessage();
-								System.err.println(errorMessage_tDBOutput_3);
+								ctn_tDBOutput_77.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_77) {
+								String errorMessage_tDBOutput_77 = "failed to close the connection in tDBOutput_77 :"
+										+ sqlEx_tDBOutput_77.getMessage();
+								System.err.println(errorMessage_tDBOutput_77);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_3 finally ] stop
+				 * [tDBOutput_77 finally ] stop
 				 */
 
 				/**
@@ -19985,7 +20339,7 @@ public class monitoring implements TalendJob {
 		globalMap.put("tFileList_2_SUBPROCESS_STATE", 1);
 	}
 
-	public static class inserttraps_snmpStruct implements routines.system.IPersistableRow<inserttraps_snmpStruct> {
+	public static class insertTrapsSnmpStruct implements routines.system.IPersistableRow<insertTrapsSnmpStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -20049,10 +20403,10 @@ public class monitoring implements TalendJob {
 			return this.Variable_binding;
 		}
 
-		public String Cricite;
+		public String Criticite;
 
-		public String getCricite() {
-			return this.Cricite;
+		public String getCriticite() {
+			return this.Criticite;
 		}
 
 		public String Message_alarme;
@@ -20091,6 +20445,12 @@ public class monitoring implements TalendJob {
 			return this.Compelement_information;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		@Override
 		public int hashCode() {
 			if (this.hashCodeDirty) {
@@ -20113,7 +20473,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final inserttraps_snmpStruct other = (inserttraps_snmpStruct) obj;
+			final insertTrapsSnmpStruct other = (insertTrapsSnmpStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -20126,7 +20486,7 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(inserttraps_snmpStruct other) {
+		public void copyDataTo(insertTrapsSnmpStruct other) {
 
 			other.id = this.id;
 			other.Ref = this.Ref;
@@ -20137,17 +20497,18 @@ public class monitoring implements TalendJob {
 			other.OID = this.OID;
 			other.Specific_Trap = this.Specific_Trap;
 			other.Variable_binding = this.Variable_binding;
-			other.Cricite = this.Cricite;
+			other.Criticite = this.Criticite;
 			other.Message_alarme = this.Message_alarme;
 			other.Instructions = this.Instructions;
 			other.acquittement = this.acquittement;
 			other.MIB_associe = this.MIB_associe;
 			other.Objet = this.Objet;
 			other.Compelement_information = this.Compelement_information;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(inserttraps_snmpStruct other) {
+		public void copyKeysDataTo(insertTrapsSnmpStruct other) {
 
 			other.id = this.id;
 
@@ -20239,7 +20600,7 @@ public class monitoring implements TalendJob {
 
 					this.Variable_binding = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -20252,6 +20613,8 @@ public class monitoring implements TalendJob {
 					this.Objet = readString(dis);
 
 					this.Compelement_information = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -20288,7 +20651,7 @@ public class monitoring implements TalendJob {
 
 					this.Variable_binding = readString(dis);
 
-					this.Cricite = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -20301,6 +20664,8 @@ public class monitoring implements TalendJob {
 					this.Objet = readString(dis);
 
 					this.Compelement_information = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -20352,7 +20717,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -20377,6 +20742,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Compelement_information, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -20425,7 +20794,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Cricite, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -20451,6 +20820,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Compelement_information, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -20471,13 +20844,14 @@ public class monitoring implements TalendJob {
 			sb.append(",OID=" + OID);
 			sb.append(",Specific_Trap=" + Specific_Trap);
 			sb.append(",Variable_binding=" + Variable_binding);
-			sb.append(",Cricite=" + Cricite);
+			sb.append(",Criticite=" + Criticite);
 			sb.append(",Message_alarme=" + Message_alarme);
 			sb.append(",Instructions=" + Instructions);
 			sb.append(",acquittement=" + acquittement);
 			sb.append(",MIB_associe=" + MIB_associe);
 			sb.append(",Objet=" + Objet);
 			sb.append(",Compelement_information=" + Compelement_information);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -20486,7 +20860,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(inserttraps_snmpStruct other) {
+		public int compareTo(insertTrapsSnmpStruct other) {
 
 			int returnValue = -1;
 
@@ -20621,6 +20995,12 @@ public class monitoring implements TalendJob {
 			return this.Complements_d_informations;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -20721,6 +21101,8 @@ public class monitoring implements TalendJob {
 
 					this.Complements_d_informations = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -20769,6 +21151,8 @@ public class monitoring implements TalendJob {
 					this.Objet = readString(dis);
 
 					this.Complements_d_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -20846,6 +21230,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Complements_d_informations, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -20919,6 +21307,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Complements_d_informations, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -20946,6 +21338,7 @@ public class monitoring implements TalendJob {
 			sb.append(",MIB_associee_s=" + MIB_associee_s);
 			sb.append(",Objet=" + Objet);
 			sb.append(",Complements_d_informations=" + Complements_d_informations);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -21910,7 +22303,7 @@ public class monitoring implements TalendJob {
 
 	}
 
-	public static class insertserveursStruct implements routines.system.IPersistableRow<insertserveursStruct> {
+	public static class insertServeursStruct implements routines.system.IPersistableRow<insertServeursStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -22004,10 +22397,16 @@ public class monitoring implements TalendJob {
 			return this.Socle_Standard_OMU;
 		}
 
-		public String Complements_d_informations;
+		public String Complements_informations;
 
-		public String getComplements_d_informations() {
-			return this.Complements_d_informations;
+		public String getComplements_informations() {
+			return this.Complements_informations;
+		}
+
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
 		}
 
 		@Override
@@ -22032,7 +22431,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final insertserveursStruct other = (insertserveursStruct) obj;
+			final insertServeursStruct other = (insertServeursStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -22045,7 +22444,7 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(insertserveursStruct other) {
+		public void copyDataTo(insertServeursStruct other) {
 
 			other.id = this.id;
 			other.Ref = this.Ref;
@@ -22061,11 +22460,12 @@ public class monitoring implements TalendJob {
 			other.Ip_source = this.Ip_source;
 			other.Description = this.Description;
 			other.Socle_Standard_OMU = this.Socle_Standard_OMU;
-			other.Complements_d_informations = this.Complements_d_informations;
+			other.Complements_informations = this.Complements_informations;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(insertserveursStruct other) {
+		public void copyKeysDataTo(insertServeursStruct other) {
 
 			other.id = this.id;
 
@@ -22167,7 +22567,9 @@ public class monitoring implements TalendJob {
 
 					this.Socle_Standard_OMU = readString(dis);
 
-					this.Complements_d_informations = readString(dis);
+					this.Complements_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -22214,7 +22616,9 @@ public class monitoring implements TalendJob {
 
 					this.Socle_Standard_OMU = readString(dis);
 
-					this.Complements_d_informations = readString(dis);
+					this.Complements_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -22286,7 +22690,11 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Complements_d_informations, dos);
+				writeString(this.Complements_informations, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -22355,7 +22763,11 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Complements_d_informations, dos);
+				writeString(this.Complements_informations, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -22382,7 +22794,8 @@ public class monitoring implements TalendJob {
 			sb.append(",Ip_source=" + Ip_source);
 			sb.append(",Description=" + Description);
 			sb.append(",Socle_Standard_OMU=" + Socle_Standard_OMU);
-			sb.append(",Complements_d_informations=" + Complements_d_informations);
+			sb.append(",Complements_informations=" + Complements_informations);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -22391,7 +22804,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(insertserveursStruct other) {
+		public int compareTo(insertServeursStruct other) {
 
 			int returnValue = -1;
 
@@ -22520,6 +22933,12 @@ public class monitoring implements TalendJob {
 			return this.Complements_d_informations;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -22618,6 +23037,8 @@ public class monitoring implements TalendJob {
 
 					this.Complements_d_informations = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -22664,6 +23085,8 @@ public class monitoring implements TalendJob {
 					this.Socle_Standard_OMU = readString(dis);
 
 					this.Complements_d_informations = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -22737,6 +23160,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Complements_d_informations, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -22806,6 +23233,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Complements_d_informations, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -22832,6 +23263,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Description=" + Description);
 			sb.append(",Socle_Standard_OMU=" + Socle_Standard_OMU);
 			sb.append(",Complements_d_informations=" + Complements_d_informations);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -23758,8 +24190,8 @@ public class monitoring implements TalendJob {
 
 	}
 
-	public static class insertlog_files_patternsStruct
-			implements routines.system.IPersistableRow<insertlog_files_patternsStruct> {
+	public static class insertLogFilesPatternsStruct
+			implements routines.system.IPersistableRow<insertLogFilesPatternsStruct> {
 		final static byte[] commonByteArrayLock_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		static byte[] commonByteArray_EBDS_MONITORING_WEB_monitoring = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -23805,10 +24237,10 @@ public class monitoring implements TalendJob {
 			return this.Identification;
 		}
 
-		public String Criticitee;
+		public String Criticite;
 
-		public String getCriticitee() {
-			return this.Criticitee;
+		public String getCriticite() {
+			return this.Criticite;
 		}
 
 		public String Message_alarme;
@@ -23835,10 +24267,10 @@ public class monitoring implements TalendJob {
 			return this.Acquittement;
 		}
 
-		public String Complements_d_informations;
+		public String Complements_informations;
 
-		public String getComplements_d_informations() {
-			return this.Complements_d_informations;
+		public String getComplements_informations() {
+			return this.Complements_informations;
 		}
 
 		public String Ref_Service;
@@ -23851,6 +24283,12 @@ public class monitoring implements TalendJob {
 
 		public String getObjet() {
 			return this.Objet;
+		}
+
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
 		}
 
 		@Override
@@ -23875,7 +24313,7 @@ public class monitoring implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final insertlog_files_patternsStruct other = (insertlog_files_patternsStruct) obj;
+			final insertLogFilesPatternsStruct other = (insertLogFilesPatternsStruct) obj;
 
 			if (this.id == null) {
 				if (other.id != null)
@@ -23888,7 +24326,7 @@ public class monitoring implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(insertlog_files_patternsStruct other) {
+		public void copyDataTo(insertLogFilesPatternsStruct other) {
 
 			other.id = this.id;
 			other.N_Ref = this.N_Ref;
@@ -23896,18 +24334,19 @@ public class monitoring implements TalendJob {
 			other.Etat = this.Etat;
 			other.Signification = this.Signification;
 			other.Identification = this.Identification;
-			other.Criticitee = this.Criticitee;
+			other.Criticite = this.Criticite;
 			other.Message_alarme = this.Message_alarme;
 			other.Instructions = this.Instructions;
 			other.Perform_action = this.Perform_action;
 			other.Acquittement = this.Acquittement;
-			other.Complements_d_informations = this.Complements_d_informations;
+			other.Complements_informations = this.Complements_informations;
 			other.Ref_Service = this.Ref_Service;
 			other.Objet = this.Objet;
+			other.Support = this.Support;
 
 		}
 
-		public void copyKeysDataTo(insertlog_files_patternsStruct other) {
+		public void copyKeysDataTo(insertLogFilesPatternsStruct other) {
 
 			other.id = this.id;
 
@@ -24035,7 +24474,7 @@ public class monitoring implements TalendJob {
 
 					this.Identification = readString(dis);
 
-					this.Criticitee = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -24045,11 +24484,13 @@ public class monitoring implements TalendJob {
 
 					this.Acquittement = readString(dis);
 
-					this.Complements_d_informations = readString(dis);
+					this.Complements_informations = readString(dis);
 
 					this.Ref_Service = readString(dis);
 
 					this.Objet = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -24080,7 +24521,7 @@ public class monitoring implements TalendJob {
 
 					this.Identification = readString(dis);
 
-					this.Criticitee = readString(dis);
+					this.Criticite = readString(dis);
 
 					this.Message_alarme = readString(dis);
 
@@ -24090,11 +24531,13 @@ public class monitoring implements TalendJob {
 
 					this.Acquittement = readString(dis);
 
-					this.Complements_d_informations = readString(dis);
+					this.Complements_informations = readString(dis);
 
 					this.Ref_Service = readString(dis);
 
 					this.Objet = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -24134,7 +24577,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Criticitee, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -24154,7 +24597,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Complements_d_informations, dos);
+				writeString(this.Complements_informations, dos);
 
 				// String
 
@@ -24163,6 +24606,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Objet, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -24199,7 +24646,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Criticitee, dos);
+				writeString(this.Criticite, dos);
 
 				// String
 
@@ -24219,7 +24666,7 @@ public class monitoring implements TalendJob {
 
 				// String
 
-				writeString(this.Complements_d_informations, dos);
+				writeString(this.Complements_informations, dos);
 
 				// String
 
@@ -24228,6 +24675,10 @@ public class monitoring implements TalendJob {
 				// String
 
 				writeString(this.Objet, dos);
+
+				// String
+
+				writeString(this.Support, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -24246,14 +24697,15 @@ public class monitoring implements TalendJob {
 			sb.append(",Etat=" + Etat);
 			sb.append(",Signification=" + Signification);
 			sb.append(",Identification=" + Identification);
-			sb.append(",Criticitee=" + Criticitee);
+			sb.append(",Criticite=" + Criticite);
 			sb.append(",Message_alarme=" + Message_alarme);
 			sb.append(",Instructions=" + Instructions);
 			sb.append(",Perform_action=" + Perform_action);
 			sb.append(",Acquittement=" + Acquittement);
-			sb.append(",Complements_d_informations=" + Complements_d_informations);
+			sb.append(",Complements_informations=" + Complements_informations);
 			sb.append(",Ref_Service=" + Ref_Service);
 			sb.append(",Objet=" + Objet);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -24262,7 +24714,7 @@ public class monitoring implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(insertlog_files_patternsStruct other) {
+		public int compareTo(insertLogFilesPatternsStruct other) {
 
 			int returnValue = -1;
 
@@ -24385,6 +24837,12 @@ public class monitoring implements TalendJob {
 			return this.Objet;
 		}
 
+		public String Support;
+
+		public String getSupport() {
+			return this.Support;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -24523,6 +24981,8 @@ public class monitoring implements TalendJob {
 
 					this.Objet = readString(dis);
 
+					this.Support = readString(dis);
+
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -24567,6 +25027,8 @@ public class monitoring implements TalendJob {
 					this.Ref__Service = readString(dis);
 
 					this.Objet = readString(dis);
+
+					this.Support = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -24636,6 +25098,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Objet, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -24701,6 +25167,10 @@ public class monitoring implements TalendJob {
 
 				writeString(this.Objet, dos);
 
+				// String
+
+				writeString(this.Support, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -24726,6 +25196,7 @@ public class monitoring implements TalendJob {
 			sb.append(",Complements_d_informations=" + Complements_d_informations);
 			sb.append(",Ref__Service=" + Ref__Service);
 			sb.append(",Objet=" + Objet);
+			sb.append(",Support=" + Support);
 			sb.append("]");
 
 			return sb.toString();
@@ -25901,27 +26372,27 @@ public class monitoring implements TalendJob {
 				row7Struct row7 = new row7Struct();
 				row16Struct row16 = new row16Struct();
 				row25Struct row25 = new row25Struct();
-				inserttraps_snmpStruct inserttraps_snmp = new inserttraps_snmpStruct();
+				insertTrapsSnmpStruct insertTrapsSnmp = new insertTrapsSnmpStruct();
 				row8Struct row8 = new row8Struct();
 				row17Struct row17 = new row17Struct();
 				row26Struct row26 = new row26Struct();
-				insertserveursStruct insertserveurs = new insertserveursStruct();
+				insertServeursStruct insertServeurs = new insertServeursStruct();
 				row9Struct row9 = new row9Struct();
 				row18Struct row18 = new row18Struct();
 				row27Struct row27 = new row27Struct();
-				insertlog_files_patternsStruct insertlog_files_patterns = new insertlog_files_patternsStruct();
+				insertLogFilesPatternsStruct insertLogFilesPatterns = new insertLogFilesPatternsStruct();
 
 				/**
 				 * [tFileList_3 begin ] start
 				 */
 
-				int NB_ITERATE_tFileInputExcel_3 = 0; // for statistics
-
 				int NB_ITERATE_tFileInputExcel_39 = 0; // for statistics
+
+				int NB_ITERATE_tIterateToFlow_3_ITFO = 0; // for statistics
 
 				int NB_ITERATE_tFileInputExcel_31 = 0; // for statistics
 
-				int NB_ITERATE_tIterateToFlow_3_ITFO = 0; // for statistics
+				int NB_ITERATE_tFileInputExcel_3 = 0; // for statistics
 
 				ok_Hash.put("tFileList_3", false);
 				start_Hash.put("tFileList_3", System.currentTimeMillis());
@@ -26023,11 +26494,7 @@ public class monitoring implements TalendJob {
 					NB_ITERATE_tFileInputExcel_39++;
 
 					if (execStat) {
-						runStat.updateStatOnConnection("inserttraps_snmp", 3, 0);
-					}
-
-					if (execStat) {
-						runStat.updateStatOnConnection("row25", 3, 0);
+						runStat.updateStatOnConnection("insertTrapsSnmp", 3, 0);
 					}
 
 					if (execStat) {
@@ -26039,94 +26506,98 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
+						runStat.updateStatOnConnection("row25", 3, 0);
+					}
+
+					if (execStat) {
 						runStat.updateStatOnConnection("iterate8", 1, "exec" + NB_ITERATE_tFileInputExcel_39);
 						// Thread.sleep(1000);
 					}
 
 					/**
-					 * [tDBOutput_36 begin ] start
+					 * [tDBOutput_72 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_36", false);
-					start_Hash.put("tDBOutput_36", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_72", false);
+					start_Hash.put("tDBOutput_72", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_36";
+					currentComponent = "tDBOutput_72";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "inserttraps_snmp");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertTrapsSnmp");
 					}
 
-					int tos_count_tDBOutput_36 = 0;
+					int tos_count_tDBOutput_72 = 0;
 
-					int nb_line_tDBOutput_36 = 0;
-					int nb_line_update_tDBOutput_36 = 0;
-					int nb_line_inserted_tDBOutput_36 = 0;
-					int nb_line_deleted_tDBOutput_36 = 0;
-					int nb_line_rejected_tDBOutput_36 = 0;
+					int nb_line_tDBOutput_72 = 0;
+					int nb_line_update_tDBOutput_72 = 0;
+					int nb_line_inserted_tDBOutput_72 = 0;
+					int nb_line_deleted_tDBOutput_72 = 0;
+					int nb_line_rejected_tDBOutput_72 = 0;
 
-					int deletedCount_tDBOutput_36 = 0;
-					int updatedCount_tDBOutput_36 = 0;
-					int insertedCount_tDBOutput_36 = 0;
-					int rowsToCommitCount_tDBOutput_36 = 0;
-					int rejectedCount_tDBOutput_36 = 0;
+					int deletedCount_tDBOutput_72 = 0;
+					int updatedCount_tDBOutput_72 = 0;
+					int insertedCount_tDBOutput_72 = 0;
+					int rowsToCommitCount_tDBOutput_72 = 0;
+					int rejectedCount_tDBOutput_72 = 0;
 
-					String tableName_tDBOutput_36 = "traps_snmp";
-					boolean whetherReject_tDBOutput_36 = false;
+					String tableName_tDBOutput_72 = "traps_snmp";
+					boolean whetherReject_tDBOutput_72 = false;
 
-					java.util.Calendar calendar_tDBOutput_36 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_36.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_36 = calendar_tDBOutput_36.getTime().getTime();
-					calendar_tDBOutput_36.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_36 = calendar_tDBOutput_36.getTime().getTime();
-					long date_tDBOutput_36;
+					java.util.Calendar calendar_tDBOutput_72 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_72.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_72 = calendar_tDBOutput_72.getTime().getTime();
+					calendar_tDBOutput_72.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_72 = calendar_tDBOutput_72.getTime().getTime();
+					long date_tDBOutput_72;
 
-					java.sql.Connection conn_tDBOutput_36 = null;
+					java.sql.Connection conn_tDBOutput_72 = null;
 
-					String properties_tDBOutput_36 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_36 == null || properties_tDBOutput_36.trim().length() == 0) {
-						properties_tDBOutput_36 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_72 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_72 == null || properties_tDBOutput_72.trim().length() == 0) {
+						properties_tDBOutput_72 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_36.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_36 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_72.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_72 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_36.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_36 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_72.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_72 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_36 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_36;
+					String url_tDBOutput_72 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_72;
 
-					String driverClass_tDBOutput_36 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_72 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_36 = "root";
+					String dbUser_tDBOutput_72 = "root";
 
-					final String decryptedPassword_tDBOutput_36 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:EJfRGrwLU4xVTHhNd0E+9jCFATi6Na8Ib896Dg==");
+					final String decryptedPassword_tDBOutput_72 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:rnnZCZ96Kao8qLuDHkdjEghHwPOXppo6Ewed+A==");
 
-					String dbPwd_tDBOutput_36 = decryptedPassword_tDBOutput_36;
-					java.lang.Class.forName(driverClass_tDBOutput_36);
+					String dbPwd_tDBOutput_72 = decryptedPassword_tDBOutput_72;
+					java.lang.Class.forName(driverClass_tDBOutput_72);
 
-					conn_tDBOutput_36 = java.sql.DriverManager.getConnection(url_tDBOutput_36, dbUser_tDBOutput_36,
-							dbPwd_tDBOutput_36);
+					conn_tDBOutput_72 = java.sql.DriverManager.getConnection(url_tDBOutput_72, dbUser_tDBOutput_72,
+							dbPwd_tDBOutput_72);
 
-					resourceMap.put("conn_tDBOutput_36", conn_tDBOutput_36);
-					conn_tDBOutput_36.setAutoCommit(false);
-					int commitEvery_tDBOutput_36 = 10000;
-					int commitCounter_tDBOutput_36 = 0;
+					resourceMap.put("conn_tDBOutput_72", conn_tDBOutput_72);
+					conn_tDBOutput_72.setAutoCommit(false);
+					int commitEvery_tDBOutput_72 = 10000;
+					int commitCounter_tDBOutput_72 = 0;
 
-					int count_tDBOutput_36 = 0;
+					int count_tDBOutput_72 = 0;
 
-					String insert_tDBOutput_36 = "INSERT IGNORE INTO `" + "traps_snmp"
-							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`Signification`,`Version_SNMP`,`OID`,`Specific_Trap`,`Variable_binding`,`Cricite`,`Message_alarme`,`Instructions`,`acquittement`,`MIB_associe`,`Objet`,`Compelement_information`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_72 = "INSERT IGNORE INTO `" + "traps_snmp"
+							+ "` (`id`,`Ref`,`Etat`,`Ref_composant`,`Signification`,`Version_SNMP`,`OID`,`Specific_Trap`,`Variable_binding`,`Criticite`,`Message_alarme`,`Instructions`,`acquittement`,`MIB_associe`,`Objet`,`Compelement_information`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_36 = conn_tDBOutput_36
-							.prepareStatement(insert_tDBOutput_36);
-					resourceMap.put("pstmt_tDBOutput_36", pstmt_tDBOutput_36);
+					java.sql.PreparedStatement pstmt_tDBOutput_72 = conn_tDBOutput_72
+							.prepareStatement(insert_tDBOutput_72);
+					resourceMap.put("pstmt_tDBOutput_72", pstmt_tDBOutput_72);
 
 					/**
-					 * [tDBOutput_36 begin ] stop
+					 * [tDBOutput_72 begin ] stop
 					 */
 
 					/**
@@ -26157,7 +26628,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					inserttraps_snmpStruct inserttraps_snmp_tmp = new inserttraps_snmpStruct();
+					insertTrapsSnmpStruct insertTrapsSnmp_tmp = new insertTrapsSnmpStruct();
 // ###############################
 
 					/**
@@ -26258,7 +26729,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_39 = 0;
 
 					final String decryptedPassword_tFileInputExcel_39 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:uEyVz6DJTjw9GLW8j974ClFNAAmz9ueshUAMYA==");
+							.decryptPassword("enc:routine.encryption.key.v1:ghPrASd3rR2nI9ckg0yR2kALHShrXG8dBuAe7w==");
 					String password_tFileInputExcel_39 = decryptedPassword_tFileInputExcel_39;
 					if (password_tFileInputExcel_39.isEmpty()) {
 						password_tFileInputExcel_39 = null;
@@ -26794,12 +27265,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row16.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_TrapsSNMP_" + rowRef;
+										String id = "EBD_" + fileWord + "_TrapsSNMP_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row25.N__Ref = id;
 										row25.Ref = row16.Ref;
@@ -26817,7 +27289,7 @@ public class monitoring implements TalendJob {
 										row25.MIB_associee_s = row16.MIB_associee_s;
 										row25.Objet = row16.Objet;
 										row25.Complements_d_informations = row16.Complements_d_informations;
-
+										row25.Support = Support;
 										nb_line_tJavaRow_8++;
 
 										tos_count_tJavaRow_8++;
@@ -26867,26 +27339,27 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											inserttraps_snmp = null;
+											insertTrapsSnmp = null;
 
-// # Output table : 'inserttraps_snmp'
-											inserttraps_snmp_tmp.id = row25.N__Ref;
-											inserttraps_snmp_tmp.Ref = row25.Ref;
-											inserttraps_snmp_tmp.Etat = row25.Etat;
-											inserttraps_snmp_tmp.Ref_composant = row25.Ref__des_composants;
-											inserttraps_snmp_tmp.Signification = row25.Signification;
-											inserttraps_snmp_tmp.Version_SNMP = row25.Version_SNMP;
-											inserttraps_snmp_tmp.OID = row25.OID;
-											inserttraps_snmp_tmp.Specific_Trap = row25.Specific_trap;
-											inserttraps_snmp_tmp.Variable_binding = row25.Variable_s__binding;
-											inserttraps_snmp_tmp.Cricite = row25.Criticite;
-											inserttraps_snmp_tmp.Message_alarme = row25.Message_d_alarme;
-											inserttraps_snmp_tmp.Instructions = row25.Instructions;
-											inserttraps_snmp_tmp.acquittement = row25.Acquittement;
-											inserttraps_snmp_tmp.MIB_associe = row25.MIB_associee_s;
-											inserttraps_snmp_tmp.Objet = row25.Objet;
-											inserttraps_snmp_tmp.Compelement_information = row25.Complements_d_informations;
-											inserttraps_snmp = inserttraps_snmp_tmp;
+// # Output table : 'insertTrapsSnmp'
+											insertTrapsSnmp_tmp.id = row25.N__Ref;
+											insertTrapsSnmp_tmp.Ref = row25.Ref;
+											insertTrapsSnmp_tmp.Etat = row25.Etat;
+											insertTrapsSnmp_tmp.Ref_composant = row25.Ref__des_composants;
+											insertTrapsSnmp_tmp.Signification = row25.Signification;
+											insertTrapsSnmp_tmp.Version_SNMP = row25.Version_SNMP;
+											insertTrapsSnmp_tmp.OID = row25.OID;
+											insertTrapsSnmp_tmp.Specific_Trap = row25.Specific_trap;
+											insertTrapsSnmp_tmp.Variable_binding = row25.Variable_s__binding;
+											insertTrapsSnmp_tmp.Criticite = row25.Criticite;
+											insertTrapsSnmp_tmp.Message_alarme = row25.Message_d_alarme;
+											insertTrapsSnmp_tmp.Instructions = row25.Instructions;
+											insertTrapsSnmp_tmp.acquittement = row25.Acquittement;
+											insertTrapsSnmp_tmp.MIB_associe = row25.MIB_associee_s;
+											insertTrapsSnmp_tmp.Objet = row25.Objet;
+											insertTrapsSnmp_tmp.Compelement_information = row25.Complements_d_informations;
+											insertTrapsSnmp_tmp.Support = row25.Support;
+											insertTrapsSnmp = insertTrapsSnmp_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -26908,172 +27381,178 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_8 process_data_begin ] stop
 										 */
-// Start of branch "inserttraps_snmp"
-										if (inserttraps_snmp != null) {
+// Start of branch "insertTrapsSnmp"
+										if (insertTrapsSnmp != null) {
 
 											/**
-											 * [tDBOutput_36 main ] start
+											 * [tDBOutput_72 main ] start
 											 */
 
-											currentComponent = "tDBOutput_36";
+											currentComponent = "tDBOutput_72";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "inserttraps_snmp"
+														, "insertTrapsSnmp"
 
 												);
 											}
 
-											whetherReject_tDBOutput_36 = false;
-											if (inserttraps_snmp.id == null) {
-												pstmt_tDBOutput_36.setNull(1, java.sql.Types.VARCHAR);
+											whetherReject_tDBOutput_72 = false;
+											if (insertTrapsSnmp.id == null) {
+												pstmt_tDBOutput_72.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(1, inserttraps_snmp.id);
+												pstmt_tDBOutput_72.setString(1, insertTrapsSnmp.id);
 											}
 
-											if (inserttraps_snmp.Ref == null) {
-												pstmt_tDBOutput_36.setNull(2, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Ref == null) {
+												pstmt_tDBOutput_72.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(2, inserttraps_snmp.Ref);
+												pstmt_tDBOutput_72.setString(2, insertTrapsSnmp.Ref);
 											}
 
-											if (inserttraps_snmp.Etat == null) {
-												pstmt_tDBOutput_36.setNull(3, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Etat == null) {
+												pstmt_tDBOutput_72.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(3, inserttraps_snmp.Etat);
+												pstmt_tDBOutput_72.setString(3, insertTrapsSnmp.Etat);
 											}
 
-											if (inserttraps_snmp.Ref_composant == null) {
-												pstmt_tDBOutput_36.setNull(4, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Ref_composant == null) {
+												pstmt_tDBOutput_72.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(4, inserttraps_snmp.Ref_composant);
+												pstmt_tDBOutput_72.setString(4, insertTrapsSnmp.Ref_composant);
 											}
 
-											if (inserttraps_snmp.Signification == null) {
-												pstmt_tDBOutput_36.setNull(5, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Signification == null) {
+												pstmt_tDBOutput_72.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(5, inserttraps_snmp.Signification);
+												pstmt_tDBOutput_72.setString(5, insertTrapsSnmp.Signification);
 											}
 
-											if (inserttraps_snmp.Version_SNMP == null) {
-												pstmt_tDBOutput_36.setNull(6, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Version_SNMP == null) {
+												pstmt_tDBOutput_72.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(6, inserttraps_snmp.Version_SNMP);
+												pstmt_tDBOutput_72.setString(6, insertTrapsSnmp.Version_SNMP);
 											}
 
-											if (inserttraps_snmp.OID == null) {
-												pstmt_tDBOutput_36.setNull(7, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.OID == null) {
+												pstmt_tDBOutput_72.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(7, inserttraps_snmp.OID);
+												pstmt_tDBOutput_72.setString(7, insertTrapsSnmp.OID);
 											}
 
-											if (inserttraps_snmp.Specific_Trap == null) {
-												pstmt_tDBOutput_36.setNull(8, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Specific_Trap == null) {
+												pstmt_tDBOutput_72.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(8, inserttraps_snmp.Specific_Trap);
+												pstmt_tDBOutput_72.setString(8, insertTrapsSnmp.Specific_Trap);
 											}
 
-											if (inserttraps_snmp.Variable_binding == null) {
-												pstmt_tDBOutput_36.setNull(9, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Variable_binding == null) {
+												pstmt_tDBOutput_72.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(9, inserttraps_snmp.Variable_binding);
+												pstmt_tDBOutput_72.setString(9, insertTrapsSnmp.Variable_binding);
 											}
 
-											if (inserttraps_snmp.Cricite == null) {
-												pstmt_tDBOutput_36.setNull(10, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Criticite == null) {
+												pstmt_tDBOutput_72.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(10, inserttraps_snmp.Cricite);
+												pstmt_tDBOutput_72.setString(10, insertTrapsSnmp.Criticite);
 											}
 
-											if (inserttraps_snmp.Message_alarme == null) {
-												pstmt_tDBOutput_36.setNull(11, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Message_alarme == null) {
+												pstmt_tDBOutput_72.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(11, inserttraps_snmp.Message_alarme);
+												pstmt_tDBOutput_72.setString(11, insertTrapsSnmp.Message_alarme);
 											}
 
-											if (inserttraps_snmp.Instructions == null) {
-												pstmt_tDBOutput_36.setNull(12, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Instructions == null) {
+												pstmt_tDBOutput_72.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(12, inserttraps_snmp.Instructions);
+												pstmt_tDBOutput_72.setString(12, insertTrapsSnmp.Instructions);
 											}
 
-											if (inserttraps_snmp.acquittement == null) {
-												pstmt_tDBOutput_36.setNull(13, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.acquittement == null) {
+												pstmt_tDBOutput_72.setNull(13, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(13, inserttraps_snmp.acquittement);
+												pstmt_tDBOutput_72.setString(13, insertTrapsSnmp.acquittement);
 											}
 
-											if (inserttraps_snmp.MIB_associe == null) {
-												pstmt_tDBOutput_36.setNull(14, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.MIB_associe == null) {
+												pstmt_tDBOutput_72.setNull(14, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(14, inserttraps_snmp.MIB_associe);
+												pstmt_tDBOutput_72.setString(14, insertTrapsSnmp.MIB_associe);
 											}
 
-											if (inserttraps_snmp.Objet == null) {
-												pstmt_tDBOutput_36.setNull(15, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Objet == null) {
+												pstmt_tDBOutput_72.setNull(15, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(15, inserttraps_snmp.Objet);
+												pstmt_tDBOutput_72.setString(15, insertTrapsSnmp.Objet);
 											}
 
-											if (inserttraps_snmp.Compelement_information == null) {
-												pstmt_tDBOutput_36.setNull(16, java.sql.Types.VARCHAR);
+											if (insertTrapsSnmp.Compelement_information == null) {
+												pstmt_tDBOutput_72.setNull(16, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_36.setString(16,
-														inserttraps_snmp.Compelement_information);
+												pstmt_tDBOutput_72.setString(16,
+														insertTrapsSnmp.Compelement_information);
+											}
+
+											if (insertTrapsSnmp.Support == null) {
+												pstmt_tDBOutput_72.setNull(17, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_72.setString(17, insertTrapsSnmp.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_36++;
-												int processedCount_tDBOutput_36 = pstmt_tDBOutput_36.executeUpdate();
-												insertedCount_tDBOutput_36 += processedCount_tDBOutput_36;
-												rowsToCommitCount_tDBOutput_36 += processedCount_tDBOutput_36;
+												nb_line_tDBOutput_72++;
+												int processedCount_tDBOutput_72 = pstmt_tDBOutput_72.executeUpdate();
+												insertedCount_tDBOutput_72 += processedCount_tDBOutput_72;
+												rowsToCommitCount_tDBOutput_72 += processedCount_tDBOutput_72;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_36_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_36 = true;
+												globalMap.put("tDBOutput_72_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_72 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_36++;
+											commitCounter_tDBOutput_72++;
 
-											if (commitEvery_tDBOutput_36 <= commitCounter_tDBOutput_36) {
+											if (commitEvery_tDBOutput_72 <= commitCounter_tDBOutput_72) {
 
-												if (rowsToCommitCount_tDBOutput_36 != 0) {
+												if (rowsToCommitCount_tDBOutput_72 != 0) {
 												}
-												conn_tDBOutput_36.commit();
-												if (rowsToCommitCount_tDBOutput_36 != 0) {
-													rowsToCommitCount_tDBOutput_36 = 0;
+												conn_tDBOutput_72.commit();
+												if (rowsToCommitCount_tDBOutput_72 != 0) {
+													rowsToCommitCount_tDBOutput_72 = 0;
 												}
-												commitCounter_tDBOutput_36 = 0;
+												commitCounter_tDBOutput_72 = 0;
 
 											}
 
-											tos_count_tDBOutput_36++;
+											tos_count_tDBOutput_72++;
 
 											/**
-											 * [tDBOutput_36 main ] stop
+											 * [tDBOutput_72 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_36 process_data_begin ] start
+											 * [tDBOutput_72 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_36";
+											currentComponent = "tDBOutput_72";
 
 											/**
-											 * [tDBOutput_36 process_data_begin ] stop
+											 * [tDBOutput_72 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_36 process_data_end ] start
+											 * [tDBOutput_72 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_36";
+											currentComponent = "tDBOutput_72";
 
 											/**
-											 * [tDBOutput_36 process_data_end ] stop
+											 * [tDBOutput_72 process_data_end ] stop
 											 */
 
-										} // End of branch "inserttraps_snmp"
+										} // End of branch "insertTrapsSnmp"
 
 										/**
 										 * [tMap_8 process_data_end ] start
@@ -27207,52 +27686,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_36 end ] start
+					 * [tDBOutput_72 end ] start
 					 */
 
-					currentComponent = "tDBOutput_36";
+					currentComponent = "tDBOutput_72";
 
-					if (pstmt_tDBOutput_36 != null) {
+					if (pstmt_tDBOutput_72 != null) {
 
-						pstmt_tDBOutput_36.close();
-						resourceMap.remove("pstmt_tDBOutput_36");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_36", true);
-					if (commitCounter_tDBOutput_36 > 0 && rowsToCommitCount_tDBOutput_36 != 0) {
+						pstmt_tDBOutput_72.close();
+						resourceMap.remove("pstmt_tDBOutput_72");
 
 					}
-					conn_tDBOutput_36.commit();
-					if (commitCounter_tDBOutput_36 > 0 && rowsToCommitCount_tDBOutput_36 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_72", true);
+					if (commitCounter_tDBOutput_72 > 0 && rowsToCommitCount_tDBOutput_72 != 0) {
 
-						rowsToCommitCount_tDBOutput_36 = 0;
 					}
-					commitCounter_tDBOutput_36 = 0;
+					conn_tDBOutput_72.commit();
+					if (commitCounter_tDBOutput_72 > 0 && rowsToCommitCount_tDBOutput_72 != 0) {
 
-					conn_tDBOutput_36.close();
+						rowsToCommitCount_tDBOutput_72 = 0;
+					}
+					commitCounter_tDBOutput_72 = 0;
 
-					resourceMap.put("finish_tDBOutput_36", true);
+					conn_tDBOutput_72.close();
 
-					nb_line_deleted_tDBOutput_36 = nb_line_deleted_tDBOutput_36 + deletedCount_tDBOutput_36;
-					nb_line_update_tDBOutput_36 = nb_line_update_tDBOutput_36 + updatedCount_tDBOutput_36;
-					nb_line_inserted_tDBOutput_36 = nb_line_inserted_tDBOutput_36 + insertedCount_tDBOutput_36;
-					nb_line_rejected_tDBOutput_36 = nb_line_rejected_tDBOutput_36 + rejectedCount_tDBOutput_36;
+					resourceMap.put("finish_tDBOutput_72", true);
 
-					globalMap.put("tDBOutput_36_NB_LINE", nb_line_tDBOutput_36);
-					globalMap.put("tDBOutput_36_NB_LINE_UPDATED", nb_line_update_tDBOutput_36);
-					globalMap.put("tDBOutput_36_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_36);
-					globalMap.put("tDBOutput_36_NB_LINE_DELETED", nb_line_deleted_tDBOutput_36);
-					globalMap.put("tDBOutput_36_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_36);
+					nb_line_deleted_tDBOutput_72 = nb_line_deleted_tDBOutput_72 + deletedCount_tDBOutput_72;
+					nb_line_update_tDBOutput_72 = nb_line_update_tDBOutput_72 + updatedCount_tDBOutput_72;
+					nb_line_inserted_tDBOutput_72 = nb_line_inserted_tDBOutput_72 + insertedCount_tDBOutput_72;
+					nb_line_rejected_tDBOutput_72 = nb_line_rejected_tDBOutput_72 + rejectedCount_tDBOutput_72;
+
+					globalMap.put("tDBOutput_72_NB_LINE", nb_line_tDBOutput_72);
+					globalMap.put("tDBOutput_72_NB_LINE_UPDATED", nb_line_update_tDBOutput_72);
+					globalMap.put("tDBOutput_72_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_72);
+					globalMap.put("tDBOutput_72_NB_LINE_DELETED", nb_line_deleted_tDBOutput_72);
+					globalMap.put("tDBOutput_72_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_72);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "inserttraps_snmp");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertTrapsSnmp");
 					}
 
-					ok_Hash.put("tDBOutput_36", true);
-					end_Hash.put("tDBOutput_36", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_72", true);
+					end_Hash.put("tDBOutput_72", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_36 end ] stop
+					 * [tDBOutput_72 end ] stop
 					 */
 
 					if (execStat) {
@@ -27262,11 +27741,7 @@ public class monitoring implements TalendJob {
 					NB_ITERATE_tFileInputExcel_31++;
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row26", 3, 0);
-					}
-
-					if (execStat) {
-						runStat.updateStatOnConnection("insertserveurs", 3, 0);
+						runStat.updateStatOnConnection("insertServeurs", 3, 0);
 					}
 
 					if (execStat) {
@@ -27278,94 +27753,98 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
+						runStat.updateStatOnConnection("row26", 3, 0);
+					}
+
+					if (execStat) {
 						runStat.updateStatOnConnection("iterate9", 1, "exec" + NB_ITERATE_tFileInputExcel_31);
 						// Thread.sleep(1000);
 					}
 
 					/**
-					 * [tDBOutput_28 begin ] start
+					 * [tDBOutput_68 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_28", false);
-					start_Hash.put("tDBOutput_28", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_68", false);
+					start_Hash.put("tDBOutput_68", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_28";
+					currentComponent = "tDBOutput_68";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertserveurs");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertServeurs");
 					}
 
-					int tos_count_tDBOutput_28 = 0;
+					int tos_count_tDBOutput_68 = 0;
 
-					int nb_line_tDBOutput_28 = 0;
-					int nb_line_update_tDBOutput_28 = 0;
-					int nb_line_inserted_tDBOutput_28 = 0;
-					int nb_line_deleted_tDBOutput_28 = 0;
-					int nb_line_rejected_tDBOutput_28 = 0;
+					int nb_line_tDBOutput_68 = 0;
+					int nb_line_update_tDBOutput_68 = 0;
+					int nb_line_inserted_tDBOutput_68 = 0;
+					int nb_line_deleted_tDBOutput_68 = 0;
+					int nb_line_rejected_tDBOutput_68 = 0;
 
-					int deletedCount_tDBOutput_28 = 0;
-					int updatedCount_tDBOutput_28 = 0;
-					int insertedCount_tDBOutput_28 = 0;
-					int rowsToCommitCount_tDBOutput_28 = 0;
-					int rejectedCount_tDBOutput_28 = 0;
+					int deletedCount_tDBOutput_68 = 0;
+					int updatedCount_tDBOutput_68 = 0;
+					int insertedCount_tDBOutput_68 = 0;
+					int rowsToCommitCount_tDBOutput_68 = 0;
+					int rejectedCount_tDBOutput_68 = 0;
 
-					String tableName_tDBOutput_28 = "serveurs";
-					boolean whetherReject_tDBOutput_28 = false;
+					String tableName_tDBOutput_68 = "serveurs";
+					boolean whetherReject_tDBOutput_68 = false;
 
-					java.util.Calendar calendar_tDBOutput_28 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_28.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_28 = calendar_tDBOutput_28.getTime().getTime();
-					calendar_tDBOutput_28.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_28 = calendar_tDBOutput_28.getTime().getTime();
-					long date_tDBOutput_28;
+					java.util.Calendar calendar_tDBOutput_68 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_68.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_68 = calendar_tDBOutput_68.getTime().getTime();
+					calendar_tDBOutput_68.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_68 = calendar_tDBOutput_68.getTime().getTime();
+					long date_tDBOutput_68;
 
-					java.sql.Connection conn_tDBOutput_28 = null;
+					java.sql.Connection conn_tDBOutput_68 = null;
 
-					String properties_tDBOutput_28 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_28 == null || properties_tDBOutput_28.trim().length() == 0) {
-						properties_tDBOutput_28 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_68 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_68 == null || properties_tDBOutput_68.trim().length() == 0) {
+						properties_tDBOutput_68 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_28.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_28 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_68.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_68 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_28.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_28 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_68.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_68 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_28 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_28;
+					String url_tDBOutput_68 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_68;
 
-					String driverClass_tDBOutput_28 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_68 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_28 = "root";
+					String dbUser_tDBOutput_68 = "root";
 
-					final String decryptedPassword_tDBOutput_28 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:ufU3SNeFA+b15gOW8MapGN9ePBY5PpcfXdqPGA==");
+					final String decryptedPassword_tDBOutput_68 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:vMciu4QCBogmiJDdDmlQP0KOl+yGWhWN+I2xGg==");
 
-					String dbPwd_tDBOutput_28 = decryptedPassword_tDBOutput_28;
-					java.lang.Class.forName(driverClass_tDBOutput_28);
+					String dbPwd_tDBOutput_68 = decryptedPassword_tDBOutput_68;
+					java.lang.Class.forName(driverClass_tDBOutput_68);
 
-					conn_tDBOutput_28 = java.sql.DriverManager.getConnection(url_tDBOutput_28, dbUser_tDBOutput_28,
-							dbPwd_tDBOutput_28);
+					conn_tDBOutput_68 = java.sql.DriverManager.getConnection(url_tDBOutput_68, dbUser_tDBOutput_68,
+							dbPwd_tDBOutput_68);
 
-					resourceMap.put("conn_tDBOutput_28", conn_tDBOutput_28);
-					conn_tDBOutput_28.setAutoCommit(false);
-					int commitEvery_tDBOutput_28 = 10000;
-					int commitCounter_tDBOutput_28 = 0;
+					resourceMap.put("conn_tDBOutput_68", conn_tDBOutput_68);
+					conn_tDBOutput_68.setAutoCommit(false);
+					int commitEvery_tDBOutput_68 = 10000;
+					int commitCounter_tDBOutput_68 = 0;
 
-					int count_tDBOutput_28 = 0;
+					int count_tDBOutput_68 = 0;
 
-					String insert_tDBOutput_28 = "INSERT IGNORE INTO `" + "serveurs"
-							+ "` (`id`,`Ref`,`Etat`,`Platforme`,`Hostname`,`FQDN`,`Type`,`Modele`,`OS`,`Ver.tech./Firmware`,`Cluster`,`Ip source`,`Description`,`Socle Standard OMU`,`Compléments d'informations`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_68 = "INSERT IGNORE INTO `" + "serveurs"
+							+ "` (`id`,`Ref`,`Etat`,`Platforme`,`Hostname`,`FQDN`,`Type`,`Modele`,`OS`,`Ver_tech__Firmware`,`Cluster`,`Ip_source`,`Description`,`Socle_Standard_OMU`,`Complements_informations`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_28 = conn_tDBOutput_28
-							.prepareStatement(insert_tDBOutput_28);
-					resourceMap.put("pstmt_tDBOutput_28", pstmt_tDBOutput_28);
+					java.sql.PreparedStatement pstmt_tDBOutput_68 = conn_tDBOutput_68
+							.prepareStatement(insert_tDBOutput_68);
+					resourceMap.put("pstmt_tDBOutput_68", pstmt_tDBOutput_68);
 
 					/**
-					 * [tDBOutput_28 begin ] stop
+					 * [tDBOutput_68 begin ] stop
 					 */
 
 					/**
@@ -27396,7 +27875,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					insertserveursStruct insertserveurs_tmp = new insertserveursStruct();
+					insertServeursStruct insertServeurs_tmp = new insertServeursStruct();
 // ###############################
 
 					/**
@@ -27497,7 +27976,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_31 = 0;
 
 					final String decryptedPassword_tFileInputExcel_31 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:kquQSqoywYTbf5TBC5Ifywv9MBc9wJbcGfU6AA==");
+							.decryptPassword("enc:routine.encryption.key.v1:5P/cQQmw8nVjKBm/TdjMrzv9Ifhwq/ON3GtxYA==");
 					String password_tFileInputExcel_31 = decryptedPassword_tFileInputExcel_31;
 					if (password_tFileInputExcel_31.isEmpty()) {
 						password_tFileInputExcel_31 = null;
@@ -28020,12 +28499,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row17.N__Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_Serveurs_" + rowRef;
+										String id = "EBD_" + fileWord + "_Serveurs_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row26.N__Ref = id;
 										row26.Ref = row17.Ref;
@@ -28042,7 +28522,7 @@ public class monitoring implements TalendJob {
 										row26.Description = row17.Description;
 										row26.Socle_Standard_OMU = row17.Socle_Standard_OMU;
 										row26.Complements_d_informations = row17.Complements_d_informations;
-
+										row26.Support = Support;
 										nb_line_tJavaRow_9++;
 
 										tos_count_tJavaRow_9++;
@@ -28092,25 +28572,26 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											insertserveurs = null;
+											insertServeurs = null;
 
-// # Output table : 'insertserveurs'
-											insertserveurs_tmp.id = row26.N__Ref;
-											insertserveurs_tmp.Ref = row26.Ref;
-											insertserveurs_tmp.Etat = row26.Etat;
-											insertserveurs_tmp.Platforme = row26.Plateforme;
-											insertserveurs_tmp.Hostname = row26.Hostname;
-											insertserveurs_tmp.FQDN = row26.FQDN;
-											insertserveurs_tmp.Type = row26.Type;
-											insertserveurs_tmp.Modele = row26.Modele;
-											insertserveurs_tmp.OS = row26.OS;
-											insertserveurs_tmp.Ver_tech__Firmware = row26.Ver__tech____Firmware;
-											insertserveurs_tmp.Cluster = row26.Cluster;
-											insertserveurs_tmp.Ip_source = row26.IP_source;
-											insertserveurs_tmp.Description = row26.Description;
-											insertserveurs_tmp.Socle_Standard_OMU = row26.Socle_Standard_OMU;
-											insertserveurs_tmp.Complements_d_informations = row26.Complements_d_informations;
-											insertserveurs = insertserveurs_tmp;
+// # Output table : 'insertServeurs'
+											insertServeurs_tmp.id = row26.N__Ref;
+											insertServeurs_tmp.Ref = row26.Ref;
+											insertServeurs_tmp.Etat = row26.Etat;
+											insertServeurs_tmp.Platforme = row26.Plateforme;
+											insertServeurs_tmp.Hostname = row26.Hostname;
+											insertServeurs_tmp.FQDN = row26.FQDN;
+											insertServeurs_tmp.Type = row26.Type;
+											insertServeurs_tmp.Modele = row26.Modele;
+											insertServeurs_tmp.OS = row26.OS;
+											insertServeurs_tmp.Ver_tech__Firmware = row26.Ver__tech____Firmware;
+											insertServeurs_tmp.Cluster = row26.Cluster;
+											insertServeurs_tmp.Ip_source = row26.IP_source;
+											insertServeurs_tmp.Description = row26.Description;
+											insertServeurs_tmp.Socle_Standard_OMU = row26.Socle_Standard_OMU;
+											insertServeurs_tmp.Complements_informations = row26.Complements_d_informations;
+											insertServeurs_tmp.Support = row26.Support;
+											insertServeurs = insertServeurs_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -28132,166 +28613,172 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_9 process_data_begin ] stop
 										 */
-// Start of branch "insertserveurs"
-										if (insertserveurs != null) {
+// Start of branch "insertServeurs"
+										if (insertServeurs != null) {
 
 											/**
-											 * [tDBOutput_28 main ] start
+											 * [tDBOutput_68 main ] start
 											 */
 
-											currentComponent = "tDBOutput_28";
+											currentComponent = "tDBOutput_68";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "insertserveurs"
+														, "insertServeurs"
 
 												);
 											}
 
-											whetherReject_tDBOutput_28 = false;
-											if (insertserveurs.id == null) {
-												pstmt_tDBOutput_28.setNull(1, java.sql.Types.VARCHAR);
+											whetherReject_tDBOutput_68 = false;
+											if (insertServeurs.id == null) {
+												pstmt_tDBOutput_68.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(1, insertserveurs.id);
+												pstmt_tDBOutput_68.setString(1, insertServeurs.id);
 											}
 
-											if (insertserveurs.Ref == null) {
-												pstmt_tDBOutput_28.setNull(2, java.sql.Types.VARCHAR);
+											if (insertServeurs.Ref == null) {
+												pstmt_tDBOutput_68.setNull(2, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(2, insertserveurs.Ref);
+												pstmt_tDBOutput_68.setString(2, insertServeurs.Ref);
 											}
 
-											if (insertserveurs.Etat == null) {
-												pstmt_tDBOutput_28.setNull(3, java.sql.Types.VARCHAR);
+											if (insertServeurs.Etat == null) {
+												pstmt_tDBOutput_68.setNull(3, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(3, insertserveurs.Etat);
+												pstmt_tDBOutput_68.setString(3, insertServeurs.Etat);
 											}
 
-											if (insertserveurs.Platforme == null) {
-												pstmt_tDBOutput_28.setNull(4, java.sql.Types.VARCHAR);
+											if (insertServeurs.Platforme == null) {
+												pstmt_tDBOutput_68.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(4, insertserveurs.Platforme);
+												pstmt_tDBOutput_68.setString(4, insertServeurs.Platforme);
 											}
 
-											if (insertserveurs.Hostname == null) {
-												pstmt_tDBOutput_28.setNull(5, java.sql.Types.VARCHAR);
+											if (insertServeurs.Hostname == null) {
+												pstmt_tDBOutput_68.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(5, insertserveurs.Hostname);
+												pstmt_tDBOutput_68.setString(5, insertServeurs.Hostname);
 											}
 
-											if (insertserveurs.FQDN == null) {
-												pstmt_tDBOutput_28.setNull(6, java.sql.Types.VARCHAR);
+											if (insertServeurs.FQDN == null) {
+												pstmt_tDBOutput_68.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(6, insertserveurs.FQDN);
+												pstmt_tDBOutput_68.setString(6, insertServeurs.FQDN);
 											}
 
-											if (insertserveurs.Type == null) {
-												pstmt_tDBOutput_28.setNull(7, java.sql.Types.VARCHAR);
+											if (insertServeurs.Type == null) {
+												pstmt_tDBOutput_68.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(7, insertserveurs.Type);
+												pstmt_tDBOutput_68.setString(7, insertServeurs.Type);
 											}
 
-											if (insertserveurs.Modele == null) {
-												pstmt_tDBOutput_28.setNull(8, java.sql.Types.VARCHAR);
+											if (insertServeurs.Modele == null) {
+												pstmt_tDBOutput_68.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(8, insertserveurs.Modele);
+												pstmt_tDBOutput_68.setString(8, insertServeurs.Modele);
 											}
 
-											if (insertserveurs.OS == null) {
-												pstmt_tDBOutput_28.setNull(9, java.sql.Types.VARCHAR);
+											if (insertServeurs.OS == null) {
+												pstmt_tDBOutput_68.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(9, insertserveurs.OS);
+												pstmt_tDBOutput_68.setString(9, insertServeurs.OS);
 											}
 
-											if (insertserveurs.Ver_tech__Firmware == null) {
-												pstmt_tDBOutput_28.setNull(10, java.sql.Types.VARCHAR);
+											if (insertServeurs.Ver_tech__Firmware == null) {
+												pstmt_tDBOutput_68.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(10, insertserveurs.Ver_tech__Firmware);
+												pstmt_tDBOutput_68.setString(10, insertServeurs.Ver_tech__Firmware);
 											}
 
-											if (insertserveurs.Cluster == null) {
-												pstmt_tDBOutput_28.setNull(11, java.sql.Types.VARCHAR);
+											if (insertServeurs.Cluster == null) {
+												pstmt_tDBOutput_68.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(11, insertserveurs.Cluster);
+												pstmt_tDBOutput_68.setString(11, insertServeurs.Cluster);
 											}
 
-											if (insertserveurs.Ip_source == null) {
-												pstmt_tDBOutput_28.setNull(12, java.sql.Types.VARCHAR);
+											if (insertServeurs.Ip_source == null) {
+												pstmt_tDBOutput_68.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(12, insertserveurs.Ip_source);
+												pstmt_tDBOutput_68.setString(12, insertServeurs.Ip_source);
 											}
 
-											if (insertserveurs.Description == null) {
-												pstmt_tDBOutput_28.setNull(13, java.sql.Types.VARCHAR);
+											if (insertServeurs.Description == null) {
+												pstmt_tDBOutput_68.setNull(13, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(13, insertserveurs.Description);
+												pstmt_tDBOutput_68.setString(13, insertServeurs.Description);
 											}
 
-											if (insertserveurs.Socle_Standard_OMU == null) {
-												pstmt_tDBOutput_28.setNull(14, java.sql.Types.VARCHAR);
+											if (insertServeurs.Socle_Standard_OMU == null) {
+												pstmt_tDBOutput_68.setNull(14, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(14, insertserveurs.Socle_Standard_OMU);
+												pstmt_tDBOutput_68.setString(14, insertServeurs.Socle_Standard_OMU);
 											}
 
-											if (insertserveurs.Complements_d_informations == null) {
-												pstmt_tDBOutput_28.setNull(15, java.sql.Types.VARCHAR);
+											if (insertServeurs.Complements_informations == null) {
+												pstmt_tDBOutput_68.setNull(15, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_28.setString(15,
-														insertserveurs.Complements_d_informations);
+												pstmt_tDBOutput_68.setString(15,
+														insertServeurs.Complements_informations);
+											}
+
+											if (insertServeurs.Support == null) {
+												pstmt_tDBOutput_68.setNull(16, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_68.setString(16, insertServeurs.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_28++;
-												int processedCount_tDBOutput_28 = pstmt_tDBOutput_28.executeUpdate();
-												insertedCount_tDBOutput_28 += processedCount_tDBOutput_28;
-												rowsToCommitCount_tDBOutput_28 += processedCount_tDBOutput_28;
+												nb_line_tDBOutput_68++;
+												int processedCount_tDBOutput_68 = pstmt_tDBOutput_68.executeUpdate();
+												insertedCount_tDBOutput_68 += processedCount_tDBOutput_68;
+												rowsToCommitCount_tDBOutput_68 += processedCount_tDBOutput_68;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_28_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_28 = true;
+												globalMap.put("tDBOutput_68_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_68 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_28++;
+											commitCounter_tDBOutput_68++;
 
-											if (commitEvery_tDBOutput_28 <= commitCounter_tDBOutput_28) {
+											if (commitEvery_tDBOutput_68 <= commitCounter_tDBOutput_68) {
 
-												if (rowsToCommitCount_tDBOutput_28 != 0) {
+												if (rowsToCommitCount_tDBOutput_68 != 0) {
 												}
-												conn_tDBOutput_28.commit();
-												if (rowsToCommitCount_tDBOutput_28 != 0) {
-													rowsToCommitCount_tDBOutput_28 = 0;
+												conn_tDBOutput_68.commit();
+												if (rowsToCommitCount_tDBOutput_68 != 0) {
+													rowsToCommitCount_tDBOutput_68 = 0;
 												}
-												commitCounter_tDBOutput_28 = 0;
+												commitCounter_tDBOutput_68 = 0;
 
 											}
 
-											tos_count_tDBOutput_28++;
+											tos_count_tDBOutput_68++;
 
 											/**
-											 * [tDBOutput_28 main ] stop
+											 * [tDBOutput_68 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_28 process_data_begin ] start
+											 * [tDBOutput_68 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_28";
+											currentComponent = "tDBOutput_68";
 
 											/**
-											 * [tDBOutput_28 process_data_begin ] stop
+											 * [tDBOutput_68 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_28 process_data_end ] start
+											 * [tDBOutput_68 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_28";
+											currentComponent = "tDBOutput_68";
 
 											/**
-											 * [tDBOutput_28 process_data_end ] stop
+											 * [tDBOutput_68 process_data_end ] stop
 											 */
 
-										} // End of branch "insertserveurs"
+										} // End of branch "insertServeurs"
 
 										/**
 										 * [tMap_9 process_data_end ] start
@@ -28425,52 +28912,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_28 end ] start
+					 * [tDBOutput_68 end ] start
 					 */
 
-					currentComponent = "tDBOutput_28";
+					currentComponent = "tDBOutput_68";
 
-					if (pstmt_tDBOutput_28 != null) {
+					if (pstmt_tDBOutput_68 != null) {
 
-						pstmt_tDBOutput_28.close();
-						resourceMap.remove("pstmt_tDBOutput_28");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_28", true);
-					if (commitCounter_tDBOutput_28 > 0 && rowsToCommitCount_tDBOutput_28 != 0) {
+						pstmt_tDBOutput_68.close();
+						resourceMap.remove("pstmt_tDBOutput_68");
 
 					}
-					conn_tDBOutput_28.commit();
-					if (commitCounter_tDBOutput_28 > 0 && rowsToCommitCount_tDBOutput_28 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_68", true);
+					if (commitCounter_tDBOutput_68 > 0 && rowsToCommitCount_tDBOutput_68 != 0) {
 
-						rowsToCommitCount_tDBOutput_28 = 0;
 					}
-					commitCounter_tDBOutput_28 = 0;
+					conn_tDBOutput_68.commit();
+					if (commitCounter_tDBOutput_68 > 0 && rowsToCommitCount_tDBOutput_68 != 0) {
 
-					conn_tDBOutput_28.close();
+						rowsToCommitCount_tDBOutput_68 = 0;
+					}
+					commitCounter_tDBOutput_68 = 0;
 
-					resourceMap.put("finish_tDBOutput_28", true);
+					conn_tDBOutput_68.close();
 
-					nb_line_deleted_tDBOutput_28 = nb_line_deleted_tDBOutput_28 + deletedCount_tDBOutput_28;
-					nb_line_update_tDBOutput_28 = nb_line_update_tDBOutput_28 + updatedCount_tDBOutput_28;
-					nb_line_inserted_tDBOutput_28 = nb_line_inserted_tDBOutput_28 + insertedCount_tDBOutput_28;
-					nb_line_rejected_tDBOutput_28 = nb_line_rejected_tDBOutput_28 + rejectedCount_tDBOutput_28;
+					resourceMap.put("finish_tDBOutput_68", true);
 
-					globalMap.put("tDBOutput_28_NB_LINE", nb_line_tDBOutput_28);
-					globalMap.put("tDBOutput_28_NB_LINE_UPDATED", nb_line_update_tDBOutput_28);
-					globalMap.put("tDBOutput_28_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_28);
-					globalMap.put("tDBOutput_28_NB_LINE_DELETED", nb_line_deleted_tDBOutput_28);
-					globalMap.put("tDBOutput_28_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_28);
+					nb_line_deleted_tDBOutput_68 = nb_line_deleted_tDBOutput_68 + deletedCount_tDBOutput_68;
+					nb_line_update_tDBOutput_68 = nb_line_update_tDBOutput_68 + updatedCount_tDBOutput_68;
+					nb_line_inserted_tDBOutput_68 = nb_line_inserted_tDBOutput_68 + insertedCount_tDBOutput_68;
+					nb_line_rejected_tDBOutput_68 = nb_line_rejected_tDBOutput_68 + rejectedCount_tDBOutput_68;
+
+					globalMap.put("tDBOutput_68_NB_LINE", nb_line_tDBOutput_68);
+					globalMap.put("tDBOutput_68_NB_LINE_UPDATED", nb_line_update_tDBOutput_68);
+					globalMap.put("tDBOutput_68_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_68);
+					globalMap.put("tDBOutput_68_NB_LINE_DELETED", nb_line_deleted_tDBOutput_68);
+					globalMap.put("tDBOutput_68_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_68);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertserveurs");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertServeurs");
 					}
 
-					ok_Hash.put("tDBOutput_28", true);
-					end_Hash.put("tDBOutput_28", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_68", true);
+					end_Hash.put("tDBOutput_68", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_28 end ] stop
+					 * [tDBOutput_68 end ] stop
 					 */
 
 					if (execStat) {
@@ -28478,6 +28965,14 @@ public class monitoring implements TalendJob {
 					}
 
 					NB_ITERATE_tFileInputExcel_3++;
+
+					if (execStat) {
+						runStat.updateStatOnConnection("row27", 3, 0);
+					}
+
+					if (execStat) {
+						runStat.updateStatOnConnection("insertLogFilesPatterns", 3, 0);
+					}
 
 					if (execStat) {
 						runStat.updateStatOnConnection("row18", 3, 0);
@@ -28488,102 +28983,94 @@ public class monitoring implements TalendJob {
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("insertlog_files_patterns", 3, 0);
-					}
-
-					if (execStat) {
-						runStat.updateStatOnConnection("row27", 3, 0);
-					}
-
-					if (execStat) {
 						runStat.updateStatOnConnection("iterate10", 1, "exec" + NB_ITERATE_tFileInputExcel_3);
 						// Thread.sleep(1000);
 					}
 
 					/**
-					 * [tDBOutput_6 begin ] start
+					 * [tDBOutput_17 begin ] start
 					 */
 
-					ok_Hash.put("tDBOutput_6", false);
-					start_Hash.put("tDBOutput_6", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_17", false);
+					start_Hash.put("tDBOutput_17", System.currentTimeMillis());
 
-					currentComponent = "tDBOutput_6";
+					currentComponent = "tDBOutput_17";
 
 					if (execStat) {
-						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertlog_files_patterns");
+						runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "insertLogFilesPatterns");
 					}
 
-					int tos_count_tDBOutput_6 = 0;
+					int tos_count_tDBOutput_17 = 0;
 
-					int nb_line_tDBOutput_6 = 0;
-					int nb_line_update_tDBOutput_6 = 0;
-					int nb_line_inserted_tDBOutput_6 = 0;
-					int nb_line_deleted_tDBOutput_6 = 0;
-					int nb_line_rejected_tDBOutput_6 = 0;
+					int nb_line_tDBOutput_17 = 0;
+					int nb_line_update_tDBOutput_17 = 0;
+					int nb_line_inserted_tDBOutput_17 = 0;
+					int nb_line_deleted_tDBOutput_17 = 0;
+					int nb_line_rejected_tDBOutput_17 = 0;
 
-					int deletedCount_tDBOutput_6 = 0;
-					int updatedCount_tDBOutput_6 = 0;
-					int insertedCount_tDBOutput_6 = 0;
-					int rowsToCommitCount_tDBOutput_6 = 0;
-					int rejectedCount_tDBOutput_6 = 0;
+					int deletedCount_tDBOutput_17 = 0;
+					int updatedCount_tDBOutput_17 = 0;
+					int insertedCount_tDBOutput_17 = 0;
+					int rowsToCommitCount_tDBOutput_17 = 0;
+					int rejectedCount_tDBOutput_17 = 0;
 
-					String tableName_tDBOutput_6 = "log_files_patterns";
-					boolean whetherReject_tDBOutput_6 = false;
+					String tableName_tDBOutput_17 = "log_files_patterns";
+					boolean whetherReject_tDBOutput_17 = false;
 
-					java.util.Calendar calendar_tDBOutput_6 = java.util.Calendar.getInstance();
-					calendar_tDBOutput_6.set(1, 0, 1, 0, 0, 0);
-					long year1_tDBOutput_6 = calendar_tDBOutput_6.getTime().getTime();
-					calendar_tDBOutput_6.set(10000, 0, 1, 0, 0, 0);
-					long year10000_tDBOutput_6 = calendar_tDBOutput_6.getTime().getTime();
-					long date_tDBOutput_6;
+					java.util.Calendar calendar_tDBOutput_17 = java.util.Calendar.getInstance();
+					calendar_tDBOutput_17.set(1, 0, 1, 0, 0, 0);
+					long year1_tDBOutput_17 = calendar_tDBOutput_17.getTime().getTime();
+					calendar_tDBOutput_17.set(10000, 0, 1, 0, 0, 0);
+					long year10000_tDBOutput_17 = calendar_tDBOutput_17.getTime().getTime();
+					long date_tDBOutput_17;
 
-					java.sql.Connection conn_tDBOutput_6 = null;
+					java.sql.Connection conn_tDBOutput_17 = null;
 
-					String properties_tDBOutput_6 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
-					if (properties_tDBOutput_6 == null || properties_tDBOutput_6.trim().length() == 0) {
-						properties_tDBOutput_6 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
+					String properties_tDBOutput_17 = "noDatetimeStringSync=true&enabledTLSProtocols=TLSv1.2,TLSv1.1,TLSv1";
+					if (properties_tDBOutput_17 == null || properties_tDBOutput_17.trim().length() == 0) {
+						properties_tDBOutput_17 = "rewriteBatchedStatements=true&allowLoadLocalInfile=true";
 					} else {
-						if (!properties_tDBOutput_6.contains("rewriteBatchedStatements=")) {
-							properties_tDBOutput_6 += "&rewriteBatchedStatements=true";
+						if (!properties_tDBOutput_17.contains("rewriteBatchedStatements=")) {
+							properties_tDBOutput_17 += "&rewriteBatchedStatements=true";
 						}
 
-						if (!properties_tDBOutput_6.contains("allowLoadLocalInfile=")) {
-							properties_tDBOutput_6 += "&allowLoadLocalInfile=true";
+						if (!properties_tDBOutput_17.contains("allowLoadLocalInfile=")) {
+							properties_tDBOutput_17 += "&allowLoadLocalInfile=true";
 						}
 					}
 
-					String url_tDBOutput_6 = "jdbc:mariadb://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
-							+ properties_tDBOutput_6;
+					String url_tDBOutput_17 = "jdbc:mysql://" + "127.0.0.1" + ":" + "3306" + "/" + "ooredoo" + "?"
+							+ properties_tDBOutput_17;
 
-					String driverClass_tDBOutput_6 = "org.mariadb.jdbc.Driver";
+					String driverClass_tDBOutput_17 = "com.mysql.cj.jdbc.Driver";
 
-					String dbUser_tDBOutput_6 = "root";
+					String dbUser_tDBOutput_17 = "root";
 
-					final String decryptedPassword_tDBOutput_6 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:D4/H6FXLSRz2Wu6zTPXTtOPLkwzbWwbCN/H6+w==");
+					final String decryptedPassword_tDBOutput_17 = routines.system.PasswordEncryptUtil
+							.decryptPassword("enc:routine.encryption.key.v1:EzoSzmfrSqFJUHkGTawy35lRM0HvdIXWwuIgBg==");
 
-					String dbPwd_tDBOutput_6 = decryptedPassword_tDBOutput_6;
-					java.lang.Class.forName(driverClass_tDBOutput_6);
+					String dbPwd_tDBOutput_17 = decryptedPassword_tDBOutput_17;
+					java.lang.Class.forName(driverClass_tDBOutput_17);
 
-					conn_tDBOutput_6 = java.sql.DriverManager.getConnection(url_tDBOutput_6, dbUser_tDBOutput_6,
-							dbPwd_tDBOutput_6);
+					conn_tDBOutput_17 = java.sql.DriverManager.getConnection(url_tDBOutput_17, dbUser_tDBOutput_17,
+							dbPwd_tDBOutput_17);
 
-					resourceMap.put("conn_tDBOutput_6", conn_tDBOutput_6);
-					conn_tDBOutput_6.setAutoCommit(false);
-					int commitEvery_tDBOutput_6 = 10000;
-					int commitCounter_tDBOutput_6 = 0;
+					resourceMap.put("conn_tDBOutput_17", conn_tDBOutput_17);
+					conn_tDBOutput_17.setAutoCommit(false);
+					int commitEvery_tDBOutput_17 = 10000;
+					int commitCounter_tDBOutput_17 = 0;
 
-					int count_tDBOutput_6 = 0;
+					int count_tDBOutput_17 = 0;
 
-					String insert_tDBOutput_6 = "INSERT IGNORE INTO `" + "log_files_patterns"
-							+ "` (`id`,`N_Ref`,`Ref`,`Etat`,`Signification`,`Identification`,`Criticitée`,`Message_alarme`,`Instructions`,`Perform_action`,`Acquittement`,`Complements_d'informations`,`Ref_Service`,`Objet`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String insert_tDBOutput_17 = "INSERT IGNORE INTO `" + "log_files_patterns"
+							+ "` (`id`,`N_Ref`,`Ref`,`Etat`,`Signification`,`Identification`,`Criticite`,`Message_alarme`,`Instructions`,`Perform_action`,`Acquittement`,`Complements_informations`,`Ref_Service`,`Objet`,`Support`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-					java.sql.PreparedStatement pstmt_tDBOutput_6 = conn_tDBOutput_6
-							.prepareStatement(insert_tDBOutput_6);
-					resourceMap.put("pstmt_tDBOutput_6", pstmt_tDBOutput_6);
+					java.sql.PreparedStatement pstmt_tDBOutput_17 = conn_tDBOutput_17
+							.prepareStatement(insert_tDBOutput_17);
+					resourceMap.put("pstmt_tDBOutput_17", pstmt_tDBOutput_17);
 
 					/**
-					 * [tDBOutput_6 begin ] stop
+					 * [tDBOutput_17 begin ] stop
 					 */
 
 					/**
@@ -28614,7 +29101,7 @@ public class monitoring implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-					insertlog_files_patternsStruct insertlog_files_patterns_tmp = new insertlog_files_patternsStruct();
+					insertLogFilesPatternsStruct insertLogFilesPatterns_tmp = new insertLogFilesPatternsStruct();
 // ###############################
 
 					/**
@@ -28715,7 +29202,7 @@ public class monitoring implements TalendJob {
 					int tos_count_tFileInputExcel_3 = 0;
 
 					final String decryptedPassword_tFileInputExcel_3 = routines.system.PasswordEncryptUtil
-							.decryptPassword("enc:routine.encryption.key.v1:Wv9RgcFQDpskn8JAgEswtmCJD6aOAFrGB7qm1w==");
+							.decryptPassword("enc:routine.encryption.key.v1:a6L+1i9gGTcBK+cKgCN5F8KoBrapBjLbWeSxJw==");
 					String password_tFileInputExcel_3 = decryptedPassword_tFileInputExcel_3;
 					if (password_tFileInputExcel_3.isEmpty()) {
 						password_tFileInputExcel_3 = null;
@@ -29231,12 +29718,13 @@ public class monitoring implements TalendJob {
 // Extraire la partie "POSANET" du nom du fichier Excel
 										String[] parts = fileName.split("_");
 										String fileWord = parts[6];
+										String Support = parts[8] + "+" + parts[10] + parts[11];
 
 // Récupérer la valeur de "N__Ref" et la convertir en String
 										String rowRef = row18.Log_Ref;
 
 // Générer l'ID "EDB_POSANET_X"
-										String id = "EDB_" + fileWord + "_LogFilesPatterns_" + rowRef;
+										String id = "EBD_" + fileWord + "_LogFilesPatterns_" + rowRef;
 //Code généré selon les schémas d'entrée et de sortie
 										row27.Log_Ref = id;
 										row27.N__Ref = row18.N__Ref;
@@ -29252,6 +29740,7 @@ public class monitoring implements TalendJob {
 										row27.Complements_d_informations = row18.Complements_d_informations;
 										row27.Ref__Service = row18.Ref__Service;
 										row27.Objet = row18.Objet;
+										row27.Support = Support;
 
 										nb_line_tJavaRow_10++;
 
@@ -29302,24 +29791,25 @@ public class monitoring implements TalendJob {
 											// ###############################
 											// # Output tables
 
-											insertlog_files_patterns = null;
+											insertLogFilesPatterns = null;
 
-// # Output table : 'insertlog_files_patterns'
-											insertlog_files_patterns_tmp.id = row27.Log_Ref;
-											insertlog_files_patterns_tmp.N_Ref = row27.N__Ref;
-											insertlog_files_patterns_tmp.Ref = row27.Ref;
-											insertlog_files_patterns_tmp.Etat = row27.Etat;
-											insertlog_files_patterns_tmp.Signification = row27.Signification;
-											insertlog_files_patterns_tmp.Identification = row27.Identification;
-											insertlog_files_patterns_tmp.Criticitee = row27.Criticite;
-											insertlog_files_patterns_tmp.Message_alarme = row27.Message_d_alarme;
-											insertlog_files_patterns_tmp.Instructions = row27.Instructions;
-											insertlog_files_patterns_tmp.Perform_action = row27.Perform_action;
-											insertlog_files_patterns_tmp.Acquittement = row27.Acquittement;
-											insertlog_files_patterns_tmp.Complements_d_informations = row27.Complements_d_informations;
-											insertlog_files_patterns_tmp.Ref_Service = row27.Ref__Service;
-											insertlog_files_patterns_tmp.Objet = row27.Objet;
-											insertlog_files_patterns = insertlog_files_patterns_tmp;
+// # Output table : 'insertLogFilesPatterns'
+											insertLogFilesPatterns_tmp.id = row27.Log_Ref;
+											insertLogFilesPatterns_tmp.N_Ref = row27.N__Ref;
+											insertLogFilesPatterns_tmp.Ref = row27.Ref;
+											insertLogFilesPatterns_tmp.Etat = row27.Etat;
+											insertLogFilesPatterns_tmp.Signification = row27.Signification;
+											insertLogFilesPatterns_tmp.Identification = row27.Identification;
+											insertLogFilesPatterns_tmp.Criticite = row27.Criticite;
+											insertLogFilesPatterns_tmp.Message_alarme = row27.Message_d_alarme;
+											insertLogFilesPatterns_tmp.Instructions = row27.Instructions;
+											insertLogFilesPatterns_tmp.Perform_action = row27.Perform_action;
+											insertLogFilesPatterns_tmp.Acquittement = row27.Acquittement;
+											insertLogFilesPatterns_tmp.Complements_informations = row27.Complements_d_informations;
+											insertLogFilesPatterns_tmp.Ref_Service = row27.Ref__Service;
+											insertLogFilesPatterns_tmp.Objet = row27.Objet;
+											insertLogFilesPatterns_tmp.Support = row27.Support;
+											insertLogFilesPatterns = insertLogFilesPatterns_tmp;
 // ###############################
 
 										} // end of Var scope
@@ -29341,161 +29831,166 @@ public class monitoring implements TalendJob {
 										/**
 										 * [tMap_10 process_data_begin ] stop
 										 */
-// Start of branch "insertlog_files_patterns"
-										if (insertlog_files_patterns != null) {
+// Start of branch "insertLogFilesPatterns"
+										if (insertLogFilesPatterns != null) {
 
 											/**
-											 * [tDBOutput_6 main ] start
+											 * [tDBOutput_17 main ] start
 											 */
 
-											currentComponent = "tDBOutput_6";
+											currentComponent = "tDBOutput_17";
 
 											if (execStat) {
 												runStat.updateStatOnConnection(iterateId, 1, 1
 
-														, "insertlog_files_patterns"
+														, "insertLogFilesPatterns"
 
 												);
 											}
 
-											whetherReject_tDBOutput_6 = false;
-											if (insertlog_files_patterns.id == null) {
-												pstmt_tDBOutput_6.setNull(1, java.sql.Types.VARCHAR);
+											whetherReject_tDBOutput_17 = false;
+											if (insertLogFilesPatterns.id == null) {
+												pstmt_tDBOutput_17.setNull(1, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(1, insertlog_files_patterns.id);
+												pstmt_tDBOutput_17.setString(1, insertLogFilesPatterns.id);
 											}
 
-											if (insertlog_files_patterns.N_Ref == null) {
-												pstmt_tDBOutput_6.setNull(2, java.sql.Types.INTEGER);
+											if (insertLogFilesPatterns.N_Ref == null) {
+												pstmt_tDBOutput_17.setNull(2, java.sql.Types.INTEGER);
 											} else {
-												pstmt_tDBOutput_6.setInt(2, insertlog_files_patterns.N_Ref);
+												pstmt_tDBOutput_17.setInt(2, insertLogFilesPatterns.N_Ref);
 											}
 
-											if (insertlog_files_patterns.Ref == null) {
-												pstmt_tDBOutput_6.setNull(3, java.sql.Types.INTEGER);
+											if (insertLogFilesPatterns.Ref == null) {
+												pstmt_tDBOutput_17.setNull(3, java.sql.Types.INTEGER);
 											} else {
-												pstmt_tDBOutput_6.setInt(3, insertlog_files_patterns.Ref);
+												pstmt_tDBOutput_17.setInt(3, insertLogFilesPatterns.Ref);
 											}
 
-											if (insertlog_files_patterns.Etat == null) {
-												pstmt_tDBOutput_6.setNull(4, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Etat == null) {
+												pstmt_tDBOutput_17.setNull(4, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(4, insertlog_files_patterns.Etat);
+												pstmt_tDBOutput_17.setString(4, insertLogFilesPatterns.Etat);
 											}
 
-											if (insertlog_files_patterns.Signification == null) {
-												pstmt_tDBOutput_6.setNull(5, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Signification == null) {
+												pstmt_tDBOutput_17.setNull(5, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(5, insertlog_files_patterns.Signification);
+												pstmt_tDBOutput_17.setString(5, insertLogFilesPatterns.Signification);
 											}
 
-											if (insertlog_files_patterns.Identification == null) {
-												pstmt_tDBOutput_6.setNull(6, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Identification == null) {
+												pstmt_tDBOutput_17.setNull(6, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(6, insertlog_files_patterns.Identification);
+												pstmt_tDBOutput_17.setString(6, insertLogFilesPatterns.Identification);
 											}
 
-											if (insertlog_files_patterns.Criticitee == null) {
-												pstmt_tDBOutput_6.setNull(7, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Criticite == null) {
+												pstmt_tDBOutput_17.setNull(7, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(7, insertlog_files_patterns.Criticitee);
+												pstmt_tDBOutput_17.setString(7, insertLogFilesPatterns.Criticite);
 											}
 
-											if (insertlog_files_patterns.Message_alarme == null) {
-												pstmt_tDBOutput_6.setNull(8, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Message_alarme == null) {
+												pstmt_tDBOutput_17.setNull(8, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(8, insertlog_files_patterns.Message_alarme);
+												pstmt_tDBOutput_17.setString(8, insertLogFilesPatterns.Message_alarme);
 											}
 
-											if (insertlog_files_patterns.Instructions == null) {
-												pstmt_tDBOutput_6.setNull(9, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Instructions == null) {
+												pstmt_tDBOutput_17.setNull(9, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(9, insertlog_files_patterns.Instructions);
+												pstmt_tDBOutput_17.setString(9, insertLogFilesPatterns.Instructions);
 											}
 
-											if (insertlog_files_patterns.Perform_action == null) {
-												pstmt_tDBOutput_6.setNull(10, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Perform_action == null) {
+												pstmt_tDBOutput_17.setNull(10, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(10,
-														insertlog_files_patterns.Perform_action);
+												pstmt_tDBOutput_17.setString(10, insertLogFilesPatterns.Perform_action);
 											}
 
-											if (insertlog_files_patterns.Acquittement == null) {
-												pstmt_tDBOutput_6.setNull(11, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Acquittement == null) {
+												pstmt_tDBOutput_17.setNull(11, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(11, insertlog_files_patterns.Acquittement);
+												pstmt_tDBOutput_17.setString(11, insertLogFilesPatterns.Acquittement);
 											}
 
-											if (insertlog_files_patterns.Complements_d_informations == null) {
-												pstmt_tDBOutput_6.setNull(12, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Complements_informations == null) {
+												pstmt_tDBOutput_17.setNull(12, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(12,
-														insertlog_files_patterns.Complements_d_informations);
+												pstmt_tDBOutput_17.setString(12,
+														insertLogFilesPatterns.Complements_informations);
 											}
 
-											if (insertlog_files_patterns.Ref_Service == null) {
-												pstmt_tDBOutput_6.setNull(13, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Ref_Service == null) {
+												pstmt_tDBOutput_17.setNull(13, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(13, insertlog_files_patterns.Ref_Service);
+												pstmt_tDBOutput_17.setString(13, insertLogFilesPatterns.Ref_Service);
 											}
 
-											if (insertlog_files_patterns.Objet == null) {
-												pstmt_tDBOutput_6.setNull(14, java.sql.Types.VARCHAR);
+											if (insertLogFilesPatterns.Objet == null) {
+												pstmt_tDBOutput_17.setNull(14, java.sql.Types.VARCHAR);
 											} else {
-												pstmt_tDBOutput_6.setString(14, insertlog_files_patterns.Objet);
+												pstmt_tDBOutput_17.setString(14, insertLogFilesPatterns.Objet);
+											}
+
+											if (insertLogFilesPatterns.Support == null) {
+												pstmt_tDBOutput_17.setNull(15, java.sql.Types.VARCHAR);
+											} else {
+												pstmt_tDBOutput_17.setString(15, insertLogFilesPatterns.Support);
 											}
 
 											try {
-												nb_line_tDBOutput_6++;
-												int processedCount_tDBOutput_6 = pstmt_tDBOutput_6.executeUpdate();
-												insertedCount_tDBOutput_6 += processedCount_tDBOutput_6;
-												rowsToCommitCount_tDBOutput_6 += processedCount_tDBOutput_6;
+												nb_line_tDBOutput_17++;
+												int processedCount_tDBOutput_17 = pstmt_tDBOutput_17.executeUpdate();
+												insertedCount_tDBOutput_17 += processedCount_tDBOutput_17;
+												rowsToCommitCount_tDBOutput_17 += processedCount_tDBOutput_17;
 											} catch (java.lang.Exception e) {
-												globalMap.put("tDBOutput_6_ERROR_MESSAGE", e.getMessage());
-												whetherReject_tDBOutput_6 = true;
+												globalMap.put("tDBOutput_17_ERROR_MESSAGE", e.getMessage());
+												whetherReject_tDBOutput_17 = true;
 												System.err.print(e.getMessage());
 											}
-											commitCounter_tDBOutput_6++;
+											commitCounter_tDBOutput_17++;
 
-											if (commitEvery_tDBOutput_6 <= commitCounter_tDBOutput_6) {
+											if (commitEvery_tDBOutput_17 <= commitCounter_tDBOutput_17) {
 
-												if (rowsToCommitCount_tDBOutput_6 != 0) {
+												if (rowsToCommitCount_tDBOutput_17 != 0) {
 												}
-												conn_tDBOutput_6.commit();
-												if (rowsToCommitCount_tDBOutput_6 != 0) {
-													rowsToCommitCount_tDBOutput_6 = 0;
+												conn_tDBOutput_17.commit();
+												if (rowsToCommitCount_tDBOutput_17 != 0) {
+													rowsToCommitCount_tDBOutput_17 = 0;
 												}
-												commitCounter_tDBOutput_6 = 0;
+												commitCounter_tDBOutput_17 = 0;
 
 											}
 
-											tos_count_tDBOutput_6++;
+											tos_count_tDBOutput_17++;
 
 											/**
-											 * [tDBOutput_6 main ] stop
+											 * [tDBOutput_17 main ] stop
 											 */
 
 											/**
-											 * [tDBOutput_6 process_data_begin ] start
+											 * [tDBOutput_17 process_data_begin ] start
 											 */
 
-											currentComponent = "tDBOutput_6";
+											currentComponent = "tDBOutput_17";
 
 											/**
-											 * [tDBOutput_6 process_data_begin ] stop
+											 * [tDBOutput_17 process_data_begin ] stop
 											 */
 
 											/**
-											 * [tDBOutput_6 process_data_end ] start
+											 * [tDBOutput_17 process_data_end ] start
 											 */
 
-											currentComponent = "tDBOutput_6";
+											currentComponent = "tDBOutput_17";
 
 											/**
-											 * [tDBOutput_6 process_data_end ] stop
+											 * [tDBOutput_17 process_data_end ] stop
 											 */
 
-										} // End of branch "insertlog_files_patterns"
+										} // End of branch "insertLogFilesPatterns"
 
 										/**
 										 * [tMap_10 process_data_end ] start
@@ -29629,52 +30124,52 @@ public class monitoring implements TalendJob {
 					 */
 
 					/**
-					 * [tDBOutput_6 end ] start
+					 * [tDBOutput_17 end ] start
 					 */
 
-					currentComponent = "tDBOutput_6";
+					currentComponent = "tDBOutput_17";
 
-					if (pstmt_tDBOutput_6 != null) {
+					if (pstmt_tDBOutput_17 != null) {
 
-						pstmt_tDBOutput_6.close();
-						resourceMap.remove("pstmt_tDBOutput_6");
-
-					}
-					resourceMap.put("statementClosed_tDBOutput_6", true);
-					if (commitCounter_tDBOutput_6 > 0 && rowsToCommitCount_tDBOutput_6 != 0) {
+						pstmt_tDBOutput_17.close();
+						resourceMap.remove("pstmt_tDBOutput_17");
 
 					}
-					conn_tDBOutput_6.commit();
-					if (commitCounter_tDBOutput_6 > 0 && rowsToCommitCount_tDBOutput_6 != 0) {
+					resourceMap.put("statementClosed_tDBOutput_17", true);
+					if (commitCounter_tDBOutput_17 > 0 && rowsToCommitCount_tDBOutput_17 != 0) {
 
-						rowsToCommitCount_tDBOutput_6 = 0;
 					}
-					commitCounter_tDBOutput_6 = 0;
+					conn_tDBOutput_17.commit();
+					if (commitCounter_tDBOutput_17 > 0 && rowsToCommitCount_tDBOutput_17 != 0) {
 
-					conn_tDBOutput_6.close();
+						rowsToCommitCount_tDBOutput_17 = 0;
+					}
+					commitCounter_tDBOutput_17 = 0;
 
-					resourceMap.put("finish_tDBOutput_6", true);
+					conn_tDBOutput_17.close();
 
-					nb_line_deleted_tDBOutput_6 = nb_line_deleted_tDBOutput_6 + deletedCount_tDBOutput_6;
-					nb_line_update_tDBOutput_6 = nb_line_update_tDBOutput_6 + updatedCount_tDBOutput_6;
-					nb_line_inserted_tDBOutput_6 = nb_line_inserted_tDBOutput_6 + insertedCount_tDBOutput_6;
-					nb_line_rejected_tDBOutput_6 = nb_line_rejected_tDBOutput_6 + rejectedCount_tDBOutput_6;
+					resourceMap.put("finish_tDBOutput_17", true);
 
-					globalMap.put("tDBOutput_6_NB_LINE", nb_line_tDBOutput_6);
-					globalMap.put("tDBOutput_6_NB_LINE_UPDATED", nb_line_update_tDBOutput_6);
-					globalMap.put("tDBOutput_6_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_6);
-					globalMap.put("tDBOutput_6_NB_LINE_DELETED", nb_line_deleted_tDBOutput_6);
-					globalMap.put("tDBOutput_6_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_6);
+					nb_line_deleted_tDBOutput_17 = nb_line_deleted_tDBOutput_17 + deletedCount_tDBOutput_17;
+					nb_line_update_tDBOutput_17 = nb_line_update_tDBOutput_17 + updatedCount_tDBOutput_17;
+					nb_line_inserted_tDBOutput_17 = nb_line_inserted_tDBOutput_17 + insertedCount_tDBOutput_17;
+					nb_line_rejected_tDBOutput_17 = nb_line_rejected_tDBOutput_17 + rejectedCount_tDBOutput_17;
+
+					globalMap.put("tDBOutput_17_NB_LINE", nb_line_tDBOutput_17);
+					globalMap.put("tDBOutput_17_NB_LINE_UPDATED", nb_line_update_tDBOutput_17);
+					globalMap.put("tDBOutput_17_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_17);
+					globalMap.put("tDBOutput_17_NB_LINE_DELETED", nb_line_deleted_tDBOutput_17);
+					globalMap.put("tDBOutput_17_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_17);
 
 					if (execStat) {
-						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertlog_files_patterns");
+						runStat.updateStat(resourceMap, iterateId, 2, 0, "insertLogFilesPatterns");
 					}
 
-					ok_Hash.put("tDBOutput_6", true);
-					end_Hash.put("tDBOutput_6", System.currentTimeMillis());
+					ok_Hash.put("tDBOutput_17", true);
+					end_Hash.put("tDBOutput_17", System.currentTimeMillis());
 
 					/**
-					 * [tDBOutput_6 end ] stop
+					 * [tDBOutput_17 end ] stop
 					 */
 
 					if (execStat) {
@@ -29879,36 +30374,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_36 finally ] start
+				 * [tDBOutput_72 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_36";
+				currentComponent = "tDBOutput_72";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_36") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_36 = null;
-						if ((pstmtToClose_tDBOutput_36 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_36")) != null) {
-							pstmtToClose_tDBOutput_36.close();
+					if (resourceMap.get("statementClosed_tDBOutput_72") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_72 = null;
+						if ((pstmtToClose_tDBOutput_72 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_72")) != null) {
+							pstmtToClose_tDBOutput_72.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_36") == null) {
-						java.sql.Connection ctn_tDBOutput_36 = null;
-						if ((ctn_tDBOutput_36 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_36")) != null) {
+					if (resourceMap.get("finish_tDBOutput_72") == null) {
+						java.sql.Connection ctn_tDBOutput_72 = null;
+						if ((ctn_tDBOutput_72 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_72")) != null) {
 							try {
-								ctn_tDBOutput_36.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_36) {
-								String errorMessage_tDBOutput_36 = "failed to close the connection in tDBOutput_36 :"
-										+ sqlEx_tDBOutput_36.getMessage();
-								System.err.println(errorMessage_tDBOutput_36);
+								ctn_tDBOutput_72.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_72) {
+								String errorMessage_tDBOutput_72 = "failed to close the connection in tDBOutput_72 :"
+										+ sqlEx_tDBOutput_72.getMessage();
+								System.err.println(errorMessage_tDBOutput_72);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_36 finally ] stop
+				 * [tDBOutput_72 finally ] stop
 				 */
 
 				/**
@@ -29952,36 +30447,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_28 finally ] start
+				 * [tDBOutput_68 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_28";
+				currentComponent = "tDBOutput_68";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_28") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_28 = null;
-						if ((pstmtToClose_tDBOutput_28 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_28")) != null) {
-							pstmtToClose_tDBOutput_28.close();
+					if (resourceMap.get("statementClosed_tDBOutput_68") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_68 = null;
+						if ((pstmtToClose_tDBOutput_68 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_68")) != null) {
+							pstmtToClose_tDBOutput_68.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_28") == null) {
-						java.sql.Connection ctn_tDBOutput_28 = null;
-						if ((ctn_tDBOutput_28 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_28")) != null) {
+					if (resourceMap.get("finish_tDBOutput_68") == null) {
+						java.sql.Connection ctn_tDBOutput_68 = null;
+						if ((ctn_tDBOutput_68 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_68")) != null) {
 							try {
-								ctn_tDBOutput_28.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_28) {
-								String errorMessage_tDBOutput_28 = "failed to close the connection in tDBOutput_28 :"
-										+ sqlEx_tDBOutput_28.getMessage();
-								System.err.println(errorMessage_tDBOutput_28);
+								ctn_tDBOutput_68.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_68) {
+								String errorMessage_tDBOutput_68 = "failed to close the connection in tDBOutput_68 :"
+										+ sqlEx_tDBOutput_68.getMessage();
+								System.err.println(errorMessage_tDBOutput_68);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_28 finally ] stop
+				 * [tDBOutput_68 finally ] stop
 				 */
 
 				/**
@@ -30025,36 +30520,36 @@ public class monitoring implements TalendJob {
 				 */
 
 				/**
-				 * [tDBOutput_6 finally ] start
+				 * [tDBOutput_17 finally ] start
 				 */
 
-				currentComponent = "tDBOutput_6";
+				currentComponent = "tDBOutput_17";
 
 				try {
-					if (resourceMap.get("statementClosed_tDBOutput_6") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_6 = null;
-						if ((pstmtToClose_tDBOutput_6 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_6")) != null) {
-							pstmtToClose_tDBOutput_6.close();
+					if (resourceMap.get("statementClosed_tDBOutput_17") == null) {
+						java.sql.PreparedStatement pstmtToClose_tDBOutput_17 = null;
+						if ((pstmtToClose_tDBOutput_17 = (java.sql.PreparedStatement) resourceMap
+								.remove("pstmt_tDBOutput_17")) != null) {
+							pstmtToClose_tDBOutput_17.close();
 						}
 					}
 				} finally {
-					if (resourceMap.get("finish_tDBOutput_6") == null) {
-						java.sql.Connection ctn_tDBOutput_6 = null;
-						if ((ctn_tDBOutput_6 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_6")) != null) {
+					if (resourceMap.get("finish_tDBOutput_17") == null) {
+						java.sql.Connection ctn_tDBOutput_17 = null;
+						if ((ctn_tDBOutput_17 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_17")) != null) {
 							try {
-								ctn_tDBOutput_6.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_6) {
-								String errorMessage_tDBOutput_6 = "failed to close the connection in tDBOutput_6 :"
-										+ sqlEx_tDBOutput_6.getMessage();
-								System.err.println(errorMessage_tDBOutput_6);
+								ctn_tDBOutput_17.close();
+							} catch (java.sql.SQLException sqlEx_tDBOutput_17) {
+								String errorMessage_tDBOutput_17 = "failed to close the connection in tDBOutput_17 :"
+										+ sqlEx_tDBOutput_17.getMessage();
+								System.err.println(errorMessage_tDBOutput_17);
 							}
 						}
 					}
 				}
 
 				/**
-				 * [tDBOutput_6 finally ] stop
+				 * [tDBOutput_17 finally ] stop
 				 */
 
 				/**
@@ -32040,6 +32535,6 @@ public class monitoring implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 905153 characters generated by Talend Open Studio for Data Integration on the
- * 31 juillet 2023 à 3:13:24 PM WAT
+ * 918628 characters generated by Talend Open Studio for Data Integration on the
+ * 4 août 2023 à 12:09:40 PM WAT
  ************************************************************************************************/

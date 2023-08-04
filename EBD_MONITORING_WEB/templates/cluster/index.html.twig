@@ -3,7 +3,15 @@
 {% block title %}Cluster index{% endblock %}
 
 {% block body %}
-    <h1>Cluster index</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Clusters </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -19,7 +27,7 @@
                 <th>Mode*</th>
                 <th>Serveur Actif</th>
                 <th>Compléments d'informations</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -27,7 +35,10 @@
             <tr>
                 <td>{{ cluster.getId() }}</td>
                 <td>{{ cluster.ref }}</td>
-                <td>{{ cluster.etat }}</td>
+                <td class="{% if cluster.etat == 'Supprimé' %}text-danger{% elseif cluster.etat == 'Modifié' %}text-warning{% elseif cluster.etat == 'Nouveau' %}text-success{% else %}text-info{% endif %}">
+  {{ cluster.etat }}
+</td>
+
                 <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
                 <td>{{ cluster.adresseIp }}</td>
                 <td>{{ cluster.listeDesServeursConcernés }}</td>
@@ -37,8 +48,10 @@
                 <td>{{ cluster.serveurActif }}</td>
                 <td>{{ cluster.complementsInformations }}</td>
                 <td>
-                    <a href="{{ path('app_cluster_show', {'id': cluster.id}) }}">show</a>
-                    <a href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
+                    <a class="btn btn-info" href="{{ path('app_cluster_show', {'id': cluster.id}) }}">show</a>
+                    </td>
+                    <td>
+                    <a class="btn btn-warning" href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -49,5 +62,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_cluster_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_cluster_new') }}">Create new</a>
 {% endblock %}

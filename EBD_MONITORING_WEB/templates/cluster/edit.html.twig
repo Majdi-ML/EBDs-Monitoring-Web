@@ -3,11 +3,19 @@
 {% block title %}Edit Cluster{% endblock %}
 
 {% block body %}
-    <h1>Edit Cluster</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Edit Cluster </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     {{ include('cluster/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_cluster_index') }}">back to list</a>
-
+<br><br>
+    <a class="btn btn-secondary" href="{{ path('app_cluster_index') }}">back to list</a>
+<br><br>
     {{ include('cluster/_delete_form.html.twig') }}
 {% endblock %}

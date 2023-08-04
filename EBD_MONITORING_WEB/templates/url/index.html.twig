@@ -3,7 +3,15 @@
 {% block title %}Url index{% endblock %}
 
 {% block body %}
-    <h1>Url index</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Urls</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item ">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -23,7 +31,7 @@
                 <th>Objet</th>
                 <th>MonitoredBy</th>
                 <th>NomTemplate</th>
-                <th>actions</th>
+              
             </tr>
         </thead>
         <tbody>
@@ -45,8 +53,10 @@
                 <td>{{ url.monitoredBy }}</td>
                 <td>{{ url.nomTemplate }}</td>
                 <td>
-                    <a href="{{ path('app_url_show', {'id': url.id}) }}">show</a>
-                    <a href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
+                    <a class="btn btn-info" href="{{ path('app_url_show', {'id': url.id}) }}">show</a>
+                </td>
+                <td>    
+                    <a class="btn btn-warning" href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -57,5 +67,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_url_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_url_new') }}">Create new</a>
 {% endblock %}

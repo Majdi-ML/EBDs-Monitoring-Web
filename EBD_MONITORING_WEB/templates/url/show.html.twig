@@ -3,7 +3,15 @@
 {% block title %}Url{% endblock %}
 
 {% block body %}
-    <h1>Url</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Url</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table">
         <tbody>
@@ -70,9 +78,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_url_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_url_index') }}">back to list</a>
 
-    <a href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
-
+    <a class="btn btn-warning" href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
+<br><br>
     {{ include('url/_delete_form.html.twig') }}
 {% endblock %}

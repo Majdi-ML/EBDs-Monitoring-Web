@@ -3,11 +3,19 @@
 {% block title %}Edit LogFilesPatterns{% endblock %}
 
 {% block body %}
-    <h1>Edit LogFilesPatterns</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Edit Log Files Patterns</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     {{ include('log_files_patterns/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_log_files_patterns_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_log_files_patterns_index') }}">back to list</a>
 
     {{ include('log_files_patterns/_delete_form.html.twig') }}
 {% endblock %}

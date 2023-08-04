@@ -3,7 +3,15 @@
 {% block title %}LogFilesPatterns index{% endblock %}
 
 {% block body %}
-    <h1>LogFilesPatterns index</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Log Files Patterns</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -22,7 +30,7 @@
                 <th>ComplementsInformations</th>
                 <th>RefService</th>
                 <th>Objet</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -43,8 +51,10 @@
                 <td>{{ log_files_pattern.refService }}</td>
                 <td>{{ log_files_pattern.objet }}</td>
                 <td>
-                    <a href="{{ path('app_log_files_patterns_show', {'id': log_files_pattern.id}) }}">show</a>
-                    <a href="{{ path('app_log_files_patterns_edit', {'id': log_files_pattern.id}) }}">edit</a>
+                    <a class="btn btn-info" href="{{ path('app_log_files_patterns_show', {'id': log_files_pattern.id}) }}">show</a>
+                 </td>
+                 <td>
+                    <a class="btn btn-warning" href="{{ path('app_log_files_patterns_edit', {'id': log_files_pattern.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -55,5 +65,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_log_files_patterns_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_log_files_patterns_new') }}">Create new</a>
 {% endblock %}

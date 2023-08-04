@@ -3,7 +3,15 @@
 {% block title %}Scripts{% endblock %}
 
 {% block body %}
-    <h1>Scripts</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Script</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table">
         <tbody>
@@ -58,9 +66,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_scripts_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_scripts_index') }}">back to list</a>
 
-    <a href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
-
+    <a class="btn btn-warning" href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
+<br><br>
     {{ include('scripts/_delete_form.html.twig') }}
 {% endblock %}

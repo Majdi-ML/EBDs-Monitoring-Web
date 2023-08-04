@@ -3,7 +3,15 @@
 {% block title %}Scripts index{% endblock %}
 
 {% block body %}
-    <h1>Scripts index</h1>
+    <div class="pagetitle">
+      <h1 class="pagetitle">Scripts</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -20,7 +28,7 @@
                 <th>Instructions</th>
                 <th>MonitoredBy</th>
                 <th>RefService</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -39,8 +47,10 @@
                 <td>{{ script.monitoredBy }}</td>
                 <td>{{ script.refService }}</td>
                 <td>
-                    <a href="{{ path('app_scripts_show', {'id': script.id}) }}">show</a>
-                    <a href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
+                    <a class="btn btn-info" href="{{ path('app_scripts_show', {'id': script.id}) }}">show</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -51,5 +61,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_scripts_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_scripts_new') }}">Create new</a>
 {% endblock %}
