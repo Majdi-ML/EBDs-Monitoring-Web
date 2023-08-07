@@ -27,6 +27,7 @@
                 <th>Mode*</th>
                 <th>Serveur Actif</th>
                 <th>Compléments d'informations</th>
+                <th>Support</th>
                 
             </tr>
         </thead>
@@ -47,11 +48,12 @@
                 <td>{{ cluster.mode }}</td>
                 <td>{{ cluster.serveurActif }}</td>
                 <td>{{ cluster.complementsInformations }}</td>
+                <td>{{ cluster.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_cluster_show', {'id': cluster.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_cluster_show', {'id': cluster.id}) }}">show</a>
                     </td>
                     <td>
-                    <a class="btn btn-warning" href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

@@ -31,7 +31,7 @@
                 <th>Description</th>
                 <th>SocleStandardOmu</th>
                 <th>ComplementsInformations</th>
-                
+                <th>Support</th>
             </tr>
         </thead>
         <tbody>
@@ -52,11 +52,12 @@
                 <td>{{ serveur.description }}</td>
                 <td>{{ serveur.socleStandardOmu }}</td>
                 <td>{{ serveur.complementsInformations }}</td>
+                 <td>{{ serveur.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_serveurs_show', {'id': serveur.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_serveurs_show', {'id': serveur.id}) }}">show</a>
                 </td>
                 <td>
-                    <a class="btn btn-warning" href="{{ path('app_serveurs_edit', {'id': serveur.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_serveurs_edit', {'id': serveur.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

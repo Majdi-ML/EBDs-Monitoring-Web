@@ -2,96 +2,50 @@
 
 namespace App\Entity;
 
+use App\Repository\ProcessRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Process
- *
- * @ORM\Table(name="process")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: ProcessRepository::class)]
 class Process
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250)]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_composant", type="string", length=250, nullable=true)
-     */
-    private $refComposant;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refComposant = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Process", type="string", length=250, nullable=true)
-     */
-    private $process;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $process = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Criticite", type="string", length=250, nullable=true)
-     */
-    private $criticite;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $criticite = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Message_alarme", type="text", length=65535, nullable=true)
-     */
-    private $messageAlarme;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $messageAlarme = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Intervalle_de_polling", type="string", length=250, nullable=true)
-     */
-    private $intervalleDePolling;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $intervalleDePolling = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Objet", type="string", length=250, nullable=true)
-     */
-    private $objet;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $objet = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Nom_Template", type="string", length=250, nullable=true)
-     */
-    private $nomTemplate;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $nomTemplate = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Monitored_By", type="string", length=250, nullable=true)
-     */
-    private $monitoredBy;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $monitoredBy = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $support = null;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -101,9 +55,11 @@ class Process
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -111,9 +67,11 @@ class Process
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getRefComposant(): ?string
@@ -121,9 +79,11 @@ class Process
         return $this->refComposant;
     }
 
-    public function setRefComposant(?string $refComposant): void
+    public function setRefComposant(string $refComposant): static
     {
         $this->refComposant = $refComposant;
+
+        return $this;
     }
 
     public function getProcess(): ?string
@@ -131,9 +91,11 @@ class Process
         return $this->process;
     }
 
-    public function setProcess(?string $process): void
+    public function setProcess(string $process): static
     {
         $this->process = $process;
+
+        return $this;
     }
 
     public function getCriticite(): ?string
@@ -141,9 +103,11 @@ class Process
         return $this->criticite;
     }
 
-    public function setCriticite(?string $criticite): void
+    public function setCriticite(string $criticite): static
     {
         $this->criticite = $criticite;
+
+        return $this;
     }
 
     public function getMessageAlarme(): ?string
@@ -151,9 +115,11 @@ class Process
         return $this->messageAlarme;
     }
 
-    public function setMessageAlarme(?string $messageAlarme): void
+    public function setMessageAlarme(string $messageAlarme): static
     {
         $this->messageAlarme = $messageAlarme;
+
+        return $this;
     }
 
     public function getIntervalleDePolling(): ?string
@@ -161,9 +127,11 @@ class Process
         return $this->intervalleDePolling;
     }
 
-    public function setIntervalleDePolling(?string $intervalleDePolling): void
+    public function setIntervalleDePolling(string $intervalleDePolling): static
     {
         $this->intervalleDePolling = $intervalleDePolling;
+
+        return $this;
     }
 
     public function getObjet(): ?string
@@ -171,9 +139,11 @@ class Process
         return $this->objet;
     }
 
-    public function setObjet(?string $objet): void
+    public function setObjet(string $objet): static
     {
         $this->objet = $objet;
+
+        return $this;
     }
 
     public function getNomTemplate(): ?string
@@ -181,9 +151,11 @@ class Process
         return $this->nomTemplate;
     }
 
-    public function setNomTemplate(?string $nomTemplate): void
+    public function setNomTemplate(string $nomTemplate): static
     {
         $this->nomTemplate = $nomTemplate;
+
+        return $this;
     }
 
     public function getMonitoredBy(): ?string
@@ -191,8 +163,22 @@ class Process
         return $this->monitoredBy;
     }
 
-    public function setMonitoredBy(?string $monitoredBy): void
+    public function setMonitoredBy(string $monitoredBy): static
     {
         $this->monitoredBy = $monitoredBy;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
     }
 }

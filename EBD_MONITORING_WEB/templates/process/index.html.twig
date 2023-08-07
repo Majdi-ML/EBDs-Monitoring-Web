@@ -27,6 +27,7 @@
                 <th>Objet</th>
                 <th>NomTemplate</th>
                 <th>MonitoredBy</th>
+                <th>Support</th>
                 
             </tr>
         </thead>
@@ -44,11 +45,12 @@
                 <td>{{ process.objet }}</td>
                 <td>{{ process.nomTemplate }}</td>
                 <td>{{ process.monitoredBy }}</td>
+                <td>{{ process.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_process_show', {'id': process.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_process_show', {'id': process.id}) }}">show</a>
                 </td>
                 <td>    
-                    <a class="btn btn-warning" href="{{ path('app_process_edit', {'id': process.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_process_edit', {'id': process.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

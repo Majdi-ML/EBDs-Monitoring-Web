@@ -2,131 +2,65 @@
 
 namespace App\Entity;
 
+use App\Repository\TrapsSnmpRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * TrapsSnmp
- *
- * @ORM\Table(name="traps_snmp")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: TrapsSnmpRepository::class)]
 class TrapsSnmp
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250)]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_composant", type="string", length=250, nullable=true)
-     */
-    private $refComposant;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refComposant = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Signification", type="string", length=250, nullable=true)
-     */
-    private $signification;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $signification = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Version_SNMP", type="string", length=250, nullable=true)
-     */
-    private $versionSnmp;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $versionSnmp = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="OID", type="string", length=250, nullable=true)
-     */
-    private $oid;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $oid = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Specific_Trap", type="string", length=250, nullable=true)
-     */
-    private $specificTrap;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $specificTrap = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Variable_binding", type="string", length=250, nullable=true)
-     */
-    private $variableBinding;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $variableBinding = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Criticite", type="string", length=250, nullable=true)
-     */
-    private $criticite;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $criticite = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Message_alarme", type="string", length=250, nullable=true)
-     */
-    private $messageAlarme;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $messageAlarme = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Instructions", type="string", length=250, nullable=true)
-     */
-    private $instructions;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $instructions = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="acquittement", type="string", length=250, nullable=true)
-     */
-    private $acquittement;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $acquittement = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="MIB_associe", type="string", length=250, nullable=true)
-     */
-    private $mibAssocie;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $mibAssocie = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Objet", type="string", length=250, nullable=true)
-     */
-    private $objet;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $objet = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Compelement_information", type="string", length=250, nullable=true)
-     */
-    private $compelementInformation;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $compelementInformation = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $support = null;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -136,9 +70,11 @@ class TrapsSnmp
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -146,9 +82,11 @@ class TrapsSnmp
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getRefComposant(): ?string
@@ -156,9 +94,11 @@ class TrapsSnmp
         return $this->refComposant;
     }
 
-    public function setRefComposant(?string $refComposant): void
+    public function setRefComposant(string $refComposant): static
     {
         $this->refComposant = $refComposant;
+
+        return $this;
     }
 
     public function getSignification(): ?string
@@ -166,9 +106,11 @@ class TrapsSnmp
         return $this->signification;
     }
 
-    public function setSignification(?string $signification): void
+    public function setSignification(string $signification): static
     {
         $this->signification = $signification;
+
+        return $this;
     }
 
     public function getVersionSnmp(): ?string
@@ -176,9 +118,11 @@ class TrapsSnmp
         return $this->versionSnmp;
     }
 
-    public function setVersionSnmp(?string $versionSnmp): void
+    public function setVersionSnmp(string $versionSnmp): static
     {
         $this->versionSnmp = $versionSnmp;
+
+        return $this;
     }
 
     public function getOid(): ?string
@@ -186,9 +130,11 @@ class TrapsSnmp
         return $this->oid;
     }
 
-    public function setOid(?string $oid): void
+    public function setOid(string $oid): static
     {
         $this->oid = $oid;
+
+        return $this;
     }
 
     public function getSpecificTrap(): ?string
@@ -196,9 +142,11 @@ class TrapsSnmp
         return $this->specificTrap;
     }
 
-    public function setSpecificTrap(?string $specificTrap): void
+    public function setSpecificTrap(string $specificTrap): static
     {
         $this->specificTrap = $specificTrap;
+
+        return $this;
     }
 
     public function getVariableBinding(): ?string
@@ -206,9 +154,11 @@ class TrapsSnmp
         return $this->variableBinding;
     }
 
-    public function setVariableBinding(?string $variableBinding): void
+    public function setVariableBinding(string $variableBinding): static
     {
         $this->variableBinding = $variableBinding;
+
+        return $this;
     }
 
     public function getCriticite(): ?string
@@ -216,9 +166,11 @@ class TrapsSnmp
         return $this->criticite;
     }
 
-    public function setCriticite(?string $criticite): void
+    public function setCriticite(string $criticite): static
     {
         $this->criticite = $criticite;
+
+        return $this;
     }
 
     public function getMessageAlarme(): ?string
@@ -226,9 +178,11 @@ class TrapsSnmp
         return $this->messageAlarme;
     }
 
-    public function setMessageAlarme(?string $messageAlarme): void
+    public function setMessageAlarme(string $messageAlarme): static
     {
         $this->messageAlarme = $messageAlarme;
+
+        return $this;
     }
 
     public function getInstructions(): ?string
@@ -236,9 +190,11 @@ class TrapsSnmp
         return $this->instructions;
     }
 
-    public function setInstructions(?string $instructions): void
+    public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
     }
 
     public function getAcquittement(): ?string
@@ -246,9 +202,11 @@ class TrapsSnmp
         return $this->acquittement;
     }
 
-    public function setAcquittement(?string $acquittement): void
+    public function setAcquittement(string $acquittement): static
     {
         $this->acquittement = $acquittement;
+
+        return $this;
     }
 
     public function getMibAssocie(): ?string
@@ -256,9 +214,11 @@ class TrapsSnmp
         return $this->mibAssocie;
     }
 
-    public function setMibAssocie(?string $mibAssocie): void
+    public function setMibAssocie(string $mibAssocie): static
     {
         $this->mibAssocie = $mibAssocie;
+
+        return $this;
     }
 
     public function getObjet(): ?string
@@ -266,9 +226,11 @@ class TrapsSnmp
         return $this->objet;
     }
 
-    public function setObjet(?string $objet): void
+    public function setObjet(string $objet): static
     {
         $this->objet = $objet;
+
+        return $this;
     }
 
     public function getCompelementInformation(): ?string
@@ -276,8 +238,22 @@ class TrapsSnmp
         return $this->compelementInformation;
     }
 
-    public function setCompelementInformation(?string $compelementInformation): void
+    public function setCompelementInformation(string $compelementInformation): static
     {
         $this->compelementInformation = $compelementInformation;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
     }
 }

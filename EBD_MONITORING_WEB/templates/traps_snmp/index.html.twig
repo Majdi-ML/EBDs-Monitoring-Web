@@ -32,7 +32,7 @@
                 <th>MibAssocie</th>
                 <th>Objet</th>
                 <th>CompelementInformation</th>
-                
+                <th>Support</th>
             </tr>
         </thead>
         <tbody>
@@ -54,11 +54,12 @@
                 <td>{{ traps_snmp.mibAssocie }}</td>
                 <td>{{ traps_snmp.objet }}</td>
                 <td>{{ traps_snmp.compelementInformation }}</td>
+                <td>{{ traps_snmp.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_traps_snmp_show', {'id': traps_snmp.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_traps_snmp_show', {'id': traps_snmp.id}) }}">show</a>
                 </td>
                 <td>    
-                    <a class="btn btn-warning" href="{{ path('app_traps_snmp_edit', {'id': traps_snmp.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_traps_snmp_edit', {'id': traps_snmp.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

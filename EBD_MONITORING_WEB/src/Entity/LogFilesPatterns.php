@@ -2,129 +2,74 @@
 
 namespace App\Entity;
 
+use App\Repository\LogFilesPatternsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * LogFilesPatterns
- *
- * @ORM\Table(name="log_files_patterns")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: LogFilesPatternsRepository::class)]
 class LogFilesPatterns
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250)]
+    private ?string $id = null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="N_Ref", type="integer", nullable=true)
-     */
-    private $nRef;
+    #[ORM\Column]
+    private ?int $nRef = null;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Ref", type="integer", nullable=true)
-     */
-    private $ref;
+    #[ORM\Column]
+    private ?int $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Signification", type="string", length=250, nullable=true)
-     */
-    private $signification;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $signification = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Identification", type="text", length=65535, nullable=true)
-     */
-    private $identification;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $identification = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Criticite", type="string", length=250, nullable=true)
-     */
-    private $criticite;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $criticite = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Message_alarme", type="text", length=65535, nullable=true)
-     */
-    private $messageAlarme;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $messageAlarme = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Instructions", type="string", length=250, nullable=true)
-     */
-    private $instructions;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $instructions = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Perform_action", type="string", length=250, nullable=true)
-     */
-    private $performAction;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $performAction = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Acquittement", type="string", length=250, nullable=true)
-     */
-    private $acquittement;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $acquittement = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Complements_informations", type="string", length=250, nullable=true)
-     */
-    private $complementsInformations;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $complementsInformations = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_Service", type="string", length=250, nullable=true)
-     */
-    private $refService;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refService = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Objet", type="string", length=250, nullable=true)
-     */
-    private $objet;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $objet = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $support = null;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
+
 
     public function getNRef(): ?int
     {
         return $this->nRef;
     }
 
-    public function setNRef(?int $nRef): void
+    public function setNRef(int $nRef): static
     {
         $this->nRef = $nRef;
+
+        return $this;
     }
 
     public function getRef(): ?int
@@ -132,9 +77,11 @@ class LogFilesPatterns
         return $this->ref;
     }
 
-    public function setRef(?int $ref): void
+    public function setRef(int $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -142,9 +89,11 @@ class LogFilesPatterns
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getSignification(): ?string
@@ -152,9 +101,11 @@ class LogFilesPatterns
         return $this->signification;
     }
 
-    public function setSignification(?string $signification): void
+    public function setSignification(string $signification): static
     {
         $this->signification = $signification;
+
+        return $this;
     }
 
     public function getIdentification(): ?string
@@ -162,9 +113,11 @@ class LogFilesPatterns
         return $this->identification;
     }
 
-    public function setIdentification(?string $identification): void
+    public function setIdentification(string $identification): static
     {
         $this->identification = $identification;
+
+        return $this;
     }
 
     public function getCriticite(): ?string
@@ -172,9 +125,11 @@ class LogFilesPatterns
         return $this->criticite;
     }
 
-    public function setCriticite(?string $criticite): void
+    public function setCriticite(string $criticite): static
     {
         $this->criticite = $criticite;
+
+        return $this;
     }
 
     public function getMessageAlarme(): ?string
@@ -182,9 +137,11 @@ class LogFilesPatterns
         return $this->messageAlarme;
     }
 
-    public function setMessageAlarme(?string $messageAlarme): void
+    public function setMessageAlarme(string $messageAlarme): static
     {
         $this->messageAlarme = $messageAlarme;
+
+        return $this;
     }
 
     public function getInstructions(): ?string
@@ -192,9 +149,11 @@ class LogFilesPatterns
         return $this->instructions;
     }
 
-    public function setInstructions(?string $instructions): void
+    public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
     }
 
     public function getPerformAction(): ?string
@@ -202,9 +161,11 @@ class LogFilesPatterns
         return $this->performAction;
     }
 
-    public function setPerformAction(?string $performAction): void
+    public function setPerformAction(string $performAction): static
     {
         $this->performAction = $performAction;
+
+        return $this;
     }
 
     public function getAcquittement(): ?string
@@ -212,9 +173,11 @@ class LogFilesPatterns
         return $this->acquittement;
     }
 
-    public function setAcquittement(?string $acquittement): void
+    public function setAcquittement(string $acquittement): static
     {
         $this->acquittement = $acquittement;
+
+        return $this;
     }
 
     public function getComplementsInformations(): ?string
@@ -222,9 +185,11 @@ class LogFilesPatterns
         return $this->complementsInformations;
     }
 
-    public function setComplementsInformations(?string $complementsInformations): void
+    public function setComplementsInformations(string $complementsInformations): static
     {
         $this->complementsInformations = $complementsInformations;
+
+        return $this;
     }
 
     public function getRefService(): ?string
@@ -232,9 +197,11 @@ class LogFilesPatterns
         return $this->refService;
     }
 
-    public function setRefService(?string $refService): void
+    public function setRefService(string $refService): static
     {
         $this->refService = $refService;
+
+        return $this;
     }
 
     public function getObjet(): ?string
@@ -242,8 +209,22 @@ class LogFilesPatterns
         return $this->objet;
     }
 
-    public function setObjet(?string $objet): void
+    public function setObjet(string $objet): static
     {
         $this->objet = $objet;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
     }
 }

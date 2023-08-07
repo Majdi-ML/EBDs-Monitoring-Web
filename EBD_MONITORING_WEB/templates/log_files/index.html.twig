@@ -32,6 +32,7 @@
                 <th>RefService</th>
                 <th>NomTemplate</th>
                 <th>LogConditions</th>
+                <th>Support</th>
                
             </tr>
         </thead>
@@ -58,11 +59,12 @@
                 <td>{{ log_file.refService }}</td>
                 <td>{{ log_file.nomTemplate }}</td>
                 <td>{{ log_file.logConditions }}</td>
+                <td>{{ log_file.support }}</td>
                 <td>
-                    <a  class="btn btn-info" href="{{ path('app_log_files_show', {'id': log_file.id}) }}">show</a>
+                    <a  class="btn btn-info btn-sm" href="{{ path('app_log_files_show', {'id': log_file.id}) }}">show</a>
                 </td>
                 <td>    
-                    <a class="btn btn-warning" href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_log_files_edit', {'id': log_file.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

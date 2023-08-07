@@ -28,6 +28,7 @@
                 <th>Instructions</th>
                 <th>MonitoredBy</th>
                 <th>RefService</th>
+                <th>Support</th>
                 
             </tr>
         </thead>
@@ -46,11 +47,12 @@
                 <td>{{ script.instructions }}</td>
                 <td>{{ script.monitoredBy }}</td>
                 <td>{{ script.refService }}</td>
+                <td>{{ script.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_scripts_show', {'id': script.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_scripts_show', {'id': script.id}) }}">show</a>
                 </td>
                 <td>
-                    <a class="btn btn-warning" href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_scripts_edit', {'id': script.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

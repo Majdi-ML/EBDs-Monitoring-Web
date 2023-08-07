@@ -2,124 +2,64 @@
 
 namespace App\Entity;
 
+use App\Repository\UrlRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Url
- *
- * @ORM\Table(name="url")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: UrlRepository::class)]
 class Url
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_composant", type="string", length=250, nullable=true)
-     */
-    private $refComposant;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refComposant = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="RG__SG_si_Cluster", type="string", length=250, nullable=true)
-     */
-    private $rgSgSiCluster;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $rgSgSiCluster = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="URL", type="string", length=250, nullable=true)
-     */
-    private $url;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $url = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Perform_action", type="string", length=250, nullable=true)
-     */
-    private $performAction;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $performAction = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Criticite", type="string", length=250, nullable=true)
-     */
-    private $criticite;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $criticite = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Message_alarme", type="string", length=250, nullable=true)
-     */
-    private $messageAlarme;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $messageAlarme = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Instructions", type="string", length=250, nullable=true)
-     */
-    private $instructions;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $instructions = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Intervalle_de_polling", type="string", length=250, nullable=true)
-     */
-    private $intervalleDePolling;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $intervalleDePolling = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_Service", type="string", length=250, nullable=true)
-     */
-    private $refService;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refService = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Objet", type="string", length=250, nullable=true)
-     */
-    private $objet;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $objet = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Monitored_by", type="string", length=250, nullable=true)
-     */
-    private $monitoredBy;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $monitoredBy = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Nom_Template", type="string", length=250, nullable=true)
-     */
-    private $nomTemplate;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $nomTemplate = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $support = null;
+
+    
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -129,9 +69,11 @@ class Url
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -139,9 +81,11 @@ class Url
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getRefComposant(): ?string
@@ -149,9 +93,11 @@ class Url
         return $this->refComposant;
     }
 
-    public function setRefComposant(?string $refComposant): void
+    public function setRefComposant(string $refComposant): static
     {
         $this->refComposant = $refComposant;
+
+        return $this;
     }
 
     public function getRgSgSiCluster(): ?string
@@ -159,9 +105,11 @@ class Url
         return $this->rgSgSiCluster;
     }
 
-    public function setRgSgSiCluster(?string $rgSgSiCluster): void
+    public function setRgSgSiCluster(string $rgSgSiCluster): static
     {
         $this->rgSgSiCluster = $rgSgSiCluster;
+
+        return $this;
     }
 
     public function getUrl(): ?string
@@ -169,9 +117,11 @@ class Url
         return $this->url;
     }
 
-    public function setUrl(?string $url): void
+    public function setUrl(string $url): static
     {
         $this->url = $url;
+
+        return $this;
     }
 
     public function getPerformAction(): ?string
@@ -179,9 +129,11 @@ class Url
         return $this->performAction;
     }
 
-    public function setPerformAction(?string $performAction): void
+    public function setPerformAction(string $performAction): static
     {
         $this->performAction = $performAction;
+
+        return $this;
     }
 
     public function getCriticite(): ?string
@@ -189,9 +141,11 @@ class Url
         return $this->criticite;
     }
 
-    public function setCriticite(?string $criticite): void
+    public function setCriticite(string $criticite): static
     {
         $this->criticite = $criticite;
+
+        return $this;
     }
 
     public function getMessageAlarme(): ?string
@@ -199,9 +153,11 @@ class Url
         return $this->messageAlarme;
     }
 
-    public function setMessageAlarme(?string $messageAlarme): void
+    public function setMessageAlarme(string $messageAlarme): static
     {
         $this->messageAlarme = $messageAlarme;
+
+        return $this;
     }
 
     public function getInstructions(): ?string
@@ -209,9 +165,11 @@ class Url
         return $this->instructions;
     }
 
-    public function setInstructions(?string $instructions): void
+    public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
     }
 
     public function getIntervalleDePolling(): ?string
@@ -219,9 +177,11 @@ class Url
         return $this->intervalleDePolling;
     }
 
-    public function setIntervalleDePolling(?string $intervalleDePolling): void
+    public function setIntervalleDePolling(string $intervalleDePolling): static
     {
         $this->intervalleDePolling = $intervalleDePolling;
+
+        return $this;
     }
 
     public function getRefService(): ?string
@@ -229,9 +189,11 @@ class Url
         return $this->refService;
     }
 
-    public function setRefService(?string $refService): void
+    public function setRefService(string $refService): static
     {
         $this->refService = $refService;
+
+        return $this;
     }
 
     public function getObjet(): ?string
@@ -239,9 +201,11 @@ class Url
         return $this->objet;
     }
 
-    public function setObjet(?string $objet): void
+    public function setObjet(string $objet): static
     {
         $this->objet = $objet;
+
+        return $this;
     }
 
     public function getMonitoredBy(): ?string
@@ -249,9 +213,11 @@ class Url
         return $this->monitoredBy;
     }
 
-    public function setMonitoredBy(?string $monitoredBy): void
+    public function setMonitoredBy(string $monitoredBy): static
     {
         $this->monitoredBy = $monitoredBy;
+
+        return $this;
     }
 
     public function getNomTemplate(): ?string
@@ -259,9 +225,24 @@ class Url
         return $this->nomTemplate;
     }
 
-    public function setNomTemplate(?string $nomTemplate): void
+    public function setNomTemplate(string $nomTemplate): static
     {
         $this->nomTemplate = $nomTemplate;
+
+        return $this;
     }
 
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(?string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
+    }
+
+   
 }

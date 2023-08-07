@@ -2,131 +2,65 @@
 
 namespace App\Entity;
 
+use App\Repository\LogFilesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * LogFiles
- *
- * @ORM\Table(name="log_files")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: LogFilesRepository::class)]
 class LogFiles
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250)]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_composant", type="string", length=250, nullable=true)
-     */
-    private $refComposant;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refComposant = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="RG__SG_si_Cluster", type="string", length=250, nullable=true)
-     */
-    private $rgSgSiCluster;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $rgSgSiCluster = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Logfile", type="string", length=250, nullable=true)
-     */
-    private $logfile;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $logfile = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Localisation", type="string", length=250, nullable=true)
-     */
-    private $localisation;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $localisation = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Description", type="string", length=250, nullable=true)
-     */
-    private $description;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $description = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Format_logfile", type="string", length=250, nullable=true)
-     */
-    private $formatLogfile;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $formatLogfile = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Separateur", type="string", length=250, nullable=true)
-     */
-    private $separateur;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $separateur = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Intervalle_de_polling", type="string", length=250, nullable=true)
-     */
-    private $intervalleDePolling;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $intervalleDePolling = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Monitored_By", type="string", length=250, nullable=true)
-     */
-    private $monitoredBy;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $monitoredBy = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Fourni_en_annexe", type="string", length=250, nullable=true)
-     */
-    private $fourniEnAnnexe;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $fourniEnAnnexe = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_Service", type="string", length=250, nullable=true)
-     */
-    private $refService;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refService = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Nom_Template", type="string", length=250, nullable=true)
-     */
-    private $nomTemplate;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $nomTemplate = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Log_Conditions", type="string", length=250, nullable=true)
-     */
-    private $logConditions;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $logConditions = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $support = null;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -136,9 +70,11 @@ class LogFiles
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -146,9 +82,11 @@ class LogFiles
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getRefComposant(): ?string
@@ -156,9 +94,11 @@ class LogFiles
         return $this->refComposant;
     }
 
-    public function setRefComposant(?string $refComposant): void
+    public function setRefComposant(string $refComposant): static
     {
         $this->refComposant = $refComposant;
+
+        return $this;
     }
 
     public function getRgSgSiCluster(): ?string
@@ -166,9 +106,11 @@ class LogFiles
         return $this->rgSgSiCluster;
     }
 
-    public function setRgSgSiCluster(?string $rgSgSiCluster): void
+    public function setRgSgSiCluster(string $rgSgSiCluster): static
     {
         $this->rgSgSiCluster = $rgSgSiCluster;
+
+        return $this;
     }
 
     public function getLogfile(): ?string
@@ -176,9 +118,11 @@ class LogFiles
         return $this->logfile;
     }
 
-    public function setLogfile(?string $logfile): void
+    public function setLogfile(string $logfile): static
     {
         $this->logfile = $logfile;
+
+        return $this;
     }
 
     public function getLocalisation(): ?string
@@ -186,9 +130,11 @@ class LogFiles
         return $this->localisation;
     }
 
-    public function setLocalisation(?string $localisation): void
+    public function setLocalisation(string $localisation): static
     {
         $this->localisation = $localisation;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -196,9 +142,11 @@ class LogFiles
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function getFormatLogfile(): ?string
@@ -206,9 +154,11 @@ class LogFiles
         return $this->formatLogfile;
     }
 
-    public function setFormatLogfile(?string $formatLogfile): void
+    public function setFormatLogfile(string $formatLogfile): static
     {
         $this->formatLogfile = $formatLogfile;
+
+        return $this;
     }
 
     public function getSeparateur(): ?string
@@ -216,9 +166,11 @@ class LogFiles
         return $this->separateur;
     }
 
-    public function setSeparateur(?string $separateur): void
+    public function setSeparateur(string $separateur): static
     {
         $this->separateur = $separateur;
+
+        return $this;
     }
 
     public function getIntervalleDePolling(): ?string
@@ -226,9 +178,11 @@ class LogFiles
         return $this->intervalleDePolling;
     }
 
-    public function setIntervalleDePolling(?string $intervalleDePolling): void
+    public function setIntervalleDePolling(string $intervalleDePolling): static
     {
         $this->intervalleDePolling = $intervalleDePolling;
+
+        return $this;
     }
 
     public function getMonitoredBy(): ?string
@@ -236,9 +190,11 @@ class LogFiles
         return $this->monitoredBy;
     }
 
-    public function setMonitoredBy(?string $monitoredBy): void
+    public function setMonitoredBy(string $monitoredBy): static
     {
         $this->monitoredBy = $monitoredBy;
+
+        return $this;
     }
 
     public function getFourniEnAnnexe(): ?string
@@ -246,9 +202,11 @@ class LogFiles
         return $this->fourniEnAnnexe;
     }
 
-    public function setFourniEnAnnexe(?string $fourniEnAnnexe): void
+    public function setFourniEnAnnexe(string $fourniEnAnnexe): static
     {
         $this->fourniEnAnnexe = $fourniEnAnnexe;
+
+        return $this;
     }
 
     public function getRefService(): ?string
@@ -256,9 +214,11 @@ class LogFiles
         return $this->refService;
     }
 
-    public function setRefService(?string $refService): void
+    public function setRefService(string $refService): static
     {
         $this->refService = $refService;
+
+        return $this;
     }
 
     public function getNomTemplate(): ?string
@@ -266,9 +226,11 @@ class LogFiles
         return $this->nomTemplate;
     }
 
-    public function setNomTemplate(?string $nomTemplate): void
+    public function setNomTemplate(string $nomTemplate): static
     {
         $this->nomTemplate = $nomTemplate;
+
+        return $this;
     }
 
     public function getLogConditions(): ?string
@@ -276,10 +238,22 @@ class LogFiles
         return $this->logConditions;
     }
 
-    public function setLogConditions(?string $logConditions): void
+    public function setLogConditions(string $logConditions): static
     {
         $this->logConditions = $logConditions;
+
+        return $this;
     }
 
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
 
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
+    }
 }

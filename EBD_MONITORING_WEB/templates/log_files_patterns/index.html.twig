@@ -30,6 +30,7 @@
                 <th>ComplementsInformations</th>
                 <th>RefService</th>
                 <th>Objet</th>
+                <th>Support</th>
                 
             </tr>
         </thead>
@@ -50,11 +51,12 @@
                 <td>{{ log_files_pattern.complementsInformations }}</td>
                 <td>{{ log_files_pattern.refService }}</td>
                 <td>{{ log_files_pattern.objet }}</td>
+                <td>{{ log_files_pattern.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_log_files_patterns_show', {'id': log_files_pattern.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_log_files_patterns_show', {'id': log_files_pattern.id}) }}">show</a>
                  </td>
                  <td>
-                    <a class="btn btn-warning" href="{{ path('app_log_files_patterns_edit', {'id': log_files_pattern.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_log_files_patterns_edit', {'id': log_files_pattern.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

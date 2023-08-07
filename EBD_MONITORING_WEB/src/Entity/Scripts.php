@@ -2,103 +2,53 @@
 
 namespace App\Entity;
 
+use App\Repository\ScriptsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Scripts
- *
- * @ORM\Table(name="scripts")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: ScriptsRepository::class)]
 class Scripts
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250)]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_composant", type="string", length=250, nullable=true)
-     */
-    private $refComposant;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refComposant = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="RG__SG_si_Cluster", type="string", length=250, nullable=true)
-     */
-    private $rgSgSiCluster;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $rgSgSiCluster = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="script", type="string", length=250, nullable=true)
-     */
-    private $script;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $script = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Code_erreur", type="string", length=250, nullable=true)
-     */
-    private $codeErreur;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $codeErreur = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Criticite", type="string", length=250, nullable=true)
-     */
-    private $criticite;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $criticite = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Description", type="string", length=250, nullable=true)
-     */
-    private $description;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $description = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Instructions", type="string", length=250, nullable=true)
-     */
-    private $instructions;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $instructions = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Monitored_By", type="string", length=250, nullable=true)
-     */
-    private $monitoredBy;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $monitoredBy = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_Service", type="string", length=250, nullable=true)
-     */
-    private $refService;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $refService = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $support = null;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -108,9 +58,11 @@ class Scripts
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -118,9 +70,11 @@ class Scripts
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getRefComposant(): ?string
@@ -128,9 +82,11 @@ class Scripts
         return $this->refComposant;
     }
 
-    public function setRefComposant(?string $refComposant): void
+    public function setRefComposant(string $refComposant): static
     {
         $this->refComposant = $refComposant;
+
+        return $this;
     }
 
     public function getRgSgSiCluster(): ?string
@@ -138,9 +94,11 @@ class Scripts
         return $this->rgSgSiCluster;
     }
 
-    public function setRgSgSiCluster(?string $rgSgSiCluster): void
+    public function setRgSgSiCluster(string $rgSgSiCluster): static
     {
         $this->rgSgSiCluster = $rgSgSiCluster;
+
+        return $this;
     }
 
     public function getScript(): ?string
@@ -148,9 +106,11 @@ class Scripts
         return $this->script;
     }
 
-    public function setScript(?string $script): void
+    public function setScript(string $script): static
     {
         $this->script = $script;
+
+        return $this;
     }
 
     public function getCodeErreur(): ?string
@@ -158,9 +118,11 @@ class Scripts
         return $this->codeErreur;
     }
 
-    public function setCodeErreur(?string $codeErreur): void
+    public function setCodeErreur(string $codeErreur): static
     {
         $this->codeErreur = $codeErreur;
+
+        return $this;
     }
 
     public function getCriticite(): ?string
@@ -168,9 +130,11 @@ class Scripts
         return $this->criticite;
     }
 
-    public function setCriticite(?string $criticite): void
+    public function setCriticite(string $criticite): static
     {
         $this->criticite = $criticite;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -178,9 +142,11 @@ class Scripts
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function getInstructions(): ?string
@@ -188,9 +154,11 @@ class Scripts
         return $this->instructions;
     }
 
-    public function setInstructions(?string $instructions): void
+    public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
     }
 
     public function getMonitoredBy(): ?string
@@ -198,9 +166,11 @@ class Scripts
         return $this->monitoredBy;
     }
 
-    public function setMonitoredBy(?string $monitoredBy): void
+    public function setMonitoredBy(string $monitoredBy): static
     {
         $this->monitoredBy = $monitoredBy;
+
+        return $this;
     }
 
     public function getRefService(): ?string
@@ -208,8 +178,22 @@ class Scripts
         return $this->refService;
     }
 
-    public function setRefService(?string $refService): void
+    public function setRefService(string $refService): static
     {
         $this->refService = $refService;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
     }
 }

@@ -2,138 +2,68 @@
 
 namespace App\Entity;
 
+use App\Repository\RequetessqlRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Requetessql
- *
- * @ORM\Table(name="requetessql")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: RequetessqlRepository::class)]
 class Requetessql
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 500)]
+    private ?string $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_composant", type="string", length=250, nullable=true)
-     */
-    private $refComposant;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $refComposant = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="RG__SG_si_Cluster", type="string", length=250, nullable=true)
-     */
-    private $rgSgSiCluster;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $rgSgSiCluster = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Requete_SQL", type="text", length=65535, nullable=true)
-     */
-    private $requeteSql;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $requeteSql = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="UserName__DB_Name", type="string", length=250, nullable=true)
-     */
-    private $usernameDbName;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $usernameDbName = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Resultat_Attendu_de_la_requete", type="text", length=65535, nullable=true)
-     */
-    private $resultatAttenduDeLaRequete;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $resultatAttenduDeLaRequete = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Perform_action", type="string", length=250, nullable=true)
-     */
-    private $performAction;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $performAction = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Criticite", type="string", length=250, nullable=true)
-     */
-    private $criticite;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $criticite = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Message_alarme", type="text", length=65535, nullable=true)
-     */
-    private $messageAlarme;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $messageAlarme = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Instructions", type="string", length=250, nullable=true)
-     */
-    private $instructions;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $instructions = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Intervalle_de_polling", type="string", length=250, nullable=true)
-     */
-    private $intervalleDePolling;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $intervalleDePolling = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref_Service", type="string", length=250, nullable=true)
-     */
-    private $refService;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $refService = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Objet", type="string", length=250, nullable=true)
-     */
-    private $objet;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $objet = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Monitored_By", type="string", length=250, nullable=true)
-     */
-    private $monitoredBy;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $monitoredBy = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Nom_Template", type="string", length=250, nullable=true)
-     */
-    private $nomTemplate;
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $nomTemplate = null;
 
-    public function getId(): string
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $support = null;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -143,9 +73,11 @@ class Requetessql
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -153,9 +85,11 @@ class Requetessql
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getRefComposant(): ?string
@@ -163,9 +97,11 @@ class Requetessql
         return $this->refComposant;
     }
 
-    public function setRefComposant(?string $refComposant): void
+    public function setRefComposant(string $refComposant): static
     {
         $this->refComposant = $refComposant;
+
+        return $this;
     }
 
     public function getRgSgSiCluster(): ?string
@@ -173,9 +109,11 @@ class Requetessql
         return $this->rgSgSiCluster;
     }
 
-    public function setRgSgSiCluster(?string $rgSgSiCluster): void
+    public function setRgSgSiCluster(string $rgSgSiCluster): static
     {
         $this->rgSgSiCluster = $rgSgSiCluster;
+
+        return $this;
     }
 
     public function getRequeteSql(): ?string
@@ -183,9 +121,11 @@ class Requetessql
         return $this->requeteSql;
     }
 
-    public function setRequeteSql(?string $requeteSql): void
+    public function setRequeteSql(string $requeteSql): static
     {
         $this->requeteSql = $requeteSql;
+
+        return $this;
     }
 
     public function getUsernameDbName(): ?string
@@ -193,9 +133,11 @@ class Requetessql
         return $this->usernameDbName;
     }
 
-    public function setUsernameDbName(?string $usernameDbName): void
+    public function setUsernameDbName(string $usernameDbName): static
     {
         $this->usernameDbName = $usernameDbName;
+
+        return $this;
     }
 
     public function getResultatAttenduDeLaRequete(): ?string
@@ -203,9 +145,11 @@ class Requetessql
         return $this->resultatAttenduDeLaRequete;
     }
 
-    public function setResultatAttenduDeLaRequete(?string $resultatAttenduDeLaRequete): void
+    public function setResultatAttenduDeLaRequete(string $resultatAttenduDeLaRequete): static
     {
         $this->resultatAttenduDeLaRequete = $resultatAttenduDeLaRequete;
+
+        return $this;
     }
 
     public function getPerformAction(): ?string
@@ -213,9 +157,11 @@ class Requetessql
         return $this->performAction;
     }
 
-    public function setPerformAction(?string $performAction): void
+    public function setPerformAction(string $performAction): static
     {
         $this->performAction = $performAction;
+
+        return $this;
     }
 
     public function getCriticite(): ?string
@@ -223,9 +169,11 @@ class Requetessql
         return $this->criticite;
     }
 
-    public function setCriticite(?string $criticite): void
+    public function setCriticite(string $criticite): static
     {
         $this->criticite = $criticite;
+
+        return $this;
     }
 
     public function getMessageAlarme(): ?string
@@ -233,9 +181,11 @@ class Requetessql
         return $this->messageAlarme;
     }
 
-    public function setMessageAlarme(?string $messageAlarme): void
+    public function setMessageAlarme(string $messageAlarme): static
     {
         $this->messageAlarme = $messageAlarme;
+
+        return $this;
     }
 
     public function getInstructions(): ?string
@@ -243,9 +193,11 @@ class Requetessql
         return $this->instructions;
     }
 
-    public function setInstructions(?string $instructions): void
+    public function setInstructions(string $instructions): static
     {
         $this->instructions = $instructions;
+
+        return $this;
     }
 
     public function getIntervalleDePolling(): ?string
@@ -253,9 +205,11 @@ class Requetessql
         return $this->intervalleDePolling;
     }
 
-    public function setIntervalleDePolling(?string $intervalleDePolling): void
+    public function setIntervalleDePolling(string $intervalleDePolling): static
     {
         $this->intervalleDePolling = $intervalleDePolling;
+
+        return $this;
     }
 
     public function getRefService(): ?string
@@ -263,9 +217,11 @@ class Requetessql
         return $this->refService;
     }
 
-    public function setRefService(?string $refService): void
+    public function setRefService(string $refService): static
     {
         $this->refService = $refService;
+
+        return $this;
     }
 
     public function getObjet(): ?string
@@ -273,9 +229,11 @@ class Requetessql
         return $this->objet;
     }
 
-    public function setObjet(?string $objet): void
+    public function setObjet(string $objet): static
     {
         $this->objet = $objet;
+
+        return $this;
     }
 
     public function getMonitoredBy(): ?string
@@ -283,9 +241,11 @@ class Requetessql
         return $this->monitoredBy;
     }
 
-    public function setMonitoredBy(?string $monitoredBy): void
+    public function setMonitoredBy(string $monitoredBy): static
     {
         $this->monitoredBy = $monitoredBy;
+
+        return $this;
     }
 
     public function getNomTemplate(): ?string
@@ -293,8 +253,22 @@ class Requetessql
         return $this->nomTemplate;
     }
 
-    public function setNomTemplate(?string $nomTemplate): void
+    public function setNomTemplate(string $nomTemplate): static
     {
         $this->nomTemplate = $nomTemplate;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
     }
 }

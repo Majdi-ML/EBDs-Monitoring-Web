@@ -31,6 +31,7 @@
                 <th>Objet</th>
                 <th>MonitoredBy</th>
                 <th>NomTemplate</th>
+                <th>Support</th>
               
             </tr>
         </thead>
@@ -52,11 +53,12 @@
                 <td>{{ url.objet }}</td>
                 <td>{{ url.monitoredBy }}</td>
                 <td>{{ url.nomTemplate }}</td>
+                <td>{{ url.support }}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ path('app_url_show', {'id': url.id}) }}">show</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_url_show', {'id': url.id}) }}">show</a>
                 </td>
                 <td>    
-                    <a class="btn btn-warning" href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_url_edit', {'id': url.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

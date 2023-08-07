@@ -25,7 +25,9 @@
             </tr>
             <tr>
                 <th>Etat</th>
-                <td>{{ cluster.etat }}</td>
+                <td class="{% if cluster.etat == 'Supprimé' %}text-danger{% elseif cluster.etat == 'Modifié' %}text-warning{% elseif cluster.etat == 'Nouveau' %}text-success{% else %}text-info{% endif %}">
+  {{ cluster.etat }}
+</td>
             </tr>
             <tr>
                 <th>NomDuRessourceGroupPackageServiceGuard</th>
@@ -58,6 +60,10 @@
             <tr>
                 <th>ComplementsInformations</th>
                 <td>{{ cluster.complementsInformations }}</td>
+            </tr>
+             <tr>
+                <th>Support</th>
+                <td><td>{{ cluster.support }}</td></td>
             </tr>
         </tbody>
     </table>

@@ -2,101 +2,50 @@
 
 namespace App\Entity;
 
+use App\Repository\ClusterRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Cluster
- *
- * @ORM\Table(name="cluster")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: ClusterRepository::class)]
 class Cluster
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id", type="string", length=250, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(length: 250)]
+    private ?String $id = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Ref", type="string", length=250, nullable=true)
-     */
-    private $ref;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="etat", type="string", length=250, nullable=true)
-     */
-    private $etat;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $etat = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Nom_du_Ressource_Group__Package_Service_Guard", type="string", length=250, nullable=true)
-     */
-    private $nomDuRessourceGroupPackageServiceGuard;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $nomDuRessourceGroupPackageServiceGuard = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Adresse_IP", type="string", length=250, nullable=true)
-     */
-    private $adresseIp;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $adresseIp = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Liste_des_serveurs_concernés", type="string", length=250, nullable=true)
-     */
-    private $listeDesServeursConcernés;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $listeDesServeursConcernés = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Logiciel_Cluster", type="string", length=250, nullable=true)
-     */
-    private $logicielCluster;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $logicielCluster = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Version", type="string", length=250, nullable=true)
-     */
-    private $version;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $version = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Mode", type="string", length=250, nullable=true)
-     */
-    private $mode;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $mode = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Serveur_actif", type="string", length=250, nullable=true)
-     */
-    private $serveurActif;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $serveurActif = null;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="Complements_informations", type="string", length=250, nullable=true)
-     */
-    private $complementsInformations;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $complementsInformations = null;
 
-    public function __construct()
-    {
-        // You can add any initialization logic here if needed.
-    }
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $support = null;
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -106,9 +55,11 @@ class Cluster
         return $this->ref;
     }
 
-    public function setRef(?string $ref): void
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
+
+        return $this;
     }
 
     public function getEtat(): ?string
@@ -116,9 +67,11 @@ class Cluster
         return $this->etat;
     }
 
-    public function setEtat(?string $etat): void
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
     }
 
     public function getNomDuRessourceGroupPackageServiceGuard(): ?string
@@ -126,9 +79,11 @@ class Cluster
         return $this->nomDuRessourceGroupPackageServiceGuard;
     }
 
-    public function setNomDuRessourceGroupPackageServiceGuard(?string $nomDuRessourceGroupPackageServiceGuard): void
+    public function setNomDuRessourceGroupPackageServiceGuard(string $nomDuRessourceGroupPackageServiceGuard): static
     {
         $this->nomDuRessourceGroupPackageServiceGuard = $nomDuRessourceGroupPackageServiceGuard;
+
+        return $this;
     }
 
     public function getAdresseIp(): ?string
@@ -136,9 +91,11 @@ class Cluster
         return $this->adresseIp;
     }
 
-    public function setAdresseIp(?string $adresseIp): void
+    public function setAdresseIp(string $adresseIp): static
     {
         $this->adresseIp = $adresseIp;
+
+        return $this;
     }
 
     public function getListeDesServeursConcernés(): ?string
@@ -146,9 +103,11 @@ class Cluster
         return $this->listeDesServeursConcernés;
     }
 
-    public function setListeDesServeursConcernés(?string $listeDesServeursConcernés): void
+    public function setListeDesServeursConcernés(string $listeDesServeursConcernés): static
     {
         $this->listeDesServeursConcernés = $listeDesServeursConcernés;
+
+        return $this;
     }
 
     public function getLogicielCluster(): ?string
@@ -156,9 +115,11 @@ class Cluster
         return $this->logicielCluster;
     }
 
-    public function setLogicielCluster(?string $logicielCluster): void
+    public function setLogicielCluster(string $logicielCluster): static
     {
         $this->logicielCluster = $logicielCluster;
+
+        return $this;
     }
 
     public function getVersion(): ?string
@@ -166,9 +127,11 @@ class Cluster
         return $this->version;
     }
 
-    public function setVersion(?string $version): void
+    public function setVersion(string $version): static
     {
         $this->version = $version;
+
+        return $this;
     }
 
     public function getMode(): ?string
@@ -176,9 +139,11 @@ class Cluster
         return $this->mode;
     }
 
-    public function setMode(?string $mode): void
+    public function setMode(string $mode): static
     {
         $this->mode = $mode;
+
+        return $this;
     }
 
     public function getServeurActif(): ?string
@@ -186,9 +151,11 @@ class Cluster
         return $this->serveurActif;
     }
 
-    public function setServeurActif(?string $serveurActif): void
+    public function setServeurActif(string $serveurActif): static
     {
         $this->serveurActif = $serveurActif;
+
+        return $this;
     }
 
     public function getComplementsInformations(): ?string
@@ -196,8 +163,22 @@ class Cluster
         return $this->complementsInformations;
     }
 
-    public function setComplementsInformations(?string $complementsInformations): void
+    public function setComplementsInformations(string $complementsInformations): static
     {
         $this->complementsInformations = $complementsInformations;
+
+        return $this;
+    }
+
+    public function getSupport(): ?string
+    {
+        return $this->support;
+    }
+
+    public function setSupport(string $support): static
+    {
+        $this->support = $support;
+
+        return $this;
     }
 }
