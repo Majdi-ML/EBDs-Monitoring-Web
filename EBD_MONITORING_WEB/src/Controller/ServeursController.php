@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/serveurs')]
+#[Route('/ooredoo/serveurs')]
 class ServeursController extends AbstractController
 {
     #[Route('/', name: 'app_serveurs_index', methods: ['GET'])]

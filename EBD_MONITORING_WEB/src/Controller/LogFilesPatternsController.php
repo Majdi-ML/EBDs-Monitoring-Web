@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/logfilespatterns')]
+#[Route('/ooredoo/logfilespatterns')]
 class LogFilesPatternsController extends AbstractController
 {
     #[Route('/', name: 'app_log_files_patterns_index', methods: ['GET'])]

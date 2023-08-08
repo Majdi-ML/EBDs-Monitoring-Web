@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/trapssnmp')]
+#[Route('/ooredoo/trapssnmp')]
 class TrapsSnmpController extends AbstractController
 {
     #[Route('/', name: 'app_traps_snmp_index', methods: ['GET'])]

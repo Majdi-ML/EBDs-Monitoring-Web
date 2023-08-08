@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/url')]
+#[Route('/ooredoo/url')]
 class UrlController extends AbstractController
 {
     #[Route('/', name: 'app_url_index', methods: ['GET'])]

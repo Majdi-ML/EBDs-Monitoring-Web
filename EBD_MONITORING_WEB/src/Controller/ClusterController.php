@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/cluster')]
+#[Route('/ooredoo/cluster')]
 class ClusterController extends AbstractController
 {
     #[Route('/', name: 'app_cluster_index', methods: ['GET'])]

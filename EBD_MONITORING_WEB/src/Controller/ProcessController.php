@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/process')]
+#[Route('/ooredoo/process')]
 class ProcessController extends AbstractController
 {
     #[Route('/', name: 'app_process_index', methods: ['GET'])]
