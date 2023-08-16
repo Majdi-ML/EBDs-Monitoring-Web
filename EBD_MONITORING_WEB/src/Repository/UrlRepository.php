@@ -20,7 +20,15 @@ class UrlRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Url::class);
     }
-
+    public function getChartDataForPolarAreaByCriticite(string $criticite): int
+    {
+        return $this->createQueryBuilder('u')
+            ->select('COUNT(u)')
+            ->where('u.criticite = :criticite')
+            ->setParameter('criticite', $criticite)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 //    /**
 //     * @return Url[] Returns an array of Url objects
 //     */

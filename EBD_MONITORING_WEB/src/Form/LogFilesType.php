@@ -27,6 +27,7 @@ class LogFilesType extends AbstractType
             ->add('refService')
             ->add('nomTemplate')
             ->add('logConditions')
+            ->add('support')
         ;
     }
 

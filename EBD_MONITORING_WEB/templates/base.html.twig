@@ -145,71 +145,7 @@
 
         </li><!-- End Notification Nav -->
 
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="{{asset('assetsback/img/messages-1.jpg')}}" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="{{asset('assetsback/img/messages-2.jpg')}}" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="{{asset('assetsback/img/messages-3.jpg')}}" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
-
-          </ul><!-- End Messages Dropdown Items -->
-
-        </li><!-- End Messages Nav -->
+        <!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
 
@@ -284,7 +220,8 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+      {% if is_granted('ROLE_ADMIN') %}
+    <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Les Tables EBD</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -335,7 +272,61 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li>
+{% else %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Les Tables EBD</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ path('app_serveurs') }}">
+              <i class="bi bi-circle"></i><span>Serveurs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_cluster') }}">
+              <i class="bi bi-circle"></i><span>Cluster   </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_log_files') }}">
+              <i class="bi bi-circle"></i><span>Log Files</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_log_files_patterns') }}">
+              <i class="bi bi-circle"></i><span>Log Files Patterns</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_scripts') }}">
+              <i class="bi bi-circle"></i><span>Scripts </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_process') }}">
+              <i class="bi bi-circle"></i><span>Process  </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_requetessql') }}">
+              <i class="bi bi-circle"></i><span>RequêtesSQL </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_traps_snmp') }}">
+              <i class="bi bi-circle"></i><span>Traps SNMP </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('app_url') }}">
+              <i class="bi bi-circle"></i><span>URL </span>
+            </a>
+          </li>
+        </ul>
+      </li>
+{% endif %}<!-- End Components Nav -->
 
       
       <li class="nav-heading">Pages</li>

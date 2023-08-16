@@ -23,6 +23,7 @@ class ScriptsType extends AbstractType
             ->add('instructions')
             ->add('monitoredBy')
             ->add('refService')
+            ->add('support')
         ;
     }
 

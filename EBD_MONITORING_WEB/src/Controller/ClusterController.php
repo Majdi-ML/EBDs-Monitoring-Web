@@ -13,7 +13,19 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ooredoo/cluster')]
 class ClusterController extends AbstractController
 {
-    #[Route('/', name: 'app_cluster_index', methods: ['GET'])]
+    #[Route('/autreroles', name: 'app_cluster', methods: ['GET'])]
+    public function afficher(EntityManagerInterface $entityManager): Response
+    {
+        $clusters = $entityManager
+            ->getRepository(Cluster::class)
+            ->findAll();
+
+        return $this->render('cluster/index2.html.twig', [
+            'clusters' => $clusters,
+        ]);
+    }
+    
+    #[Route('/admin', name: 'app_cluster_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {
         $clusters = $entityManager

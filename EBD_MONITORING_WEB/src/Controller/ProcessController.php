@@ -10,9 +10,45 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/ooredoo/process')]
 class ProcessController extends AbstractController
 {
+    #[Route('/autreroles', name: 'app_process', methods: ['GET'])]
+public function afficherProcess(EntityManagerInterface $entityManager): Response
+{
+    $user = $this->getUser();
+    $userRoles = $user->getRoles();
+    
+    $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
+    
+    if (in_array('ROLE_ADMIN', $userRoles)) {
+        $processes = $entityManager
+            ->getRepository(Process::class)
+            ->findAll();
+    } else {
+        $support = null;
+        foreach ($allowedSupports as $allowedSupport) {
+            if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
+                $support = $allowedSupport;
+                break;
+            }
+        }
+        
+        if (!$support) {
+            throw new \Exception('User role not mapped to allowed supports.');
+        }
+        
+        $processes = $entityManager
+            ->getRepository(Process::class)
+            ->findBySupport($support);
+    }
+
+    return $this->render('process/index.html.twig', [
+        'processes' => $processes,
+    ]);
+}
+
     #[Route('/', name: 'app_process_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {

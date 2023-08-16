@@ -27,6 +27,7 @@ class TrapsSnmpType extends AbstractType
             ->add('mibAssocie')
             ->add('objet')
             ->add('compelementInformation')
+            ->add('support')
         ;
     }
 

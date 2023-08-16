@@ -21,6 +21,18 @@ class RequetessqlRepository extends ServiceEntityRepository
         parent::__construct($registry, Requetessql::class);
     }
 
+    // Dans le repository de Requetessql
+public function getRequetessqlCountByEtat(string $etat): int
+{
+    return $this->createQueryBuilder('r')
+        ->select('COUNT(r)')
+        ->where('r.etat = :etat')
+        ->setParameter('etat', $etat)
+        ->getQuery()
+        ->getSingleScalarResult();
+}
+
+
 //    /**
 //     * @return Requetessql[] Returns an array of Requetessql objects
 //     */

@@ -13,6 +13,41 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ooredoo/requetessql')]
 class RequetessqlController extends AbstractController
 {
+    #[Route('/autreroles', name: 'app_requetessql', methods: ['GET'])]
+public function afficherRequetessql(EntityManagerInterface $entityManager): Response
+{
+    $user = $this->getUser();
+    $userRoles = $user->getRoles();
+    
+    $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
+    
+    if (in_array('ROLE_ADMIN', $userRoles)) {
+        $requetessqls = $entityManager
+            ->getRepository(Requetessql::class)
+            ->findAll();
+    } else {
+        $support = null;
+        foreach ($allowedSupports as $allowedSupport) {
+            if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
+                $support = $allowedSupport;
+                break;
+            }
+        }
+        
+        if (!$support) {
+            throw new \Exception('User role not mapped to allowed supports.');
+        }
+        
+        $requetessqls = $entityManager
+            ->getRepository(Requetessql::class)
+            ->findBySupport($support);
+    }
+
+    return $this->render('requetessql/index.html.twig', [
+        'requetessqls' => $requetessqls,
+    ]);
+}
+
     #[Route('/', name: 'app_requetessql_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {

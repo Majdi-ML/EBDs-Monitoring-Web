@@ -16,12 +16,13 @@ class ClusterType extends AbstractType
             ->add('etat')
             ->add('nomDuRessourceGroupPackageServiceGuard')
             ->add('adresseIp')
-            ->add('listeDesServeursConcernés')
+            ->add('listeDesServeursConcernes')
             ->add('logicielCluster')
             ->add('version')
             ->add('mode')
             ->add('serveurActif')
             ->add('complementsInformations')
+            ->add('support')
         ;
     }
 

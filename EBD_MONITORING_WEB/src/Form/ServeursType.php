@@ -26,6 +26,7 @@ class ServeursType extends AbstractType
             ->add('description')
             ->add('socleStandardOmu')
             ->add('complementsInformations')
+            ->add('support')
         ;
     }
 

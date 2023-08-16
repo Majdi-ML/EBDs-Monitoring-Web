@@ -13,17 +13,75 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ooredoo/serveurs')]
 class ServeursController extends AbstractController
 {
-    #[Route('/', name: 'app_serveurs_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
-    {
+    #[Route('/autreroles', name: 'app_serveurs', methods: ['GET'])]
+public function afficherserveurs(EntityManagerInterface $entityManager): Response
+{
+    $user = $this->getUser();
+    $userRoles = $user->getRoles();
+    
+    $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
+    
+    if (in_array('ROLE_ADMIN', $userRoles)) {
         $serveurs = $entityManager
             ->getRepository(Serveurs::class)
             ->findAll();
-
-        return $this->render('serveurs/index.html.twig', [
-            'serveurs' => $serveurs,
-        ]);
+    } else {
+        $support = null;
+        foreach ($allowedSupports as $allowedSupport) {
+            if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
+                $support = $allowedSupport;
+                break;
+            }
+        }
+        
+        if (!$support) {
+            throw new \Exception('User role not mapped to allowed supports.');
+        }
+        
+        $serveurs = $entityManager
+            ->getRepository(Serveurs::class)
+            ->findBySupport($support);
     }
+
+    return $this->render('serveurs/index.html.twig', [
+        'serveurs' => $serveurs,
+    ]);
+}
+
+    
+    #[Route('/', name: 'app_serveurs_index', methods: ['GET'])]
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
+{
+    $serversRepository = $entityManager->getRepository(Serveurs::class);
+    $serveurs = $serversRepository->findAll();
+
+    $filteredServeurs = [];
+    $uniqueSecondParts = [];
+
+    $filter = $request->query->get('filter');
+
+    foreach ($serveurs as $serveur) {
+        $idParts = explode('_', $serveur->getId());
+
+        if (count($idParts) >= 3) {
+            $secondPart = $idParts[1];
+
+            if (empty($filter) || $secondPart === $filter) {
+                $filteredServeurs[] = $serveur;
+            }
+
+            if (!in_array($secondPart, $uniqueSecondParts)) {
+                $uniqueSecondParts[] = $secondPart;
+            }
+        }
+    }
+
+    return $this->render('serveurs/index.html.twig', [
+        'serveurs' => $filteredServeurs,
+        'filter' => $filter,
+        'uniqueSecondParts' => $uniqueSecondParts,
+    ]);
+}
 
     #[Route('/new', name: 'app_serveurs_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response

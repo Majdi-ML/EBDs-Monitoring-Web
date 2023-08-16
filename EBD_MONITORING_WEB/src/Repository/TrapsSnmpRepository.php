@@ -20,6 +20,16 @@ class TrapsSnmpRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, TrapsSnmp::class);
     }
+    
+    public function getTrapsSnmpCountByVersionSnmp(string $versionSnmp): int
+{
+    return $this->createQueryBuilder('t')
+        ->select('COUNT(t)')
+        ->where('t.versionSnmp = :versionSnmp')
+        ->setParameter('versionSnmp', $versionSnmp)
+        ->getQuery()
+        ->getSingleScalarResult();
+}
 
 //    /**
 //     * @return TrapsSnmp[] Returns an array of TrapsSnmp objects

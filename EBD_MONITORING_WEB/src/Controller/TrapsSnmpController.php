@@ -13,6 +13,41 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ooredoo/trapssnmp')]
 class TrapsSnmpController extends AbstractController
 {
+    #[Route('/autreroles', name: 'app_traps_snmp', methods: ['GET'])]
+public function affichertraps(EntityManagerInterface $entityManager): Response
+{
+    $user = $this->getUser();
+    $userRoles = $user->getRoles();
+    
+    $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
+    
+    if (in_array('ROLE_ADMIN', $userRoles)) {
+        $trapsSnmps = $entityManager
+            ->getRepository(TrapsSnmp::class)
+            ->findAll();
+    } else {
+        $support = null;
+        foreach ($allowedSupports as $allowedSupport) {
+            if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
+                $support = $allowedSupport;
+                break;
+            }
+        }
+        
+        if (!$support) {
+            throw new \Exception('User role not mapped to allowed supports.');
+        }
+        
+        $trapsSnmps = $entityManager
+            ->getRepository(TrapsSnmp::class)
+            ->findBySupport($support);
+    }
+
+    return $this->render('traps_snmp/index.html.twig', [
+        'traps_snmps' => $trapsSnmps,
+    ]);
+}
+
     #[Route('/', name: 'app_traps_snmp_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {

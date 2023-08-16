@@ -22,9 +22,13 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'User' => 'ROLE_USER',
                     'Admin' => 'ROLE_ADMIN',
                     'Cloud' => 'ROLE_CLOUD',
+                    'ASE_VAS' => 'ROLE_ASEVAS',
+                    'ASE_IN' => 'ROLE_ASEIN',
+                    'ASE_GPRS' => 'ROLE_ASEGPRS',
+                    'Backup' => 'ROLE_Backup',
+                    'Billing' => 'ROLE_BILLING',
                 ],
                 'multiple' => true // Permet la sélection de plusieurs rôles
               

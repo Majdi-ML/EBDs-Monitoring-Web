@@ -25,7 +25,7 @@ class Cluster
     private ?string $adresseIp = null;
 
     #[ORM\Column(length: 250, nullable: true)]
-    private ?string $listeDesServeursConcernés = null;
+    private ?string $listeDesServeursConcernes = null;
 
     #[ORM\Column(length: 250, nullable: true)]
     private ?string $logicielCluster = null;
@@ -98,14 +98,14 @@ class Cluster
         return $this;
     }
 
-    public function getListeDesServeursConcernés(): ?string
+    public function getListeDesServeursConcernes(): ?string
     {
-        return $this->listeDesServeursConcernés;
+        return $this->listeDesServeursConcernes;
     }
 
-    public function setListeDesServeursConcernés(string $listeDesServeursConcernés): static
+    public function setListeDesServeursConcernes(string $listeDesServeursConcernes): static
     {
-        $this->listeDesServeursConcernés = $listeDesServeursConcernés;
+        $this->listeDesServeursConcernes = $listeDesServeursConcernes;
 
         return $this;
     }

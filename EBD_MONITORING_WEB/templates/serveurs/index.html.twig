@@ -12,6 +12,15 @@
         </ol>
       </nav>
     </div>
+    <label for="filterSelect">Choisir un mot :</label>
+<form action="{{ path('app_serveurs_index') }}" method="get">
+    <select id="filterSelect" name="filter" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+</form>
 
     <table class="table table-bordered">
         <thead>

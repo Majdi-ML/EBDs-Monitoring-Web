@@ -26,6 +26,7 @@ class UrlType extends AbstractType
             ->add('objet')
             ->add('monitoredBy')
             ->add('nomTemplate')
+            ->add('support')
         ;
     }
 

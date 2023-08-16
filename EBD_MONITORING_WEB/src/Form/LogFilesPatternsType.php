@@ -25,6 +25,7 @@ class LogFilesPatternsType extends AbstractType
             ->add('complementsInformations')
             ->add('refService')
             ->add('objet')
+            ->add('support')
         ;
     }
 

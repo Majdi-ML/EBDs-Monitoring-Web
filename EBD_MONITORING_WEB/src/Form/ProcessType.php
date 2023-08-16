@@ -22,6 +22,7 @@ class ProcessType extends AbstractType
             ->add('objet')
             ->add('nomTemplate')
             ->add('monitoredBy')
+            ->add('support')
         ;
     }
 

@@ -13,6 +13,42 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ooredoo/url')]
 class UrlController extends AbstractController
 {
+    #[Route('/autreroles', name: 'app_url', methods: ['GET'])]
+public function afficherurl(EntityManagerInterface $entityManager): Response
+{
+    $user = $this->getUser();
+    $userRoles = $user->getRoles();
+    
+    $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
+    
+    if (in_array('ROLE_ADMIN', $userRoles)) {
+        $urls = $entityManager
+            ->getRepository(Url::class)
+            ->findAll();
+    } else {
+        $support = null;
+        foreach ($allowedSupports as $allowedSupport) {
+            if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
+                $support = $allowedSupport;
+                break;
+            }
+        }
+        
+        if (!$support) {
+            throw new \Exception('User role not mapped to allowed supports.');
+        }
+        
+        $urls = $entityManager
+            ->getRepository(Url::class)
+            ->findBySupport($support);
+    }
+
+    return $this->render('url/index.html.twig', [
+        'urls' => $urls,
+    ]);
+}
+
+
     #[Route('/', name: 'app_url_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {

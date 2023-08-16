@@ -13,7 +13,43 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/ooredoo/logfilespatterns')]
 class LogFilesPatternsController extends AbstractController
 {
-    #[Route('/', name: 'app_log_files_patterns_index', methods: ['GET'])]
+    #[Route('/autreroles', name: 'app_log_files_patterns', methods: ['GET'])]
+    public function afficher(EntityManagerInterface $entityManager): Response
+    {
+       
+        $user = $this->getUser();
+        $userRoles = $user->getRoles();
+        
+        $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
+        
+        if (in_array('ROLE_ADMIN', $userRoles)) {
+            $logFilesPatterns = $entityManager
+                ->getRepository(LogFilesPatterns::class)
+                ->findAll();
+        } else {
+            $support = null;
+            foreach ($allowedSupports as $allowedSupport) {
+                if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
+                    $support = $allowedSupport;
+                    break;
+                }
+            }
+            
+            if (!$support) {
+                throw new \Exception('User role not mapped to allowed supports.');
+            }
+            
+            $logFilesPatterns = $entityManager
+                ->getRepository(LogFilesPatterns::class)
+                ->findBySupport($support);
+        }
+
+        return $this->render('log_files_patterns/index.html.twig', [
+            'log_files_patterns' => $logFilesPatterns,
+        ]);
+    
+    }
+    #[Route('/admin', name: 'app_log_files_patterns_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {
         $logFilesPatterns = $entityManager

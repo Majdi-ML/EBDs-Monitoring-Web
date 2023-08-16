@@ -1,29 +1,221 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OoredooController!{% endblock %}
+{% block title %}Hello OoredooController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div class="pagetitle">
-      <h1 class="pagetitle">Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
+
+
+		<!-- End Page Title -->
+
+
+		<section class="section">
+			<div class="row">
+
+     <!-- templates/traps_snmp/index.html.twig -->
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition des Traps SNMP par Version SNMP</h5>
+
+            <!-- Donut Chart -->
+            <div id="donutChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const versionCountsTrapsSnmp = {{ versionCountsTrapsSnmp|json_encode|raw }};
+
+                    const labels = Object.keys(versionCountsTrapsSnmp);
+                    const data = Object.values(versionCountsTrapsSnmp);
+
+                    new ApexCharts(document.querySelector("#donutChart"), {
+                        series: data,
+                        chart: {
+                            height: 350,
+                            type: 'donut',
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        labels: labels,
+                    }).render();
+                });
+            </script>
+            <!-- End Donut Chart -->
+
+        </div>
     </div>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Majdi/Desktop/EBDs-Monitoring-Web/EBD_MONITORING_WEB/src/Controller/OoredooController.php'|file_link(0) }}">src/Controller/OoredooController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Majdi/Desktop/EBDs-Monitoring-Web/EBD_MONITORING_WEB/templates/ooredoo/index.html.twig'|file_link(0) }}">templates/ooredoo/index.html.twig</a></code></li>
-    </ul>
 </div>
+
+		<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition des Requêtes SQL par État</h5>
+
+            <!-- Pie Chart -->
+            <div id="pieChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const etatCountsRequetessql = {{ etatCountsRequetessql|json_encode|raw }};
+                    const labels = Object.keys(etatCountsRequetessql);
+                    const data = Object.values(etatCountsRequetessql);
+
+                    new ApexCharts(document.querySelector("#pieChart"), {
+                        series: data,
+                        chart: {
+                            height: 350,
+                            type: 'pie',
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        labels: labels
+                    }).render();
+                });
+            </script>
+            <!-- End Pie Chart -->
+
+        </div>
+    </div>
+</div>
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition des Urls par criticité</h5>
+
+            <!-- Polar Area Chart -->
+            <div id="polarAreaChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const chartData = {{ chartData|json_encode|raw }};
+
+                    new ApexCharts(document.querySelector("#polarAreaChart"), {
+                        series: Object.values(chartData),
+                        chart: {
+                            type: 'polarArea',
+                            height: 350,
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        stroke: {
+                            colors: ['#fff']
+                        },
+                        fill: {
+                            opacity: 0.8
+                        },
+                        labels: Object.keys(chartData),
+                    }).render();
+                });
+            </script>
+            <!-- End Polar Area Chart -->
+
+        </div>
+    </div>
+</div>
+
+               
+				<div class="col-lg-6">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Répartition des Clusters par État</h5>
+
+							<!-- Bar Chart -->
+							<canvas id="clusterBarChart" style="max-height: 400px;"></canvas>
+							<script>
+								document.addEventListener("DOMContentLoaded", () => {
+const etatCounts = {{ etatCounts|json_encode|raw }};
+
+new Chart(document.querySelector('#clusterBarChart'), {
+type: 'bar',
+data: {
+labels: Object.keys(etatCounts),
+datasets: [
+{
+label: 'Nombre de Clusters',
+data: Object.values(etatCounts),
+backgroundColor: [
+'rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 205, 86, 0.2)', 'rgba(54, 162, 235, 0.2)'
+],
+borderColor: [
+'rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(54, 162, 235)'
+],
+borderWidth: 1
+}
+]
+},
+options: {
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
+});
+});
+							</script>
+							<!-- End Bar Chart -->
+
+						</div>
+					</div>
+				</div>
+ <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Répartition des Serveurs par État</h5>
+
+              <!-- Stacked Bar Chart -->
+             <!-- Stacked Bar Chart -->
+<canvas id="stakedBarChart" style="max-height: 400px;"></canvas>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const supportValues = {{ supportValues|json_encode|raw }};
+
+        new Chart(document.querySelector('#stakedBarChart'), {
+            type: 'bar',
+            data: {
+                labels: Object.keys(supportValues),
+                datasets: [
+                    {
+                        label: 'Dataset 1',
+                        data: Object.values(supportValues),
+                        backgroundColor: 'rgb(255, 99, 132)',
+                    },
+                    // Répétez le même processus pour d'autres datasets
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+    });
+</script>
+<!-- End Stacked Bar Chart -->
+
+             
+
+            </div>
+          </div>
+        </div>
+        
+
+
+
+			</div>
+		
+
+
+	</section>
+
 {% endblock %}

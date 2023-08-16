@@ -20,6 +20,15 @@ class ClusterRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Cluster::class);
     }
+    public function getClusterCountByEtat(string $etat): int
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->where('c.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 
 //    /**
 //     * @return Cluster[] Returns an array of Cluster objects

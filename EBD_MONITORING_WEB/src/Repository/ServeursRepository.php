@@ -20,6 +20,15 @@ class ServeursRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Serveurs::class);
     }
+    public function getServeursCountByEtat(string $etat): int
+    {
+        return $this->createQueryBuilder('s')
+            ->select('COUNT(s)')
+            ->where('s.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 
 //    /**
 //     * @return Serveurs[] Returns an array of Serveurs objects
