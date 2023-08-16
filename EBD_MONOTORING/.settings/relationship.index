@@ -1,0 +1,103 @@
+[ {
+  "baseItem" : {
+    "id" : "_1XAMYCVHEe6QFNZlRFbWsw",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_Et6lsCbtEe6EBY2G29Oh9w",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_Et6lsCbtEe6EBY2G29Oh9w - requetessql",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_TJ3F8CuPEe6fT-4mS1HkUQ - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+}, {
+  "baseItem" : {
+    "id" : "_FfbYcCueEe6txKHPG8vXcg",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_-se_wCxzEe6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_03IrQCxzEe6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_9PF_QCx0Ee6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - cluster",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - log_files",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - log_files_patterns",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - process",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - requetessql",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - scripts",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - serveurs",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - traps_snmp",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Ax5e4DBrEe6H98lWWjM3NA - url",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_Mm6TQCx0Ee6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_RSXyQCxzEe6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_fG_jQCx0Ee6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_pXuzQCx0Ee6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_rvZqsCxzEe6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_zrEEQCx0Ee6v9qmF1gwXzA - metadata",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+} ]
