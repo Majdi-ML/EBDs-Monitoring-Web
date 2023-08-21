@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TrapsSnmp{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Trap Snmp</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item ">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ traps_snmp.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ traps_snmp.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ traps_snmp.etat }}</td>
+            </tr>
+            <tr>
+                <th>RefComposant</th>
+                <td>{{ traps_snmp.refComposant }}</td>
+            </tr>
+            <tr>
+                <th>Signification</th>
+                <td>{{ traps_snmp.signification }}</td>
+            </tr>
+            <tr>
+                <th>VersionSnmp</th>
+                <td>{{ traps_snmp.versionSnmp }}</td>
+            </tr>
+            <tr>
+                <th>Oid</th>
+                <td>{{ traps_snmp.oid }}</td>
+            </tr>
+            <tr>
+                <th>SpecificTrap</th>
+                <td>{{ traps_snmp.specificTrap }}</td>
+            </tr>
+            <tr>
+                <th>VariableBinding</th>
+                <td>{{ traps_snmp.variableBinding }}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{{ traps_snmp.criticite }}</td>
+            </tr>
+            <tr>
+                <th>MessageAlarme</th>
+                <td>{{ traps_snmp.messageAlarme }}</td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td>{{ traps_snmp.instructions }}</td>
+            </tr>
+            <tr>
+                <th>Acquittement</th>
+                <td>{{ traps_snmp.acquittement }}</td>
+            </tr>
+            <tr>
+                <th>MibAssocie</th>
+                <td>{{ traps_snmp.mibAssocie }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ traps_snmp.objet }}</td>
+            </tr>
+            <tr>
+                <th>CompelementInformation</th>
+                <td>{{ traps_snmp.compelementInformation }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ traps_snmp.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_traps_snmp') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('app_traps_snmp2_edit', {'id': traps_snmp.id}) }}">edit</a>
+<br><br>
+    {{ include('traps_snmp2/_delete_form.html.twig') }}
+{% endblock %}

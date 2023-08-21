@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LogFiles index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Log Files</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+     <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>RgSgSiCluster</th>
+                <th>Logfile</th>
+                <th>Localisation</th>
+                <th>Description</th>
+                <th>FormatLogfile</th>
+                <th>Separateur</th>
+                <th>IntervalleDePolling</th>
+                <th>MonitoredBy</th>
+                <th>FourniEnAnnexe</th>
+                <th>RefService</th>
+                <th>NomTemplate</th>
+                <th>LogConditions</th>
+                <th>Support</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for log_file in log_files %}
+        {% if log_file.support in app.user.roles[0] %}
+            <tr>
+                <td>{{ log_file.id }}</td>
+                <td>{{ log_file.ref }}</td>
+                <td style="{% if log_file.etat == 'Supprimé' %}background-color: red;{% elseif log_file.etat == 'Modifié' %}background-color: orange;{% elseif log_file.etat == 'Nouveau' %}background-color: green;{% elseif log_file.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
+  {{ log_file.etat }}
+</td>
+                <td>{{ log_file.refComposant }}</td>
+                <td>{{ log_file.rgSgSiCluster }}</td>
+                <td>{{ log_file.logfile }}</td>
+                <td>{{ log_file.localisation }}</td>
+                <td>{{ log_file.description }}</td>
+                <td>{{ log_file.formatLogfile }}</td>
+                <td>{{ log_file.separateur }}</td>
+                <td>{{ log_file.intervalleDePolling }}</td>
+                <td>{{ log_file.monitoredBy }}</td>
+                <td>{{ log_file.fourniEnAnnexe }}</td>
+                <td>{{ log_file.refService }}</td>
+                <td>{{ log_file.nomTemplate }}</td>
+                <td>{{ log_file.logConditions }}</td>
+                <td>{{ log_file.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_log_files2_show', {'id': log_file.id}) }}">show</a>
+                </td>
+                <td> 
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_log_files2_edit', {'id': log_file.id}) }}">edit</a>
+                </td>
+            </tr>
+           {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_log_files2_new') }}">Create new</a>
+{% endblock %}

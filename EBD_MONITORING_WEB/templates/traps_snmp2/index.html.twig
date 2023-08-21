@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TrapsSnmp index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Traps Snmp</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>Signification</th>
+                <th>VersionSnmp</th>
+                <th>Oid</th>
+                <th>SpecificTrap</th>
+                <th>VariableBinding</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>Acquittement</th>
+                <th>MibAssocie</th>
+                <th>Objet</th>
+                <th>CompelementInformation</th>
+                <th>Support</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for traps_snmp in traps_snmps %}
+        {% if traps_snmp.support in app.user.roles[0] %}
+            <tr>
+                <td>{{ traps_snmp.id }}</td>
+                <td>{{ traps_snmp.ref }}</td>
+                <td>{{ traps_snmp.etat }}</td>
+                <td>{{ traps_snmp.refComposant }}</td>
+                <td>{{ traps_snmp.signification }}</td>
+                <td>{{ traps_snmp.versionSnmp }}</td>
+                <td>{{ traps_snmp.oid }}</td>
+                <td>{{ traps_snmp.specificTrap }}</td>
+                <td>{{ traps_snmp.variableBinding }}</td>
+                <td>{{ traps_snmp.criticite }}</td>
+                <td>{{ traps_snmp.messageAlarme }}</td>
+                <td>{{ traps_snmp.instructions }}</td>
+                <td>{{ traps_snmp.acquittement }}</td>
+                <td>{{ traps_snmp.mibAssocie }}</td>
+                <td>{{ traps_snmp.objet }}</td>
+                <td>{{ traps_snmp.compelementInformation }}</td>
+                <td>{{ traps_snmp.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_traps_snmp2_show', {'id': traps_snmp.id}) }}">show</a>
+                </td>
+                <td>   
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_traps_snmp2_edit', {'id': traps_snmp.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_traps_snmp2_new') }}">Create new</a>
+{% endblock %}

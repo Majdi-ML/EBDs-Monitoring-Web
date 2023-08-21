@@ -29,7 +29,24 @@ class ServeursRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
-
+    public function getDataCountByServer($server): array
+    {
+        $queryBuilder = $this->createQueryBuilder('s')
+            ->select('SUBSTRING(s.id, LENGTH(s.id) - 3) as tableName, COUNT(s.id) as count')
+            ->where('s.id LIKE :server')
+            ->groupBy('tableName')
+            ->setParameter('server', '%_'.$server.'%')
+            ->getQuery();
+    
+        $result = $queryBuilder->getResult();
+    
+        $data = [];
+        foreach ($result as $row) {
+            $data[$row['tableName']] = $row['count'];
+        }
+    
+        return $data;
+    }
 //    /**
 //     * @return Serveurs[] Returns an array of Serveurs objects
 //     */

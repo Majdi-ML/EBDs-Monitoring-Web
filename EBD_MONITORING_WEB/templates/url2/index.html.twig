@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Url index{% endblock %}
+
+{% block body %}
+     <div class="pagetitle">
+      <h1 class="pagetitle">Urls</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item ">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>RgSgSiCluster</th>
+                <th>Url</th>
+                <th>PerformAction</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>IntervalleDePolling</th>
+                <th>RefService</th>
+                <th>Objet</th>
+                <th>MonitoredBy</th>
+                <th>NomTemplate</th>
+                <th>Support</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for url in urls %}
+        {% if url.support in app.user.roles[0] %}
+            <tr>
+                <td>{{ url.id }}</td>
+                <td>{{ url.ref }}</td>
+                <td>{{ url.etat }}</td>
+                <td>{{ url.refComposant }}</td>
+                <td>{{ url.rgSgSiCluster }}</td>
+                <td>{{ url.url }}</td>
+                <td>{{ url.performAction }}</td>
+                <td>{{ url.criticite }}</td>
+                <td>{{ url.messageAlarme }}</td>
+                <td>{{ url.instructions }}</td>
+                <td>{{ url.intervalleDePolling }}</td>
+                <td>{{ url.refService }}</td>
+                <td>{{ url.objet }}</td>
+                <td>{{ url.monitoredBy }}</td>
+                <td>{{ url.nomTemplate }}</td>
+                <td>{{ url.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_url2_show', {'id': url.id}) }}">show</a>
+                </td>
+                <td> 
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_url2_edit', {'id': url.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_url2_new') }}">Create new</a>
+{% endblock %}

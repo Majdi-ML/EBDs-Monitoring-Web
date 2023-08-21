@@ -40,6 +40,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+         - { path: ^/ooredoo/admin, roles: [ROLE_ADMIN] }
          - { path: ^/ooredoo, roles: [ROLE_ADMIN, ROLE_USER, ROLE_CLOUD, ROLE_ASEVAS, ROLE_ASEIN, ROLE_ASEGPRS, ROLE_Backup, ROLE_BILLING] }
 
 when@test:

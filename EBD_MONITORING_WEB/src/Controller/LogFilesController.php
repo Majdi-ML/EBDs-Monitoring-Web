@@ -10,22 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/ooredoo/logfiles')]
+#[Route('/ooredoo/admin/logfiles')]
 class LogFilesController extends AbstractController
 {
-    #[Route('/autreroles', name: 'app_log_files', methods: ['GET'])]
-    public function afficher(EntityManagerInterface $entityManager): Response
-    {
-        $logFiles = $entityManager
-            ->getRepository(LogFiles::class)
-            ->findAll();
-
-        return $this->render('log_files/index.html.twig', [
-            'log_files' => $logFiles,
-        ]);
-    }
-
-    #[Route('/admin', name: 'app_log_files_index', methods: ['GET'])]
+    #[Route('/', name: 'app_log_files_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {
         $logFiles = $entityManager

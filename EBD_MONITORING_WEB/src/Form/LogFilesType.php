@@ -6,28 +6,98 @@ use App\Entity\LogFiles;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class LogFilesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ref')
-            ->add('etat')
-            ->add('refComposant')
-            ->add('rgSgSiCluster')
-            ->add('logfile')
-            ->add('localisation')
-            ->add('description')
-            ->add('formatLogfile')
-            ->add('separateur')
-            ->add('intervalleDePolling')
-            ->add('monitoredBy')
-            ->add('fourniEnAnnexe')
-            ->add('refService')
-            ->add('nomTemplate')
-            ->add('logConditions')
-            ->add('support')
+            ->add('id',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+            ])
+            ->add('ref',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('etat',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('refComposant',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('rgSgSiCluster',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('logfile',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('localisation',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('description',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('formatLogfile',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('separateur',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('intervalleDePolling',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('monitoredBy',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('fourniEnAnnexe',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('refService',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('nomTemplate',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('logConditions',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('support',TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
         ;
     }
 
@@ -35,6 +105,10 @@ class LogFilesType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => LogFiles::class,
+            'attr' => [
+                // Ajoutez l'attribut "novalidate" au formulaire
+                'novalidate' => 'novalidate',
+            ],
         ]);
     }
 }

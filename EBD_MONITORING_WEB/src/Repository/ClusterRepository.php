@@ -30,6 +30,28 @@ class ClusterRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
+    public function getClusterCountByEtatAndUser(string $etat, string $role): int
+{
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.etat = :etat')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $etat)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
+}
+public function getClusters(string $etat, string $role): int
+{
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.etat = :etat')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $etat)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
+}
 //    /**
 //     * @return Cluster[] Returns an array of Cluster objects
 //     */

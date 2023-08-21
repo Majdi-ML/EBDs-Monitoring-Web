@@ -33,8 +33,8 @@
     </thead>
     <tbody>
         {% for cluster in clusters %}
-            {% set supportValue = cluster.support|replace({'.xlxs': ''}) %}
-{% if app.user.roles[0]|lower in supportValue|lower %}
+            
+{% if cluster.support in app.user.roles[0] %}
                 <tr>
                     <td>{{ cluster.getId() }}</td>
                     <td>{{ cluster.ref }}</td>
@@ -43,7 +43,7 @@
                     </td>
                     <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
                     <td>{{ cluster.adresseIp }}</td>
-                    <td>{{ cluster.listeDesServeursConcernés }}</td>
+                    <td>{{ cluster.listeDesServeursConcernes }}</td>
                     <td>{{ cluster.logicielCluster }}</td>
                     <td>{{ cluster.version }}</td>
                     <td>{{ cluster.mode }}</td>

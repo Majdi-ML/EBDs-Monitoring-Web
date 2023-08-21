@@ -15,8 +15,8 @@ class LogFilesPatterns
     #[ORM\Column]
     private ?int $nRef = null;
 
-    #[ORM\Column]
-    private ?int $ref = null;
+    #[ORM\Column(length: 250, nullable: true)]
+    private ?string $ref = null;
 
     #[ORM\Column(length: 250, nullable: true)]
     private ?string $etat = null;
@@ -59,7 +59,12 @@ class LogFilesPatterns
         return $this->id;
     }
 
+    public function setId(string $id): static
+    {
+        $this->id = $id;
 
+        return $this;
+    }
     public function getNRef(): ?int
     {
         return $this->nRef;
@@ -72,12 +77,12 @@ class LogFilesPatterns
         return $this;
     }
 
-    public function getRef(): ?int
+    public function getRef(): ?string
     {
         return $this->ref;
     }
 
-    public function setRef(int $ref): static
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
 

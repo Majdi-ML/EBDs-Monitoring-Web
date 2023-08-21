@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Requetessql index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Requêtes Sql</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>RefComposant</th>
+                <th>RgSgSiCluster</th>
+                <th>RequeteSql</th>
+                <th>UsernameDbName</th>
+                <th>ResultatAttenduDeLaRequete</th>
+                <th>PerformAction</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>IntervalleDePolling</th>
+                <th>RefService</th>
+                <th>Objet</th>
+                <th>MonitoredBy</th>
+                <th>NomTemplate</th>
+                <th>Support</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for requetessql in requetessqls %}
+        {% if requetessql.support in app.user.roles[0] %}
+            <tr>
+                <td>{{ requetessql.id }}</td>
+                <td>{{ requetessql.ref }}</td>
+                <td>{{ requetessql.etat }}</td>
+                <td>{{ requetessql.refComposant }}</td>
+                <td>{{ requetessql.rgSgSiCluster }}</td>
+                <td>{{ requetessql.requeteSql }}</td>
+                <td>{{ requetessql.usernameDbName }}</td>
+                <td>{{ requetessql.resultatAttenduDeLaRequete }}</td>
+                <td>{{ requetessql.performAction }}</td>
+                <td>{{ requetessql.criticite }}</td>
+                <td>{{ requetessql.messageAlarme }}</td>
+                <td>{{ requetessql.instructions }}</td>
+                <td>{{ requetessql.intervalleDePolling }}</td>
+                <td>{{ requetessql.refService }}</td>
+                <td>{{ requetessql.objet }}</td>
+                <td>{{ requetessql.monitoredBy }}</td>
+                <td>{{ requetessql.nomTemplate }}</td>
+                <td>{{ requetessql.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_requetessql2_show', {'id': requetessql.id}) }}">show</a>
+                  </td>
+                <td>  
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_requetessql2_edit', {'id': requetessql.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_requetessql2_new') }}">Create new</a>
+{% endblock %}

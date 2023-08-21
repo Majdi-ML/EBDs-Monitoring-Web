@@ -6,23 +6,73 @@ use App\Entity\Process;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ProcessType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ref')
-            ->add('etat')
-            ->add('refComposant')
-            ->add('process')
-            ->add('criticite')
-            ->add('messageAlarme')
-            ->add('intervalleDePolling')
-            ->add('objet')
-            ->add('nomTemplate')
-            ->add('monitoredBy')
-            ->add('support')
+        ->add('id',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('ref',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('etat',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('refComposant',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('process',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('criticite',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('messageAlarme',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('intervalleDePolling',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('objet',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('nomTemplate',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('monitoredBy',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('support',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
         ;
     }
 
@@ -30,6 +80,10 @@ class ProcessType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Process::class,
+            'attr' => [
+                // Ajoutez l'attribut "novalidate" au formulaire
+                'novalidate' => 'novalidate',
+            ],
         ]);
     }
 }

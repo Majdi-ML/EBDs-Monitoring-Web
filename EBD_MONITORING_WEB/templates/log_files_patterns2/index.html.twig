@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LogFilesPatterns index{% endblock %}
+
+{% block body %}
+    <<div class="pagetitle">
+      <h1 class="pagetitle">Log Files Patterns</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NRef</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>Signification</th>
+                <th>Identification</th>
+                <th>Criticite</th>
+                <th>MessageAlarme</th>
+                <th>Instructions</th>
+                <th>PerformAction</th>
+                <th>Acquittement</th>
+                <th>ComplementsInformations</th>
+                <th>RefService</th>
+                <th>Objet</th>
+                <th>Support</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for log_files_pattern in log_files_patterns %}
+        {% if log_files_pattern.support in app.user.roles[0] %}
+            <tr>
+                <td>{{ log_files_pattern.id }}</td>
+                <td>{{ log_files_pattern.nRef }}</td>
+                <td>{{ log_files_pattern.ref }}</td>
+                <td>{{ log_files_pattern.etat }}</td>
+                <td>{{ log_files_pattern.signification }}</td>
+                <td>{{ log_files_pattern.identification }}</td>
+                <td>{{ log_files_pattern.criticite }}</td>
+                <td>{{ log_files_pattern.messageAlarme }}</td>
+                <td>{{ log_files_pattern.instructions }}</td>
+                <td>{{ log_files_pattern.performAction }}</td>
+                <td>{{ log_files_pattern.acquittement }}</td>
+                <td>{{ log_files_pattern.complementsInformations }}</td>
+                <td>{{ log_files_pattern.refService }}</td>
+                <td>{{ log_files_pattern.objet }}</td>
+                <td>{{ log_files_pattern.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_log_files_patterns2_show', {'id': log_files_pattern.id}) }}">show</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_log_files_patterns2_edit', {'id': log_files_pattern.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_log_files_patterns2_new') }}">Create new</a>
+{% endblock %}

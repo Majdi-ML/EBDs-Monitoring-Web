@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LogFiles{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">New Log File</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    {{ include('log_files2/_form.html.twig') }}
+
+    <a class="btn btn-secondary" href="{{ path('app_log_files') }}">back to list</a>
+{% endblock %}

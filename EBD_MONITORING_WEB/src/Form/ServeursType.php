@@ -6,27 +6,93 @@ use App\Entity\Serveurs;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ServeursType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ref')
-            ->add('etat')
-            ->add('platforme')
-            ->add('hostname')
-            ->add('fqdn')
-            ->add('type')
-            ->add('modele')
-            ->add('os')
-            ->add('verTechFirmware')
-            ->add('cluster')
-            ->add('ipSource')
-            ->add('description')
-            ->add('socleStandardOmu')
-            ->add('complementsInformations')
-            ->add('support')
+        ->add('id',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('ref',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('etat',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('platforme',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('hostname',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('fqdn',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('type',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('modele',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('os',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('verTechFirmware',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('cluster',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('ipSource',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('description',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('socleStandardOmu',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('complementsInformations',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('support',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
         ;
     }
 
@@ -34,6 +100,10 @@ class ServeursType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Serveurs::class,
+            'attr' => [
+                // Ajoutez l'attribut "novalidate" au formulaire
+                'novalidate' => 'novalidate',
+            ],
         ]);
     }
 }

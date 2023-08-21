@@ -67,6 +67,12 @@ class Requetessql
     {
         return $this->id;
     }
+    public function setId(string $id): static
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getRef(): ?string
     {

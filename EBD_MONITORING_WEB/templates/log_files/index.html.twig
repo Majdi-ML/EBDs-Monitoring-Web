@@ -44,8 +44,6 @@
               <td style="{% if log_file.etat == 'Supprimé' %}background-color: red;{% elseif log_file.etat == 'Modifié' %}background-color: orange;{% elseif log_file.etat == 'Nouveau' %}background-color: green;{% elseif log_file.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
   {{ log_file.etat }}
 </td>
-
-
                 <td>{{ log_file.refComposant }}</td>
                 <td>{{ log_file.rgSgSiCluster }}</td>
                 <td>{{ log_file.logfile }}</td>

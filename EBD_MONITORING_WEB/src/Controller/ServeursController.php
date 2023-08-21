@@ -10,45 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/ooredoo/serveurs')]
+#[Route('/ooredoo/admin/serveurs')]
 class ServeursController extends AbstractController
 {
-    #[Route('/autreroles', name: 'app_serveurs', methods: ['GET'])]
-public function afficherserveurs(EntityManagerInterface $entityManager): Response
-{
-    $user = $this->getUser();
-    $userRoles = $user->getRoles();
-    
-    $allowedSupports = ['CLOUD', 'AppIT', 'BI']; // List of allowed supports for non-admin roles
-    
-    if (in_array('ROLE_ADMIN', $userRoles)) {
-        $serveurs = $entityManager
-            ->getRepository(Serveurs::class)
-            ->findAll();
-    } else {
-        $support = null;
-        foreach ($allowedSupports as $allowedSupport) {
-            if (in_array('ROLE_' . strtoupper(str_replace(' ', '_', $allowedSupport)), $userRoles)) {
-                $support = $allowedSupport;
-                break;
-            }
-        }
-        
-        if (!$support) {
-            throw new \Exception('User role not mapped to allowed supports.');
-        }
-        
-        $serveurs = $entityManager
-            ->getRepository(Serveurs::class)
-            ->findBySupport($support);
-    }
-
-    return $this->render('serveurs/index.html.twig', [
-        'serveurs' => $serveurs,
-    ]);
-}
-
-    
     #[Route('/', name: 'app_serveurs_index', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
 {

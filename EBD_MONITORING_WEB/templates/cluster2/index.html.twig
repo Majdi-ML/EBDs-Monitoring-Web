@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cluster index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Clusters </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Etat</th>
+                <th>NomDuRessourceGroupPackageServiceGuard</th>
+                <th>AdresseIp</th>
+                <th>ListeDesServeursConcernes</th>
+                <th>LogicielCluster</th>
+                <th>Version</th>
+                <th>Mode</th>
+                <th>ServeurActif</th>
+                <th>ComplementsInformations</th>
+                <th>Support</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for cluster in clusters %}
+        {% if cluster.support in app.user.roles[0] %}
+            <tr>
+                <td>{{ cluster.id }}</td>
+                <td>{{ cluster.ref }}</td>
+                <td class="{% if cluster.etat == 'Supprimé' %}text-danger{% elseif cluster.etat == 'Modifié' %}text-warning{% elseif cluster.etat == 'Nouveau' %}text-success{% else %}text-info{% endif %}">
+  {{ cluster.etat }}
+</td>
+                <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
+                <td>{{ cluster.adresseIp }}</td>
+                <td>{{ cluster.listeDesServeursConcernes }}</td>
+                <td>{{ cluster.logicielCluster }}</td>
+                <td>{{ cluster.version }}</td>
+                <td>{{ cluster.mode }}</td>
+                <td>{{ cluster.serveurActif }}</td>
+                <td>{{ cluster.complementsInformations }}</td>
+                <td>{{ cluster.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_cluster2_show', {'id': cluster.id}) }}">show</a>
+
+
+                   </td>
+                    <td>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_cluster2_edit', {'id': cluster.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_cluster2_new') }}">Create new</a>
+{% endblock %}
