@@ -17,10 +17,11 @@ use App\Entity\LogFilesPatterns;
 use App\Entity\LogFiles;
 use App\Entity\Process;
 use App\Entity\Scripts;
+use Symfony\Component\HttpFoundation\JsonResponse ;
 
 class OoredooController extends AbstractController
 {
-    #[Route('/ooredoo/admin', name: 'app_ooredoo')]
+    #[Route('/ooredoo', name: 'app_ooredoo2')]
 public function ooredooDashboard(EntityManagerInterface $entityManager): Response
 {
     $clusterRepository = $entityManager->getRepository(Cluster::class);
@@ -78,33 +79,26 @@ public function ooredooDashboard(EntityManagerInterface $entityManager): Respons
             'chartData' => $chartData,
         ]);
     }
-        // Retrieve counts of traps SNMP by version SNMP
-        #[Route('/ooredoo', name: 'app_ooredoo2')]
+        
+        #[Route('/ooredoo/admin', name: 'app_ooredoo')]
         public function ooredooDashboard2(Request $request,EntityManagerInterface $entityManager,UserRepository $user): Response
         {
-            // $user = $this->getUser();
-            // $role = $user->getRoles()[0]; // ROLE_Billing
-        
-            // // Afficher la valeur de $role pour le débogage
-            // $roleWithoutPrefix = substr($role, strlen('ROLE_'));
-        
-            // $clusterRepository = $entityManager->getRepository(Cluster::class);
-        
-            // // Filtrer les données en fonction du support et du rôle
-            // $etatCounts = [
-            //     'Supprimé' => $clusterRepository->getClusterCountByEtatAndUser('Supprimé', $roleWithoutPrefix),
-            //     'Modifié' => $clusterRepository->getClusterCountByEtatAndUser('Modifié', $roleWithoutPrefix),
-            //     'Nouveau' => $clusterRepository->getClusterCountByEtatAndUser('Nouveau', $roleWithoutPrefix),
-            //     'Inchangé' => $clusterRepository->getClusterCountByEtatAndUser('Inchangé', $roleWithoutPrefix),
-            // ];
-        
-            // // Afficher les informations sur les états
-            // var_dump($etatCounts);
-        
-            // return $this->render('ooredoo/index2.html.twig', [
-            //     'etatCounts' => $etatCounts,
-            // ]);
-           
+            $serversRepository = $entityManager->getRepository(Serveurs::class);
+            $serveurs = $serversRepository->findAll();
+            $secondParts = [];
+            foreach ($serveurs as $serveur) {
+                $idParts = explode('_', $serveur->getId());
+                
+                if (isset($idParts[1])) {
+                    $secondPart = $idParts[1];
+                    $secondParts[] = $secondPart;
+                }
+            }
+            
+            $uniqueSecondParts = array_unique($secondParts);
+
+$uniqueSecondParts = array_unique($secondParts);
+            // Calculer les totaux pour chaque tableau
             $tables = [
                 'Cluster' => 'App\Entity\Cluster',
                 'LogFiles' => 'App\Entity\LogFiles',
@@ -114,12 +108,12 @@ public function ooredooDashboard(EntityManagerInterface $entityManager): Respons
                 'TrapsSnmp' => 'App\Entity\TrapsSnmp',
                 'Url' => 'App\Entity\Url',
                 'Process' => 'App\Entity\Process',
-                'Scripts' =>'App\Entity\Scripts',
-
-                // ... Ajoutez les autres tables
+                'Scripts' => 'App\Entity\Scripts',
+                // ... Ajouter d'autres tables
             ];
     
             $data = [];
+    
             foreach ($tables as $tableName => $entityClass) {
                 $repository = $entityManager->getRepository($entityClass);
                 $count = $repository->count([]);
@@ -128,11 +122,48 @@ public function ooredooDashboard(EntityManagerInterface $entityManager): Respons
     
             return $this->render('ooredoo/index2.html.twig', [
                 'data' => $data,
+                'secondPart' => $uniqueSecondParts,
             ]);
-        
+            
+                
         }
 
-  
+        #[Route('/get-filtered-data/{selectedPart}', name: 'get_filtered_data')]
+        public function getFilteredData(Request $request, EntityManagerInterface $entityManager, string $selectedPart): JsonResponse
+        {
+            $tables = [
+                'Cluster' => 'App\Entity\Cluster',
+                'LogFiles' => 'App\Entity\LogFiles',
+                'LogFilesPatterns' => 'App\Entity\LogFilesPatterns',
+                'Serveurs' => 'App\Entity\Serveurs',
+                'Requetessql' => 'App\Entity\Requetessql',
+                'TrapsSnmp' => 'App\Entity\TrapsSnmp',
+                'Url' => 'App\Entity\Url',
+                'Process' => 'App\Entity\Process',
+                'Scripts' => 'App\Entity\Scripts',
+                // ... Ajoutez les autres tables
+            ];
+        
+            $filteredData = [];
+        
+            foreach ($tables as $tableName => $entityClass) {
+                $repository = $entityManager->getRepository($entityClass);
+                $queryBuilder = $repository->createQueryBuilder('t');
+        
+                $count = $queryBuilder
+                    ->where($queryBuilder->expr()->like('t.id', ':selectedPart'))
+                    ->setParameter('selectedPart', '%' . $selectedPart . '%')
+                    ->select($queryBuilder->expr()->count('t'))
+                    ->getQuery()
+                    ->getSingleScalarResult();
+        
+                $filteredData[$tableName] = $count;
+            }
+        
+            return new JsonResponse($filteredData);
+        }
+
+       
 
 
 }

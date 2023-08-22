@@ -60,21 +60,37 @@
 	</section> #}
 
 
- 
+  
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Dashboard</h5>
 
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Bar Chart</h5>
+            <!-- Liste déroulante pour filtrer par partie -->
+            <div class="col-lg-4">
+<label for="partSelect">Sélectionnez un serveur :</label>
+            <select id="partSelect" class="form-select" >
+                {% for part in secondPart %}
+                    <option value="{{ part }}">{{ part }}</option>
+                {% endfor %}
+            </select>
+            </div>
 
-                <!-- Bar Chart -->
-                <canvas id="barChart" style="max-height: 400px;"></canvas>
-                <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        const ctx = document.querySelector('#barChart').getContext('2d');
-                        const data = {
-                            labels: ['Cluster', 'LogFiles', 'LogFilesPatterns','Serveurs', 'Requetessql', 'TrapsSnmp','Url', 'Process', 'Scripts', /* Add more table names */],
-                            datasets: [{
+            <!-- Bar Chart -->
+            <canvas id="barChart" style="max-height: 400px;"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const ctx = document.querySelector('#barChart').getContext('2d');
+                    let selectedPart = document.querySelector('#partSelect').value;
+
+                    // Données initiales pour le graphique
+                    const initialData = {
+                        labels: ['Cluster', 'LogFiles', 'LogFilesPatterns','Serveurs', 'Requetessql', 'TrapsSnmp','Url', 'Process', 'Scripts', /* ... */],
+                        datasets: [{
                                 label: 'Number of Data',
                                 data: [{{ data['Cluster'] }}, {{ data['LogFiles'] }}, {{ data['LogFilesPatterns'] }},{{ data['Serveurs'] }}, {{ data['Requetessql'] }}, {{ data['TrapsSnmp'] }},{{ data['Url'] }}, {{ data['Process'] }}, {{ data['Scripts'] }}, /* Add more data */],
                                 backgroundColor: [
@@ -100,27 +116,55 @@ borderColor: [
     'rgba(0, 128, 0, 0.8)'
 ],
 
-                                borderWidth: 1
-                            }]
-                        };
-                        const config = {
-                            type: 'bar',
-                            data: data,
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        };
-                        new Chart(ctx, config);
-                    });
-                </script>
-                <!-- End Bar Chart -->
-            </div>
+                               borderWidth: 1
+                        }]
+                    };
+
+                    const config = {
+            type: 'bar',
+            data: initialData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+    legend: {
+        onClick: (e, legendItem) => {
+            const index = legendItem.datasetIndex;
+            const tableName = config.data.labels[index];
+            console.log('Legend item clicked:', tableName, selectedPart);
+            const url = `http://127.0.0.1:8000/ooredoo/admin/${tableName}/?filter=${selectedPart}`;
+            console.log('URL to open:', url);
+            window.open(url);
+        }
+    }
+}
+            }
+        };
+                    const chart = new Chart(ctx, config);
+
+                    // Écouteur pour la sélection de partie
+                    const partSelect = document.querySelector('#partSelect');
+                   partSelect.addEventListener('change', () => {
+    selectedPart = partSelect.value;
+    console.log('Selected Part changed:', selectedPart);
+    fetch(`/get-filtered-data/${selectedPart}`)
+        .then(response => response.json())
+        .then(newData => {
+            chart.data.datasets[0].data = newData;
+            chart.update();
+        });
+});
+
+                });
+            </script>
+           
+            <!-- Fin Bar Chart -->
         </div>
     </div>
+</div>
 
 
 

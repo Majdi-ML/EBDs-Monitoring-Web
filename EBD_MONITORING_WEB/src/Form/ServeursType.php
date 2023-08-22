@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ServeursType extends AbstractType
 {
@@ -18,20 +19,32 @@ class ServeursType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('ref',TextType::class,[
+        // ->add('ref',TextType::class,[
+        //     'attr' => [
+        //         'class' => 'form-control',
+        //     ],
+        // ])
+        ->add('etat', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Nouveau' => "Nouveau" ,
+            'Supprimé'=>"Supprimé",
+            'Modifié' => "Modifié",
+            'Inchangé' => "Inchangé" ,
+            
+        ],
         ])
-        ->add('etat',TextType::class,[
+        ->add('platforme', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
-        ])
-        ->add('platforme',TextType::class,[
-            'attr' => [
-                'class' => 'form-control',
-            ],
+            'choices'  => [
+            'Prod' => "Prod" ,
+            'Pré-Prod'=>"Pré-Prod",
+            
+        ],
         ])
         ->add('hostname',TextType::class,[
             'attr' => [
@@ -53,10 +66,18 @@ class ServeursType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('os',TextType::class,[
+        ->add('os', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'AIX' => "AIX" ,
+            'HPUX'=>"HPUX",
+            'Linux' => "Linux" ,
+            'Solaris' => "Solaris",
+            'Windows' => "Windows" ,
+            
+        ],
         ])
         ->add('verTechFirmware',TextType::class,[
             'attr' => [

@@ -29,23 +29,32 @@ class ServeursRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
-    public function getDataCountByServer($server): array
+    public function getServeursCountByPlatfomre(string $platforme): int
     {
-        $queryBuilder = $this->createQueryBuilder('s')
-            ->select('SUBSTRING(s.id, LENGTH(s.id) - 3) as tableName, COUNT(s.id) as count')
-            ->where('s.id LIKE :server')
-            ->groupBy('tableName')
-            ->setParameter('server', '%_'.$server.'%')
-            ->getQuery();
-    
-        $result = $queryBuilder->getResult();
-    
-        $data = [];
-        foreach ($result as $row) {
-            $data[$row['tableName']] = $row['count'];
-        }
-    
-        return $data;
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a)')
+            ->where('a.platforme = :platforme')
+            ->setParameter('platforme', $platforme)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+    public function getServeursCountByOs(string $os): int
+    {
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a)')
+            ->where('a.os = :os')
+            ->setParameter('os', $os)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+    public function countByNomServeur($nomServeur)
+    {
+        return $this->createQueryBuilder('s')
+            ->select('COUNT(s.id)')
+            ->where('s.id LIKE :nomServeurPattern')
+            ->setParameter('nomServeurPattern', 'EBD_' . $nomServeur . '_SERVEURS_%')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 //    /**
 //     * @return Serveurs[] Returns an array of Serveurs objects

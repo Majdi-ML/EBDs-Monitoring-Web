@@ -12,6 +12,15 @@
 :root {
   scroll-behavior: smooth;
 }
+.my-custom-pagination {
+  /* Vos styles personnalisés ici */
+  /* Par exemple : */
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
 
 body {
   font-family: "Open Sans", sans-serif;

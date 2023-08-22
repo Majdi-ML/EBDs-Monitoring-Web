@@ -9,12 +9,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/admin/serveurs')]
 class ServeursController extends AbstractController
 {
+
+    
+   
+
     #[Route('/', name: 'app_serveurs_index', methods: ['GET'])]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
 {
     $serversRepository = $entityManager->getRepository(Serveurs::class);
     $serveurs = $serversRepository->findAll();
@@ -40,24 +45,76 @@ class ServeursController extends AbstractController
         }
     }
 
+    $serveursRepository = $entityManager->getRepository(Serveurs::class);
+
+    $supportValues = [
+
+        'Supprimé' => $serveursRepository->getServeursCountByEtat('Supprimé'),
+        'Modifié' => $serveursRepository->getServeursCountByEtat('Modifié'),
+        'Nouveau' => $serveursRepository->getServeursCountByEtat('Nouveau'),
+        'Inchangé' => $serveursRepository->getServeursCountByEtat('Inchangé'),
+    ];
+
+    $chartData = [
+
+        'Prod' => $serveursRepository->getServeursCountByPlatfomre('Prod'),
+        'Pré-Prod' => $serveursRepository->getServeursCountByPlatfomre('Pré-Prod'),
+    ];
+
+    $chartos = [
+
+        'AIX' => $serveursRepository->getServeursCountByOs('AIX'),
+        'HPUX' => $serveursRepository->getServeursCountByOs('HPUX'),
+        'Linux' => $serveursRepository->getServeursCountByOs('Linux'),
+        'Solaris' => $serveursRepository->getServeursCountByOs('Solaris'),
+        'Windows' => $serveursRepository->getServeursCountByOs('Windows'),
+    ];
+
+    $pagination = $paginator->paginate(
+        $filteredServeurs, // Query
+        $request->query->getInt('page', 1), // Page number
+        10 // Items per page
+    );
+
+
+
     return $this->render('serveurs/index.html.twig', [
-        'serveurs' => $filteredServeurs,
+        'serveurs' => $pagination,
         'filter' => $filter,
         'uniqueSecondParts' => $uniqueSecondParts,
+        'supportValues' => $supportValues,
+        'chartData'=> $chartData,
+        'chartos'=> $chartos,
     ]);
 }
 
     #[Route('/new', name: 'app_serveurs_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $repository = $entityManager->getRepository(Serveurs::class);
         $serveur = new Serveurs();
         $form = $this->createForm(ServeursType::class, $serveur);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $nomServeur = $form->get('id')->getData(); // Supposons que le champ d'ID s'appelle 'id' dans votre formulaire
+            
+            $nombreOccurrences = $repository->countByNomServeur($nomServeur);
+    
+            if ($nombreOccurrences > 0) {
+                $nouveauNbr = $nombreOccurrences + 1;
+            } else {
+                $nouveauNbr = 1;
+            }
+    
+            $nouvelId = "EBD_" . $nomServeur . "_SERVEURS_" . $nouveauNbr;
+            $serveur->setId($nouvelId);
+    
+            $nouvelref="Sv-" . $nouveauNbr;
+            $serveur->setRef($nouvelref);
             $entityManager->persist($serveur);
             $entityManager->flush();
-
+    
             return $this->redirectToRoute('app_serveurs_index', [], Response::HTTP_SEE_OTHER);
         }
 
