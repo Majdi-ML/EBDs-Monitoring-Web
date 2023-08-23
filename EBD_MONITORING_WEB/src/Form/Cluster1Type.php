@@ -23,7 +23,7 @@ class Cluster1Type extends AbstractType
             ->add('mode')
             ->add('serveurActif')
             ->add('complementsInformations')
-            ->add('support')
+          
         ;
     }
 

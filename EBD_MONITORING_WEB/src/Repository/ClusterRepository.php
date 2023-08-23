@@ -52,6 +52,17 @@ public function getClusters(string $etat, string $role): int
     ->getQuery()
     ->getSingleScalarResult();
 }
+
+
+public function countByNomServeur($nomServeur)
+    {
+        return $this->createQueryBuilder('s')
+            ->select('COUNT(s.id)')
+            ->where('s.id LIKE :nomServeurPattern')
+            ->setParameter('nomServeurPattern', 'EBD_' . $nomServeur . '_Cluster_%')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 //    /**
 //     * @return Cluster[] Returns an array of Cluster objects
 //     */

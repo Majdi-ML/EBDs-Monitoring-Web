@@ -20,39 +20,46 @@
               <h5 class="card-title">Répartition des Serveurs par État</h5>
 
               <!-- Stacked Bar Chart -->
-             <!-- Stacked Bar Chart -->
-<canvas id="stakedBarChart" style="max-height: 400px;"></canvas>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const supportValues = {{ supportValues|json_encode|raw }};
+ <canvas id="barChart" style="max-height: 400px;"></canvas>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const supportValues = {{ supportValues|json_encode|raw }};
 
-        new Chart(document.querySelector('#stakedBarChart'), {
+          new Chart(document.querySelector('#barChart'), {
             type: 'bar',
             data: {
-                labels: Object.keys(supportValues),
-                datasets: [
-                    {
-                        label: 'Dataset 1',
-                        data: Object.values(supportValues),
-                        backgroundColor: 'rgb(255, 99, 132)',
-                    },
-                    // Répétez le même processus pour d'autres datasets
-                ]
+              labels: Object.keys(supportValues),
+              datasets: [{
+                label: 'Dataset 1',
+                data: Object.values(supportValues),
+                backgroundColor:[
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],   // Bleu ciel
+                borderColor: [
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],
+                borderWidth: 1
+              }]
             },
             options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true
-                    }
+              scales: {
+                x: {
+                  beginAtZero: true
+                },
+                y: {
+                  beginAtZero: true
                 }
+              }
             }
+          });
         });
-    });
-</script>
+      </script>
 <!-- End Stacked Bar Chart -->
 
              

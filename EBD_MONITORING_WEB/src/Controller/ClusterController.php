@@ -9,30 +9,90 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/admin/cluster')]
 class ClusterController extends AbstractController
 {
     #[Route('/admin', name: 'app_cluster_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
+       
         $clusters = $entityManager
             ->getRepository(Cluster::class)
             ->findAll();
 
+            $filteredclusters = [];
+    $uniqueSecondParts = [];
+    $filter = $request->query->get('filter');
+    foreach ($clusters as $Cluster) {
+        $idParts = explode('_', $Cluster->getId());
+
+        if (count($idParts) >= 3) {
+            $secondPart = $idParts[1];
+
+            if (empty($filter) || $secondPart === $filter) {
+                $filteredclusters[] = $Cluster;
+            }
+
+            if (!in_array($secondPart, $uniqueSecondParts)) {
+                $uniqueSecondParts[] = $secondPart;
+            }
+        }
+    }
+
+
+    $ClusterRepository = $entityManager->getRepository(Cluster::class);
+
+    $supportValues = [
+
+        'Supprimé' => $ClusterRepository->getClusterCountByEtat('Supprimé'),
+        'Modifié' => $ClusterRepository->getClusterCountByEtat('Modifié'),
+        'Nouveau' => $ClusterRepository->getClusterCountByEtat('Nouveau'),
+        'Inchangé' => $ClusterRepository->getClusterCountByEtat('Inchangé'),
+    ];
+
+
+
+    $pagination = $paginator->paginate(
+        $filteredclusters, // Query
+        $request->query->getInt('page', 1), // Page number
+        10 // Items per page
+    );
         return $this->render('cluster/index.html.twig', [
-            'clusters' => $clusters,
+            'clusters' =>$pagination ,
+            'filter' => $filter,
+        'uniqueSecondParts' => $uniqueSecondParts,
+        'supportValues' => $supportValues,
         ]);
     }
 
     #[Route('/new', name: 'app_cluster_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $repository = $entityManager->getRepository(Cluster::class);
         $cluster = new Cluster();
         $form = $this->createForm(ClusterType::class, $cluster);
-        $form->handleRequest($request);
+         
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $nomServeur = $form->get('id')->getData(); // Supposons que le champ d'ID s'appelle 'id' dans votre formulaire
+            
+            $nombreOccurrences = $repository->countByNomServeur($nomServeur);
+    
+            if ($nombreOccurrences > 0) {
+                $nouveauNbr = $nombreOccurrences + 1;
+            } else {
+                $nouveauNbr = 1;
+            }
+    
+            $nouvelId = "EBD_" . $nomServeur . "_Cluster_" . $nouveauNbr;
+            $cluster->setId($nouvelId);
+    
+            $nouvelref="Rg-" . $nouveauNbr;
+            $cluster->setRef($nouvelref);
+            
             $entityManager->persist($cluster);
             $entityManager->flush();
 

@@ -43,15 +43,24 @@ class UserRegistrationAuthenticator extends AbstractLoginFormAuthenticator
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
-    {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-            return new RedirectResponse($targetPath);
-        }
-
-        // For example:
-         return new RedirectResponse($this->urlGenerator->generate('app_ooredoo'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+{
+    if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
+        return new RedirectResponse($targetPath);
     }
+
+    $user = $token->getUser();
+    $roles = $user->getRoles();
+
+    if (in_array('ROLE_ADMIN', $roles)) {
+        return new RedirectResponse($this->urlGenerator->generate('app_ooredoo'));
+    } elseif (in_array('ROLE_USER', $roles)) {
+        
+        return new RedirectResponse($this->urlGenerator->generate('app_ooredoo2'));
+    }
+
+    // Handle unrecognized roles or non-User objects appropriately
+    throw new \Exception('User role not recognized.');
+}
 
     protected function getLoginUrl(Request $request): string
     {

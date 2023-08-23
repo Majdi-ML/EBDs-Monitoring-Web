@@ -56,6 +56,42 @@ class ServeursRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+    /////////////////////////////////////////////////////////////////////////////*********************///////////////// */
+    public function getServeursCountByEtat2(string $etat, string $role): int
+{
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.etat = :etat')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $etat)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
+}
+
+public function getServeursCountByPlatfomre2(string $platforme , string $role): int
+    {
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a)')
+            ->where('a.platforme = :platforme')
+            ->andWhere('LOCATE(:role, a.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+            ->setParameter('platforme', $platforme)
+            ->setParameter('role', $role)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+    public function getServeursCountByOs2(string $os, string $role): int
+    {
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a)')
+            ->where('a.os = :os')
+            ->andWhere('LOCATE(:role, a.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+            ->setParameter('os', $os)
+            ->setParameter('role', $role)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Serveurs[] Returns an array of Serveurs objects
 //     */

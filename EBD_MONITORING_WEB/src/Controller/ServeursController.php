@@ -14,10 +14,6 @@ use Knp\Component\Pager\PaginatorInterface;
 #[Route('/ooredoo/admin/serveurs')]
 class ServeursController extends AbstractController
 {
-
-    
-   
-
     #[Route('/', name: 'app_serveurs_index', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
 {
@@ -96,6 +92,12 @@ class ServeursController extends AbstractController
         $form = $this->createForm(ServeursType::class, $serveur);
         $form->handleRequest($request);
 
+        $user = $this->getUser();
+             $role = $user->getRoles()[0]; // ROLE_Billing
+
+            // // Afficher la valeur de $role pour le débogage
+            $equipe = substr($role, strlen('ROLE_'));
+
         if ($form->isSubmitted() && $form->isValid()) {
             $nomServeur = $form->get('id')->getData(); // Supposons que le champ d'ID s'appelle 'id' dans votre formulaire
             
@@ -107,11 +109,12 @@ class ServeursController extends AbstractController
                 $nouveauNbr = 1;
             }
     
-            $nouvelId = "EBD_" . $nomServeur . "_SERVEURS_" . $nouveauNbr;
+            $nouvelId = "EBD_" . $nomServeur . "_Serveurs_" . $nouveauNbr;
             $serveur->setId($nouvelId);
     
             $nouvelref="Sv-" . $nouveauNbr;
             $serveur->setRef($nouvelref);
+            
             $entityManager->persist($serveur);
             $entityManager->flush();
     

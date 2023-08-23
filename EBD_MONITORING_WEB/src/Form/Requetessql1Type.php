@@ -98,11 +98,7 @@ class Requetessql1Type extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('support',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
+          
         ;
     }
 

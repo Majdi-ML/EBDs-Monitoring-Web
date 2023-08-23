@@ -56,10 +56,22 @@ class ServeursType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('type',TextType::class,[
+        ->add('type', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Autres' => "Autres" ,
+            'Baie'=>"Baie",
+            'Firewall' => "Firewall",
+            'Load_Balancer' => "Load_Balancer" ,
+            'Machine_Virtuelle' => "Machine_Virtuelle" ,
+            'Proxy' => "Proxy" ,
+            'Routeur' => "Routeur" ,
+            'Serveur' => "Serveur" ,
+            'Switch' => "Switch" ,
+            
+        ],
         ])
         ->add('modele',TextType::class,[
             'attr' => [
@@ -79,10 +91,18 @@ class ServeursType extends AbstractType
             
         ],
         ])
-        ->add('verTechFirmware',TextType::class,[
+        ->add('verTechFirmware', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            '2000' => "2000" ,
+            '2003 Enterprise Edition 32 bits'=>"2003 Enterprise Edition 32 bits",
+            '2003 Enterprise Edition 64 bits'=>"2003 Enterprise Edition 64 bits",
+            '2003 Standard Edition 32 bits' => "2003 Standard Edition 32 bits" ,
+            '2003 Standard Edition 64 bits' => "2003 Standard Edition 64 bits" ,
+            
+        ],
         ])
         ->add('cluster',TextType::class,[
             'attr' => [
@@ -99,10 +119,15 @@ class ServeursType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('socleStandardOmu',TextType::class,[
+        ->add('socleStandardOmu', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Oui' => "Oui" ,
+            'Non'=>"Non",
+            
+        ],
         ])
         ->add('complementsInformations',TextType::class,[
             'attr' => [
