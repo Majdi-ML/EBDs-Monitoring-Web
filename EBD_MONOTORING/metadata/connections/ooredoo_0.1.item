@@ -174,7 +174,7 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_W2hfaDxuEe6R_8zd8RMr3Q" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_W2hfaTxuEe6R_8zd8RMr3Q" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_W2hfajxuEe6R_8zd8RMr3Q" name="ref" label="ref" length="10" sourceType="INT" talendType="id_Integer" nullable="false">
+      <feature xsi:type="relational:TdColumn" xmi:id="_W2hfajxuEe6R_8zd8RMr3Q" name="ref" label="ref" length="10" sourceType="VARCHAR" talendType="id_String" nullable="false">
         <taggedValue xmi:id="_W2hfazxuEe6R_8zd8RMr3Q" tag="Comment" value=""/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_W2hfbDxuEe6R_8zd8RMr3Q" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_W2hfbTxuEe6R_8zd8RMr3Q" name="INT" numericPrecisionRadix="10" javaDataType="4"/>
