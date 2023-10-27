@@ -20,15 +20,69 @@ class UrlRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Url::class);
     }
-    public function getChartDataForPolarAreaByCriticite(string $criticite): int
+    public function getUrlCountByEtat(string $etat): int
     {
-        return $this->createQueryBuilder('u')
-            ->select('COUNT(u)')
-            ->where('u.criticite = :criticite')
-            ->setParameter('criticite', $criticite)
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->where('c.etat = :etat')
+            ->setParameter('etat', $etat)
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+    public function getUrlCountByEtatAndUser(string $etat, string $role): int
+{
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.etat = :etat')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $etat)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
+}
+public function getUrlCountBycriticite(string $criticite): int
+{
+    return $this->createQueryBuilder('c')
+        ->select('COUNT(c)')
+        ->where('c.criticite = :criticite')
+        ->setParameter('criticite', $criticite)
+        ->getQuery()
+        ->getSingleScalarResult();
+}
+
+public function getUrlCountBycriticiteAndUser(string $criticite, string $role): int
+{
+return $this->createQueryBuilder('c')
+->select('COUNT(c)')
+->where('c.criticite = :criticite')
+->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+->setParameter('criticite', $criticite)
+->setParameter('role', $role)
+->getQuery()
+->getSingleScalarResult();
+}
+public function getUrlCountByMonotoring(string $monitoredBy): int
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->where('c.monitoredBy = :monitoredBy')
+            ->setParameter('monitoredBy', $monitoredBy)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getUrlCountByMonotoringAndUser(string $monitoredBy, string $role): int
+{
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.monitoredBy = :monitoredBy')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $monitoredBy)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
+} 
    
 //    /**
 //     * @return Url[] Returns an array of Url objects

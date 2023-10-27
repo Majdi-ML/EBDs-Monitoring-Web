@@ -10,15 +10,60 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/cluster')]
 class Cluster2Controller extends AbstractController
 {
     #[Route('/', name: 'app_cluster', methods: ['GET'])]
-    public function index(ClusterRepository $clusterRepository): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
+        $clusters = $entityManager
+            ->getRepository(Cluster::class)
+            ->findAll();
+
+            $filteredclusters = [];
+    $uniqueSecondParts = [];
+    $filter = $request->query->get('filter');
+    foreach ($clusters as $Cluster) {
+        $idParts = explode('_', $Cluster->getId());
+
+        if (count($idParts) >= 3) {
+            $secondPart = $idParts[1];
+
+            if (empty($filter) || $secondPart === $filter) {
+                $filteredclusters[] = $Cluster;
+            }
+
+            if (!in_array($secondPart, $uniqueSecondParts)) {
+                $uniqueSecondParts[] = $secondPart;
+            }
+        }
+    }
+
+
+    $ClusterRepository = $entityManager->getRepository(Cluster::class);
+
+    $supportValues = [
+
+        'Supprimé' => $ClusterRepository->getClusterCountByEtat('Supprimé'),
+        'Modifié' => $ClusterRepository->getClusterCountByEtat('Modifié'),
+        'Nouveau' => $ClusterRepository->getClusterCountByEtat('Nouveau'),
+        'Inchangé' => $ClusterRepository->getClusterCountByEtat('Inchangé'),
+    ];
+
+
+
+    $pagination = $paginator->paginate(
+        $filteredclusters, // Query
+        $request->query->getInt('page', 1), // Page number
+        10 // Items per page
+    );
         return $this->render('cluster2/index.html.twig', [
-            'clusters' => $clusterRepository->findAll(),
+            'clusters' =>$pagination ,
+            'filter' => $filter,
+        'uniqueSecondParts' => $uniqueSecondParts,
+        'supportValues' => $supportValues,
         ]);
     }
 

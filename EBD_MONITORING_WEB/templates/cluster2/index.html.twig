@@ -12,6 +12,75 @@
         </ol>
       </nav>
     </div>
+    <section class="section">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Répartition des Serveurs par État</h5>
+
+						<!-- Stacked Bar Chart -->
+						<canvas id="barChart" style="max-height: 400px;"></canvas>
+						<script>
+							document.addEventListener("DOMContentLoaded", () => {
+const supportValues = {{ supportValues|json_encode|raw }};
+
+new Chart(document.querySelector('#barChart'), {
+type: 'bar',
+data: {
+labels: Object.keys(supportValues),
+datasets: [
+{
+label: 'Dataset 1',
+data: Object.values(supportValues),
+backgroundColor: [
+'rgb(255, 0, 0)', // Rouge
+'rgb(255, 165, 0)', // Orange
+'rgb(0, 255, 0)', // Vert
+'rgb(173, 216, 230)' // Bleu ciel
+], // Bleu ciel
+borderColor: [
+'rgb(255, 0, 0)', // Rouge
+'rgb(255, 165, 0)', // Orange
+'rgb(0, 255, 0)', // Vert
+'rgb(173, 216, 230)' // Bleu ciel
+],
+borderWidth: 1
+}
+]
+},
+options: {
+scales: {
+x: {
+beginAtZero: true
+},
+y: {
+beginAtZero: true
+}
+}
+}
+});
+});
+						</script>
+						<!-- End Stacked Bar Chart -->
+
+
+					</div>
+				</div>
+			</div>
+            </div>
+            </section>
+            <div class="col-lg-4">
+    <label for="filterSelect">Choisir un mot :</label>
+
+<form action="{{ path('app_cluster') }}" method="get">
+    <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+    </div>
     <br>
     <table class="table table-bordered">
         <thead>
@@ -35,20 +104,19 @@
         {% for cluster in clusters %}
         {% if cluster.support in app.user.roles[0] %}
             <tr>
-                <td>{{ cluster.id }}</td>
+                <td>{{ cluster.getId() }}</td>
                 <td>{{ cluster.ref }}</td>
-                <td class="{% if cluster.etat == 'Supprimé' %}text-danger{% elseif cluster.etat == 'Modifié' %}text-warning{% elseif cluster.etat == 'Nouveau' %}text-success{% else %}text-info{% endif %}">
+                <td style="{% if cluster.etat == 'Supprimé' %}background-color: red;{% elseif cluster.etat == 'Modifié' %}background-color: orange;{% elseif cluster.etat == 'Nouveau' %}background-color:  #5af700;{% elseif cluster.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
   {{ cluster.etat }}
 </td>
                 <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
                 <td>{{ cluster.adresseIp }}</td>
-                <td>{{ cluster.listeDesServeursConcernes }}</td>
-                <td>{{ cluster.logicielCluster }}</td>
-                <td>{{ cluster.version }}</td>
-                <td>{{ cluster.mode }}</td>
-                <td>{{ cluster.serveurActif }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.listeDesServeursConcernes }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.logicielCluster }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.version }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.mode }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.serveurActif }}</td>
                 <td>{{ cluster.complementsInformations }}</td>
-                <td>{{ cluster.support }}</td>
                 <td>
                     <a class="btn btn-info btn-sm" href="{{ path('app_cluster2_show', {'id': cluster.id}) }}">show</a>
 

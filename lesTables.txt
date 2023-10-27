@@ -1,0 +1,155 @@
+Table Cluster :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+nomDuRessourceGroupPackageServiceGuard
+adresseIp
+listeDesServeursConcernes
+logicielCluster
+version
+mode
+serveurActif
+complementsInformations
+support
+************************************************************************************
+Table LogFiles :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+refComposant
+rgSgSiCluster
+logfile
+localisation
+description
+formatLogfile
+separateur
+intervalleDePolling
+monitoredBy-------->=OMU,Sitescope 1,Sitescope 2,NNMI,RUM,BPM
+fourniEnAnnexe
+refService
+nomTemplate
+logConditions
+support
+************************************************************************************
+Table LogFilesPatterns :
+id
+nRef
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+signification
+identification
+criticite---------->=Critique,Majeure,Normale
+messageAlarme
+instructions
+performAction
+acquittement
+complementsInformations
+refService
+objet
+support
+************************************************************************************
+Table Process :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+refComposant
+process
+criticite---------->=Critique,Majeure,Normale
+messageAlarme
+intervalleDePolling
+objet
+nomTemplate
+monitoredBy-------->=OMU,Sitescope 1,Sitescope 2,NNMI,RUM,BPM
+support
+************************************************************************************
+Table Requetessql :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+refComposant
+rgSgSiCluster
+requeteSql
+usernameDbName
+resultatAttenduDeLaRequete
+performAction
+criticite---------->=Critique,Majeure,Normale
+messageAlarme
+instructions
+intervalleDePolling
+refService
+objet
+monitoredBy-------->=OMU,Sitescope 1,Sitescope 2,NNMI,RUM,BPM
+nomTemplate
+support
+************************************************************************************
+Table Scripts :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+refComposant
+rgSgSiCluster
+script
+codeErreur
+criticite---------->=Critique,Majeure,Normale
+description
+instructions
+monitoredBy-------->=OMU,Sitescope 1,Sitescope 2,NNMI,RUM,BPM
+refService
+support
+************************************************************************************
+Table Serveurs :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+platforme---------->=Prod,Pré-Prod
+hostname
+fqdn
+type--------------->=Autres,Baie,Firewall,Load_Balancer,Machine_Virtuelle,Proxy,Routeur,Serveur,Switch
+modele
+os----------------->=AIX,HPUX,Linux,Solaris,Windows
+verTechFirmware---->=2000,2003 Enterprise Edition 32 bits,2003 Enterprise Edition 64 bits,2003 Standard Edition 32 bits,2003 Standard Edition 64 bits
+cluster
+ipSource
+description
+socleStandardOmu--->=Oui,Non
+complementsInformations
+support
+************************************************************************************
+Table TrapsSnmp :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+refComposant
+signification
+versionSnmp-------->=Version 1 ,Version 2
+oid
+specificTrap
+variableBinding
+criticite---------->=Critique,Majeure,Normale
+messageAlarme
+instructions
+acquittement
+mibAssocie
+objet
+compelementInformation
+support
+************************************************************************************
+Table Url :
+id
+ref
+etat--------------->=Inchangé,Modifié,Nouveau,Supprimé
+refComposant
+rgSgSiCluster
+url
+performAction
+criticite---------->=Critique,Majeure,Normale
+messageAlarme
+instructions
+intervalleDePolling
+refService
+objet
+monitoredBy-------->=OMU,Sitescope 1,Sitescope 2,NNMI,RUM,BPM
+nomTemplate
+support
+*************************************************************************************
+tous string sauf $nRef de Table LogFilesPatterns est integer

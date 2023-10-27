@@ -22,14 +22,68 @@ class RequetessqlRepository extends ServiceEntityRepository
     }
 
     // Dans le repository de Requetessql
-public function getRequetessqlCountByEtat(string $etat): int
+    public function getRequeteSqlCountByEtat(string $etat): int
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->where('c.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getRequeteSqlCountByEtatAndUser(string $etat, string $role): int
 {
-    return $this->createQueryBuilder('r')
-        ->select('COUNT(r)')
-        ->where('r.etat = :etat')
-        ->setParameter('etat', $etat)
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.etat = :etat')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $etat)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
+}
+public function getRequeteSqlCountBycriticite(string $criticite): int
+{
+    return $this->createQueryBuilder('c')
+        ->select('COUNT(c)')
+        ->where('c.criticite = :criticite')
+        ->setParameter('criticite', $criticite)
         ->getQuery()
         ->getSingleScalarResult();
+}
+
+public function getRequeteSqlCountBycriticiteAndUser(string $criticite, string $role): int
+{
+return $this->createQueryBuilder('c')
+->select('COUNT(c)')
+->where('c.criticite = :criticite')
+->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+->setParameter('criticite', $criticite)
+->setParameter('role', $role)
+->getQuery()
+->getSingleScalarResult();
+}
+public function getRequeteSqlCountByMonotoring(string $monitoredBy): int
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->where('c.monitoredBy = :monitoredBy')
+            ->setParameter('monitoredBy', $monitoredBy)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getRequeteSqlCountByMonotoringAndUser(string $monitoredBy, string $role): int
+{
+    return $this->createQueryBuilder('c')
+    ->select('COUNT(c)')
+    ->where('c.monitoredBy = :monitoredBy')
+    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    ->setParameter('etat', $monitoredBy)
+    ->setParameter('role', $role)
+    ->getQuery()
+    ->getSingleScalarResult();
 }
 
 
