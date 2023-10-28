@@ -21,9 +21,11 @@ class Serveurs2Controller extends AbstractController
     {
       
     $serveurs = $serveursRepository->findAll();
+
     $user = $this->getUser();
     $role = $user->getRoles()[0]; // ROLE_Billing
     $equipe = substr($role, strlen('ROLE_'));
+    
     $filteredServeurs = [];
     $uniqueSecondParts = [];
 

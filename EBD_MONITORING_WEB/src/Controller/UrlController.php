@@ -9,19 +9,76 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/admin/url')]
 class UrlController extends AbstractController
 {
    #[Route('/', name: 'app_url_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $urls = $entityManager
-            ->getRepository(Url::class)
-            ->findAll();
-
+        $UrlsRepository = $entityManager->getRepository(Urls::class);
+        $Urls = $UrlssRepository->findAll();
+    
+        $filteredUrlss = [];
+        $uniqueSecondParts = [];
+    
+        $filter = $request->query->get('filter');
+    
+        foreach ($Urls as $Url) {
+            $idParts = explode('_', $Url->getId());
+    
+            if (count($idParts) >= 3) {
+                $secondPart = $idParts[1];
+    
+                if (empty($filter) || $secondPart === $filter) {
+                    $filteredUrls[] = $Url;
+                }
+    
+                if (!in_array($secondPart, $uniqueSecondParts)) {
+                    $uniqueSecondParts[] = $secondPart;
+                }
+            }
+        }
+        $supportValues = [
+    
+            'Supprimé' => $UrlsRepository->getUrlCountByEtat('Supprimé'),
+            'Modifié' => $UrlsRepository->getUrlCountByEtat('Modifié'),
+            'Nouveau' => $UrlsRepository->getUrlCountByEtat('Nouveau'),
+            'Inchangé' => $UrlsRepository->getUrlCountByEtat('Inchangé'),
+        ];
+    
+        $supportValues = [
+        
+            'OMU' => $UrlsRepository->getUrlCountByMonotoring('OMU'),
+            'Sitescope 1' => $UrlsRepository->getUrlCountByMonotoring('Sitescope 1'),
+            'Sitescope 2' => $UrlsRepository->getUrlCountByMonotoring('Sitescope 2'),
+            'NNMI' => $UrlsRepository->getUrlCountByMonotoring('NNMI'),
+            'RUM' => $UrlsRepository->getUrlCountByMonotoring('RUM'),
+            'BPM' => $UrlsRepository->getUrlCountByMonotoring('BPM'),
+        ];
+        $chartos = [
+    
+            'Critique' => $UrlsRepository->getUrlCountBycriticite('Critique'),
+            'Majeure' => $UrlsRepository->getUrlCountBycriticite('Majeure'),
+            'Normale' => $UrlsRepository->getUrlCountBycriticite('Normale'),
+        ];
+    
+        $pagination = $paginator->paginate(
+            $filteredUrls, // Query
+            $request->query->getInt('page', 1), // Page number
+            10 // Items per page
+        );
+    
+    
+    
         return $this->render('url/index.html.twig', [
-            'urls' => $urls,
+            'Urls' => $pagination,
+            'filter' => $filter,
+            'uniqueSecondParts' => $uniqueSecondParts,
+            'supportValues' => $supportValues,
+            'chartData'=> $chartData,
+            'chartos'=> $chartos,
         ]);
     }
 

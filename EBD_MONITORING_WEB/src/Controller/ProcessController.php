@@ -9,21 +9,77 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/admin/process')]
 class ProcessController extends AbstractController
 {
     #[Route('/', name: 'app_process_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $processes = $entityManager
-            ->getRepository(Process::class)
-            ->findAll();
+        $ProcessesRepository = $entityManager->getRepository(Process::class);
+    $Processes = $ProcessesRepository->findAll();
 
-        return $this->render('process/index.html.twig', [
-            'processes' => $processes,
-        ]);
+    $filteredProcesses = [];
+    $uniqueSecondParts = [];
+
+    $filter = $request->query->get('filter');
+
+    foreach ($Processes as $Process) {
+        $idParts = explode('_', $Process->getId());
+
+        if (count($idParts) >= 3) {
+            $secondPart = $idParts[1];
+
+            if (empty($filter) || $secondPart === $filter) {
+                $filteredProcesses[] = $Process;
+            }
+
+            if (!in_array($secondPart, $uniqueSecondParts)) {
+                $uniqueSecondParts[] = $secondPart;
+            }
+        }
+    }
+    $supportValues = [
+
+        'Supprimé' => $ProcessesRepository->getProcessCountByEtat('Supprimé'),
+        'Modifié' => $ProcessesRepository->getProcessCountByEtat('Modifié'),
+        'Nouveau' => $ProcessesRepository->getProcessCountByEtat('Nouveau'),
+        'Inchangé' => $ProcessesRepository->getProcessCountByEtat('Inchangé'),
+    ];
+
+    $supportValues = [
+    
+        'OMU' => $ProcessesRepository->getProcessCountByMonotoring('OMU'),
+        'Sitescope 1' => $ProcessesRepository->getProcessCountByMonotoring('Sitescope 1'),
+        'Sitescope 2' => $ProcessesRepository->getProcessCountByMonotoring('Sitescope 2'),
+        'NNMI' => $ProcessesRepository->getProcessCountByMonotoring('NNMI'),
+        'RUM' => $ProcessesRepository->getProcessCountByMonotoring('RUM'),
+        'BPM' => $ProcessesRepository->getProcessCountByMonotoring('BPM'),
+    ];
+    $chartos = [
+
+        'Critique' => $ProcessesRepository->getProcessCountBycriticite('Critique'),
+        'Majeure' => $ProcessesRepository->getProcessCountBycriticite('Majeure'),
+        'Normale' => $ProcessesRepository->getProcessCountBycriticite('Normale'),
+    ];
+
+    $pagination = $paginator->paginate(
+        $filteredProcesses, // Query
+        $request->query->getInt('page', 1), // Page number
+        10 // Items per page
+    );
+
+
+
+    return $this->render('process/index.html.twig', [
+        'Process' => $pagination,
+        'filter' => $filter,
+        'uniqueSecondParts' => $uniqueSecondParts,
+        'supportValues' => $supportValues,
+        'chartData'=> $chartData,
+        'chartos'=> $chartos,
+    ]);
     }
 
     #[Route('/new', name: 'app_process_new', methods: ['GET', 'POST'])]

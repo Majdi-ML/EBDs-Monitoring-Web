@@ -9,19 +9,76 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/admin/requetessql')]
 class RequetessqlController extends AbstractController
 {
     #[Route('/', name: 'app_requetessql_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $requetessqls = $entityManager
-            ->getRepository(Requetessql::class)
-            ->findAll();
-
+        $RequetessqlsRepository = $entityManager->getRepository(Requetessql::class);
+        $Requetessqls = $RequetessqlsRepository->findAll();
+    
+        $filteredRequetessqls = [];
+        $uniqueSecondParts = [];
+    
+        $filter = $request->query->get('filter');
+    
+        foreach ($Requetessqls as $Requetessql) {
+            $idParts = explode('_', $Requetessql->getId());
+    
+            if (count($idParts) >= 3) {
+                $secondPart = $idParts[1];
+    
+                if (empty($filter) || $secondPart === $filter) {
+                    $filteredRequetessqls[] = $Requetessql;
+                }
+    
+                if (!in_array($secondPart, $uniqueSecondParts)) {
+                    $uniqueSecondParts[] = $secondPart;
+                }
+            }
+        }
+        $supportValues = [
+    
+            'Supprimé' => $RequetessqlsRepository->getRequetessqlCountByEtat('Supprimé'),
+            'Modifié' => $RequetessqlsRepository->getRequetessqlCountByEtat('Modifié'),
+            'Nouveau' => $RequetessqlsRepository->getRequetessqlCountByEtat('Nouveau'),
+            'Inchangé' => $RequetessqlsRepository->getRequetessqlCountByEtat('Inchangé'),
+        ];
+    
+        $supportValues = [
+        
+            'OMU' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('OMU'),
+            'Sitescope 1' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('Sitescope 1'),
+            'Sitescope 2' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('Sitescope 2'),
+            'NNMI' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('NNMI'),
+            'RUM' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('RUM'),
+            'BPM' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('BPM'),
+        ];
+        $chartos = [
+    
+            'Critique' => $RequetessqlsRepository->getRequetessqlCountBycriticite('Critique'),
+            'Majeure' => $RequetessqlsRepository->getRequetessqlCountBycriticite('Majeure'),
+            'Normale' => $RequetessqlsRepository->getRequetessqlCountBycriticite('Normale'),
+        ];
+    
+        $pagination = $paginator->paginate(
+            $filteredRequetessqls, // Query
+            $request->query->getInt('page', 1), // Page number
+            10 // Items per page
+        );
+    
+    
+    
         return $this->render('requetessql/index.html.twig', [
-            'requetessqls' => $requetessqls,
+            'Requetessqls' => $pagination,
+            'filter' => $filter,
+            'uniqueSecondParts' => $uniqueSecondParts,
+            'supportValues' => $supportValues,
+            'chartData'=> $chartData,
+            'chartos'=> $chartos,
         ]);
     }
 

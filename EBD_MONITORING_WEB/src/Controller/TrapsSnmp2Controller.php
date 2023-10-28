@@ -15,10 +15,71 @@ use Symfony\Component\Routing\Annotation\Route;
 class TrapsSnmp2Controller extends AbstractController
 {
     #[Route('/', name: 'app_traps_snmp', methods: ['GET'])]
-    public function index(TrapsSnmpRepository $trapsSnmpRepository): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        return $this->render('traps_snmp2/index.html.twig', [
-            'traps_snmps' => $trapsSnmpRepository->findAll(),
+        $trapsSnmpsRepository = $entityManager->getRepository(trapsSnmp::class);
+        $trapsSnmps = $trapsSnmpsRepository->findAll();
+        
+        $user = $this->getUser();
+        $role = $user->getRoles()[0]; // ROLE_Billing
+        $equipe = substr($role, strlen('ROLE_'));
+    
+        $filteredtrapsSnmps = [];
+        $uniqueSecondParts = [];
+    
+        $filter = $request->query->get('filter');
+    
+        foreach ($trapsSnmps as $trapsSnmp) {
+            $idParts = explode('_', $trapsSnmp->getId());
+    
+            if (count($idParts) >= 3) {
+                $secondPart = $idParts[1];
+    
+                if (empty($filter) || $secondPart === $filter) {
+                    $filteredtrapsSnmps[] = $trapsSnmp;
+                }
+    
+                if (!in_array($secondPart, $uniqueSecondParts)) {
+                    $uniqueSecondParts[] = $secondPart;
+                }
+            }
+        }
+        $supportValues = [
+    
+            'Supprimé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Supprimé'),
+            'Modifié' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Modifié'),
+            'Nouveau' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Nouveau'),
+            'Inchangé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Inchangé'),
+        ];
+    
+        $supportValues = [
+        
+            'Version 1' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmpAndUser('Version 1'),
+            'Version 2' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmpAndUser('Version 2'),
+
+        ];
+        $chartos = [
+    
+            'Critique' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Critique'),
+            'Majeure' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Majeure'),
+            'Normale' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Normale'),
+        ];
+    
+        $pagination = $paginator->paginate(
+            $filteredtrapsSnmps, // Query
+            $request->query->getInt('page', 1), // Page number
+            10 // Items per page
+        );
+    
+    
+    
+        return $this->render('traps_snmp/index.html.twig', [
+            'traps_snmp' => $pagination,
+            'filter' => $filter,
+            'uniqueSecondParts' => $uniqueSecondParts,
+            'supportValues' => $supportValues,
+            'chartData'=> $chartData,
+            'chartos'=> $chartos,
         ]);
     }
 

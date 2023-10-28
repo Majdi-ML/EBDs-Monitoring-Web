@@ -9,19 +9,69 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/admin/logfiles')]
 class LogFilesController extends AbstractController
 {
     #[Route('/', name: 'app_log_files_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $logFiles = $entityManager
-            ->getRepository(LogFiles::class)
-            ->findAll();
+        $logFiles = $entityManager->getRepository(LogFiles::class)->findAll();
+        $filteredLogFiles = [];
+        $uniqueSecondParts = [];
+    
+        $filter = $request->query->get('filter');
+    
+        foreach ($logFiles as $LogFile) {
+            $idParts = explode('_', $LogFile->getId());
+    
+            if (count($idParts) >= 3) {
+                $secondPart = $idParts[1];
+    
+                if (empty($filter) || $secondPart === $filter) {
+                    $filteredLogFiles[] = $LogFile;
+                }
+    
+                if (!in_array($secondPart, $uniqueSecondParts)) {
+                    $uniqueSecondParts[] = $secondPart;
+                }
+            }
+        }
+    
+        $LogFilesRepository = $entityManager->getRepository(LogFiles::class);
+    
+        $supportValues = [
+    
+            'Supprimé' => $LogFilesRepository->getLogFileCountByEtat('Supprimé'),
+            'Modifié' => $LogFilesRepository->getLogFileCountByEtat('Modifié'),
+            'Nouveau' => $LogFilesRepository->getLogFileCountByEtat('Nouveau'),
+            'Inchangé' => $LogFilesRepository->getLogFileCountByEtat('Inchangé'),
+        ];
+        $chartos = [
+    
+            'OMU' => $LogFilesRepository->getLogFileCountByMonotoring('OMU'),
+            'Sitescope 1' => $LogFilesRepository->getLogFileCountByMonotoring('Sitescope 1'),
+            'Sitescope 2' => $LogFilesRepository->getLogFileCountByMonotoring('Sitescope 2'),
+            'NNMI' => $LogFilesRepository->getLogFileCountByMonotoring('NNMI'),
+            'RUM' => $LogFilesRepository->getLogFileCountByMonotoring('RUM'),
+            'BPM' => $LogFilesRepository->getLogFileCountByMonotoring('BPM'),
+        ];
 
-        return $this->render('log_files/index.html.twig', [
-            'log_files' => $logFiles,
+
+
+
+        $pagination = $paginator->paginate(
+            $filteredLogFiles, // Query
+            $request->query->getInt('page', 1), // Page number
+            10 // Items per page
+        );
+        return $this->render('log_files2/index.html.twig', [
+            'log_files' => $pagination,
+            'filter' => $filter,
+            'uniqueSecondParts' => $uniqueSecondParts,
+            'supportValues' => $supportValues,
+            'chartos'=> $chartos,
         ]);
     }
 

@@ -9,19 +9,75 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Knp\Component\Pager\PaginatorInterface;
 #[Route('/ooredoo/admin/scripts')]
 class ScriptsController extends AbstractController
 {
     #[Route('/', name: 'app_scripts_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $scripts = $entityManager
-            ->getRepository(Scripts::class)
-            ->findAll();
-
+        $ScriptsRepository = $entityManager->getRepository(Scripts::class);
+        $Scripts = $ScriptssRepository->findAll();
+    
+        $filteredScriptss = [];
+        $uniqueSecondParts = [];
+    
+        $filter = $request->query->get('filter');
+    
+        foreach ($Scriptss as $Script) {
+            $idParts = explode('_', $Script->getId());
+    
+            if (count($idParts) >= 3) {
+                $secondPart = $idParts[1];
+    
+                if (empty($filter) || $secondPart === $filter) {
+                    $filteredScripts[] = $Script;
+                }
+    
+                if (!in_array($secondPart, $uniqueSecondParts)) {
+                    $uniqueSecondParts[] = $secondPart;
+                }
+            }
+        }
+        $supportValues = [
+    
+            'Supprimé' => $ScriptsRepository->getScriptsCountByEtat('Supprimé'),
+            'Modifié' => $ScriptsRepository->getScriptsCountByEtat('Modifié'),
+            'Nouveau' => $ScriptsRepository->getScriptsCountByEtat('Nouveau'),
+            'Inchangé' => $ScriptsRepository->getScriptsCountByEtat('Inchangé'),
+        ];
+    
+        $supportValues = [
+        
+            'OMU' => $ScriptsRepository->getScriptsCountByMonotoring('OMU'),
+            'Sitescope 1' => $ScriptsRepository->getScriptsCountByMonotoring('Sitescope 1'),
+            'Sitescope 2' => $ScriptsRepository->getScriptsCountByMonotoring('Sitescope 2'),
+            'NNMI' => $ScriptsRepository->getScriptsCountByMonotoring('NNMI'),
+            'RUM' => $ScriptsRepository->getScriptsCountByMonotoring('RUM'),
+            'BPM' => $ScriptsRepository->getScriptsCountByMonotoring('BPM'),
+        ];
+        $chartos = [
+    
+            'Critique' => $ScriptsRepository->getScriptsCountBycriticite('Critique'),
+            'Majeure' => $ScriptsRepository->getScriptsCountBycriticite('Majeure'),
+            'Normale' => $ScriptsRepository->getScriptsCountBycriticite('Normale'),
+        ];
+    
+        $pagination = $paginator->paginate(
+            $filteredScripts, // Query
+            $request->query->getInt('page', 1), // Page number
+            10 // Items per page
+        );
+    
+    
+    
         return $this->render('scripts/index.html.twig', [
-            'scripts' => $scripts,
+            'scripts' => $pagination,
+            'filter' => $filter,
+            'uniqueSecondParts' => $uniqueSecondParts,
+            'supportValues' => $supportValues,
+            'chartData'=> $chartData,
+            'chartos'=> $chartos,
         ]);
     }
 

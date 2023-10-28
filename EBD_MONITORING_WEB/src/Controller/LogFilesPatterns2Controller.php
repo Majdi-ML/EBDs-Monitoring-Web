@@ -10,16 +10,70 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/logfilespatterns')]
 class LogFilesPatterns2Controller extends AbstractController
 {
     #[Route('/', name: 'app_log_files_patterns', methods: ['GET'])]
-    public function index(LogFilesPatternsRepository $logFilesPatternsRepository): Response
+    public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        return $this->render('log_files_patterns2/index.html.twig', [
-            'log_files_patterns' => $logFilesPatternsRepository->findAll(),
-        ]);
+        $LogFilesPatternsRepository = $entityManager->getRepository(LogFilesPatterns::class);
+        $LogFilesPatterns = $LogFilesPatternsRepository->findAll();
+        $user = $this->getUser();
+        $role = $user->getRoles()[0]; // ROLE_Billing
+        $equipe = substr($role, strlen('ROLE_'));
+
+    $filteredLogFilesPatterns = [];
+    $uniqueSecondParts = [];
+
+    $filter = $request->query->get('filter');
+
+    foreach ($LogFilesPatterns as $LogFilesPattern) {
+        $idParts = explode('_', $LogFilesPattern->getId());
+
+        if (count($idParts) >= 3) {
+            $secondPart = $idParts[1];
+
+            if (empty($filter) || $secondPart === $filter) {
+                $filteredLogFilesPatterns[] = $LogFilesPattern;
+            }
+
+            if (!in_array($secondPart, $uniqueSecondParts)) {
+                $uniqueSecondParts[] = $secondPart;
+            }
+        }
+    }
+    $supportValues = [
+
+        'Supprimé' => $LogFilesPatternsRepository->getLogFilePatternsCountByEtatAndUser('Supprimé', $equipe),
+        'Modifié' => $LogFilesPatternsRepository->getLogFilePatternsCountByEtatAndUser('Modifié', $equipe),
+        'Nouveau' => $LogFilesPatternsRepository->getLogFilePatternsCountByEtatAndUser('Nouveau', $equipe),
+        'Inchangé' => $LogFilesPatternsRepository->getLogFilePatternsCountByEtatAndUser('Inchangé', $equipe),
+    ];
+
+    $chartos = [
+
+        'Critique' => $LogFilesPatternsRepository->getLogFilePatternsCountBycriticiteAndUser('Critique', $equipe),
+        'Majeure' => $LogFilesPatternsRepository->getLogFilePatternsCountBycriticiteAndUser('Majeure', $equipe),
+        'Normale' => $LogFilesPatternsRepository->getLogFilePatternsCountBycriticiteAndUser('Normale', $equipe),
+    ];
+
+    $pagination = $paginator->paginate(
+        $filteredLogFilesPatterns, // Query
+        $request->query->getInt('page', 1), // Page number
+        10 // Items per page
+    );
+
+
+
+    return $this->render('log_files_patterns2/index.html.twig', [
+        'LogFilesPatterns' => $pagination,
+        'filter' => $filter,
+        'uniqueSecondParts' => $uniqueSecondParts,
+        'chartData'=> $chartData,
+        'chartos'=> $chartos,
+    ]);
     }
 
     #[Route('/new', name: 'app_log_files_patterns2_new', methods: ['GET', 'POST'])]
