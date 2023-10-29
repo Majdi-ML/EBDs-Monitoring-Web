@@ -71,7 +71,7 @@ class LogFiles2Controller extends AbstractController
             $request->query->getInt('page', 1), // Page number
             10 // Items per page
         );
-        return $this->render('log_files/index.html.twig', [
+        return $this->render('log_files2/index.html.twig', [
             'log_files' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
@@ -88,6 +88,7 @@ class LogFiles2Controller extends AbstractController
         $form = $this->createForm(LogFiles1Type::class, $logFile);
         $form->handleRequest($request);
 
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($logFile);
             $entityManager->flush();

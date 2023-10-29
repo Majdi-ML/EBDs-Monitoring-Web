@@ -32,9 +32,9 @@ class TrapsSnmpRepository extends ServiceEntityRepository
 }
 public function getTrapsSnmpCountByVersionSnmpAndUser(string $versionSnmp,string $role): int
 {
-    return $this->createQueryBuilder('t')
-        ->select('COUNT(t)')
-        ->where('t.versionSnmp = :versionSnmp')
+    return $this->createQueryBuilder('c')
+        ->select('COUNT(c)')
+        ->where('c.versionSnmp = :versionSnmp')
         ->andWhere('LOCATE(:role, c.support) > 0')
         ->setParameter('versionSnmp', $versionSnmp)
         ->setParameter('role', $role)

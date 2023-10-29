@@ -18,8 +18,8 @@ class Url2Controller extends AbstractController
     #[Route('/', name: 'app_url', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $UrlsRepository = $entityManager->getRepository(Urls::class);
-        $Urls = $UrlssRepository->findAll();
+        $UrlsRepository = $entityManager->getRepository(Url::class);
+        $Urls = $UrlsRepository->findAll();
     
         $user = $this->getUser();
         $role = $user->getRoles()[0]; // ROLE_Billing
@@ -47,26 +47,26 @@ class Url2Controller extends AbstractController
         }
         $supportValues = [
     
-            'Supprimé' => $UrlsRepository->getUrlCountByEtatAndUser('Supprimé'),
-            'Modifié' => $UrlsRepository->getUrlCountByEtatAndUser('Modifié'),
-            'Nouveau' => $UrlsRepository->getUrlCountByEtatAndUser('Nouveau'),
-            'Inchangé' => $UrlsRepository->getUrlCountByEtatAndUser('Inchangé'),
+            'Supprimé' => $UrlsRepository->getUrlCountByEtatAndUser('Supprimé', $equipe),
+            'Modifié' => $UrlsRepository->getUrlCountByEtatAndUser('Modifié', $equipe),
+            'Nouveau' => $UrlsRepository->getUrlCountByEtatAndUser('Nouveau', $equipe),
+            'Inchangé' => $UrlsRepository->getUrlCountByEtatAndUser('Inchangé', $equipe),
         ];
     
-        $supportValues = [
+        $chartData = [
         
-            'OMU' => $UrlsRepository->getUrlCountByMonotoringAndUser('OMU'),
-            'Sitescope 1' => $UrlsRepository->getUrlCountByMonotoringAndUser('Sitescope 1'),
-            'Sitescope 2' => $UrlsRepository->getUrlCountByMonotoringAndUser('Sitescope 2'),
-            'NNMI' => $UrlsRepository->getUrlCountByMonotoringAndUser('NNMI'),
-            'RUM' => $UrlsRepository->getUrlCountByMonotoringAndUser('RUM'),
-            'BPM' => $UrlsRepository->getUrlCountByMonotoringAndUser('BPM'),
+            'OMU' => $UrlsRepository->getUrlCountByMonotoringAndUser('OMU', $equipe),
+            'Sitescope 1' => $UrlsRepository->getUrlCountByMonotoringAndUser('Sitescope 1', $equipe),
+            'Sitescope 2' => $UrlsRepository->getUrlCountByMonotoringAndUser('Sitescope 2', $equipe),
+            'NNMI' => $UrlsRepository->getUrlCountByMonotoringAndUser('NNMI', $equipe),
+            'RUM' => $UrlsRepository->getUrlCountByMonotoringAndUser('RUM', $equipe),
+            'BPM' => $UrlsRepository->getUrlCountByMonotoringAndUser('BPM', $equipe),
         ];
         $chartos = [
     
-            'Critique' => $UrlsRepository->getUrlCountBycriticiteAndUser('Critique'),
-            'Majeure' => $UrlsRepository->getUrlCountBycriticiteAndUser('Majeure'),
-            'Normale' => $UrlsRepository->getUrlCountBycriticiteAndUser('Normale'),
+            'Critique' => $UrlsRepository->getUrlCountBycriticiteAndUser('Critique', $equipe),
+            'Majeure' => $UrlsRepository->getUrlCountBycriticiteAndUser('Majeure', $equipe),
+            'Normale' => $UrlsRepository->getUrlCountBycriticiteAndUser('Normale', $equipe),
         ];
     
         $pagination = $paginator->paginate(
@@ -77,8 +77,8 @@ class Url2Controller extends AbstractController
     
     
     
-        return $this->render('url/index.html.twig', [
-            'Urls' => $pagination,
+        return $this->render('url2/index.html.twig', [
+            'urls' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
             'supportValues' => $supportValues,

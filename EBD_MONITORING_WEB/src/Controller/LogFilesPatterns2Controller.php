@@ -68,10 +68,10 @@ class LogFilesPatterns2Controller extends AbstractController
 
 
     return $this->render('log_files_patterns2/index.html.twig', [
-        'LogFilesPatterns' => $pagination,
+        'log_files_patterns' => $pagination,
         'filter' => $filter,
         'uniqueSecondParts' => $uniqueSecondParts,
-        'chartData'=> $chartData,
+        'supportValues'=> $supportValues,
         'chartos'=> $chartos,
     ]);
     }
@@ -84,6 +84,7 @@ class LogFilesPatterns2Controller extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $entityManager->persist($logFilesPattern);
             $entityManager->flush();
 

@@ -34,15 +34,16 @@ class LogFilesRepository extends ServiceEntityRepository
 
     public function getLogFileCountByEtatAndUser(string $etat, string $role): int
 {
-    return $this->createQueryBuilder('c')
-    ->select('COUNT(c)')
-    ->where('c.etat = :etat')
-    ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
+    return $this->createQueryBuilder('X')
+    ->select('COUNT(X)')
+    ->where('X.etat = :etat')
+    ->andWhere('LOCATE(:role, X.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
     ->setParameter('etat', $etat)
     ->setParameter('role', $role)
     ->getQuery()
     ->getSingleScalarResult();
 }
+    
 public function getLogFileCountByMonotoring(string $monitoredBy): int
     {
         return $this->createQueryBuilder('c')
@@ -59,7 +60,7 @@ public function getLogFileCountByMonotoring(string $monitoredBy): int
     ->select('COUNT(c)')
     ->where('c.monitoredBy = :monitoredBy')
     ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
-    ->setParameter('etat', $monitoredBy)
+    ->setParameter('monitoredBy', $monitoredBy)
     ->setParameter('role', $role)
     ->getQuery()
     ->getSingleScalarResult();

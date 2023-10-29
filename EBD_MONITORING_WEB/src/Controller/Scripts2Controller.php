@@ -19,14 +19,17 @@ class Scripts2Controller extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
         $ScriptsRepository = $entityManager->getRepository(Scripts::class);
-        $Scripts = $ScriptssRepository->findAll();
+        $Scripts = $ScriptsRepository->findAll();
     
+        $user = $this->getUser();
+        $role = $user->getRoles()[0]; // ROLE_Billing
+        $equipe = substr($role, strlen('ROLE_'));
         $filteredScriptss = [];
         $uniqueSecondParts = [];
     
         $filter = $request->query->get('filter');
     
-        foreach ($Scriptss as $Script) {
+        foreach ($Scripts as $Script) {
             $idParts = explode('_', $Script->getId());
     
             if (count($idParts) >= 3) {
@@ -49,7 +52,7 @@ class Scripts2Controller extends AbstractController
             'Inchangé' => $ScriptsRepository->getScriptsCountByEtatAndUser('Inchangé', $equipe),
         ];
     
-        $supportValues = [
+        $chartData = [
         
             'OMU' => $ScriptsRepository->getScriptsCountByMonotoringAndUser('OMU', $equipe),
             'Sitescope 1' => $ScriptsRepository->getScriptsCountByMonotoringAndUser('Sitescope 1', $equipe),
@@ -86,6 +89,7 @@ class Scripts2Controller extends AbstractController
     #[Route('/new', name: 'app_scripts2_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $repository = $entityManager->getRepository(Scripts::class);
         $script = new Scripts();
         $form = $this->createForm(Scripts1Type::class, $script);
         $form->handleRequest($request);

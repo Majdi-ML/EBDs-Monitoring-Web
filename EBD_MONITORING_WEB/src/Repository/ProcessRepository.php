@@ -78,7 +78,7 @@ public function getProcessCountByMonotoring(string $monitoredBy): int
     ->select('COUNT(c)')
     ->where('c.monitoredBy = :monitoredBy')
     ->andWhere('LOCATE(:role, c.support) > 0') // Utilisation de LOCATE() à la place de INSTR()
-    ->setParameter('etat', $monitoredBy)
+    ->setParameter('monitoredBy', $monitoredBy)
     ->setParameter('role', $role)
     ->getQuery()
     ->getSingleScalarResult();

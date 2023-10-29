@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/ooredoo/trapssnmp')]
 class TrapsSnmp2Controller extends AbstractController
@@ -46,23 +47,23 @@ class TrapsSnmp2Controller extends AbstractController
         }
         $supportValues = [
     
-            'Supprimé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Supprimé'),
-            'Modifié' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Modifié'),
-            'Nouveau' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Nouveau'),
-            'Inchangé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Inchangé'),
+            'Supprimé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Supprimé', $equipe),
+            'Modifié' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Modifié', $equipe),
+            'Nouveau' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Nouveau', $equipe),
+            'Inchangé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtatAndUser('Inchangé', $equipe),
         ];
     
-        $supportValues = [
+        $chartData = [
         
-            'Version 1' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmpAndUser('Version 1'),
-            'Version 2' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmpAndUser('Version 2'),
+            'Version 1' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmpAndUser('Version 1', $equipe),
+            'Version 2' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmpAndUser('Version 2', $equipe),
 
         ];
         $chartos = [
     
-            'Critique' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Critique'),
-            'Majeure' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Majeure'),
-            'Normale' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Normale'),
+            'Critique' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Critique', $equipe),
+            'Majeure' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Majeure', $equipe),
+            'Normale' => $trapsSnmpsRepository->getTrapsSnmpCountBycriticiteAndUser('Normale', $equipe),
         ];
     
         $pagination = $paginator->paginate(
@@ -73,8 +74,8 @@ class TrapsSnmp2Controller extends AbstractController
     
     
     
-        return $this->render('traps_snmp/index.html.twig', [
-            'traps_snmp' => $pagination,
+        return $this->render('traps_snmp2/index.html.twig', [
+            'traps_snmps' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
             'supportValues' => $supportValues,

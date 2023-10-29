@@ -53,7 +53,7 @@ class Process2Controller extends AbstractController
         'Inchangé' => $ProcessesRepository->getProcessCountByEtatAndUser('Inchangé', $equipe),
     ];
 
-    $supportValues = [
+    $chartData = [
     
         'OMU' => $ProcessesRepository->getProcessCountByMonotoringAndUser('OMU', $equipe),
         'Sitescope 1' => $ProcessesRepository->getProcessCountByMonotoringAndUser('Sitescope 1', $equipe),
@@ -78,11 +78,11 @@ class Process2Controller extends AbstractController
 
 
     return $this->render('process2/index.html.twig', [
-        'process' => $pagination,
+        'processes' => $pagination,
         'filter' => $filter,
         'uniqueSecondParts' => $uniqueSecondParts,
         'supportValues' => $supportValues,
-        'chartData'=> $chatData,
+        'chartData'=> $chartData,
         'chartos'=> $chartos,
     ]);
     }
@@ -94,6 +94,11 @@ class Process2Controller extends AbstractController
         $form = $this->createForm(Process1Type::class, $process);
         $form->handleRequest($request);
 
+        $user = $this->getUser();
+             $role = $user->getRoles()[0]; // ROLE_Billing
+
+            // // Afficher la valeur de $role pour le débogage
+            $equipe = substr($role, strlen('ROLE_'));
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($process);
             $entityManager->flush();

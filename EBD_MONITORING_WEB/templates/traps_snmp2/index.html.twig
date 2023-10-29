@@ -13,26 +13,166 @@
       </nav>
     </div>
 
+<section class="section">
+			<div class="row">
+    <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Répartition par État</h5>
+
+              <!-- Stacked Bar Chart -->
+ <canvas id="barChart" style="max-height: 400px;"></canvas>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const supportValues = {{ supportValues|json_encode|raw }};
+
+          new Chart(document.querySelector('#barChart'), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(supportValues),
+              datasets: [{
+                label: 'Dataset 1',
+                data: Object.values(supportValues),
+                backgroundColor:[
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],   // Bleu ciel
+                borderColor: [
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                x: {
+                  beginAtZero: true
+                },
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        });
+      </script>
+<!-- End Stacked Bar Chart -->
+
+             
+
+            </div>
+          </div>
+        </div>
+
+
+<div class="col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Répartition par versionSnmp</h5>
+<div id="donutChart"></div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const chartData = {{ chartData|json_encode|raw }};
+
+          const dataValues = Object.values(chartData);
+          const dataLabels = Object.keys(chartData);
+
+          new ApexCharts(document.querySelector("#donutChart"), {
+            series: dataValues,
+            chart: {
+              height: 350,
+              type: 'donut',
+              toolbar: {
+                show: true
+              }
+            },
+            labels: dataLabels,
+          }).render();
+        });
+      </script>
+						<!-- End Polar Area Chart -->
+
+					</div>
+				</div>
+			</div>
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition par criticite </h5>
+
+            <!-- Pie Chart -->
+            <div id="pieChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const chartos = {{ chartos|json_encode|raw }};
+                    const labels = Object.keys(chartos);
+                    const data = Object.values(chartos);
+
+                    new ApexCharts(document.querySelector("#pieChart"), {
+                        series: data,
+                        chart: {
+                            height: 350,
+                            type: 'pie',
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        labels: labels
+                    }).render();
+                });
+            </script>
+            <!-- End Pie Chart -->
+
+        </div>
+    </div>
+</div>
+</div>
+		
+
+
+	</section>
+
+
+     <div class="col-lg-4">
+    <label for="filterSelect">Choisir un mot :</label>
+
+<form action="{{ path('app_traps_snmp') }}" method="get">
+    <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+</form>
+</div>
+<br>
+
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Ref</th>
-                <th>Etat</th>
-                <th>RefComposant</th>
-                <th>Signification</th>
-                <th>VersionSnmp</th>
-                <th>Oid</th>
-                <th>SpecificTrap</th>
-                <th>VariableBinding</th>
-                <th>Criticite</th>
-                <th>MessageAlarme</th>
-                <th>Instructions</th>
-                <th>Acquittement</th>
-                <th>MibAssocie</th>
-                <th>Objet</th>
-                <th>CompelementInformation</th>
-                <th>Support</th>
+                <th style="background-color: #bbbbbb;">Id</th>
+                <th style="background-color: #bbbbbb;">Ref</th>
+                <th style="background-color: #bbbbbb;">Etat</th>
+                <th style="background-color: #bbbbbb;">RefComposant</th>
+                <th style="background-color: #bbbbbb;">Signification</th>
+                <th style="background-color: #bbbbbb;">VersionSnmp</th>
+                <th style="background-color: #bbbbbb;">Oid</th>
+                <th style="background-color: #bbbbbb;">SpecificTrap</th>
+                <th style="background-color: #bbbbbb;">VariableBinding</th>
+                <th style="background-color: #bbbbbb;">Criticite</th>
+                <th style="background-color: #bbbbbb;">MessageAlarme</th>
+                <th style="background-color: #bbbbbb;">Instructions</th>
+                <th style="background-color: #bbbbbb;">Acquittement</th>
+                <th style="background-color: #bbbbbb;">MibAssocie</th>
+                <th style="background-color: #bbbbbb;">Objet</th>
+                <th style="background-color: #bbbbbb;">CompelementInformation</th>
             </tr>
         </thead>
         <tbody>
@@ -40,22 +180,25 @@
         {% if traps_snmp.support in app.user.roles[0] %}
             <tr>
                 <td>{{ traps_snmp.id }}</td>
-                <td>{{ traps_snmp.ref }}</td>
-                <td>{{ traps_snmp.etat }}</td>
-                <td>{{ traps_snmp.refComposant }}</td>
+                <td class="table-warning">{{ traps_snmp.ref }}</td>
+                <td style="{% if traps_snmp.etat == 'Supprimé' %}background-color: red;{% elseif traps_snmp.etat == 'Modifié' %}background-color: orange;{% elseif traps_snmp.etat == 'Nouveau' %}background-color:  #5af700;{% elseif traps_snmp.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
+  {{ traps_snmp.etat }}
+</td>
+                <td style="background-color: #3ef3a0;">{{ traps_snmp.refComposant }}</td>
                 <td>{{ traps_snmp.signification }}</td>
-                <td>{{ traps_snmp.versionSnmp }}</td>
+                <td style="background-color: #3ef3a0;">{{ traps_snmp.versionSnmp }}</td>
                 <td>{{ traps_snmp.oid }}</td>
                 <td>{{ traps_snmp.specificTrap }}</td>
                 <td>{{ traps_snmp.variableBinding }}</td>
-                <td>{{ traps_snmp.criticite }}</td>
+                <td style="{% if traps_snmp.criticite == 'Critique' %}background-color: red;{% elseif traps_snmp.criticite == 'Majeure' %}background-color: orange;{% elseif traps_snmp.criticite == 'Normale' %}background-color:  #5af700;{% endif %}">
+  {{ traps_snmp.criticite }}
+</td>
                 <td>{{ traps_snmp.messageAlarme }}</td>
                 <td>{{ traps_snmp.instructions }}</td>
-                <td>{{ traps_snmp.acquittement }}</td>
+                <td style="background-color: #3ef3a0;">{{ traps_snmp.acquittement }}</td>
                 <td>{{ traps_snmp.mibAssocie }}</td>
                 <td>{{ traps_snmp.objet }}</td>
                 <td>{{ traps_snmp.compelementInformation }}</td>
-                <td>{{ traps_snmp.support }}</td>
                 <td>
                     <a class="btn btn-info btn-sm" href="{{ path('app_traps_snmp2_show', {'id': traps_snmp.id}) }}">show</a>
                 </td>
@@ -71,6 +214,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+{{ knp_pagination_render(traps_snmps) }}
     <a class="btn btn-outline-success" href="{{ path('app_traps_snmp2_new') }}">Create new</a>
 {% endblock %}

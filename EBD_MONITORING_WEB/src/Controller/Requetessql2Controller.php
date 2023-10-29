@@ -19,9 +19,8 @@ class Requetessql2Controller extends AbstractController
     #[Route('/', name: 'app_requetessql', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $RequetessqlsRepository = $entityManager->getRepository(Requetessql::class);
-        $Requetessqls = $RequetessqlsRepository->findAll();
-    
+        
+        $Requetessqls = $entityManager->getRepository(Requetessql::class)->findAll();
         $user = $this->getUser();
         $role = $user->getRoles()[0]; // ROLE_Billing
         $equipe = substr($role, strlen('ROLE_'));
@@ -46,40 +45,36 @@ class Requetessql2Controller extends AbstractController
                 }
             }
         }
+        $RequetessqlsRepository = $entityManager->getRepository(Requetessql::class);
         $supportValues = [
     
-            'Supprimé' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Supprimé'),
-            'Modifié' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Modifié'),
-            'Nouveau' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Nouveau'),
-            'Inchangé' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Inchangé'),
+            'Supprimé' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Supprimé', $equipe),
+            'Modifié' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Modifié', $equipe),
+            'Nouveau' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Nouveau', $equipe),
+            'Inchangé' => $RequetessqlsRepository->getRequeteSqlCountByEtatAndUser('Inchangé', $equipe),
         ];
     
-        $supportValues = [
+        $chartData = [
         
-            'OMU' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('OMU'),
-            'Sitescope 1' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('Sitescope 1'),
-            'Sitescope 2' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('Sitescope 2'),
-            'NNMI' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('NNMI'),
-            'RUM' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('RUM'),
-            'BPM' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('BPM'),
+            'OMU' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('OMU', $equipe),
+            'Sitescope 1' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('Sitescope 1', $equipe),
+            'Sitescope 2' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('Sitescope 2', $equipe),
+            'NNMI' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('NNMI', $equipe),
+            'RUM' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('RUM', $equipe),
+            'BPM' => $RequetessqlsRepository->getRequeteSqlCountByMonotoringAndUser('BPM', $equipe),
         ];
         $chartos = [
     
-            'Critique' => $RequetessqlsRepository->getRequeteSqlCountBycriticiteAndUser('Critique'),
-            'Majeure' => $RequetessqlsRepository->getRequeteSqlCountBycriticiteAndUser('Majeure'),
-            'Normale' => $RequetessqlsRepository->getRequeteSqlCountBycriticiteAndUser('Normale'),
+            'Critique' => $RequetessqlsRepository->getRequeteSqlCountBycriticiteAndUser('Critique', $equipe),
+            'Majeure' => $RequetessqlsRepository->getRequeteSqlCountBycriticiteAndUser('Majeure', $equipe),
+            'Normale' => $RequetessqlsRepository->getRequeteSqlCountBycriticiteAndUser('Normale', $equipe),
         ];
     
-        $pagination = $paginator->paginate(
-            $filteredRequetessqls, // Query
-            $request->query->getInt('page', 1), // Page number
-            10 // Items per page
-        );
-    
+        
     
     
         return $this->render('requetessql2/index.html.twig', [
-            'requetessql' => $pagination,
+            'requetessqls' => $filteredRequetessqls,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
             'supportValues' => $supportValues,
