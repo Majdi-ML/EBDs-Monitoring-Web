@@ -48,7 +48,7 @@ class TrapsSnmpController extends AbstractController
             'Inchangé' => $trapsSnmpsRepository->getTrapsSnmpCountByEtat('Inchangé'),
         ];
     
-        $supportValues = [
+        $chartData = [
         
             'Version 1' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmp('Version 1'),
             'Version 2' => $trapsSnmpsRepository->getTrapsSnmpCountByVersionSnmp('Version 2'),
@@ -70,7 +70,7 @@ class TrapsSnmpController extends AbstractController
     
     
         return $this->render('traps_snmp/index.html.twig', [
-            'traps_snmp' => $pagination,
+            'traps_snmps' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
             'supportValues' => $supportValues,

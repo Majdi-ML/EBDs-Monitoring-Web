@@ -42,26 +42,26 @@ class RequetessqlController extends AbstractController
         }
         $supportValues = [
     
-            'Supprimé' => $RequetessqlsRepository->getRequetessqlCountByEtat('Supprimé'),
-            'Modifié' => $RequetessqlsRepository->getRequetessqlCountByEtat('Modifié'),
-            'Nouveau' => $RequetessqlsRepository->getRequetessqlCountByEtat('Nouveau'),
-            'Inchangé' => $RequetessqlsRepository->getRequetessqlCountByEtat('Inchangé'),
+            'Supprimé' => $RequetessqlsRepository->getRequeteSqlCountByEtat('Supprimé'),
+            'Modifié' => $RequetessqlsRepository->getRequeteSqlCountByEtat('Modifié'),
+            'Nouveau' => $RequetessqlsRepository->getRequeteSqlCountByEtat('Nouveau'),
+            'Inchangé' => $RequetessqlsRepository->getRequeteSqlCountByEtat('Inchangé'),
         ];
     
-        $supportValues = [
+        $chartData = [
         
-            'OMU' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('OMU'),
-            'Sitescope 1' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('Sitescope 1'),
-            'Sitescope 2' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('Sitescope 2'),
-            'NNMI' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('NNMI'),
-            'RUM' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('RUM'),
-            'BPM' => $RequetessqlsRepository->getRequetessqlCountByMonotoring('BPM'),
+            'OMU' => $RequetessqlsRepository->getRequeteSqlCountByMonotoring('OMU'),
+            'Sitescope 1' => $RequetessqlsRepository->getRequeteSqlCountByMonotoring('Sitescope 1'),
+            'Sitescope 2' => $RequetessqlsRepository->getRequeteSqlCountByMonotoring('Sitescope 2'),
+            'NNMI' => $RequetessqlsRepository->getRequeteSqlCountByMonotoring('NNMI'),
+            'RUM' => $RequetessqlsRepository->getRequeteSqlCountByMonotoring('RUM'),
+            'BPM' => $RequetessqlsRepository->getRequeteSqlCountByMonotoring('BPM'),
         ];
         $chartos = [
     
-            'Critique' => $RequetessqlsRepository->getRequetessqlCountBycriticite('Critique'),
-            'Majeure' => $RequetessqlsRepository->getRequetessqlCountBycriticite('Majeure'),
-            'Normale' => $RequetessqlsRepository->getRequetessqlCountBycriticite('Normale'),
+            'Critique' => $RequetessqlsRepository->getRequeteSqlCountBycriticite('Critique'),
+            'Majeure' => $RequetessqlsRepository->getRequeteSqlCountBycriticite('Majeure'),
+            'Normale' => $RequetessqlsRepository->getRequeteSqlCountBycriticite('Normale'),
         ];
     
         $pagination = $paginator->paginate(
@@ -73,7 +73,7 @@ class RequetessqlController extends AbstractController
     
     
         return $this->render('requetessql/index.html.twig', [
-            'Requetessqls' => $pagination,
+            'requetessqls' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
             'supportValues' => $supportValues,

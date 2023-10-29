@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UrlType extends AbstractType
 {
@@ -23,10 +24,17 @@ class UrlType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('etat',TextType::class,[
+        ->add('etat', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Nouveau' => "Nouveau" ,
+            'Supprimé'=>"Supprimé",
+            'Modifié' => "Modifié",
+            'Inchangé' => "Inchangé" ,
+            
+        ],
         ])
         ->add('refComposant',TextType::class,[
             'attr' => [
@@ -48,10 +56,16 @@ class UrlType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('criticite',TextType::class,[
+        ->add('criticite', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Critique' => "Critique" ,
+            'Majeure'=>"Majeure",
+            'Normale' => "Normale",
+            
+        ],
         ])
         ->add('messageAlarme',TextType::class,[
             'attr' => [
@@ -78,10 +92,19 @@ class UrlType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('monitoredBy',TextType::class,[
+        ->add('monitoredBy', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'OMU' => "OMU" ,
+            'Sitescope 1'=>"Sitescope 1",
+            'Sitescope 2' => "Sitescope 2" ,
+            'NNMI' => "NNMI",
+            'RUM' => "RUM" ,
+            'BPM' => "BPM" ,
+            
+        ],
         ])
         ->add('nomTemplate',TextType::class,[
             'attr' => [

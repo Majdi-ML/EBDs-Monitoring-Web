@@ -134,6 +134,7 @@ beginAtZero: true
         {% endfor %}
         </tbody>
     </table>
+    {{ knp_pagination_render(clusters) }}
 
     <a class="btn btn-outline-success" href="{{ path('app_cluster2_new') }}">Create new</a>
 {% endblock %}

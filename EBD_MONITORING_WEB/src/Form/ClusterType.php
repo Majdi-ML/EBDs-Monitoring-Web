@@ -17,63 +17,65 @@ class ClusterType extends AbstractType
             'attr' => [
                 'class' => 'form-control',
             ],
-        ])    
+        ])
+       // ->add('ref')
+       ->add('etat', ChoiceType::class, [
+        'attr' => [
+            'class' => 'form-select',
+        ],
+        'choices'  => [
+        'Nouveau' => "Nouveau" ,
+        'Supprimé'=>"Supprimé",
+        'Modifié' => "Modifié",
+        'Inchangé' => "Inchangé" ,
         
-        ->add('ref',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('etat',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('nomDuRessourceGroupPackageServiceGuard',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('adresseIp',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('listeDesServeursConcernes',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('logicielCluster',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('version',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('mode',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('serveurActif',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('complementsInformations',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
-            ->add('support',TextType::class,[
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-            ])
+    ],
+    ])
+        ->add('nomDuRessourceGroupPackageServiceGuard',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('adresseIp',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('listeDesServeursConcernes',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('logicielCluster',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('version',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('mode',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('serveurActif',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('complementsInformations',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
+        ->add('support',TextType::class,[
+            'attr' => [
+                'class' => 'form-control',
+            ],
+        ])
         ;
     }
 

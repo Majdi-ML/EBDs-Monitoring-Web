@@ -106,7 +106,7 @@ beginAtZero: true
         {% for cluster in clusters %}
             <tr>
                 <td>{{ cluster.getId() }}</td>
-                <td>{{ cluster.ref }}</td>
+                <td class="table-warning" >{{ cluster.ref }}</td>
                 <td style="{% if cluster.etat == 'Supprimé' %}background-color: red;{% elseif cluster.etat == 'Modifié' %}background-color: orange;{% elseif cluster.etat == 'Nouveau' %}background-color:  #5af700;{% elseif cluster.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
   {{ cluster.etat }}
 </td>

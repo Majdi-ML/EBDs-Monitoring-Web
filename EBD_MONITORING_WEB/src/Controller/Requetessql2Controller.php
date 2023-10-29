@@ -78,7 +78,7 @@ class Requetessql2Controller extends AbstractController
     
     
     
-        return $this->render('requetessql/index.html.twig', [
+        return $this->render('requetessql2/index.html.twig', [
             'requetessql' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,

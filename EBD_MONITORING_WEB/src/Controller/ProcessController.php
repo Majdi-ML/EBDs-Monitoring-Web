@@ -48,7 +48,7 @@ class ProcessController extends AbstractController
         'Inchangé' => $ProcessesRepository->getProcessCountByEtat('Inchangé'),
     ];
 
-    $supportValues = [
+    $chartData = [
     
         'OMU' => $ProcessesRepository->getProcessCountByMonotoring('OMU'),
         'Sitescope 1' => $ProcessesRepository->getProcessCountByMonotoring('Sitescope 1'),
@@ -73,7 +73,7 @@ class ProcessController extends AbstractController
 
 
     return $this->render('process/index.html.twig', [
-        'Process' => $pagination,
+        'processes' => $pagination,
         'filter' => $filter,
         'uniqueSecondParts' => $uniqueSecondParts,
         'supportValues' => $supportValues,

@@ -6,6 +6,7 @@ use App\Entity\TrapsSnmp;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 class TrapsSnmpType extends AbstractType
 {
@@ -22,10 +23,17 @@ class TrapsSnmpType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('etat',TextType::class,[
+        ->add('etat', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Nouveau' => "Nouveau" ,
+            'Supprimé'=>"Supprimé",
+            'Modifié' => "Modifié",
+            'Inchangé' => "Inchangé" ,
+            
+        ],
         ])
         ->add('refComposant',TextType::class,[
             'attr' => [
@@ -37,10 +45,14 @@ class TrapsSnmpType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('versionSnmp',TextType::class,[
+        ->add('versionSnmp', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Version 1' => "Version 1" ,
+            'Version 2'=>"Version 2",
+        ],
         ])
         ->add('oid',TextType::class,[
             'attr' => [
@@ -57,10 +69,16 @@ class TrapsSnmpType extends AbstractType
                 'class' => 'form-control',
             ],
         ])
-        ->add('criticite',TextType::class,[
+        ->add('criticite', ChoiceType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'form-select',
             ],
+            'choices'  => [
+            'Critique' => "Critique" ,
+            'Majeure'=>"Majeure",
+            'Normale' => "Normale",
+            
+        ],
         ])
         ->add('messageAlarme',TextType::class,[
             'attr' => [

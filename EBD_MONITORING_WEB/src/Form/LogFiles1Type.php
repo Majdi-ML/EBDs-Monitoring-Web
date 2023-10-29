@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\Text;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class LogFiles1Type extends AbstractType
 {
@@ -23,10 +25,17 @@ class LogFiles1Type extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('etat',TextType::class,[
+            ->add('etat', ChoiceType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-select',
                 ],
+                'choices'  => [
+                'Nouveau' => "Nouveau" ,
+                'Supprimé'=>"Supprimé",
+                'Modifié' => "Modifié",
+                'Inchangé' => "Inchangé" ,
+                
+            ],
             ])
             ->add('refComposant',TextType::class,[
                 'attr' => [
@@ -68,10 +77,19 @@ class LogFiles1Type extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('monitoredBy',TextType::class,[
+            ->add('monitoredBy', ChoiceType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-select',
                 ],
+                'choices'  => [
+                'OMU' => "OMU" ,
+                'Sitescope 1'=>"Sitescope 1",
+                'Sitescope 2' => "Sitescope 2" ,
+                'NNMI' => "NNMI",
+                'RUM' => "RUM" ,
+                'BPM' => "BPM" ,
+                
+            ],
             ])
             ->add('fourniEnAnnexe',TextType::class,[
                 'attr' => [

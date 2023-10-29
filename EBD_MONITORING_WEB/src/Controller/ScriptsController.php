@@ -17,14 +17,14 @@ class ScriptsController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
         $ScriptsRepository = $entityManager->getRepository(Scripts::class);
-        $Scripts = $ScriptssRepository->findAll();
+        $Scripts = $ScriptsRepository->findAll();
     
-        $filteredScriptss = [];
+        $filteredScripts = [];
         $uniqueSecondParts = [];
     
         $filter = $request->query->get('filter');
     
-        foreach ($Scriptss as $Script) {
+        foreach ($Scripts as $Script) {
             $idParts = explode('_', $Script->getId());
     
             if (count($idParts) >= 3) {
@@ -47,7 +47,7 @@ class ScriptsController extends AbstractController
             'Inchangé' => $ScriptsRepository->getScriptsCountByEtat('Inchangé'),
         ];
     
-        $supportValues = [
+        $chartData = [
         
             'OMU' => $ScriptsRepository->getScriptsCountByMonotoring('OMU'),
             'Sitescope 1' => $ScriptsRepository->getScriptsCountByMonotoring('Sitescope 1'),

@@ -14,7 +14,7 @@ use Knp\Component\Pager\PaginatorInterface;
 #[Route('/ooredoo/admin/cluster')]
 class ClusterController extends AbstractController
 {
-    #[Route('/admin', name: 'app_cluster_index', methods: ['GET'])]
+    #[Route('/', name: 'app_cluster_index', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
        

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class LogFilesPatternsType extends AbstractType
 {
@@ -28,7 +29,18 @@ class LogFilesPatternsType extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('etat',TextType::class,[
+            ->add('etat', ChoiceType::class, [
+                'attr' => [
+                    'class' => 'form-select',
+                ],
+                'choices'  => [
+                'Nouveau' => "Nouveau" ,
+                'Supprimé'=>"Supprimé",
+                'Modifié' => "Modifié",
+                'Inchangé' => "Inchangé" ,
+                
+            ],
+            ])->add('etat',TextType::class,[
                 'attr' => [
                     'class' => 'form-control',
                 ],
@@ -43,10 +55,16 @@ class LogFilesPatternsType extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('criticite',TextType::class,[
+            ->add('criticite', ChoiceType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-select',
                 ],
+                'choices'  => [
+                'Critique' => "Critique" ,
+                'Majeure'=>"Majeure",
+                'Normale' => "Normale",
+                
+            ],
             ])
             ->add('messageAlarme',TextType::class,[
                 'attr' => [

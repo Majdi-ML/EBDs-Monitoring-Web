@@ -66,7 +66,7 @@ class LogFilesController extends AbstractController
             $request->query->getInt('page', 1), // Page number
             10 // Items per page
         );
-        return $this->render('log_files2/index.html.twig', [
+        return $this->render('log_files/index.html.twig', [
             'log_files' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,

@@ -17,10 +17,10 @@ class UrlController extends AbstractController
    #[Route('/', name: 'app_url_index', methods: ['GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager , PaginatorInterface $paginator): Response
     {
-        $UrlsRepository = $entityManager->getRepository(Urls::class);
-        $Urls = $UrlssRepository->findAll();
+        $UrlsRepository = $entityManager->getRepository(Url::class);
+        $Urls = $UrlsRepository->findAll();
     
-        $filteredUrlss = [];
+        $filteredUrls = [];
         $uniqueSecondParts = [];
     
         $filter = $request->query->get('filter');
@@ -48,7 +48,7 @@ class UrlController extends AbstractController
             'Inchangé' => $UrlsRepository->getUrlCountByEtat('Inchangé'),
         ];
     
-        $supportValues = [
+        $chartData = [
         
             'OMU' => $UrlsRepository->getUrlCountByMonotoring('OMU'),
             'Sitescope 1' => $UrlsRepository->getUrlCountByMonotoring('Sitescope 1'),
@@ -73,7 +73,7 @@ class UrlController extends AbstractController
     
     
         return $this->render('url/index.html.twig', [
-            'Urls' => $pagination,
+            'urls' => $pagination,
             'filter' => $filter,
             'uniqueSecondParts' => $uniqueSecondParts,
             'supportValues' => $supportValues,

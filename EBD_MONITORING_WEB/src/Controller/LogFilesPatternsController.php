@@ -65,10 +65,10 @@ class LogFilesPatternsController extends AbstractController
 
 
     return $this->render('log_files_patterns/index.html.twig', [
-        'LogFilesPatterns' => $pagination,
+        'log_files_patterns' => $pagination,
         'filter' => $filter,
         'uniqueSecondParts' => $uniqueSecondParts,
-        'chartData'=> $chartData,
+        'supportValues'=> $supportValues,
         'chartos'=> $chartos,
     ]);
     }

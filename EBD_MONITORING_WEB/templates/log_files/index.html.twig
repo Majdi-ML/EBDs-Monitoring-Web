@@ -12,7 +12,107 @@
         </ol>
       </nav>
     </div>
+<section class="section">
+			<div class="row">
+    <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Répartition par État</h5>
 
+              <!-- Stacked Bar Chart -->
+ <canvas id="barChart" style="max-height: 400px;"></canvas>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const supportValues = {{ supportValues|json_encode|raw }};
+
+          new Chart(document.querySelector('#barChart'), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(supportValues),
+              datasets: [{
+                label: 'Dataset 1',
+                data: Object.values(supportValues),
+                backgroundColor:[
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],   // Bleu ciel
+                borderColor: [
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                x: {
+                  beginAtZero: true
+                },
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        });
+      </script>
+<!-- End Stacked Bar Chart -->
+
+             
+
+            </div>
+          </div>
+        </div>
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition par monitoredBy</h5>
+
+            <!-- Pie Chart -->
+            <div id="pieChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const chartos = {{ chartos|json_encode|raw }};
+                    const labels = Object.keys(chartos);
+                    const data = Object.values(chartos);
+
+                    new ApexCharts(document.querySelector("#pieChart"), {
+                        series: data,
+                        chart: {
+                            height: 350,
+                            type: 'pie',
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        labels: labels
+                    }).render();
+                });
+            </script>
+            <!-- End Pie Chart -->
+
+        </div>
+    </div>
+</div>
+</div>
+</section>
+ <div class="col-lg-4">
+    <label for="filterSelect">Choisir un mot :</label>
+
+<form action="{{ path('app_log_files_index') }}" method="get">
+    <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+</form>
+</div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -72,6 +172,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+{{ knp_pagination_render(log_files) }}
     <a class="btn btn-outline-success" href="{{ path('app_log_files_new') }}">Create new</a>
 {% endblock %}
