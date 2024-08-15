@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Url{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Edit Url</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item ">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    {{ include('url2/_form.html.twig', {'button_label': 'Update'}) }}
+<br><br>
+    <a class="btn btn-secondary" href="{{ path('app_url') }}">back to list</a>
+
+    {{ include('url2/_delete_form.html.twig') }}
+{% endblock %}

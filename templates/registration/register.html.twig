@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard-Gestion et Classification des EBDs</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ asset('assetsback/img/ORDS.AE.png') }}" rel="icon">
+  <link href="{{ asset('assetsback/img/ORDS.AE.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('assetsback/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsback/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsback/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsback/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsback/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsback/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsback/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('assetsback/css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+              <div class="d-flex justify-content-center py-4">
+                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="{{ asset('assetsback/img/logo.svg') }}" alt="">
+                </a>
+              </div><!-- End Logo -->
+
+              <div class="card mb-3">
+
+                <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create an account</p>
+                  </div>
+
+                  {{ form_errors(registrationForm) }}
+                  {{ form_start(registrationForm) }}
+                  <form class="row g-3 needs-validation" novalidate>
+
+                    <!-- Username Field -->
+                    <div class="col-12">
+                      {{ form_row(registrationForm.username, {'label': 'Username', 'attr': {'placeholder': 'Enter your username', 'class': 'form-control'}}) }}
+                      <div class="invalid-feedback">Please enter a valid username!</div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="col-12">
+                      {{ form_row(registrationForm.email, {'label': 'Email', 'attr': {'placeholder': 'Enter your email', 'class': 'form-control'}}) }}
+                      <div class="invalid-feedback">Please enter a valid Email address!</div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="col-12">
+                      {{ form_row(registrationForm.plainPassword, {'label': 'Password', 'attr': {'placeholder': 'Enter your password', 'class': 'form-control', 'id': 'yourPassword'}}) }}
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                    <!-- Roles Field -->
+                    <div class="col-12">
+                      {{ form_row(registrationForm.roles, {'label': 'Roles', 'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <!-- Agree Terms Checkbox -->
+                    <div class="col-12">
+                      <div class="form-check">
+                        {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                        <div class="invalid-feedback">You must agree before submitting.</div>
+                      </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-12">
+                      {{ form_row(registrationForm.save) }}
+                    </div>
+
+                    <!-- Login Link -->
+                    <div class="col-12">
+                      <p class="small mb-0">Already have an account? <a href="{{ path('app_login') }}">Log in</a></p>
+                    </div>
+
+                    {{ form_end(registrationForm) }}
+
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('assetsback/vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/chart.js/chart.umd.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/quill/quill.min.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ asset('assetsback/vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('assetsback/js/main.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</body>
+
+</html>

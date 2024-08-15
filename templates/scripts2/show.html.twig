@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scripts{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Script</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ script.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ script.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ script.etat }}</td>
+            </tr>
+            <tr>
+                <th>RefComposant</th>
+                <td>{{ script.refComposant }}</td>
+            </tr>
+            <tr>
+                <th>RgSgSiCluster</th>
+                <td>{{ script.rgSgSiCluster }}</td>
+            </tr>
+            <tr>
+                <th>Script</th>
+                <td>{{ script.script }}</td>
+            </tr>
+            <tr>
+                <th>CodeErreur</th>
+                <td>{{ script.codeErreur }}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{{ script.criticite }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ script.description }}</td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td>{{ script.instructions }}</td>
+            </tr>
+            <tr>
+                <th>MonitoredBy</th>
+                <td>{{ script.monitoredBy }}</td>
+            </tr>
+            <tr>
+                <th>RefService</th>
+                <td>{{ script.refService }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ script.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_scripts') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('app_scripts2_edit', {'id': script.id}) }}">edit</a>
+<br><br>
+    {{ include('scripts2/_delete_form.html.twig') }}
+{% endblock %}

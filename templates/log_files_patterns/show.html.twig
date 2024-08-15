@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LogFilesPatterns{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Log File Pattern</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ log_files_pattern.id }}</td>
+            </tr>
+            <tr>
+                <th>NRef</th>
+                <td>{{ log_files_pattern.nRef }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ log_files_pattern.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ log_files_pattern.etat }}</td>
+            </tr>
+            <tr>
+                <th>Signification</th>
+                <td>{{ log_files_pattern.signification }}</td>
+            </tr>
+            <tr>
+                <th>Identification</th>
+                <td>{{ log_files_pattern.identification }}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{{ log_files_pattern.criticite }}</td>
+            </tr>
+            <tr>
+                <th>MessageAlarme</th>
+                <td>{{ log_files_pattern.messageAlarme }}</td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td>{{ log_files_pattern.instructions }}</td>
+            </tr>
+            <tr>
+                <th>PerformAction</th>
+                <td>{{ log_files_pattern.performAction }}</td>
+            </tr>
+            <tr>
+                <th>Acquittement</th>
+                <td>{{ log_files_pattern.acquittement }}</td>
+            </tr>
+            <tr>
+                <th>ComplementsInformations</th>
+                <td>{{ log_files_pattern.complementsInformations }}</td>
+            </tr>
+            <tr>
+                <th>RefService</th>
+                <td>{{ log_files_pattern.refService }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ log_files_pattern.objet }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ log_files_pattern.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_log_files_patterns_index') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('app_log_files_patterns_edit', {'id': log_files_pattern.id}) }}">edit</a>
+<br><br>
+    {{ include('log_files_patterns/_delete_form.html.twig') }}
+{% endblock %}

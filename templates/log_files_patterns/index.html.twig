@@ -1,0 +1,184 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LogFilesPatterns index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Log Files Patterns</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section">
+			<div class="row">
+    <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Répartition État</h5>
+
+              <!-- Stacked Bar Chart -->
+ <canvas id="barChart" style="max-height: 400px;"></canvas>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const supportValues = {{ supportValues|json_encode|raw }};
+
+          new Chart(document.querySelector('#barChart'), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(supportValues),
+              datasets: [{
+                label: 'Dataset 1',
+                data: Object.values(supportValues),
+                backgroundColor:[
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],   // Bleu ciel
+                borderColor: [
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                x: {
+                  beginAtZero: true
+                },
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        });
+      </script>
+<!-- End Stacked Bar Chart -->
+
+             
+
+            </div>
+          </div>
+        </div>
+
+
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition par criticite</h5>
+
+            <!-- Pie Chart -->
+            <div id="pieChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const chartos = {{ chartos|json_encode|raw }};
+                    const labels = Object.keys(chartos);
+                    const data = Object.values(chartos);
+
+                    new ApexCharts(document.querySelector("#pieChart"), {
+                        series: data,
+                        chart: {
+                            height: 350,
+                            type: 'pie',
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        labels: labels
+                    }).render();
+                });
+            </script>
+            <!-- End Pie Chart -->
+
+        </div>
+    </div>
+</div>
+</div>
+		
+
+
+	</section>
+    <div class="col-lg-4">
+    <label for="filterSelect">Choisir un mot :</label>
+
+<form action="{{ path('app_log_files_patterns_index') }}" method="get">
+    <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+</form>
+</div>
+<br>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="background-color: #bbbbbb;">Id</th>
+                <th style="background-color: #bbbbbb;">NRef</th>
+                <th style="background-color: #bbbbbb;">Ref</th>
+                <th style="background-color: #bbbbbb;">Etat</th>
+                <th style="background-color: #bbbbbb;">Signification</th>
+                <th style="background-color: #bbbbbb;">Identification</th>
+                <th style="background-color: #bbbbbb;">Criticite</th>
+                <th style="background-color: #bbbbbb;">MessageAlarme</th>
+                <th style="background-color: #bbbbbb;">Instructions</th>
+                <th style="background-color: #bbbbbb;">PerformAction</th>
+                <th style="background-color: #bbbbbb;">Acquittement</th>
+                <th style="background-color: #bbbbbb;">ComplementsInformations</th>
+                <th style="background-color: #bbbbbb;">RefService</th>
+                <th style="background-color: #bbbbbb;">Objet</th>
+                <th style="background-color: #bbbbbb;">Support</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for log_files_pattern in log_files_patterns %}
+            <tr>
+                <td>{{ log_files_pattern.id }}</td>
+                <td>{{ log_files_pattern.nRef }}</td>
+                <td class="table-warning">{{ log_files_pattern.ref }}</td>
+                <td style="{% if log_files_pattern.etat == 'Supprimé' %}background-color: red;{% elseif log_files_pattern.etat == 'Modifié' %}background-color: orange;{% elseif log_files_pattern.etat == 'Nouveau' %}background-color:  #5af700;{% elseif log_files_pattern.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
+  {{ log_files_pattern.etat }}
+</td>
+                <td>{{ log_files_pattern.signification }}</td>
+                <td>{{ log_files_pattern.identification }}</td>
+                <td style="{% if log_files_pattern.criticite == 'Critique' %}background-color: red;{% elseif log_files_pattern.criticite == 'Majeure' %}background-color: orange;{% elseif log_files_pattern.criticite == 'Normale' %}background-color:  #5af700;{% endif %}">
+  {{ log_files_pattern.criticite }}
+</td>
+                <td>{{ log_files_pattern.messageAlarme }}</td>
+                <td>{{ log_files_pattern.instructions }}</td>
+                <td>{{ log_files_pattern.performAction }}</td>
+                <td  style="background-color: #3ef3a0;">{{ log_files_pattern.acquittement }}</td>
+                <td>{{ log_files_pattern.complementsInformations }}</td>
+                <td   style="background-color: #3ef3a0;">{{ log_files_pattern.refService }}</td>
+                <td>{{ log_files_pattern.objet }}</td>
+                <td>{{ log_files_pattern.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_log_files_patterns_show', {'id': log_files_pattern.id}) }}">show</a>
+                 </td>
+                 <td>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_log_files_patterns_edit', {'id': log_files_pattern.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{{ knp_pagination_render(log_files_patterns) }}
+    <a class="btn btn-outline-success" href="{{ path('app_log_files_patterns_new') }}">Create new</a>
+{% endblock %}

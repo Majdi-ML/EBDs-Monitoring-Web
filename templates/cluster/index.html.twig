@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cluster index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Clusters </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+    
+    <section class="section">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Répartition des Serveurs par État</h5>
+
+						<!-- Stacked Bar Chart -->
+						<canvas id="barChart" style="max-height: 400px;"></canvas>
+						<script>
+							document.addEventListener("DOMContentLoaded", () => {
+const supportValues = {{ supportValues|json_encode|raw }};
+
+new Chart(document.querySelector('#barChart'), {
+type: 'bar',
+data: {
+labels: Object.keys(supportValues),
+datasets: [
+{
+label: 'Dataset 1',
+data: Object.values(supportValues),
+backgroundColor: [
+'rgb(255, 0, 0)', // Rouge
+'rgb(255, 165, 0)', // Orange
+'rgb(0, 255, 0)', // Vert
+'rgb(173, 216, 230)' // Bleu ciel
+], // Bleu ciel
+borderColor: [
+'rgb(255, 0, 0)', // Rouge
+'rgb(255, 165, 0)', // Orange
+'rgb(0, 255, 0)', // Vert
+'rgb(173, 216, 230)' // Bleu ciel
+],
+borderWidth: 1
+}
+]
+},
+options: {
+scales: {
+x: {
+beginAtZero: true
+},
+y: {
+beginAtZero: true
+}
+}
+}
+});
+});
+						</script>
+						<!-- End Stacked Bar Chart -->
+
+
+					</div>
+				</div>
+			</div>
+            </div>
+            </section>
+
+<div class="col-lg-4">
+    <label for="filterSelect">Choisir un mot :</label>
+
+<form action="{{ path('app_cluster_index') }}" method="get">
+    <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+    </div>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="background-color: #bbbbbb;">N° Réf.*</th>
+                <th style="background-color: #bbbbbb;">Réf.</th>
+                <th style="background-color: #bbbbbb;">Etat*</th>
+                <th style="background-color: #bbbbbb;">Nom du Ressource Group / Package Service Guard*</th>
+                <th style="background-color: #bbbbbb;">Adresse IP *</th>
+                <th style="background-color: #bbbbbb;">Liste des serveurs concernés *</th>
+                <th style="background-color: #bbbbbb;">Logiciel Cluster</th>
+                <th style="background-color: #bbbbbb;">Version</th>
+                <th style="background-color: #bbbbbb;">Mode*</th>
+                <th style="background-color: #bbbbbb;">Serveur Actif</th>
+                <th style="background-color: #bbbbbb;">Compléments d'informations</th>
+                <th style="background-color: #bbbbbb;">Support</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for cluster in clusters %}
+            <tr>
+                <td>{{ cluster.getId() }}</td>
+                <td class="table-warning" >{{ cluster.ref }}</td>
+                <td style="{% if cluster.etat == 'Supprimé' %}background-color: red;{% elseif cluster.etat == 'Modifié' %}background-color: orange;{% elseif cluster.etat == 'Nouveau' %}background-color:  #5af700;{% elseif cluster.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
+  {{ cluster.etat }}
+</td>
+                <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
+                <td>{{ cluster.adresseIp }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.listeDesServeursConcernes }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.logicielCluster }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.version }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.mode }}</td>
+                <td style="background-color: #3ef3a0;">{{ cluster.serveurActif }}</td>
+                <td>{{ cluster.complementsInformations }}</td>
+                <td>{{ cluster.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_cluster_show', {'id': cluster.id}) }}">show</a>
+                    </td>
+                    <td>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_cluster_edit', {'id': cluster.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{{ knp_pagination_render(clusters) }}
+    <a class="btn btn-outline-success" href="{{ path('app_cluster_new') }}">Create new</a>
+{% endblock %}

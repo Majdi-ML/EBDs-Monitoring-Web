@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Serveurs{% endblock %}
+
+{% block body %}
+   <div class="pagetitle">
+      <h1 class="pagetitle">Serveur</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ serveur.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ serveur.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ serveur.etat }}</td>
+            </tr>
+            <tr>
+                <th>Platforme</th>
+                <td>{{ serveur.platforme }}</td>
+            </tr>
+            <tr>
+                <th>Hostname</th>
+                <td>{{ serveur.hostname }}</td>
+            </tr>
+            <tr>
+                <th>Fqdn</th>
+                <td>{{ serveur.fqdn }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ serveur.type }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ serveur.modele }}</td>
+            </tr>
+            <tr>
+                <th>Os</th>
+                <td>{{ serveur.os }}</td>
+            </tr>
+            <tr>
+                <th>VerTechFirmware</th>
+                <td>{{ serveur.verTechFirmware }}</td>
+            </tr>
+            <tr>
+                <th>Cluster</th>
+                <td>{{ serveur.cluster }}</td>
+            </tr>
+            <tr>
+                <th>IpSource</th>
+                <td>{{ serveur.ipSource }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ serveur.description }}</td>
+            </tr>
+            <tr>
+                <th>SocleStandardOmu</th>
+                <td>{{ serveur.socleStandardOmu }}</td>
+            </tr>
+            <tr>
+                <th>ComplementsInformations</th>
+                <td>{{ serveur.complementsInformations }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ serveur.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_serveurs') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('app_serveurs2_edit', {'id': serveur.id}) }}">edit</a>
+<br><br>
+    {{ include('serveurs2/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LogFilesPatterns{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Edit Log Files Patterns</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    {{ include('log_files_patterns/_form.html.twig', {'button_label': 'Update'}) }}
+
+<br><br>
+    <a class="btn btn-secondary" href="{{ path('app_log_files_patterns_index') }}">back to list</a>
+<br><br>
+    {{ include('log_files_patterns/_delete_form.html.twig') }}
+{% endblock %}

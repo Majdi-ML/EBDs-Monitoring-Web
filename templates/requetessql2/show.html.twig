@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Requetessql{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Requête Sql</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ requetessql.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ requetessql.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ requetessql.etat }}</td>
+            </tr>
+            <tr>
+                <th>RefComposant</th>
+                <td>{{ requetessql.refComposant }}</td>
+            </tr>
+            <tr>
+                <th>RgSgSiCluster</th>
+                <td>{{ requetessql.rgSgSiCluster }}</td>
+            </tr>
+            <tr>
+                <th>RequeteSql</th>
+                <td>{{ requetessql.requeteSql }}</td>
+            </tr>
+            <tr>
+                <th>UsernameDbName</th>
+                <td>{{ requetessql.usernameDbName }}</td>
+            </tr>
+            <tr>
+                <th>ResultatAttenduDeLaRequete</th>
+                <td>{{ requetessql.resultatAttenduDeLaRequete }}</td>
+            </tr>
+            <tr>
+                <th>PerformAction</th>
+                <td>{{ requetessql.performAction }}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{{ requetessql.criticite }}</td>
+            </tr>
+            <tr>
+                <th>MessageAlarme</th>
+                <td>{{ requetessql.messageAlarme }}</td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td>{{ requetessql.instructions }}</td>
+            </tr>
+            <tr>
+                <th>IntervalleDePolling</th>
+                <td>{{ requetessql.intervalleDePolling }}</td>
+            </tr>
+            <tr>
+                <th>RefService</th>
+                <td>{{ requetessql.refService }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ requetessql.objet }}</td>
+            </tr>
+            <tr>
+                <th>MonitoredBy</th>
+                <td>{{ requetessql.monitoredBy }}</td>
+            </tr>
+            <tr>
+                <th>NomTemplate</th>
+                <td>{{ requetessql.nomTemplate }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ requetessql.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_requetessql') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('app_requetessql2_edit', {'id': requetessql.id}) }}">edit</a>
+<br><br>
+    {{ include('requetessql2/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,224 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Serveurs index{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Serveurs</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+<section class="section">
+			<div class="row">
+    <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Répartition des Serveurs par État</h5>
+
+              <!-- Stacked Bar Chart -->
+ <canvas id="barChart" style="max-height: 400px;"></canvas>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const supportValues = {{ supportValues|json_encode|raw }};
+
+          new Chart(document.querySelector('#barChart'), {
+            type: 'bar',
+            data: {
+              labels: Object.keys(supportValues),
+              datasets: [{
+                label: 'Dataset 1',
+                data: Object.values(supportValues),
+                backgroundColor:[
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],   // Bleu ciel
+                borderColor: [
+                  'rgb(255, 0, 0)',      // Rouge
+                  'rgb(255, 165, 0)',    // Orange
+                  'rgb(0, 255, 0)',      // Vert
+                  'rgb(173, 216, 230)'   // Bleu ciel
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                x: {
+                  beginAtZero: true
+                },
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        });
+      </script>
+<!-- End Stacked Bar Chart -->
+
+             
+
+            </div>
+          </div>
+        </div>
+
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition des serveurs par Platforme</h5>
+
+            <!-- Polar Area Chart -->
+            <div id="polarAreaChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const chartData = {{ chartData|json_encode|raw }};
+
+                    new ApexCharts(document.querySelector("#polarAreaChart"), {
+                        series: Object.values(chartData),
+                        chart: {
+                            type: 'polarArea',
+                            height: 350,
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        stroke: {
+                            colors: ['#fff']
+                        },
+                        fill: {
+                            opacity: 0.8
+                        },
+                        labels: Object.keys(chartData),
+                    }).render();
+                });
+            </script>
+            <!-- End Polar Area Chart -->
+
+        </div>
+    </div>
+</div>
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Répartition des Serveurs SQL par Os</h5>
+
+            <!-- Pie Chart -->
+            <div id="pieChart"></div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const chartos = {{ chartos|json_encode|raw }};
+                    const labels = Object.keys(chartos);
+                    const data = Object.values(chartos);
+
+                    new ApexCharts(document.querySelector("#pieChart"), {
+                        series: data,
+                        chart: {
+                            height: 350,
+                            type: 'pie',
+                            toolbar: {
+                                show: true
+                            }
+                        },
+                        labels: labels
+                    }).render();
+                });
+            </script>
+            <!-- End Pie Chart -->
+
+        </div>
+    </div>
+</div>
+</div>
+		
+
+
+	</section>
+
+
+     <div class="col-lg-4">
+    <label for="filterSelect">Choisir un mot :</label>
+
+<form action="{{ path('app_serveurs_index') }}" method="get">
+    <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
+        <option value="">Tous</option>
+        {% for secondPart in uniqueSecondParts %}
+            <option value="{{ secondPart }}" {% if filter == secondPart %}selected{% endif %}>{{ secondPart }}</option>
+        {% endfor %}
+    </select>
+</form>
+</div>
+<br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="background-color: #bbbbbb;">Id</th>
+                <th style="background-color: #bbbbbb;">Ref</th>
+                <th style="background-color: #bbbbbb;">Etat </th>
+                <th style="background-color: #bbbbbb;">Platforme</th>
+                <th style="background-color: #bbbbbb;">Hostname</th>
+                <th style="background-color: #bbbbbb;">Fqdn</th>
+                <th style="background-color: #bbbbbb;">Type</th>
+                <th style="background-color: #bbbbbb;">Modele</th>
+                <th style="background-color: #bbbbbb;">Os</th>
+                <th style="background-color: #bbbbbb;">VerTechFirmware</th>
+                <th style="background-color: #bbbbbb;">Cluster</th>
+                <th style="background-color: #bbbbbb;">IpSource</th>
+                <th style="background-color: #bbbbbb;">Description</th>
+                <th style="background-color: #bbbbbb;">SocleStandardOmu</th>
+                <th style="background-color: #bbbbbb;">ComplementsInformations</th>
+                <th style="background-color: #bbbbbb;">Support</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for serveur in serveurs %}
+            <tr>
+                <td>{{ serveur.id }}</td>
+                <td class="table-warning">{{ serveur.ref }}</td>
+                <td style="{% if serveur.etat == 'Supprimé' %}background-color: red;{% elseif serveur.etat == 'Modifié' %}background-color: orange;{% elseif serveur.etat == 'Nouveau' %}background-color:  #5af700;{% elseif serveur.etat == 'Inchangé' %}background-color: lightblue;{% endif %}">
+  {{ serveur.etat }}
+</td>
+                <td style="background-color: #3ef3a0;">{{ serveur.platforme }}</td>
+                <td>{{ serveur.hostname }}</td>
+                <td>{{ serveur.fqdn }}</td>
+                <td style="background-color: #3ef3a0;" >{{ serveur.type }}</td>
+                <td >{{ serveur.modele }}</td>
+                <td  style="background-color: #3ef3a0;" >{{ serveur.os }}</td>
+                <td style="background-color: #3ef3a0;" >{{ serveur.verTechFirmware }}</td>
+                <td>{{ serveur.cluster }}</td>
+                <td>{{ serveur.ipSource }}</td>
+                <td>{{ serveur.description }}</td>
+                <td style="background-color: #3ef3a0;" >{{ serveur.socleStandardOmu }}</td>
+                <td>{{ serveur.complementsInformations }}</td>
+                 <td>{{ serveur.support }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_serveurs_show', {'id': serveur.id}) }}">show</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="{{ path('app_serveurs_edit', {'id': serveur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+       
+{{ knp_pagination_render(serveurs) }}
+    
+
+    <a class="btn btn-outline-success" href="{{ path('app_serveurs_new') }}">Create new</a>
+{% endblock %}

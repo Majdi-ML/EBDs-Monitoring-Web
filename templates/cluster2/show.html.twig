@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cluster{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle"> Cluster</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo2') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cluster.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ cluster.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td class="{% if cluster.etat == 'Supprimé' %}text-danger{% elseif cluster.etat == 'Modifié' %}text-warning{% elseif cluster.etat == 'Nouveau' %}text-success{% else %}text-info{% endif %}">
+  {{ cluster.etat }}
+</td>
+            </tr>
+            <tr>
+                <th>NomDuRessourceGroupPackageServiceGuard</th>
+                <td>{{ cluster.nomDuRessourceGroupPackageServiceGuard }}</td>
+            </tr>
+            <tr>
+                <th>AdresseIp</th>
+                <td>{{ cluster.adresseIp }}</td>
+            </tr>
+            <tr>
+                <th>ListeDesServeursConcernes</th>
+                <td>{{ cluster.listeDesServeursConcernes }}</td>
+            </tr>
+            <tr>
+                <th>LogicielCluster</th>
+                <td>{{ cluster.logicielCluster }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ cluster.version }}</td>
+            </tr>
+            <tr>
+                <th>Mode</th>
+                <td>{{ cluster.mode }}</td>
+            </tr>
+            <tr>
+                <th>ServeurActif</th>
+                <td>{{ cluster.serveurActif }}</td>
+            </tr>
+            <tr>
+                <th>ComplementsInformations</th>
+                <td>{{ cluster.complementsInformations }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ cluster.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a  class="btn btn-secondary" href="{{ path('app_cluster') }}">back to list</a>
+
+    <a  class="btn btn-warning" href="{{ path('app_cluster2_edit', {'id': cluster.id}) }}">edit</a>
+<br><br>
+    {{ include('cluster2/_delete_form.html.twig') }}
+{% endblock %}

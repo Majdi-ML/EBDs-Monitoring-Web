@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Process{% endblock %}
+
+{% block body %}
+    <div class="pagetitle">
+      <h1 class="pagetitle">Process</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ path('app_ooredoo') }}">Home</a></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ process.id }}</td>
+            </tr>
+            <tr>
+                <th>Ref</th>
+                <td>{{ process.ref }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ process.etat }}</td>
+            </tr>
+            <tr>
+                <th>RefComposant</th>
+                <td>{{ process.refComposant }}</td>
+            </tr>
+            <tr>
+                <th>Process</th>
+                <td>{{ process.process }}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{{ process.criticite }}</td>
+            </tr>
+            <tr>
+                <th>MessageAlarme</th>
+                <td>{{ process.messageAlarme }}</td>
+            </tr>
+            <tr>
+                <th>IntervalleDePolling</th>
+                <td>{{ process.intervalleDePolling }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ process.objet }}</td>
+            </tr>
+            <tr>
+                <th>NomTemplate</th>
+                <td>{{ process.nomTemplate }}</td>
+            </tr>
+            <tr>
+                <th>MonitoredBy</th>
+                <td>{{ process.monitoredBy }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ process.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_process_index') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('app_process_edit', {'id': process.id}) }}">edit</a>
+<br><br>
+    {{ include('process/_delete_form.html.twig') }}
+{% endblock %}
