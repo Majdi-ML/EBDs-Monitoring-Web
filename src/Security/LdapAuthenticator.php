@@ -106,7 +106,7 @@ class LdapAuthenticator extends AbstractLoginFormAuthenticator
             $user = new User();
             $user->setEmail($email);
             $user->setUsername($username);
-            $user->setRoles(['ROLE_USER']);
+            $user->setRoles(['ROLE_CLOUD']);
             $user->setPassword(password_hash($password, PASSWORD_BCRYPT)); // Hash password for local storage
             $this->entityManager->persist($user);
             $this->entityManager->flush();
