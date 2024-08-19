@@ -1,4 +1,3 @@
-# config/packages/security.yaml
 security:
     enable_authenticator_manager: true
 
@@ -13,12 +12,12 @@ security:
         ldap:
             ldap:
                 service: Symfony\Component\Ldap\Ldap
-                base_dn: "dc=example,dc=com"
+                base_dn: dc=example,dc=com
                 search_dn: "cn=read-only-admin,dc=example,dc=com"
-                search_password: "password"
+                search_password: password
                 default_roles: ROLE_USER
                 uid_key: uid
-                filter: "(uid=%s)"
+                extra_fields: ['email']
 
     firewalls:
         dev:
@@ -30,6 +29,7 @@ security:
             custom_authenticators:
                 - App\Security\UserRegistrationAuthenticator
                 - App\Security\LdapAuthenticator
+            entry_point: App\Security\UserRegistrationAuthenticator
             logout:
                 path: app_logout
                 target: app_login

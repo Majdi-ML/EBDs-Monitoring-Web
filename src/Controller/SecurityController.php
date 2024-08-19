@@ -21,6 +21,18 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    #[Route(path: '/login/ldap', name: 'app_login_ldap')]
+    public function loginLdap(AuthenticationUtils $authenticationUtils): Response
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login_ldap.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ]);
+    }
+
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {
