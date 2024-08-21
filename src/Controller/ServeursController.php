@@ -42,6 +42,7 @@ class ServeursController extends AbstractController
     }
 
     $serveursRepository = $entityManager->getRepository(Serveurs::class);
+    $itemsPerPage = $request->query->getInt('itemsPerPage', 10);
 
     $supportValues = [
 
@@ -69,7 +70,7 @@ class ServeursController extends AbstractController
     $pagination = $paginator->paginate(
         $filteredServeurs, // Query
         $request->query->getInt('page', 1), // Page number
-        10 // Items per page
+        $itemsPerPage // Items per page
     );
 
 
@@ -81,6 +82,7 @@ class ServeursController extends AbstractController
         'supportValues' => $supportValues,
         'chartData'=> $chartData,
         'chartos'=> $chartos,
+        'itemsPerPage' => $itemsPerPage,
     ]);
 }
 

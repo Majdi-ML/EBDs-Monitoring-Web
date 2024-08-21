@@ -13,141 +13,134 @@
       </nav>
     </div>
 <section class="section">
-			<div class="row">
+  <div class="row">
+    <!-- Colonne 1 -->
     <div class="col-lg-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Répartition des Serveurs par État</h5>
+      <div class="card" style="height: 450px;">
+        <div class="card-body">
+          <h5 class="card-title">Répartition des Serveurs par État</h5>
+          <!-- Stacked Bar Chart -->
+          <canvas id="barChart" style="max-height: 350px;"></canvas>
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              const supportValues = {{ supportValues|json_encode|raw }};
 
-              <!-- Stacked Bar Chart -->
- <canvas id="barChart" style="max-height: 400px;"></canvas>
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const supportValues = {{ supportValues|json_encode|raw }};
-
-          new Chart(document.querySelector('#barChart'), {
-            type: 'bar',
-            data: {
-              labels: Object.keys(supportValues),
-              datasets: [{
-                label: 'Dataset 1',
-                data: Object.values(supportValues),
-                backgroundColor:[
-                  'rgb(255, 0, 0)',      // Rouge
-                  'rgb(255, 165, 0)',    // Orange
-                  'rgb(0, 255, 0)',      // Vert
-                  'rgb(173, 216, 230)'   // Bleu ciel
-                ],   // Bleu ciel
-                borderColor: [
-                  'rgb(255, 0, 0)',      // Rouge
-                  'rgb(255, 165, 0)',    // Orange
-                  'rgb(0, 255, 0)',      // Vert
-                  'rgb(173, 216, 230)'   // Bleu ciel
-                ],
-                borderWidth: 1
-              }]
-            },
-            options: {
-              scales: {
-                x: {
-                  beginAtZero: true
+              new Chart(document.querySelector('#barChart'), {
+                type: 'bar',
+                data: {
+                  labels: Object.keys(supportValues),
+                  datasets: [{
+                    label: 'Dataset 1',
+                    data: Object.values(supportValues),
+                    backgroundColor: [
+                      'rgb(255, 0, 0)',      // Rouge
+                      'rgb(255, 165, 0)',    // Orange
+                      'rgb(0, 255, 0)',      // Vert
+                      'rgb(173, 216, 230)'   // Bleu ciel
+                    ],
+                    borderColor: [
+                      'rgb(255, 0, 0)',      // Rouge
+                      'rgb(255, 165, 0)',    // Orange
+                      'rgb(0, 255, 0)',      // Vert
+                      'rgb(173, 216, 230)'   // Bleu ciel
+                    ],
+                    borderWidth: 1
+                  }]
                 },
-                y: {
-                  beginAtZero: true
+                options: {
+                  scales: {
+                    x: {
+                      beginAtZero: true
+                    },
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
                 }
-              }
-            }
-          });
-        });
-      </script>
-<!-- End Stacked Bar Chart -->
-
-             
-
-            </div>
-          </div>
+              });
+            });
+          </script>
+          <!-- End Stacked Bar Chart -->
         </div>
-
-
-<div class="col-lg-4">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Répartition des serveurs par Platforme</h5>
-
-            <!-- Polar Area Chart -->
-            <div id="polarAreaChart"></div>
-
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const chartData = {{ chartData|json_encode|raw }};
-
-                    new ApexCharts(document.querySelector("#polarAreaChart"), {
-                        series: Object.values(chartData),
-                        chart: {
-                            type: 'polarArea',
-                            height: 350,
-                            toolbar: {
-                                show: true
-                            }
-                        },
-                        stroke: {
-                            colors: ['#fff']
-                        },
-                        fill: {
-                            opacity: 0.8
-                        },
-                        labels: Object.keys(chartData),
-                    }).render();
-                });
-            </script>
-            <!-- End Polar Area Chart -->
-
-        </div>
+      </div>
     </div>
-</div>
-<div class="col-lg-4">
-    <div class="card">
+
+    <!-- Colonne 2 -->
+    <div class="col-lg-4">
+      <div class="card" style="height: 450px;">
         <div class="card-body">
-            <h5 class="card-title">Répartition des Serveurs SQL par Os</h5>
+          <h5 class="card-title">Répartition des serveurs par Platforme</h5>
+          <!-- Polar Area Chart -->
+          <div id="polarAreaChart" style="height: 350px;"></div>
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              const chartData = {{ chartData|json_encode|raw }};
 
-            <!-- Pie Chart -->
-            <div id="pieChart"></div>
-
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const chartos = {{ chartos|json_encode|raw }};
-                    const labels = Object.keys(chartos);
-                    const data = Object.values(chartos);
-
-                    new ApexCharts(document.querySelector("#pieChart"), {
-                        series: data,
-                        chart: {
-                            height: 350,
-                            type: 'pie',
-                            toolbar: {
-                                show: true
-                            }
-                        },
-                        labels: labels
-                    }).render();
-                });
-            </script>
-            <!-- End Pie Chart -->
-
+              new ApexCharts(document.querySelector("#polarAreaChart"), {
+                series: Object.values(chartData),
+                chart: {
+                  type: 'polarArea',
+                  height: 350,
+                  toolbar: {
+                    show: true
+                  }
+                },
+                stroke: {
+                  colors: ['#fff']
+                },
+                fill: {
+                  opacity: 0.8
+                },
+                labels: Object.keys(chartData),
+              }).render();
+            });
+          </script>
+          <!-- End Polar Area Chart -->
         </div>
+      </div>
     </div>
-</div>
-</div>
-		
+
+    <!-- Colonne 3 -->
+    <div class="col-lg-4">
+      <div class="card" style="height: 450px;">
+        <div class="card-body">
+          <h5 class="card-title">Répartition des Serveurs SQL par Os</h5>
+          <!-- Pie Chart -->
+          <div id="pieChart" style="height: 350px;"></div>
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              const chartos = {{ chartos|json_encode|raw }};
+              const labels = Object.keys(chartos);
+              const data = Object.values(chartos);
+
+              new ApexCharts(document.querySelector("#pieChart"), {
+                series: data,
+                chart: {
+                  height: 350,
+                  type: 'pie',
+                  toolbar: {
+                    show: true
+                  }
+                },
+                labels: labels
+              }).render();
+            });
+          </script>
+          <!-- End Pie Chart -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <!-- Formulaire pour sélectionner le nombre de serveurs par page -->
+
+     
 
 
-	</section>
 
-
-     <div class="col-lg-4">
-    <label for="filterSelect">Choisir un mot :</label>
-
-<form action="{{ path('app_serveurs_index') }}" method="get">
+<form action="{{ path('app_serveurs_index') }}" method="get" class="d-flex align-items-center">
+    <label for="filterSelect" >Platforme:</label>
     <select id="filterSelect" name="filter" class="form-select" onchange="this.form.submit()">
         <option value="">Tous</option>
         {% for secondPart in uniqueSecondParts %}
@@ -155,6 +148,17 @@
         {% endfor %}
     </select>
 </form>
+
+  <form action="{{ path('app_serveurs_index') }}" method="get" class="d-flex align-items-center">
+    <label for="itemsPerPage">Nombre de serveurs :</label>
+    <select id="itemsPerPage" name="itemsPerPage" class="form-select" onchange="this.form.submit()">
+      <option value="5" {% if itemsPerPage == 5 %}selected{% endif %}>5</option>
+      <option value="10" {% if itemsPerPage == 10 %}selected{% endif %}>10</option>
+      <option value="25" {% if itemsPerPage == 25 %}selected{% endif %}>25</option>
+      <option value="50" {% if itemsPerPage == 50 %}selected{% endif %}>50</option>
+      <option value="100" {% if itemsPerPage == 100 %}selected{% endif %}>100</option>
+    </select>
+  </form>
 </div>
 <br>
     <table class="table table-bordered">
@@ -175,6 +179,7 @@
                 <th style="background-color: #bbbbbb;">Description</th>
                 <th style="background-color: #bbbbbb;">SocleStandardOmu</th>
                 <th style="background-color: #bbbbbb;">ComplementsInformations</th>
+                <th style="background-color: #bbbbbb;">date de dernier mise à jour </th>
                 <th style="background-color: #bbbbbb;">Support</th>
             </tr>
         </thead>
@@ -199,6 +204,7 @@
                 <td style="background-color: #3ef3a0;" >{{ serveur.socleStandardOmu }}</td>
                 <td>{{ serveur.complementsInformations }}</td>
                  <td>{{ serveur.support }}</td>
+                 <td></td>
                 <td>
                     <a class="btn btn-info btn-sm" href="{{ path('app_serveurs_show', {'id': serveur.id}) }}">show</a>
                 </td>
